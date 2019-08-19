@@ -1,0 +1,58 @@
+---
+title: RSA
+date: 2019-04-19 15:58:00
+categories:
+- 정보보안
+- 암호학
+tags:
+- RSA
+- 암호
+---
+
+RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.
+
+## 키 형성
+
+* 두 소수 $p,q$를 골라서 $n=pq$로 놓는다.
+* $e$를 $\gcd ( \phi (n), e) = 1$이 되도록 뽑는다. $\phi$는 오일러 totient 함수이다.
+* $d = e^{-1}\text{ mod } \phi (n)$ 을 계산한다. modular inverse는 $e$의 선택에 의해 **언제나 존재**하고, 확장된 유클리도 호제법을 이용해서 아주 **빠른 시간 안에 계산 가능**하다.
+
+## 암호화
+
+평문 $m$을 암호화 하는 함수는 다음과 같다:
+$$
+E(m ) \equiv m^e \text{ mod }n
+$$
+암호화 함수의 일대일 대응을 유지하기 위해 $m<n$을 가정한다.
+
+## 복호화
+
+암호문 $c$를 복호화 하는 함수는 다음과 같다:
+$$
+D(c) \equiv c^d \text{ mod } n
+$$
+실제로 평문을 암호화했다가 복호화하면 복구 가능하다는 것을 보일 수 있다.
+$$
+\begin{aligned}
+D(E(m)) &\equiv E(m) ^d\text{ mod } n \\
+&\equiv m^{ed} \text{ mod } n\\
+&\equiv m ^{k \phi(n)+1} \text{ mod } n \\
+\end{aligned}
+$$
+$\gcd(m,n)  = 1 $ 일 경우, 오일러의 toitient 정리에 의해 $m^{\phi(n)} \equiv 1 \text{ mod } n$이므로 $D(E(m)) \equiv m \text{ mod } n $이다.
+
+$\gcd(m,n) \ne 1 $일 경우, $n = pq$이므로, $\gcd(m,n)$은 $p$ 또는 $q$이다. 일반성을 잃지 않고 $\gcd(m,n) = p$로 놓자.
+
+일단 $m^{ed}\text{ mod } p \equiv 0 $이고, $m \text{ mod } p \equiv 0 $이므로 $m \equiv D(E(m)) \text{ mod } p $이다.
+
+$(m,q) = 1$이므로 페르마의 소정리에 의해 $m^{q-1} \equiv 1 \text{ mod } q $이다. 따라서
+$$
+\begin{aligned}
+D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-1)} m \equiv m \text{ mod } q
+\end{aligned}
+$$
+이다. 따라서 중국인의 나머지 정리에 의해 $D(E(m)) \equiv m \text{ mod } n $이다.
+
+## 사용
+
+$n,e,c$는 공개되어도 상관 없지만, $n$의 소인수인 $p,q$와 복호화에서 사용하는 $d$는 절대 공개해서는 안되고, 추측으로 쉽게 풀릴 수 있는 형태가 되어서도 안된다. 보통 그래서 $p,q$를 아주 큰 소수로 잡으면서 공격에 대비한다.

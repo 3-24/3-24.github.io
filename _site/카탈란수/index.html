@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Test for New Engine! - 푹신푹신 후와후와</title>
-<meta name="description" content="Hello World!안녕하세요!">
+<!-- begin _includes/seo.html --><title>카탈란 수-대각선을 넘지 않는 경우의 수 - 푹신푹신 후와후와</title>
+<meta name="description" content="문제">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="Test for New Engine!">
-<meta property="og:url" content="http://localhost:4000/test/">
+<meta property="og:title" content="카탈란 수-대각선을 넘지 않는 경우의 수">
+<meta property="og:url" content="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
 
 
-  <meta property="og:description" content="Hello World!안녕하세요!">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-08-19T00:00:00+09:00">
+  <meta property="og:description" content="문제">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2018-12-20T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/test/">
+
+<link rel="canonical" href="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
 
 
 
@@ -130,7 +130,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   </head>
 
-  <body class="layout--single">
+  <body class="layout--posts wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -292,93 +292,144 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   </div>
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Test for New Engine!">
-    <meta itemprop="description" content="Hello World!안녕하세요!">
-    <meta itemprop="datePublished" content="August 19, 2019">
+  <div class="archive">
     
+      <h1 id="page-title" class="page__title">카탈란 수-대각선을 넘지 않는 경우의 수</h1>
+    
+    <h2 id="문제">문제</h2>
 
-    <div class="page__inner-wrap">
+<p>$n \times n$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 오른쪽이나 위로 가는 이동만으로 이루어진 경로를 생각하자. 이 때 왼쪽 아래와 오른쪽 위 모서리를 연결한 대각선 위로 올라가지 않는 경로는 몇 개나 있을까?</p>
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/catalan03.png" width="50%" />
+<figcaption> Figure 1. 대각선을 넘지 않는 경로의 예</figcaption>
+</div>
+
+<p>이 조건을 만족하는 경우의 수를 카탈란 수라고 하고, $C_n$으로 적습니다.</p>
+
+<h2 id="일반항">일반항</h2>
+
+<p>크게 두 단계에 걸쳐서 증명에 들어갑니다. 편의상 ‘오른쪽으로 이동’을 $\Rightarrow$, ‘위로 이동’을 $\Uparrow$로 앞으로 적겠습니다.</p>
+
+<h3 id="대각선-조건이-없을-때">대각선 조건이 없을 때</h3>
+
+<p>$n\times m$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 최단 경로의 개수는?</p>
+
+<p>가로 길이가 $n$, 세로 길이가 $m$이기 때문에 왼쪽 아래 모서리에서 순서에 상관 없이 $\Rightarrow$을 $n$번, $\Uparrow$을 $m$번 했을 때 오른쪽 위 모서리에 도달하게 됩니다. 따라서 문제에서 묻는 최단 경로의 개수 $D_{n,m}$는 다음과 같습니다.</p>
+
+<script type="math/tex; mode=display">D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}</script>
+
+<h3 id="대각선-조건이-있을-때">대각선 조건이 있을 때</h3>
+
+<p>2.1의 문제로 이 문제를 바꿀 것입니다. 핵심 아이디어는 다음과 같습니다:</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/catalan04.png" width="70%" />
+<figcaption> Figure 2. 경로의 대응변형</figcaption>
+</div>
+
+<p>대각선을 넘어가는 경로를 생각합니다. 이 때, 대각선을 최초로 넘어간 이후의 경로를 대칭시켜버리면, $n-1 \times n+1$의 격자에서 경로를 얻을 수 있습니다. 즉, <strong>문제의 조건을 위배하는 경로는 $n-1 \times n+1$ 격자의 경로에 대응</strong>됩니다.</p>
+
+<p>그런데 그림의 $n-1 \times n+1$에 남아 있는 대각선을 살펴보면, <strong>모든 $n-1 \times n+1$경로가 대각선을 지나갈 수밖에 없습니다.</strong>  즉, 반대로 $n-1 \times n+1$ 경로를 문제를 만족하지 않는 $n \times n$ 경로에 대응할 수 있습니다.</p>
+
+<p>따라서 문제의 조건을 위배하는 경로의 개수는 $D_{n-1,n+1}$입니다.</p>
+
+<p>이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!</p>
+
+<p>\[
+C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}
+\]
+이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.</p>
+
+<h2 id="점화식">점화식</h2>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/catalan05.png" width="50%" />
+<figcaption> Figure 3. 경로의 분할</figcaption>
+</div>
+
+<p>처음으로 대각선과 만나는 좌표를 중심으로 생각을 전개하면 쉽습니다. 위 그림의 경우에는 $(3,3)$에서 만나는데, 그 이후로 $(3,3)$에서 $(8,8)$로 가는 대각선을 넘지 않는 경로를 세주면 되고, 그 경우의 수는 $C_5$입니다. (대각선을 만나지 않고 끝점에 도달했더라도, 그 끝점을 대각선과 만난 점으로 생각하면 됩니다)</p>
+
+<p>이제 $(0,0)$에서 $(3,3)$으로 가는 대각선과 만나지 않는 경로들을 세야 하는데, 아래 그림을 보면 역시 이미 풀었던 문제라는 것을 알 수 있습니다. 처음에 $\Rightarrow$로, 마지막에도 $\Uparrow$로 행동이 강제되는데, 그러고 남은 문제는 $2 \times 2$의 문제, 즉 $C_2$입니다.</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/catalan06.png" width="20%" />
+<figcaption> Figure 4. 분할된 경로의 강제성</figcaption>
+</div>
+
+<p>이 셈을 $(1,1)$에서 $(8,8)$까지 모두 해서 더하면 점화식을 얻을 수 있습니다. 일반적으로 접근하면 다음과 같은 식을 쉽게 쓸 수 있습니다.</p>
+
+<script type="math/tex; mode=display">C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}</script>
+
+<p>그리고 이 점화식의 시작인 $C_0 = 1$도 같이 써주면 됩니다.</p>
+
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
       
-        <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Test for New Engine!
-</h1>
-          
-            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/test/" rel="permalink">Test for New Engine!
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
 
   less than 1 minute read
 </p>
-          
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        
-        <p>Hello World!
-안녕하세요!</p>
-
-<h2 id="수식">수식</h2>
-
-<p>$ 10 \oplus 01 = 00 $</p>
-
-<script type="math/tex; mode=display">a^2 + b^2 = c^2</script>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-
-
-        
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-19T00:00:00+09:00">August 19, 2019</time></p>
-        
-      </footer>
-
-      <section class="page__share">
-  
-    <h4 class="page__share-title">Share on</h4>
-  
-
-  <a href="https://twitter.com/intent/tweet?text=Test+for+New+Engine%21%20http%3A%2F%2Flocalhost%3A4000%2Ftest%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftest%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftest%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-</section>
-
-
-      
-  <nav class="pagination">
     
-      <a href="/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/" class="pagination--pager" title="카탈란 수-대각선을 넘지 않는 경우의 수
-">Previous</a>
-    
-    
-      <a href="#" class="pagination--pager disabled">Next</a>
-    
-  </nav>
+    <p class="archive__item-excerpt" itemprop="description">Hello World!
+안녕하세요!
 
-    </div>
-
-    
+</p>
   </article>
+</div>
 
-  
-  
-    <div class="page__related">
-      <h4 class="page__related-title">You may also enjoy</h4>
-      <div class="grid__wrapper">
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
         
-          
 
 
 
-<div class="grid__item">
+<div class="list__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -402,13 +453,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   </article>
 </div>
 
-        
-      </div>
+      
     </div>
-  
-  
-</div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
 
+
+  </div>
+</div>
     </div>
 
     
