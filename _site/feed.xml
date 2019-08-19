@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-19T15:45:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Test for New Engine!</title><link href="http://localhost:4000/test/" rel="alternate" type="text/html" title="Test for New Engine!" /><published>2019-08-19T00:00:00+09:00</published><updated>2019-08-19T00:00:00+09:00</updated><id>http://localhost:4000/test</id><content type="html" xml:base="http://localhost:4000/test/">&lt;p&gt;Hello World!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-19T15:48:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Test for New Engine!</title><link href="http://localhost:4000/test/" rel="alternate" type="text/html" title="Test for New Engine!" /><published>2019-08-19T00:00:00+09:00</published><updated>2019-08-19T00:00:00+09:00</updated><id>http://localhost:4000/test</id><content type="html" xml:base="http://localhost:4000/test/">&lt;p&gt;Hello World!
 안녕하세요!&lt;/p&gt;
 
 &lt;h2 id=&quot;수식&quot;&gt;수식&lt;/h2&gt;
@@ -44,8 +44,9 @@
 
 &lt;p&gt;이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!&lt;/p&gt;
 
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}&lt;/script&gt;
-이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}&lt;/script&gt;
+
+&lt;p&gt;이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;점화식&quot;&gt;점화식&lt;/h2&gt;
 
