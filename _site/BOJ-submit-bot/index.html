@@ -1,0 +1,1150 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Python을 이용한 백준 소스 제출 봇 제작기 - 푹신푹신 후와후와</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Youngseok Choe">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="푹신푹신 후와후와">
+<meta property="og:title" content="Python을 이용한 백준 소스 제출 봇 제작기">
+<meta property="og:url" content="http://localhost:4000/BOJ-submit-bot/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-01-18T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/BOJ-submit-bot/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Youngseok Choe",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="푹신푹신 후와후와 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    
+     <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+  </head>
+
+  <body class="layout--posts wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          푹신푹신 후와후와
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Youngseok Choe</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>KAIST SoF 19’</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/3-24" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dev.youngseok@gmail.com">
+            <meta itemprop="email" content="dev.youngseok@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Python을 이용한 백준 소스 제출 봇 제작기</h1>
+    
+    <!-- toc -->
+
+<h2 id="requirements">Requirements</h2>
+
+<p>제작 언어는 Python 3를 기본으로 합니다.</p>
+
+<p>Python을 이용해 웹에 로그인이나 소스를 제출하기 위해서 requests 패키지가, 페이지 내용을 효율적으로 읽기 위한 BeautifulSoup4 패키지가 필요합니다. 해당 패키지가 없다면 (Windows 기준) cmd에서 다음을 입력하여 설치할 수 있습니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install requests
+pip install bs4
+</code></pre></div></div>
+
+<p>개발에 이해를 돕는 용도로 웹 디버깅 소프트웨어인 <a href="https://www.google.com/search?q=Fiddler&amp;oq=Fiddler&amp;aqs=chrome..69i57j69i60l3.2554j0j7&amp;sourceid=chrome&amp;ie=UTF-8">Fiddler</a>를 사용하면 더 좋습니다. 필수사항은 아닙니다.</p>
+
+<h2 id="로그인">로그인</h2>
+
+<h3 id="로그인하기">로그인하기</h3>
+
+<p>백준의 로그인은 가장 기본적인 형태입니다. Fiddler를 띄우고 백준 로그인을 해보면 다음과 같은 정보를 확인할 수 있습니다.</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/fiddler01.png" width="100%" />
+<figcaption> Figure 1. 로그인 리퀘스트</figcaption>
+</div>
+
+<p><code class="highlighter-rouge">login_user_id</code>에 아이디를, <code class="highlighter-rouge">login_password</code>에 비밀번호를 입력하고 <a href="https://acmicpc.net/signin">https://acmicpc.net/signin</a>으로 전송하는군요. 이 과정을 Python으로 작성해보면 다음과 같습니다:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">LOGIN_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="s">"login_user_id"</span><span class="p">:</span><span class="s">"(아이디)"</span><span class="p">,</span> <span class="s">"login_password"</span><span class="p">:</span><span class="s">"(비밀번호)"</span><span class="p">}</span>
+<span class="n">boj_url</span> <span class="o">=</span> <span class="s">"https://www.acmicpc.net/"</span>
+
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span><span class="o">+</span><span class="s">'signin'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">LOGIN_INFO</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>requests 세션을 하나 만들어놓고 로그인할 때 정보를 보내는 주소에 로그인 정보를 보내면 됩니다.</p>
+
+<h3 id="로그인-확인하기optional">로그인 확인하기(optional)</h3>
+
+<p>로그인이 제대로 되었는지를 확인하려면 로그인하기 전과 후에 생기는 차이를 검사해야겠죠? 백준의 경우 쿠키에 로그인 정보가 기록이 되지 않기 때문에 사이트에서 직접 찾아야 합니다.</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome01.png" width="100%" />
+<figcaption> Figure 2. 로그인 후 페이지 소스</figcaption>
+</div>
+
+<p>개발자도구로 확인해보니 a태그의 username class에 제 아이디가 입력되어있네요. 이걸 활용해봅시다. 크롬 콘솔에서 해당 객체 이름을 검색해보면 로그인한 후는</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">a.username</span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="kc">undefined</span>
+<span class="o">&gt;</span> <span class="nx">d</span>
+<span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/user/uncertainty</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">uncertainty</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>인데 로그인하기 전으로 돌아가서 확인하면</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nx">d</span>
+<span class="kc">undefined</span>
+</code></pre></div></div>
+
+<p>이므로 username은 좋은 로그인 식별자가 된다는 것을 알 수 있습니다! <code class="highlighter-rouge">a.username</code>을 Python으로 읽어서 None인지 아닌지만 확인하면 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
+
+<span class="n">LOGIN_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="s">"login_user_id"</span><span class="p">:</span><span class="s">"(아이디)"</span><span class="p">,</span> <span class="s">"login_password"</span><span class="p">:</span><span class="s">"(비밀번호)"</span><span class="p">}</span>
+<span class="n">boj_url</span> <span class="o">=</span> <span class="s">"https://www.acmicpc.net/"</span>
+
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span><span class="o">+</span><span class="s">'signin'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">LOGIN_INFO</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">})</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Invalid login info"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>백준 메인주소인 acmicpc.net을 읽은 후 BeautifulSoup의 html 파서로 이렇게 확인할 수 있습니다. 로그인은 여기까지 하면 되겠군요.</p>
+
+<h2 id="소스-제출">소스 제출</h2>
+
+<h3 id="테스트-소스-준비하기">테스트 소스 준비하기</h3>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%d %d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>↑ 예전에 짜놓은 1001번 C++ (C) 소스</p>
+
+<p>먼저 자동으로 제출할 소스를 준비해놓아야 합니다. 테스트용으로 저는 <a href="https://www.acmicpc.net/problem/1001">1001번</a> 소스를 Python 소스와 같은 경로에 저장해놓았습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BOJ_bot
+└─1001.cpp
+└─main.py
+</code></pre></div></div>
+
+<p>그리고 Python main.py에서 문제 번호를 저장하고 소스도 미리 읽어놓는 코드를 로그인 전에 넣어놓습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
+
+<span class="n">LOGIN_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="s">"login_user_id"</span><span class="p">:</span><span class="s">"(아이디)"</span><span class="p">,</span> <span class="s">"login_password"</span><span class="p">:</span><span class="s">"(비밀번호)"</span><span class="p">}</span>
+<span class="n">boj_url</span> <span class="o">=</span> <span class="s">"https://www.acmicpc.net/"</span>
+
+<span class="n">problem_id</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s">"C++14"</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"1001.cpp"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span><span class="o">+</span><span class="s">'signin'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">LOGIN_INFO</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">})</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Invalid login info"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="테스트-소스-제출해보기">테스트 소스 제출해보기</h3>
+
+<p>소스를 제출할 때 패킷을 확인해볼까요?</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome03.png" width="100%" />
+<figcaption> Figure 3. 소스 제출 화면</figcaption>
+</div>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/fiddler02.png" width="100%" />
+<figcaption> Figure 4. 소스 제출 리퀘스트</figcaption>
+</div>
+
+<p>눈에 띄는 것은 <code class="highlighter-rouge">problem_id</code>는 문제번호, <code class="highlighter-rouge">language</code>는 제가 선택한 언어인 C++14에 해당하는 번호, <code class="highlighter-rouge">code_open</code>은 코드 공개여부(저는 공개가 기본 설정입니다), <code class="highlighter-rouge">source</code>는 소스 전문인건 알겠는데, <code class="highlighter-rouge">csrf_key</code>는 또 뭐람.. 킁 보안토큰같은데..</p>
+
+<p><a href="https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work">https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work</a></p>
+
+<p>여기 좋은 설명이 있는 것 같아서 대체합니다. 소스 제출의 부정사용 방지로 보이네요. 그러니까 이 글의 링크 중 하나에 백준에 틀린 소스를 제출하는 것을 심어놓으면 여러분의 백준 정답률을 떨구는 효과를 기대할 수 있습니다(!!). 그런거 막아주는 거에요.</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome02.png" width="100%" />
+<figcaption> Figure 5. csrf_key의 발견</figcaption>
+</div>
+
+<p><code class="highlighter-rouge">csrf_key</code>는 제출 사이트의 html을 확인해보니까 hidden으로 감춰져있던 것이 모습을 드러내줍니다. 이걸 받아서 쓰면 되겠군요! input 태그 안에서 name으로 찾아주면 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">try</span><span class="p">:</span>
+		<span class="n">key</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'input'</span><span class="p">,</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'csrf_key'</span><span class="p">})[</span><span class="s">'value'</span><span class="p">]</span>
+	<span class="k">except</span> <span class="nb">TypeError</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"Wrong problem number"</span><span class="p">)</span>
+		<span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">language</code>의 번호도 언어 선택창을 html로 읽어보면 확인할 수 있습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"language"</span> <span class="na">name=</span><span class="s">"language"</span> <span class="na">data-placeholder=</span><span class="s">"언어를 선택해 주세요."</span> <span class="na">class=</span><span class="s">"language-select col-md-2 chosen-select"</span> <span class="na">data-no_results_text=</span><span class="s">"없는 언어 입니다."</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"88"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++14<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span> <span class="na">data-mime=</span><span class="s">"text/x-java"</span><span class="nt">&gt;</span>Java<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"28"</span> <span class="na">data-mime=</span><span class="s">"text/x-python"</span> <span class="na">selected=</span><span class="s">""</span><span class="nt">&gt;</span>Python 3<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"75"</span> <span class="na">data-mime=</span><span class="s">"text/x-csrc"</span><span class="nt">&gt;</span>C11<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"73"</span> <span class="na">data-mime=</span><span class="s">"text/x-python"</span><span class="nt">&gt;</span>PyPy3<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"0"</span> <span class="na">data-mime=</span><span class="s">"text/x-csrc"</span><span class="nt">&gt;</span>C<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"49"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++11<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"84"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++17<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"91"</span> <span class="na">data-mime=</span><span class="s">"text/x-java"</span><span class="nt">&gt;</span>Java (OpenJDK)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"93"</span> <span class="na">data-mime=</span><span class="s">"text/x-java"</span><span class="nt">&gt;</span>Java 11<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"6"</span> <span class="na">data-mime=</span><span class="s">"text/x-python"</span><span class="nt">&gt;</span>Python 2<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"32"</span> <span class="na">data-mime=</span><span class="s">"text/x-python"</span><span class="nt">&gt;</span>PyPy2<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"68"</span> <span class="na">data-mime=</span><span class="s">"text/x-ruby"</span><span class="nt">&gt;</span>Ruby 2.5<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"69"</span> <span class="na">data-mime=</span><span class="s">"text/x-kotlin"</span><span class="nt">&gt;</span>Kotlin (JVM)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"92"</span> <span class="na">data-mime=</span><span class="s">"text/x-kotlin"</span><span class="nt">&gt;</span>Kotlin (Native)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"74"</span> <span class="na">data-mime=</span><span class="s">"text/x-swift"</span><span class="nt">&gt;</span>Swift<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"58"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Text<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"62"</span> <span class="na">data-mime=</span><span class="s">"text/x-csharp"</span><span class="nt">&gt;</span>C# 6.0<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"17"</span> <span class="na">data-mime=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>node.js<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"12"</span> <span class="na">data-mime=</span><span class="s">"text/x-go"</span><span class="nt">&gt;</span>Go<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"29"</span> <span class="na">data-mime=</span><span class="s">"text/x-d"</span><span class="nt">&gt;</span>D<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"37"</span> <span class="na">data-mime=</span><span class="s">"text/x-fsharp"</span><span class="nt">&gt;</span>F#<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"7"</span> <span class="na">data-mime=</span><span class="s">"text/x-php"</span><span class="nt">&gt;</span>PHP<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"44"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Rust<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span> <span class="na">data-mime=</span><span class="s">"text/x-pascal"</span><span class="nt">&gt;</span>Pascal<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"16"</span> <span class="na">data-mime=</span><span class="s">"text/x-lua"</span><span class="nt">&gt;</span>Lua<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"8"</span> <span class="na">data-mime=</span><span class="s">"text/x-perl"</span><span class="nt">&gt;</span>Perl<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"72"</span> <span class="na">data-mime=</span><span class="s">"text/x-rsrc"</span><span class="nt">&gt;</span>R<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"10"</span> <span class="na">data-mime=</span><span class="s">"text/x-objectivec"</span><span class="nt">&gt;</span>Objective-C<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"64"</span> <span class="na">data-mime=</span><span class="s">"text/x-objectivec"</span><span class="nt">&gt;</span>Objective-C++<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"59"</span> <span class="na">data-mime=</span><span class="s">"text/x-csrc"</span><span class="nt">&gt;</span>C (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"60"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++ (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"66"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++11 (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"67"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++14 (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"77"</span> <span class="na">data-mime=</span><span class="s">"text/x-csrc"</span><span class="nt">&gt;</span>C11 (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"85"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++17 (Clang)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"79"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Golfscript<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"27"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Assembly (32bit)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"87"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Assembly (64bit)<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"63"</span> <span class="na">data-mime=</span><span class="s">"text/x-vb"</span><span class="nt">&gt;</span>VB.NET 4.0<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"5"</span> <span class="na">data-mime=</span><span class="s">"text/x-sh"</span><span class="nt">&gt;</span>Bash<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"13"</span> <span class="na">data-mime=</span><span class="s">"text/x-fortran"</span><span class="nt">&gt;</span>Fortran<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"14"</span> <span class="na">data-mime=</span><span class="s">"text/x-scheme"</span><span class="nt">&gt;</span>Scheme<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"19"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Ada<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"21"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>awk<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"22"</span> <span class="na">data-mime=</span><span class="s">"text/x-ocaml"</span><span class="nt">&gt;</span>OCaml<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"23"</span> <span class="na">data-mime=</span><span class="s">"text/x-brainfuck"</span><span class="nt">&gt;</span>Brainfuck<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"24"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Whitespace<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"26"</span> <span class="na">data-mime=</span><span class="s">"text/x-tcl"</span><span class="nt">&gt;</span>Tcl<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"34"</span> <span class="na">data-mime=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>Rhino<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"35"</span> <span class="na">data-mime=</span><span class="s">"text/x-cobol"</span><span class="nt">&gt;</span>Cobol<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"41"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>Pike<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"43"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>sed<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"46"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Boo<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"47"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Intercal<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"48"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>bc<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"53"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Nemerle<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"54"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Cobra<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"70"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Algol 68<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"71"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>Befunge<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"81"</span> <span class="na">data-mime=</span><span class="s">"text/x-haxe"</span><span class="nt">&gt;</span>Haxe<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"82"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>LOLCODE<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"83"</span> <span class="na">data-mime=</span><span class="s">"text/plain"</span><span class="nt">&gt;</span>아희<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<p>여기서 필요한 것으로 dictionary를 만들어 관리하면 되겠습니다. 저는 C++14와 Python 3만 사용하니 그 두 개만 만들었습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">LANG</span> <span class="o">=</span> <span class="p">{</span><span class="s">"C++14"</span><span class="p">:</span><span class="mi">88</span><span class="p">,</span> <span class="s">"Python 3"</span><span class="p">:</span><span class="mi">28</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>지금까지 모은 제출 정보들을 dictionary로 모아서 제출하면 됩니다. <code class="highlighter-rouge">code_open</code>의 onlyaccepted는 ‘맞았을 때만 공개’ 옵션입니다. 위 패킷에서 읽은 주소 형태가 /submit/1001 이었죠? 그 주소 그대로 세션의 post에 사용하면 됩니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span> <span class="n">language</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LANG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Invalid language"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'problem_id'</span><span class="p">:</span> <span class="n">problem_id</span><span class="p">,</span>
+        <span class="s">'source'</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+        <span class="s">'language'</span><span class="p">:</span> <span class="n">LANG</span><span class="p">[</span><span class="n">language</span><span class="p">],</span>
+        <span class="s">'code_open'</span><span class="p">:</span> <span class="s">'onlyaccepted'</span><span class="p">,</span>
+        <span class="s">'csrf_key'</span><span class="p">:</span> <span class="n">key</span>
+    <span class="p">}</span>
+
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/submit/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>지금까지 작성한 Python 소스를 정리하면 다음과 같습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
+
+<span class="n">LOGIN_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="s">"login_user_id"</span><span class="p">:</span><span class="s">"(아이디)"</span><span class="p">,</span> <span class="s">"login_password"</span><span class="p">:</span><span class="s">"(비밀번호)"</span><span class="p">}</span>
+<span class="n">boj_url</span> <span class="o">=</span> <span class="s">"https://www.acmicpc.net/"</span>
+<span class="n">LANG</span> <span class="o">=</span> <span class="p">{</span><span class="s">"C++14"</span><span class="p">:</span><span class="mi">88</span><span class="p">,</span> <span class="s">"Python 3"</span><span class="p">:</span><span class="mi">28</span><span class="p">}</span>
+
+<span class="n">problem_id</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s">"C++14"</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"1001.cpp"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span><span class="o">+</span><span class="s">'signin'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">LOGIN_INFO</span><span class="p">)</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">})</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"invalid login info"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span> <span class="o">+</span> <span class="s">'submit/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">))</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'input'</span><span class="p">,</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'csrf_key'</span><span class="p">})[</span><span class="s">'value'</span><span class="p">]</span>
+    <span class="k">except</span> <span class="nb">TypeError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Wrong problem number"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">language</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LANG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Invalid language"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'problem_id'</span><span class="p">:</span> <span class="n">problem_id</span><span class="p">,</span>
+        <span class="s">'source'</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+        <span class="s">'language'</span><span class="p">:</span> <span class="n">LANG</span><span class="p">[</span><span class="n">language</span><span class="p">],</span>
+        <span class="s">'code_open'</span><span class="p">:</span> <span class="s">'onlyaccepted'</span><span class="p">,</span>
+        <span class="s">'csrf_key'</span><span class="p">:</span> <span class="n">key</span>
+    <span class="p">}</span>
+
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/submit/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="결과-확인">결과 확인</h2>
+
+<p>이제 막바지입니다. 제출할 일도 없어서 쉬운 것만 남았네요. 어떻게 ‘채점이 종료되었다’는 것을 확인할 것인지를 생각해보아야 합니다. 관찰이 필요한 부분이죠.</p>
+
+<p>먼저 제출하고 채점을 기다릴 때를 확인해보았습니다.</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome04.png" width="80%" />
+<figcaption> Figure 6. 채점을 기다리는 중</figcaption>
+</div>
+
+<p>저 ‘기다리는 중’이라는 상태 메시지의 html은 다음과 같습니다:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-wait"</span><span class="nt">&gt;</span>기다리는 중<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+
+<p>채점 중일 때는 다음과 같습니다:</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome06.png" width="80%" />
+<figcaption> Figure 7. 채점 중</figcaption>
+</div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-judging"</span><span class="nt">&gt;</span>채점 중 (6%, 11초)<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+
+<p>채점이 완료되었을 때는 어떨까요?</p>
+
+<div style="text-align: center">
+<img src="http://localhost:4000/assets/img/chrome05.png" width="80%" />
+<figcaption> Figure 8. 채점 완료!</figcaption>
+</div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-ac"</span><span class="nt">&gt;</span>맞았습니다!!<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+<p>class의 이름이 바뀌면서 채점 결과가 들어갑니다. 즉, “result-ac”가 None이면 아직 채점이 중이라는 뜻이에요. 이를 이용해 채점이 완료되었는지를 식별할 수 있습니다. 이를 이용해 while문을 탈출해주면 되겠습니다. 콘솔에 한 줄로 출력하기 위해 <code class="highlighter-rouge">\r</code>을 적극적으로 사용했습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/status?from_mine=1&amp;problem_id='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;user_id'</span> <span class="o">+</span> <span class="n">LOGIN_INFO</span><span class="p">[</span><span class="s">"login_user_id"</span><span class="p">]</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-text'</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">)</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-ac'</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+    
+    <span class="k">print</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="마무리">마무리</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
+
+<span class="n">LOGIN_INFO</span> <span class="o">=</span> <span class="p">{</span><span class="s">"login_user_id"</span><span class="p">:</span><span class="s">"(아이디)"</span><span class="p">,</span> <span class="s">"login_password"</span><span class="p">:</span><span class="s">"(비밀번호)"</span><span class="p">}</span>
+<span class="n">boj_url</span> <span class="o">=</span> <span class="s">"https://www.acmicpc.net/"</span>
+<span class="n">LANG</span> <span class="o">=</span> <span class="p">{</span><span class="s">"C++14"</span><span class="p">:</span><span class="mi">88</span><span class="p">,</span> <span class="s">"Python 3"</span><span class="p">:</span><span class="mi">28</span><span class="p">}</span>
+
+<span class="n">problem_id</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s">"C++14"</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"1001.cpp"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span><span class="o">+</span><span class="s">'signin'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">LOGIN_INFO</span><span class="p">)</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">})</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"invalid login info"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">boj_url</span> <span class="o">+</span> <span class="s">'submit/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">))</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'input'</span><span class="p">,</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'csrf_key'</span><span class="p">})[</span><span class="s">'value'</span><span class="p">]</span>
+    <span class="k">except</span> <span class="nb">TypeError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Wrong problem number"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">language</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LANG</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Invalid language"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'problem_id'</span><span class="p">:</span> <span class="n">problem_id</span><span class="p">,</span>
+        <span class="s">'source'</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+        <span class="s">'language'</span><span class="p">:</span> <span class="n">LANG</span><span class="p">[</span><span class="n">language</span><span class="p">],</span>
+        <span class="s">'code_open'</span><span class="p">:</span> <span class="s">'onlyaccepted'</span><span class="p">,</span>
+        <span class="s">'csrf_key'</span><span class="p">:</span> <span class="n">key</span>
+    <span class="p">}</span>
+
+    <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/submit/'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/status?from_mine=1&amp;problem_id='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;user_id'</span> <span class="o">+</span> <span class="n">LOGIN_INFO</span><span class="p">[</span><span class="s">"login_user_id"</span><span class="p">]</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-text'</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">)</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-ac'</span><span class="p">})</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">break</span>
+    
+    <span class="k">print</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>지금까지 작성한 코드 전문입니다. 저는 이를 이용해 github 자동 저장이나, 운에 의지해야 하는 일부 문제들에 접근하려고 합니다. 많은 분에게 도움이 되었으면 좋겠네요.</p>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">9</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/test/" rel="permalink">Test for New Engine!
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Hello World!
+안녕하세요!
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/RSA/" rel="permalink">RSA
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opa/" rel="permalink">Oracle Padding Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">환경
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/order4_subgp/" rel="permalink">크기 4인 군의 분류
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/" rel="permalink">유리수의 조밀성
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BOJ-submit-bot/" rel="permalink">Python을 이용한 백준 소스 제출 봇 제작기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/Knuth/" rel="permalink">Knuth Optimization
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/CF-Round-532-DIv-2/" rel="permalink">Codeforces Round #532 (Div. 2) 후기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">1. Roman and Browser
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/CF-Round-531-DIv-3/" rel="permalink">Codeforces Round #531 (Div. 3) 후기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">1. Integer Sequence Dividing
+
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/" rel="permalink">카탈란 수-대각선을 넘지 않는 경우의 수
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">문제
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%B2%88%EC%82%AC%EC%9D%B4%EB%93%9C/" rel="permalink">번사이드 보조정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">이 번사이드 보조정리는 유한 대칭군 위에서 기술되어 있습니다.
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%9D%B4%EB%B6%84%EA%B7%B8%EB%9E%98%ED%94%84/" rel="permalink">이분그래프
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">1. 정의
+
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Youngseok Choe. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

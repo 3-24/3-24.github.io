@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>카탈란 수-대각선을 넘지 않는 경우의 수 - 푹신푹신 후와후와</title>
-<meta name="description" content="문제">
+<!-- begin _includes/seo.html --><title>Codeforces Round #532 (Div. 2) 후기 - 푹신푹신 후와후와</title>
+<meta name="description" content="1. Roman and Browser">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="카탈란 수-대각선을 넘지 않는 경우의 수">
-<meta property="og:url" content="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
+<meta property="og:title" content="Codeforces Round #532 (Div. 2) 후기">
+<meta property="og:url" content="http://localhost:4000/CF-Round-532-DIv-2/">
 
 
-  <meta property="og:description" content="문제">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-12-20T00:00:00+09:00">
+  <meta property="og:description" content="1. Roman and Browser">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-01-14T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
+
+<link rel="canonical" href="http://localhost:4000/CF-Round-532-DIv-2/">
 
 
 
@@ -294,72 +294,129 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">카탈란 수-대각선을 넘지 않는 경우의 수</h1>
+      <h1 id="page-title" class="page__title">Codeforces Round #532 (Div. 2) 후기</h1>
     
-    <h2 id="문제">문제</h2>
+    <h2 id="1-roman-and-browser">1. Roman and Browser</h2>
 
-<p>$n \times n$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 오른쪽이나 위로 가는 이동만으로 이루어진 경로를 생각하자. 이 때 왼쪽 아래와 오른쪽 위 모서리를 연결한 대각선 위로 올라가지 않는 경로는 몇 개나 있을까?</p>
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan03.png" width="50%" />
-<figcaption> Figure 1. 대각선을 넘지 않는 경로의 예</figcaption>
-</div>
+<p>https://codeforces.com/contest/1100/problem/A</p>
 
-<p>이 조건을 만족하는 경우의 수를 카탈란 수라고 하고, $C_n$으로 적습니다.</p>
+<p>b를 0부터 k-1까지 바꿔가면서 비교를 통해 최대 절대값을 찾아내면 됩니다. 직접 b+ik만 제외하면서 더하는 것이 쉽지 않기 때문에 전체 합을 구해놓고 b+ik의 원소를 빼는 형태로 구현했습니다.</p>
 
-<h2 id="일반항">일반항</h2>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<p>크게 두 단계에 걸쳐서 증명에 들어갑니다. 편의상 ‘오른쪽으로 이동’을 $\Rightarrow$, ‘위로 이동’을 $\Uparrow$로 앞으로 적겠습니다.</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">Data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,},</span> <span class="n">initSum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">Data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">initSum</span> <span class="o">+=</span> <span class="n">Data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
 
-<h3 id="대각선-조건이-없을-때">대각선 조건이 없을 때</h3>
+    <span class="kt">int</span> <span class="n">output</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="n">k</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">initSum</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">k</span> <span class="o">&lt;</span><span class="n">n</span><span class="p">){</span>
+            <span class="n">sum</span> <span class="o">-=</span> <span class="n">Data</span><span class="p">[</span><span class="n">b</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">k</span><span class="p">];</span>
+            <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">sum</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">output</span> <span class="o">&lt;</span> <span class="n">sum</span><span class="p">)</span> <span class="n">output</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">output</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p>$n\times m$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 최단 경로의 개수는?</p>
+<h2 id="2-build-a-contest">2. Build a Contest</h2>
 
-<p>가로 길이가 $n$, 세로 길이가 $m$이기 때문에 왼쪽 아래 모서리에서 순서에 상관 없이 $\Rightarrow$을 $n$번, $\Uparrow$을 $m$번 했을 때 오른쪽 위 모서리에 도달하게 됩니다. 따라서 문제에서 묻는 최단 경로의 개수 $D_{n,m}$는 다음과 같습니다.</p>
+<p>https://codeforces.com/contest/1100/problem/B</p>
 
-<script type="math/tex; mode=display">D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}</script>
+<p>문제를 잘못 이해해서 풀지 못한 문제입니다. 제가 구현했던 것은 모든 난이도의 문제가 모인 순간 앞에 있는 모든 문제를 고려 대상에서 제외하는 것인데, 오늘 제출 체크를 해보니까 그러면 안된다는 것을 확인할 수 있었어요. 다음은 이를 반영하여 수정한 코드입니다.</p>
 
-<h3 id="대각선-조건이-있을-때">대각선 조건이 있을 때</h3>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">checkDiff</span><span class="p">[</span><span class="mi">100001</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,};</span>
 
-<p>2.1의 문제로 이 문제를 바꿀 것입니다. 핵심 아이디어는 다음과 같습니다:</p>
+<span class="c1">// initialize checkDiff</span>
+<span class="kt">int</span> <span class="nf">initDiff</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">checkDiff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">checkDiff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan04.png" width="70%" />
-<figcaption> Figure 2. 경로의 대응변형</figcaption>
-</div>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span> <span class="c1">// number of difficulty levels, number of problems, &lt;= 100000</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
 
-<p>대각선을 넘어가는 경로를 생각합니다. 이 때, 대각선을 최초로 넘어간 이후의 경로를 대칭시켜버리면, $n-1 \times n+1$의 격자에서 경로를 얻을 수 있습니다. 즉, <strong>문제의 조건을 위배하는 경로는 $n-1 \times n+1$ 격자의 경로에 대응</strong>됩니다.</p>
+    <span class="kt">int</span> <span class="n">diff</span><span class="p">;</span> <span class="c1">// new-designed difficulty</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<p>그런데 그림의 $n-1 \times n+1$에 남아 있는 대각선을 살펴보면, <strong>모든 $n-1 \times n+1$경로가 대각선을 지나갈 수밖에 없습니다.</strong>  즉, 반대로 $n-1 \times n+1$ 경로를 문제를 만족하지 않는 $n \times n$ 경로에 대응할 수 있습니다.</p>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">r</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="n">r</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">diff</span><span class="p">;</span>
 
-<p>따라서 문제의 조건을 위배하는 경로의 개수는 $D_{n-1,n+1}$입니다.</p>
+        <span class="k">if</span> <span class="p">(</span><span class="n">checkDiff</span><span class="p">[</span><span class="n">diff</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
 
-<p>이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!</p>
+        <span class="n">checkDiff</span><span class="p">[</span><span class="n">diff</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
 
-<script type="math/tex; mode=display">C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}</script>
+        <span class="c1">// if all difficulty is ready</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">n</span><span class="p">){</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">initDiff</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
 
-<p>이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.</p>
+        <span class="c1">// if not ready</span>
+        <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<h2 id="점화식">점화식</h2>
+<p>문제를 풀 때는 큰 수 배열 등에서 문제가 생길 것 같아 조심해서 짰는데, 너무 그 안에 갇혀있었다는 느낌이 들어요. 정작 문제는 다른 곳에서 나타났으니 말입니다.</p>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan05.png" width="50%" />
-<figcaption> Figure 3. 경로의 분할</figcaption>
-</div>
+<h2 id="3-nn-and-optical-illusion">3. NN and Optical Illusion</h2>
 
-<p>처음으로 대각선과 만나는 좌표를 중심으로 생각을 전개하면 쉽습니다. 위 그림의 경우에는 $(3,3)$에서 만나는데, 그 이후로 $(3,3)$에서 $(8,8)$로 가는 대각선을 넘지 않는 경로를 세주면 되고, 그 경우의 수는 $C_5$입니다. (대각선을 만나지 않고 끝점에 도달했더라도, 그 끝점을 대각선과 만난 점으로 생각하면 됩니다)</p>
+<p>간단한 식 계산 문제입니다. 그림을 잘 그리면 빗변이 R+r, 높이가 R인 직각삼각형이 만들어지고 밑변과 빗변 사이의 각이 $ \pi / n $이 됩니다. 따라서</p>
 
-<p>이제 $(0,0)$에서 $(3,3)$으로 가는 대각선과 만나지 않는 경로들을 세야 하는데, 아래 그림을 보면 역시 이미 풀었던 문제라는 것을 알 수 있습니다. 처음에 $\Rightarrow$로, 마지막에도 $\Uparrow$로 행동이 강제되는데, 그러고 남은 문제는 $2 \times 2$의 문제, 즉 $C_2$입니다.</p>
+<script type="math/tex; mode=display">\frac R {R+r} = \sin \frac {\pi} n</script>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan06.png" width="20%" />
-<figcaption> Figure 4. 분할된 경로의 강제성</figcaption>
-</div>
+<p>의 관계식을 R을 중심으로 풀어서 계산하면 됩니다. 저는 cout의 실수 자릿수출력이 6까지밖에 안되는 것을 이때 처음 알아서 헤맸습니다.</p>
 
-<p>이 셈을 $(1,1)$에서 $(8,8)$까지 모두 해서 더하면 점화식을 얻을 수 있습니다. 일반적으로 접근하면 다음과 같은 식을 쉽게 쓸 수 있습니다.</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define PI 3.14159265
+</span><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">double</span> <span class="n">ld</span><span class="p">;</span>
 
-<script type="math/tex; mode=display">C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}</script>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
 
-<p>그리고 이 점화식의 시작인 $C_0 = 1$도 같이 써주면 됩니다.</p>
+    <span class="n">ld</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">PI</span><span class="o">/</span><span class="n">ld</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ld</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">calc</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">calc</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>자릿수 출력은 10으로 넉넉하게~</p>
+
+<p>식을 내고 나서 Python으로 해결하려고 했는데 어떻게 짜는지 기억이 안나서 결국 c++로 해결했습니다. Python도 분명 일부 PS문제에서 강점이 있을 것 같은데 아쉽네요.</p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>2번에서 너무 오래 걸리고 감점도 받아서 레이팅 -26당했습니다. 분발해야겠네요!</p>
 
 
 <ul class="taxonomy__index">
@@ -608,7 +665,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">1. Roman and Browser
@@ -637,7 +694,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  2 minute read
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">1. Integer Sequence Dividing

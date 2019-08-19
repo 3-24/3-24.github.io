@@ -1,14 +1,8 @@
 ---
-title: "Python을 이용한 백준 자동 소스 제출 봇 만들기"
-date: 2019-01-28 07:43:26
-categories:
-- 프로그래밍
-- 백준
-tags:
-- 개발
-- 백준
-- 봇
-- Python
+layout: posts
+title: Python을 이용한 백준 소스 제출 봇 제작기
+classes: wide
+use_math: true
 ---
 
 <!-- toc -->
@@ -32,9 +26,12 @@ pip install bs4
 
 ### 로그인하기
 
-백준의 로그인은 가장 기본적인 형태입니다. Fiddler를 띄우고 백준 로그인을 해보면 다음과 같은 패킷을 확인할 수 있습니다.
+백준의 로그인은 가장 기본적인 형태입니다. Fiddler를 띄우고 백준 로그인을 해보면 다음과 같은 정보를 확인할 수 있습니다.
 
-{% asset_img fiddler01.png 로그인 패킷%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/fiddler01.png" width="100%">
+<figcaption> Figure 1. 로그인 리퀘스트</figcaption>
+</div>
 
 `login_user_id`에 아이디를, `login_password`에 비밀번호를 입력하고 <https://acmicpc.net/signin>으로 전송하는군요. 이 과정을 Python으로 작성해보면 다음과 같습니다:
 
@@ -54,11 +51,14 @@ requests 세션을 하나 만들어놓고 로그인할 때 정보를 보내는 �
 
 로그인이 제대로 되었는지를 확인하려면 로그인하기 전과 후에 생기는 차이를 검사해야겠죠? 백준의 경우 쿠키에 로그인 정보가 기록이 되지 않기 때문에 사이트에서 직접 찾아야 합니다.
 
-{% asset_img chrome01.png 백준 로그인%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome01.png" width="100%">
+<figcaption> Figure 2. 로그인 후 페이지 소스</figcaption>
+</div>
 
 개발자도구로 확인해보니 a태그의 username class에 제 아이디가 입력되어있네요. 이걸 활용해봅시다. 크롬 콘솔에서 해당 객체 이름을 검색해보면 로그인한 후는
 
-```Javascript
+```javascript
 > var d = $('a.username')[0]
 undefined
 > d
@@ -117,7 +117,7 @@ BOJ_bot
 
 그리고 Python main.py에서 문제 번호를 저장하고 소스도 미리 읽어놓는 코드를 로그인 전에 넣어놓습니다.
 
-```Python
+```python
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -141,21 +141,30 @@ with requests.Session() as sess:
 
 소스를 제출할 때 패킷을 확인해볼까요?
 
-{% asset_img chrome03.png 제출 화면%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome03.png" width="100%">
+<figcaption> Figure 3. 소스 제출 화면</figcaption>
+</div>
 
-{% asset_img fiddler02.png 소스 제출 패킷%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/fiddler02.png" width="100%">
+<figcaption> Figure 4. 소스 제출 리퀘스트</figcaption>
+</div>
 
 눈에 띄는 것은 `problem_id`는 문제번호, `language`는 제가 선택한 언어인 C++14에 해당하는 번호, `code_open`은 코드 공개여부(저는 공개가 기본 설정입니다), `source`는 소스 전문인건 알겠는데, `csrf_key`는 또 뭐람.. 킁 보안토큰같은데..
 
-https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work
+[https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work](https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work)
 
 여기 좋은 설명이 있는 것 같아서 대체합니다. 소스 제출의 부정사용 방지로 보이네요. 그러니까 이 글의 링크 중 하나에 백준에 틀린 소스를 제출하는 것을 심어놓으면 여러분의 백준 정답률을 떨구는 효과를 기대할 수 있습니다(!!). 그런거 막아주는 거에요.
 
-{% asset_img chrome02.png csrf_key 값%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome02.png" width="100%">
+<figcaption> Figure 5. csrf_key의 발견</figcaption>
+</div>
 
 `csrf_key`는 제출 사이트의 html을 확인해보니까 hidden으로 감춰져있던 것이 모습을 드러내줍니다. 이걸 받아서 쓰면 되겠군요! input 태그 안에서 name으로 찾아주면 됩니다. 
 
-```Python
+```python
 	try:
 		key = soup.find('input', {'name': 'csrf_key'})['value']
 	except TypeError:
@@ -236,13 +245,13 @@ https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-imp
 
 여기서 필요한 것으로 dictionary를 만들어 관리하면 되겠습니다. 저는 C++14와 Python 3만 사용하니 그 두 개만 만들었습니다.
 
-```Python
+```python
 LANG = {"C++14":88, "Python 3":28}
 ```
 
 지금까지 모은 제출 정보들을 dictionary로 모아서 제출하면 됩니다. `code_open`의 onlyaccepted는 '맞았을 때만 공개' 옵션입니다. 위 패킷에서 읽은 주소 형태가 /submit/1001 이었죠? 그 주소 그대로 세션의 post에 사용하면 됩니다.
 
-```Python
+```python
     if language not in LANG:
         print("Invalid language")
         exit(1)
@@ -260,7 +269,7 @@ LANG = {"C++14":88, "Python 3":28}
 
 지금까지 작성한 Python 소스를 정리하면 다음과 같습니다.
 
-```Python
+```python
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -310,7 +319,10 @@ with requests.Session() as sess:
 
 먼저 제출하고 채점을 기다릴 때를 확인해보았습니다.
 
-{% asset_img chrome04.png 채점 대기%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome04.png" width="80%">
+<figcaption> Figure 6. 채점을 기다리는 중</figcaption>
+</div>
 
 저 '기다리는 중'이라는 상태 메시지의 html은 다음과 같습니다:
 
@@ -322,7 +334,10 @@ with requests.Session() as sess:
 
 채점 중일 때는 다음과 같습니다:
 
-{% asset_img chrome06.png 채점 중%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome06.png" width="80%">
+<figcaption> Figure 7. 채점 중</figcaption>
+</div>
 
 ```html
 <span class="result-text">
@@ -332,7 +347,10 @@ with requests.Session() as sess:
 
 채점이 완료되었을 때는 어떨까요?
 
-{% asset_img chrome05.png 채점 완료%}
+<div style="text-align: center">
+<img src= "{{site.url}}{{site.baseurl}}/assets/img/chrome05.png" width="80%">
+<figcaption> Figure 8. 채점 완료!</figcaption>
+</div>
 
 ```html
 <span class="result-text">
@@ -341,7 +359,7 @@ with requests.Session() as sess:
 ```
 class의 이름이 바뀌면서 채점 결과가 들어갑니다. 즉, "result-ac"가 None이면 아직 채점이 중이라는 뜻이에요. 이를 이용해 채점이 완료되었는지를 식별할 수 있습니다. 이를 이용해 while문을 탈출해주면 되겠습니다. 콘솔에 한 줄로 출력하기 위해 `\r`을 적극적으로 사용했습니다.
 
-```Python
+```python
     while True:
         url = boj_url + '/status?from_mine=1&problem_id=' + str(problem_id) + '&user_id' + LOGIN_INFO["login_user_id"]
         soup = bs(sess.get(url).text, 'html.parser')
@@ -357,7 +375,7 @@ class의 이름이 바뀌면서 채점 결과가 들어갑니다. 즉, "result-a
 
 ## 마무리
 
-```Python
+```python
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -414,4 +432,4 @@ with requests.Session() as sess:
 
 ```
 
-지금까지 작성한 코드 전문입니다. 저는 이를 이용해 github 자동 저장이나, 운에 의지해야 하는 일부 문제들에 접근하려고 합니다. (드디어 [랜덤 게임~~](https://www.acmicpc.net/problem/10944)을 풀 수 있는 것인가!) 많은 분에게 도움이 되었으면 좋겠네요.
+지금까지 작성한 코드 전문입니다. 저는 이를 이용해 github 자동 저장이나, 운에 의지해야 하는 일부 문제들에 접근하려고 합니다. 많은 분에게 도움이 되었으면 좋겠네요.
