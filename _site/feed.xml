@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-19T16:48:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Test for New Engine!</title><link href="http://localhost:4000/test/" rel="alternate" type="text/html" title="Test for New Engine!" /><published>2019-08-19T00:00:00+09:00</published><updated>2019-08-19T00:00:00+09:00</updated><id>http://localhost:4000/test</id><content type="html" xml:base="http://localhost:4000/test/">&lt;p&gt;Hello World!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="https://3-24.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://3-24.github.io/" rel="alternate" type="text/html" /><updated>2019-08-21T11:43:31+09:00</updated><id>https://3-24.github.io/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Test for New Engine!</title><link href="https://3-24.github.io/test/" rel="alternate" type="text/html" title="Test for New Engine!" /><published>2019-08-19T00:00:00+09:00</published><updated>2019-08-19T00:00:00+09:00</updated><id>https://3-24.github.io/test</id><content type="html" xml:base="https://3-24.github.io/test/">&lt;p&gt;Hello World!
 안녕하세요!&lt;/p&gt;
 
 &lt;h2 id=&quot;수식&quot;&gt;수식&lt;/h2&gt;
 
 &lt;p&gt;$ 10 \oplus 01 = 00 $&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;a^2 + b^2 = c^2&lt;/script&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">Hello World! 안녕하세요!</summary></entry><entry><title type="html">RSA</title><link href="http://localhost:4000/RSA/" rel="alternate" type="text/html" title="RSA" /><published>2019-04-19T00:00:00+09:00</published><updated>2019-04-19T00:00:00+09:00</updated><id>http://localhost:4000/RSA</id><content type="html" xml:base="http://localhost:4000/RSA/">&lt;p&gt;RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;a^2 + b^2 = c^2&lt;/script&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">Hello World! 안녕하세요!</summary></entry><entry><title type="html">RSA</title><link href="https://3-24.github.io/RSA/" rel="alternate" type="text/html" title="RSA" /><published>2019-04-19T00:00:00+09:00</published><updated>2019-04-19T00:00:00+09:00</updated><id>https://3-24.github.io/RSA</id><content type="html" xml:base="https://3-24.github.io/RSA/">&lt;p&gt;RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.&lt;/p&gt;
 
 &lt;h2 id=&quot;키-형성&quot;&gt;키 형성&lt;/h2&gt;
 
@@ -50,7 +50,7 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
 
 &lt;h2 id=&quot;사용&quot;&gt;사용&lt;/h2&gt;
 
-&lt;p&gt;$n,e,c$는 공개되어도 상관 없지만, $n$의 소인수인 $p,q$와 복호화에서 사용하는 $d$는 절대 공개해서는 안되고, 추측으로 쉽게 풀릴 수 있는 형태가 되어서도 안된다. 보통 그래서 $p,q$를 아주 큰 소수로 잡으면서 공격에 대비한다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.</summary></entry><entry><title type="html">Oracle Padding Attack</title><link href="http://localhost:4000/opa/" rel="alternate" type="text/html" title="Oracle Padding Attack" /><published>2019-04-15T00:00:00+09:00</published><updated>2019-04-15T00:00:00+09:00</updated><id>http://localhost:4000/opa</id><content type="html" xml:base="http://localhost:4000/opa/">&lt;h2 id=&quot;환경&quot;&gt;환경&lt;/h2&gt;
+&lt;p&gt;$n,e,c$는 공개되어도 상관 없지만, $n$의 소인수인 $p,q$와 복호화에서 사용하는 $d$는 절대 공개해서는 안되고, 추측으로 쉽게 풀릴 수 있는 형태가 되어서도 안된다. 보통 그래서 $p,q$를 아주 큰 소수로 잡으면서 공격에 대비한다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.</summary></entry><entry><title type="html">Oracle Padding Attack</title><link href="https://3-24.github.io/opa/" rel="alternate" type="text/html" title="Oracle Padding Attack" /><published>2019-04-15T00:00:00+09:00</published><updated>2019-04-15T00:00:00+09:00</updated><id>https://3-24.github.io/opa</id><content type="html" xml:base="https://3-24.github.io/opa/">&lt;h2 id=&quot;환경&quot;&gt;환경&lt;/h2&gt;
 
 &lt;h3 id=&quot;cbc&quot;&gt;CBC&lt;/h3&gt;
 
@@ -65,11 +65,11 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;P_i = D_k (C_i) \oplus C_{i-1} \\ C_0 = IV&lt;/script&gt;
 
-&lt;p&gt;즉 $i$번째 블록의 decryption은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다.&lt;/p&gt;
+&lt;p&gt;즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다.&lt;/p&gt;
 
 &lt;h3 id=&quot;decryption-oracle&quot;&gt;Decryption Oracle&lt;/h3&gt;
 
-&lt;p&gt;Oracle Padding Attack은 CBC 암호의 decryption oracle이 주어졌을 때 사용할 수 있는 공격 기법이다. Decryption oracle이란 내가 암호문을 보냈을 때 평문으로 바꿔주는 역할을 말하는 것으로, 대개 decryption oracle에 접근할 때는 관리자가 아닌 이상 암호문을 넣었을 때 평문을 출력받지 못하고 &lt;strong&gt;계산 가능 여부&lt;/strong&gt;만 확인할 수 있다. 만약 정상적인 암호문을 넣었다면 정상적으로 작동하겠지만, 형식에 맞지 않은 암호문을 넣었을 때 error를 뱉어낸다.&lt;/p&gt;
+&lt;p&gt;Oracle Padding Attack은 CBC 암호의 decryption oracle이 주어졌을 때 사용할 수 있는 공격 기법이다. Decryption oracle이란 내가 암호문을 보냈을 때 평문으로 바꿔주는 역할을 말하는 것으로, 대개 decryption oracle에 접근할 때는 관리자가 아닌 이상 암호문을 넣었을 때 평문을 출력받지 못하고 &lt;strong&gt;계산 가능 여부&lt;/strong&gt;만 확인할 수 있다. 만약 정상적인 암호문을 넣었다면 정상적으로 작동하겠지만, 형식에 맞지 않은 암호문을 넣었을 때 에러를 뱉어낸다.&lt;/p&gt;
 
 &lt;h2 id=&quot;패딩&quot;&gt;패딩&lt;/h2&gt;
 
@@ -83,14 +83,18 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
 
 &lt;p&gt;만약에 평문이 정확히 32바이트라도 16바이트 블록 두 개를 만든 후 혼돈을 막기 위해 ‘0x10’, 즉 16짜리 바이트 16개로 모두 채운 블록을 하나 더 만들어버린다. 그러면 마지막 블록은 ‘0x10101010101010101010101010101010’가 될 것이다.&lt;/p&gt;
 
+&lt;p&gt;Decryption Oracle은 형식에 맞지 않은 암호문을 넣었을 때 에러를 출력한다. 즉, 입력에 대해 decryption oracle의 복호화 결과가 적합하지 않은 패딩을 가진다면 에러인데, 이 틈을 파고드는 공격 방식이 이번 글에서 소개하는 Oracle Padding Attack이다.&lt;/p&gt;
+
 &lt;h2 id=&quot;공격-방법&quot;&gt;공격 방법&lt;/h2&gt;
 
-&lt;p&gt;CBC 암호 방식에서 decryption oracle이 주어져 있을 때 ‘패딩’이라는 문법에 집중하는 공격이다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;CBC 암호 방식에서 decryption oracle이 주어져 있을 때 ‘패딩’이라는 문법에 집중하는 공격&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;먼저 타깃이 될 암호문이 주어지고, 공격자의 목적은 이 암호문의 평문이다. 편의상 16바이트 단위의 CBC이고 암호문은 32바이트라고 해보자. 이 때 나머지 바이트는 일정하게 유지한 채로 16번째 바이트를 바꿔가면서 입력을 넣는다. 다 해봤자 1바이트는 256가지 경우밖에 없으므로 순식간에 처리된다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/opa01.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/opa01.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 2. Oracle Padding Attack&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -112,9 +116,9 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;P_2 = D_k (C_2) \oplus C_1&lt;/script&gt;
 
-&lt;p&gt;을 계산할 수 있게 되었다는 것을 의미하고 plaintext를 추정할 수 있다.&lt;/p&gt;
+&lt;p&gt;을 계산할 수 있게 되었다는 것을 의미하고 평문를 추정할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;이 예시에서는 두 블록 짜리 암호문을 예로 들었는데, 블록이 많아도 문제가 되지 않는다. 뒷부분 블록은 앞의 decryption에 영향을 주지 않기 때문에 그냥 빼버리고 예시에서 했던 것처럼 마지막 블록을 반복해서 찾아내면 된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">환경</summary></entry><entry><title type="html">크기 4인 군의 분류</title><link href="http://localhost:4000/order4_subgp/" rel="alternate" type="text/html" title="크기 4인 군의 분류" /><published>2019-04-12T00:00:00+09:00</published><updated>2019-04-12T00:00:00+09:00</updated><id>http://localhost:4000/order4_subgp</id><content type="html" xml:base="http://localhost:4000/order4_subgp/">&lt;p&gt;모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.&lt;/p&gt;
+&lt;p&gt;이 예시에서는 두 블록 짜리 암호문을 예로 들었는데, 블록이 많아도 문제가 전혀 되지 않는다. 뒷부분 블록은 앞의 복호화에 영향을 주지 않기 때문에 그냥 빼버리고 예시에서 했던 것처럼 마지막 블록을 반복해서 찾아내면 된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">환경</summary></entry><entry><title type="html">크기 4인 군의 분류</title><link href="https://3-24.github.io/order4_subgp/" rel="alternate" type="text/html" title="크기 4인 군의 분류" /><published>2019-04-12T00:00:00+09:00</published><updated>2019-04-12T00:00:00+09:00</updated><id>https://3-24.github.io/order4_subgp</id><content type="html" xml:base="https://3-24.github.io/order4_subgp/">&lt;p&gt;모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.&lt;/p&gt;
 
 &lt;h2 id=&quot;order-4인-원소가-있는-경우&quot;&gt;Order 4인 원소가 있는 경우&lt;/h2&gt;
 
@@ -178,7 +182,7 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;이 연산은 닫혀있으면서 associative이고, 항등원이 잘 작동하고 역원이 언제나 존재하므로 $G$는 군이고, 사실 Klein 4 군과 동형이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.</summary></entry><entry><title type="html">유리수의 조밀성</title><link href="http://localhost:4000/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/" rel="alternate" type="text/html" title="유리수의 조밀성" /><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1</id><content type="html" xml:base="http://localhost:4000/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/">&lt;p&gt;임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.&lt;/p&gt;
+&lt;p&gt;이 연산은 닫혀있으면서 associative이고, 항등원이 잘 작동하고 역원이 언제나 존재하므로 $G$는 군이고, 사실 Klein 4 군과 동형이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.</summary></entry><entry><title type="html">유리수의 조밀성</title><link href="https://3-24.github.io/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/" rel="alternate" type="text/html" title="유리수의 조밀성" /><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><id>https://3-24.github.io/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1</id><content type="html" xml:base="https://3-24.github.io/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/">&lt;p&gt;임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;실수와-cut&quot;&gt;실수와 cut&lt;/h2&gt;
 
@@ -227,7 +231,7 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
 
 &lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
 
-&lt;p&gt;이 내용을 더 공부하고 싶다면 Walter Rudin의 Principle of Mathematical Analysis 1단원을 읽어보세요. 불친절하지만 많은 내용을 담고 있는 유명한 해석학 책입니다. 여기서 정의한 cut이 어떻게 실수가 되는지 더 자세하게 알 수 있을 거에요.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.</summary></entry><entry><title type="html">Python을 이용한 백준 소스 제출 봇 제작기</title><link href="http://localhost:4000/BOJ-submit-bot/" rel="alternate" type="text/html" title="Python을 이용한 백준 소스 제출 봇 제작기" /><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><id>http://localhost:4000/BOJ-submit-bot</id><content type="html" xml:base="http://localhost:4000/BOJ-submit-bot/">&lt;!-- toc --&gt;
+&lt;p&gt;이 내용을 더 공부하고 싶다면 Walter Rudin의 Principle of Mathematical Analysis 1단원을 읽어보세요. 불친절하지만 많은 내용을 담고 있는 유명한 해석학 책입니다. 여기서 정의한 cut이 어떻게 실수가 되는지 더 자세하게 알 수 있을 거에요.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.</summary></entry><entry><title type="html">Python을 이용한 백준 소스 제출 봇 제작기</title><link href="https://3-24.github.io/BOJ-submit-bot/" rel="alternate" type="text/html" title="Python을 이용한 백준 소스 제출 봇 제작기" /><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><id>https://3-24.github.io/BOJ-submit-bot</id><content type="html" xml:base="https://3-24.github.io/BOJ-submit-bot/">&lt;!-- toc --&gt;
 
 &lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
 
@@ -248,7 +252,7 @@ pip install bs4
 &lt;p&gt;백준의 로그인은 가장 기본적인 형태입니다. Fiddler를 띄우고 백준 로그인을 해보면 다음과 같은 정보를 확인할 수 있습니다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/fiddler01.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/fiddler01.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 1. 로그인 리퀘스트&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -270,7 +274,7 @@ pip install bs4
 &lt;p&gt;로그인이 제대로 되었는지를 확인하려면 로그인하기 전과 후에 생기는 차이를 검사해야겠죠? 백준의 경우 쿠키에 로그인 정보가 기록이 되지 않기 때문에 사이트에서 직접 찾아야 합니다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome01.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome01.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 2. 로그인 후 페이지 소스&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -354,12 +358,12 @@ pip install bs4
 &lt;p&gt;소스를 제출할 때 패킷을 확인해볼까요?&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome03.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome03.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 3. 소스 제출 화면&lt;/figcaption&gt;
 &lt;/div&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/fiddler02.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/fiddler02.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 4. 소스 제출 리퀘스트&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -370,7 +374,7 @@ pip install bs4
 &lt;p&gt;여기 좋은 설명이 있는 것 같아서 대체합니다. 소스 제출의 부정사용 방지로 보이네요. 그러니까 이 글의 링크 중 하나에 백준에 틀린 소스를 제출하는 것을 심어놓으면 여러분의 백준 정답률을 떨구는 효과를 기대할 수 있습니다(!!). 그런거 막아주는 거에요.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome02.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome02.png&quot; width=&quot;100%&quot; /&gt;
 &lt;figcaption&gt; Figure 5. csrf_key의 발견&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -527,7 +531,7 @@ pip install bs4
 &lt;p&gt;먼저 제출하고 채점을 기다릴 때를 확인해보았습니다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome04.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome04.png&quot; width=&quot;80%&quot; /&gt;
 &lt;figcaption&gt; Figure 6. 채점을 기다리는 중&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -541,7 +545,7 @@ pip install bs4
 &lt;p&gt;채점 중일 때는 다음과 같습니다:&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome06.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome06.png&quot; width=&quot;80%&quot; /&gt;
 &lt;figcaption&gt; Figure 7. 채점 중&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -553,7 +557,7 @@ pip install bs4
 &lt;p&gt;채점이 완료되었을 때는 어떨까요?&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/chrome05.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/chrome05.png&quot; width=&quot;80%&quot; /&gt;
 &lt;figcaption&gt; Figure 8. 채점 완료!&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -634,7 +638,7 @@ pip install bs4
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;지금까지 작성한 코드 전문입니다. 저는 이를 이용해 github 자동 저장이나, 운에 의지해야 하는 일부 문제들에 접근하려고 합니다. 많은 분에게 도움이 되었으면 좋겠네요.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">Knuth Optimization</title><link href="http://localhost:4000/Knuth/" rel="alternate" type="text/html" title="Knuth Optimization" /><published>2019-01-15T00:00:00+09:00</published><updated>2019-01-15T00:00:00+09:00</updated><id>http://localhost:4000/Knuth</id><content type="html" xml:base="http://localhost:4000/Knuth/">&lt;p&gt;주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.&lt;/p&gt;
+&lt;p&gt;지금까지 작성한 코드 전문입니다. 저는 이를 이용해 github 자동 저장이나, 운에 의지해야 하는 일부 문제들에 접근하려고 합니다. 많은 분에게 도움이 되었으면 좋겠네요.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">Knuth Optimization</title><link href="https://3-24.github.io/Knuth/" rel="alternate" type="text/html" title="Knuth Optimization" /><published>2019-01-15T00:00:00+09:00</published><updated>2019-01-15T00:00:00+09:00</updated><id>https://3-24.github.io/Knuth</id><content type="html" xml:base="https://3-24.github.io/Knuth/">&lt;p&gt;주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 d_{i,j} = \begin{cases} a_{i.j} &amp; \text{if } i=j \\ \min \left\{  k \in \{ i , i+1,  \cdots , j-1 \} : d_{i,k} + d_{k+1,j} + a_{i,j}\right\} &amp; \text{if } i&lt;j\end{cases} %]]&gt;&lt;/script&gt;
@@ -693,7 +697,7 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{aligned} \sum _{i=1} ^{N-l} (k_{i+1,j} - k_{i,j-1} +1) &amp;= \sum _{i=1} ^{N-l} (k_{i+1,i+l} - k_{i,i+l-1} +1) \\&amp;= \sum _{i=2 } ^{N-l+1} k_{i,i+l-1} - \sum _{i=1 }^{N-l} k_{i,i+l-1} + N-l \\ &amp;= k_{N-l+1,N} - k_{i,l} + N-l &lt; 2N\end{aligned} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;이기 때문이에요. 이런 방식의 동적 계획법 최적화를 Knuth 최적화라고 합니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.</summary></entry><entry><title type="html">Codeforces Round #532 (Div. 2) 후기</title><link href="http://localhost:4000/CF-Round-532-DIv-2/" rel="alternate" type="text/html" title="Codeforces Round #532 (Div. 2) 후기" /><published>2019-01-14T00:00:00+09:00</published><updated>2019-01-14T00:00:00+09:00</updated><id>http://localhost:4000/CF-Round-532-DIv-2</id><content type="html" xml:base="http://localhost:4000/CF-Round-532-DIv-2/">&lt;h2 id=&quot;1-roman-and-browser&quot;&gt;1. Roman and Browser&lt;/h2&gt;
+&lt;p&gt;이기 때문이에요. 이런 방식의 동적 계획법 최적화를 Knuth 최적화라고 합니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.</summary></entry><entry><title type="html">Codeforces Round #532 (Div. 2) 후기</title><link href="https://3-24.github.io/CF-Round-532-DIv-2/" rel="alternate" type="text/html" title="Codeforces Round #532 (Div. 2) 후기" /><published>2019-01-14T00:00:00+09:00</published><updated>2019-01-14T00:00:00+09:00</updated><id>https://3-24.github.io/CF-Round-532-DIv-2</id><content type="html" xml:base="https://3-24.github.io/CF-Round-532-DIv-2/">&lt;h2 id=&quot;1-roman-and-browser&quot;&gt;1. Roman and Browser&lt;/h2&gt;
 
 &lt;p&gt;https://codeforces.com/contest/1100/problem/A&lt;/p&gt;
 
@@ -813,7 +817,7 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 
 &lt;h2 id=&quot;마무리&quot;&gt;마무리&lt;/h2&gt;
 
-&lt;p&gt;2번에서 너무 오래 걸리고 감점도 받아서 레이팅 -26당했습니다. 분발해야겠네요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Roman and Browser</summary></entry><entry><title type="html">Codeforces Round #531 (Div. 3) 후기</title><link href="http://localhost:4000/CF-Round-531-DIv-3/" rel="alternate" type="text/html" title="Codeforces Round #531 (Div. 3) 후기" /><published>2019-01-11T00:00:00+09:00</published><updated>2019-01-11T00:00:00+09:00</updated><id>http://localhost:4000/CF-Round-531-DIv-3</id><content type="html" xml:base="http://localhost:4000/CF-Round-531-DIv-3/">&lt;h2 id=&quot;1-integer-sequence-dividing&quot;&gt;1. Integer Sequence Dividing&lt;/h2&gt;
+&lt;p&gt;2번에서 너무 오래 걸리고 감점도 받아서 레이팅 -26당했습니다. 분발해야겠네요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Roman and Browser</summary></entry><entry><title type="html">Codeforces Round #531 (Div. 3) 후기</title><link href="https://3-24.github.io/CF-Round-531-DIv-3/" rel="alternate" type="text/html" title="Codeforces Round #531 (Div. 3) 후기" /><published>2019-01-11T00:00:00+09:00</published><updated>2019-01-11T00:00:00+09:00</updated><id>https://3-24.github.io/CF-Round-531-DIv-3</id><content type="html" xml:base="https://3-24.github.io/CF-Round-531-DIv-3/">&lt;h2 id=&quot;1-integer-sequence-dividing&quot;&gt;1. Integer Sequence Dividing&lt;/h2&gt;
 
 &lt;p&gt;https://codeforces.com/contest/1102/problem/A&lt;/p&gt;
 
@@ -1060,11 +1064,11 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 
 &lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
 
-&lt;p&gt;문제 독해력과 c++ 코드 구현력이 많이 부족함을 느꼈습니다. 둘 다 많이 풀다보면 나아질 부분으로 보입니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Integer Sequence Dividing</summary></entry><entry><title type="html">카탈란 수-대각선을 넘지 않는 경우의 수</title><link href="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/" rel="alternate" type="text/html" title="카탈란 수-대각선을 넘지 않는 경우의 수" /><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><id>http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+&lt;p&gt;문제 독해력과 c++ 코드 구현력이 많이 부족함을 느꼈습니다. 둘 다 많이 풀다보면 나아질 부분으로 보입니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Integer Sequence Dividing</summary></entry><entry><title type="html">카탈란 수-대각선을 넘지 않는 경우의 수</title><link href="https://3-24.github.io/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/" rel="alternate" type="text/html" title="카탈란 수-대각선을 넘지 않는 경우의 수" /><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><id>https://3-24.github.io/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98</id><content type="html" xml:base="https://3-24.github.io/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
 &lt;p&gt;$n \times n$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 오른쪽이나 위로 가는 이동만으로 이루어진 경로를 생각하자. 이 때 왼쪽 아래와 오른쪽 위 모서리를 연결한 대각선 위로 올라가지 않는 경로는 몇 개나 있을까?&lt;/p&gt;
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan03.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/catalan03.png&quot; width=&quot;50%&quot; /&gt;
 &lt;figcaption&gt; Figure 1. 대각선을 넘지 않는 경로의 예&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -1087,7 +1091,7 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 &lt;p&gt;2.1의 문제로 이 문제를 바꿀 것입니다. 핵심 아이디어는 다음과 같습니다:&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan04.png&quot; width=&quot;70%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/catalan04.png&quot; width=&quot;70%&quot; /&gt;
 &lt;figcaption&gt; Figure 2. 경로의 대응변형&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -1106,7 +1110,7 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 &lt;h2 id=&quot;점화식&quot;&gt;점화식&lt;/h2&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan05.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/catalan05.png&quot; width=&quot;50%&quot; /&gt;
 &lt;figcaption&gt; Figure 3. 경로의 분할&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -1115,7 +1119,7 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 &lt;p&gt;이제 $(0,0)$에서 $(3,3)$으로 가는 대각선과 만나지 않는 경로들을 세야 하는데, 아래 그림을 보면 역시 이미 풀었던 문제라는 것을 알 수 있습니다. 처음에 $\Rightarrow$로, 마지막에도 $\Uparrow$로 행동이 강제되는데, 그러고 남은 문제는 $2 \times 2$의 문제, 즉 $C_2$입니다.&lt;/p&gt;
 
 &lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan06.png&quot; width=&quot;20%&quot; /&gt;
+&lt;img src=&quot;https://3-24.github.io/assets/img/catalan06.png&quot; width=&quot;20%&quot; /&gt;
 &lt;figcaption&gt; Figure 4. 분할된 경로의 강제성&lt;/figcaption&gt;
 &lt;/div&gt;
 
