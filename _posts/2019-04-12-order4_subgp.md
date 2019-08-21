@@ -1,8 +1,12 @@
 ---
 use_math: true
-layout: posts
+layout: single
 classes: wide
 title: 크기 4인 군의 분류
+categories:
+- 수학
+tags:
+- 군
 ---
 
 

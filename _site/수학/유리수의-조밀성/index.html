@@ -1,0 +1,643 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>유리수의 조밀성 - 푹신푹신 후와후와</title>
+<meta name="description" content="임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.">
+
+
+  <meta name="author" content="Youngseok Choe">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="푹신푹신 후와후와">
+<meta property="og:title" content="유리수의 조밀성">
+<meta property="og:url" content="http://localhost:4000/%EC%88%98%ED%95%99/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/">
+
+
+  <meta property="og:description" content="임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-03-24T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%EC%88%98%ED%95%99/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Youngseok Choe",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="푹신푹신 후와후와 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    
+     <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          푹신푹신 후와후와
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Youngseok Choe</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>KAIST SoF 19’</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/3-24" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dev.youngseok@gmail.com">
+            <meta itemprop="email" content="dev.youngseok@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="유리수의 조밀성">
+    <meta itemprop="description" content="임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.">
+    <meta itemprop="datePublished" content="March 24, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">유리수의 조밀성
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.</p>
+
+<h2 id="실수와-cut">실수와 cut</h2>
+
+<p>실수는 cut의 집합으로 정의할 수 있습니다. 그리고 이 cut은 사실 어떤 유리수의 집합인데, 다음 성질들을 만족해야 해요:</p>
+
+<p>$\alpha \subset \mathbb{Q}$가 cut이려면</p>
+
+<ul>
+  <li>$\alpha \ne \mathbb{Q}$이고 $ \alpha \ne \emptyset $이다.</li>
+  <li>모든 $x \in \alpha$에 대하여 유리수 $ y &lt; x $일 때 $ y \in \alpha $이다.</li>
+  <li>모든 $x \in \alpha$에 대하여 $x&lt;y$ 인 $y \in \alpha$가 존재함</li>
+</ul>
+
+<p>즉 이렇게 $- \infty$부터 어떤 수까지 (열린) 범위를 cut이라고 정했어요. 그리고 이런 cut들을 다 모아놓으면 실수가 되는 것이죠. 연산도 수학자들이 잘 정의해서 우리가 아는 사칙연산이 모두 정상적으로 작동합니다.</p>
+
+<p>순서 관계는 어떨까요? cut의 포함 관계를 이용해서 정의하면 우리가 아는 일반적인 순서 관계의 성질을 그대로 만족합니다. 즉, $\alpha \subseteq \beta$ 이면 그냥 $\alpha \le \beta$라고 해버리는 거에요.</p>
+
+<script type="math/tex; mode=display">\alpha \le \beta \quad \text{if} \quad \alpha \subseteq \beta</script>
+
+<h2 id="실수-안의-유리수">실수 안의 유리수</h2>
+
+<p>눈치가 빠르면 사실 $\mathbb{Q} \not\subset \mathbb{R}$  임을 확인했을 거에요. 왜냐하면 cut이 $\mathbb{Q}$의 부분집합이었기 때문이죠. 그런데 유리수라는 개념은 실수에서도 중요한 역할을 합니다. 그래서 수학자들은 엄밀하게 실수 위에서 유리수를 따로 정의했어요.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\mathrm{For} \; q \in \mathbb{Q}, \quad q^\ast := \{ x \in \mathbb{Q} : x < q \}​ %]]></script>
+
+<p>그러면 $q^\ast$는 cut이에요. 증명은 쉬우니까 넘어갈게요. 이렇게 생긴 애들을 싹 모아서</p>
+
+<script type="math/tex; mode=display">\mathbb{Q}^\ast := \{q^\ast \in \mathbb{R} : q \in \mathbb{Q} \}</script>
+
+<p>이렇게 모아놓으면 이 $\mathbb{Q}^\ast \subseteq \mathbb{R} $은 원래 알던 유리수의 성질을 그대로 만족합니다. 앞으로도  $\mathbb{Q}$와 $\mathbb{Q} ^\ast$를 구별해서 사용한다는 점 유의해주세요.</p>
+
+<h2 id="실수-사이의-유리수">실수 사이의 유리수</h2>
+
+<p>이야기가 길어졌네요. ‘주어진 서로 다른 두 실수 사이에 유리수가 존재할까?’는 실수의 정의로부터 확인됩니다.</p>
+
+<p>서로 다른 실수 $\alpha, \beta $가 주어졌으면 순서 관계의 정의에 의해 $\alpha \subset \beta$입니다. 그러니까 $q \not\in \alpha$이고 $q \in \beta$인 유리수 $q\in \mathbb{Q}$가 존재한다는 거에요. 이런 $q$에 대해 $q^\ast \in \mathbb{Q}^\ast$를 생각해보면,</p>
+
+<p>$q \notin \alpha$이기 때문에 모든 $a \in \alpha$에 대해 $a &lt; q$이므로 $\alpha \subseteq q^ \ast $입니다.  만약 $ a \not&lt; q$였다면 cut의 두 번째 조건에 의해서 모순이었겠죠?</p>
+
+<p>또, $q \in \beta$이므로 $q$보다 작은 모든 유리수가 cut의 두 번째 조건에 의해 $\beta$에 들어갑니다. 따라서 $q^\ast \subset \beta$이죠. $q^\ast \ne \beta$인 이유는 $q \not\in q^\ast$이지만 $q \in \beta$이기 때문입니다.</p>
+
+<p>우리는 따라서 $\alpha \subseteq q^\ast \subset \beta$를 얻어냈습니다. 하지만 ‘사이’라는 것을 보이기에는 부족하죠. $q^\ast = \alpha$이면 어떡하죠?</p>
+
+<p>저도 쓰다가 당황했는데요, 그래도 상관 없는게 $\alpha &lt; (\alpha + \beta) / 2 $를 잘 이용하면 되요. 그러니까 $\alpha, \beta$대신 $\frac {\alpha + \beta} 2 , \beta$에서 위 과정을 반복하면 또 $\frac {\alpha + \beta} 2 \subseteq p^\ast \subset \beta$를 만족하는 유리수 $p ^ \ast \in \mathbb{Q}^\ast $가 존재하기 때문에 $\alpha \subset p^\ast \subset \beta $입니다.</p>
+
+<h2 id="마치며">마치며</h2>
+
+<p>이 내용을 더 공부하고 싶다면 Walter Rudin의 Principle of Mathematical Analysis 1단원을 읽어보세요. 불친절하지만 많은 내용을 담고 있는 유명한 해석학 책입니다. 여기서 정의한 cut이 어떻게 실수가 되는지 더 자세하게 알 수 있을 거에요.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#%EC%8B%A4%EC%88%98" class="page__taxonomy-item" rel="tag">실수</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#%EC%9C%A0%EB%A6%AC%EC%88%98" class="page__taxonomy-item" rel="tag">유리수</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#%ED%95%B4%EC%84%9D%ED%95%99" class="page__taxonomy-item" rel="tag">해석학</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#%EC%88%98%ED%95%99" class="page__taxonomy-item" rel="tag">수학</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-03-24T00:00:00+09:00">March 24, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98+%EC%A1%B0%EB%B0%80%EC%84%B1%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%259C%25A0%25EB%25A6%25AC%25EC%2588%2598%25EC%259D%2598-%25EC%25A1%25B0%25EB%25B0%2580%25EC%2584%25B1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%259C%25A0%25EB%25A6%25AC%25EC%2588%2598%25EC%259D%2598-%25EC%25A1%25B0%25EB%25B0%2580%25EC%2584%25B1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%259C%25A0%25EB%25A6%25AC%25EC%2588%2598%25EC%259D%2598-%25EC%25A1%25B0%25EB%25B0%2580%25EC%2584%25B1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/BOJ-submit-bot/" class="pagination--pager" title="Python을 이용한 백준 소스 제출 봇 제작기
+">Previous</a>
+    
+    
+      <a href="/%EC%88%98%ED%95%99/order4_subgp/" class="pagination--pager" title="크기 4인 군의 분류
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/" rel="permalink">RSA
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/opa/" rel="permalink">Oracle Padding Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">환경
+CBC
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%88%98%ED%95%99/order4_subgp/" rel="permalink">크기 4인 군의 분류
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BOJ-submit-bot/" rel="permalink">Python을 이용한 백준 소스 제출 봇 제작기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Requirements
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Youngseok Choe. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
