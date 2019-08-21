@@ -49,7 +49,13 @@
 <lastmod>2019-08-21T21:14:30+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/categories/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tags/%EC%9D%B4%EB%B6%84%EA%B7%B8%EB%9E%98%ED%94%84/</loc>
