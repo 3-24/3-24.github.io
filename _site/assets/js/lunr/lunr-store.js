@@ -53,4 +53,9 @@ var store = [{
         "excerpt":"RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다. 키 형성 두 소수 $p,q$를 골라서 $n=pq$로 놓는다. $e$를 $\\gcd ( \\phi (n), e) = 1$이 되도록 뽑는다. $\\phi$는 오일러 totient 함수이다. $d =...","categories": ["정보보안","암호학"],
         "tags": ["RSA"],
         "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/",
+        "teaser":null},{
+        "title": "타원 곡선 암호 읽을거리",
+        "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   여려가지 문서를 찾아봤지만 타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 부드럽고 정확합니다. 저자의 노력과 필력에 감탄하며 이 글을 남깁니다.  ","categories": ["암호학","정보보안"],
+        "tags": ["ECC","타원 곡선","공유"],
+        "url": "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/",
         "teaser":null}]
