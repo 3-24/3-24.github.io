@@ -58,4 +58,9 @@ var store = [{
         "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   여려가지 문서를 찾아봤지만 타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 부드럽고 정확합니다. 저자의 노력과 필력에 감탄하며 이 글을 남깁니다.  ","categories": ["암호학","정보보안"],
         "tags": ["ECC","타원 곡선","공유"],
         "url": "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/",
+        "teaser":null},{
+        "title": "무제",
+        "excerpt":"1. Workaholic 나는 워커홀릭 기질이 있어 보인다. 개강과 함께 사람들을 만나고 중단했던 동아리 활동을 다시 시작하면서 할 일이 많아져서 아직은(?) 하루를 활기차게 보내고 있다. 그러고도 할 일을 더 찾아내서 얹으면서 희열을 느낀다. 특히 올해 해킹 공부를 시작하면서 알고리즘적 문제해결이나 작은 개발 프로젝트만 하던 때와는 새삼 다르게 컴퓨터를 바라보는 시야가 넓어져가는...","categories": ["일상"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%9D%BC%EC%83%81/190903/",
         "teaser":null}]

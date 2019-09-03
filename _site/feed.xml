@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-29T23:26:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">타원 곡선 암호 읽을거리</title><link href="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/" rel="alternate" type="text/html" title="타원 곡선 암호 읽을거리" /><published>2019-08-29T00:00:00+09:00</published><updated>2019-08-29T00:00:00+09:00</updated><id>http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC</id><content type="html" xml:base="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">&lt;p&gt;&lt;a href=&quot;https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/&quot;&gt;https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-03T20:49:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">무제</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/190903/" rel="alternate" type="text/html" title="무제" /><published>2019-09-03T00:00:00+09:00</published><updated>2019-09-03T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/190903</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/190903/">&lt;h2 id=&quot;1-workaholic&quot;&gt;1. Workaholic&lt;/h2&gt;
+
+&lt;p&gt;나는 워커홀릭 기질이 있어 보인다. 개강과 함께 사람들을 만나고 중단했던 동아리 활동을 다시 시작하면서 할 일이 많아져서 아직은(?) 하루를 활기차게 보내고 있다. 그러고도 할 일을 더 찾아내서 얹으면서 희열을 느낀다. 특히 올해 해킹 공부를 시작하면서 알고리즘적 문제해결이나 작은 개발 프로젝트만 하던 때와는 새삼 다르게 컴퓨터를 바라보는 시야가 넓어져가는 것 같다. 복잡한 고민들 속에서 내가 집중적으로 하거나 할 예정인 일을 정리해보았다:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;암호학 문제 풀이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;최근에 풀고있는 정보보안 암호학 문제셋이 있다. 풀이랑 관련 글은 모두 &lt;a href=&quot;https://github.com/3-24/id0-rsa.pub&quot;&gt;https://github.com/3-24/id0-rsa.pub&lt;/a&gt;를 통해 관리되고 있다. 아직은 쉽지만 수학적인 내용이 많아서 해킹 분야중에 현재 가장 애착이 간다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;현대대수 리뷰&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;암호학에서 현대대수에서 배온 내용이 가끔씩 나온다. 군론 앞부분은 자신있지만 뒷부분은 지난 학기에 수강했을 때 놓친 부분이 많아서(기말고사 ㅠㅠ) 다시 살펴봐야한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;역공학(reversing), pwn 분야&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;역공학은 관련된 문제를 아직 안풀어봐서 감이 안잡히지만 실행 파일을 읽어서 사람이 이해할 수 있는 소스 코드로 복원하는 과정이고, pwn은 그 소스코드에서 취약점을 찾아내서 공격하는 과정이다. 해킹의 한 분야로 자리잡고 있다. 낮은 레벨의 컴퓨터의 연산 처리가 어떻게 이루어지는지 볼 수 있어서 흥미롭다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TOEFL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;해야 하지만 언제나 우선순위에서 미뤄놓고 안하는 그것. 졸업 요건 채우기, 영어 과목 이수 면제 등 ‘하야 하는 것’이지만 나는 ‘하고 싶은 것’을 언제나 먼저 해왔기 때문에 현재 하고 있지는 않다. 학교에서 열어주는 어학 강의나 시험삼아 들어볼려고 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-최적화&quot;&gt;2. 최적화&lt;/h2&gt;
+
+&lt;p&gt;암호 문제를 풀거나 역공학 문서를 볼 때 멍때리는 시간이 대부분이지만 최적화하기는 힘들어보인다. 예컨대 문제를 풀 때도 처음부터 어떤 개념이 사용되었는지 모르는 경우도 있고, 알더라도 해결하는 과정이 매 단계마다 에러가 나기 때문에 의욕을 유지하기 쉽지 않다. 어떻게든 이런 하이 텐션을 유지하는게 최적화의 핵심으로 보인다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-시간-관리&quot;&gt;3. 시간 관리&lt;/h2&gt;
+
+&lt;p&gt;어떻게든 알고리즘적 문제해결 대회 준비를 할 시간을 넣어보고 싶지만 거기까지는 욕심인 것 같아 포기했다. 대회가 임박하면 팀 연습도 많이 해봐야 할텐데, 시간표도 절대 가볍지는 않기 때문에 도저히 책임을 지고 감당할 자신이 없다. 가끔 관련 글들을 관심을 가지고 읽어보는 걸로 만족해야 할 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-블로그에-관한-생각&quot;&gt;4. 블로그에 관한 생각&lt;/h2&gt;
+
+&lt;p&gt;블로그에 글을 못쓰는 만큼 ‘쓰는 의미가 있는 주제’을 물색하고 있다. ‘기본적인 개념은 검색하면 다른 문서에도 잘 적혀있는데, 굳이 내가 써야하나?’ 라는 고민을 계속 한다. 그 중에 내 생긱을 가장 쉽게 담을 수 있는 것은 이런 진지한 일상글이기도 하고.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Workaholic</summary></entry><entry><title type="html">타원 곡선 암호 읽을거리</title><link href="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/" rel="alternate" type="text/html" title="타원 곡선 암호 읽을거리" /><published>2019-08-29T00:00:00+09:00</published><updated>2019-08-29T00:00:00+09:00</updated><id>http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC</id><content type="html" xml:base="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">&lt;p&gt;&lt;a href=&quot;https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/&quot;&gt;https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;여려가지 문서를 찾아봤지만 타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 부드럽고 정확합니다. 저자의 노력과 필력에 감탄하며 이 글을 남깁니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="ECC" /><category term="타원 곡선" /><category term="공유" /><summary type="html">https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/</summary></entry><entry><title type="html">RSA</title><link href="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/" rel="alternate" type="text/html" title="RSA" /><published>2019-04-19T00:00:00+09:00</published><updated>2019-04-19T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA</id><content type="html" xml:base="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/">&lt;p&gt;RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다.&lt;/p&gt;
 
@@ -1056,67 +1094,4 @@ k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} 
 
 &lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
 
-&lt;p&gt;문제 독해력과 c++ 코드 구현력이 많이 부족함을 느꼈습니다. 둘 다 많이 풀다보면 나아질 부분으로 보입니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Integer Sequence Dividing</summary></entry><entry><title type="html">카탈란 수-대각선을 넘지 않는 경우의 수</title><link href="http://localhost:4000/%EC%88%98%ED%95%99/%EC%A1%B0%ED%95%A9%EB%A1%A0/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/" rel="alternate" type="text/html" title="카탈란 수-대각선을 넘지 않는 경우의 수" /><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%98%ED%95%99/%EC%A1%B0%ED%95%A9%EB%A1%A0/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98</id><content type="html" xml:base="http://localhost:4000/%EC%88%98%ED%95%99/%EC%A1%B0%ED%95%A9%EB%A1%A0/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;p&gt;$n \times n$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 오른쪽이나 위로 가는 이동만으로 이루어진 경로를 생각하자. 이 때 왼쪽 아래와 오른쪽 위 모서리를 연결한 대각선 위로 올라가지 않는 경로는 몇 개나 있을까?&lt;/p&gt;
-&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan03.png&quot; width=&quot;50%&quot; /&gt;
-&lt;figcaption&gt; Figure 1. 대각선을 넘지 않는 경로의 예&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;이 조건을 만족하는 경우의 수를 카탈란 수라고 하고, $C_n$으로 적습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;일반항&quot;&gt;일반항&lt;/h2&gt;
-
-&lt;p&gt;크게 두 단계에 걸쳐서 증명에 들어갑니다. 편의상 ‘오른쪽으로 이동’을 $\Rightarrow$, ‘위로 이동’을 $\Uparrow$로 앞으로 적겠습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;대각선-조건이-없을-때&quot;&gt;대각선 조건이 없을 때&lt;/h3&gt;
-
-&lt;p&gt;$n\times m$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 최단 경로의 개수는?&lt;/p&gt;
-
-&lt;p&gt;가로 길이가 $n$, 세로 길이가 $m$이기 때문에 왼쪽 아래 모서리에서 순서에 상관 없이 $\Rightarrow$을 $n$번, $\Uparrow$을 $m$번 했을 때 오른쪽 위 모서리에 도달하게 됩니다. 따라서 문제에서 묻는 최단 경로의 개수 $D_{n,m}$는 다음과 같습니다.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}&lt;/script&gt;
-
-&lt;h3 id=&quot;대각선-조건이-있을-때&quot;&gt;대각선 조건이 있을 때&lt;/h3&gt;
-
-&lt;p&gt;2.1의 문제로 이 문제를 바꿀 것입니다. 핵심 아이디어는 다음과 같습니다:&lt;/p&gt;
-
-&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan04.png&quot; width=&quot;70%&quot; /&gt;
-&lt;figcaption&gt; Figure 2. 경로의 대응변형&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;대각선을 넘어가는 경로를 생각합니다. 이 때, 대각선을 최초로 넘어간 이후의 경로를 대칭시켜버리면, $n-1 \times n+1$의 격자에서 경로를 얻을 수 있습니다. 즉, &lt;strong&gt;문제의 조건을 위배하는 경로는 $n-1 \times n+1$ 격자의 경로에 대응&lt;/strong&gt;됩니다.&lt;/p&gt;
-
-&lt;p&gt;그런데 그림의 $n-1 \times n+1$에 남아 있는 대각선을 살펴보면, &lt;strong&gt;모든 $n-1 \times n+1$경로가 대각선을 지나갈 수밖에 없습니다.&lt;/strong&gt;  즉, 반대로 $n-1 \times n+1$ 경로를 문제를 만족하지 않는 $n \times n$ 경로에 대응할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;따라서 문제의 조건을 위배하는 경로의 개수는 $D_{n-1,n+1}$입니다.&lt;/p&gt;
-
-&lt;p&gt;이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}&lt;/script&gt;
-
-&lt;p&gt;이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;점화식&quot;&gt;점화식&lt;/h2&gt;
-
-&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan05.png&quot; width=&quot;50%&quot; /&gt;
-&lt;figcaption&gt; Figure 3. 경로의 분할&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;처음으로 대각선과 만나는 좌표를 중심으로 생각을 전개하면 쉽습니다. 위 그림의 경우에는 $(3,3)$에서 만나는데, 그 이후로 $(3,3)$에서 $(8,8)$로 가는 대각선을 넘지 않는 경로를 세주면 되고, 그 경우의 수는 $C_5$입니다. (대각선을 만나지 않고 끝점에 도달했더라도, 그 끝점을 대각선과 만난 점으로 생각하면 됩니다)&lt;/p&gt;
-
-&lt;p&gt;이제 $(0,0)$에서 $(3,3)$으로 가는 대각선과 만나지 않는 경로들을 세야 하는데, 아래 그림을 보면 역시 이미 풀었던 문제라는 것을 알 수 있습니다. 처음에 $\Rightarrow$로, 마지막에도 $\Uparrow$로 행동이 강제되는데, 그러고 남은 문제는 $2 \times 2$의 문제, 즉 $C_2$입니다.&lt;/p&gt;
-
-&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/catalan06.png&quot; width=&quot;20%&quot; /&gt;
-&lt;figcaption&gt; Figure 4. 분할된 경로의 강제성&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;이 셈을 $(1,1)$에서 $(8,8)$까지 모두 해서 더하면 점화식을 얻을 수 있습니다. 일반적으로 접근하면 다음과 같은 식을 쉽게 쓸 수 있습니다.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}&lt;/script&gt;
-
-&lt;p&gt;그리고 이 점화식의 시작인 $C_0 = 1$도 같이 써주면 됩니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="카탈란" /><summary type="html">문제</summary></entry></feed>
+&lt;p&gt;문제 독해력과 c++ 코드 구현력이 많이 부족함을 느꼈습니다. 둘 다 많이 풀다보면 나아질 부분으로 보입니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. Integer Sequence Dividing</summary></entry></feed>
