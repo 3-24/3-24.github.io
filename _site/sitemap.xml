@@ -49,6 +49,10 @@
 <lastmod>2019-08-29T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/%EC%9D%BC%EC%83%81/190903/</loc>
+<lastmod>2019-09-03T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 <lastmod>2019-08-30T07:50:30+09:00</lastmod>
 </url>
@@ -133,6 +137,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/categories/%EC%95%94%ED%98%B8%ED%95%99/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/%EC%9D%BC%EC%83%81/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
