@@ -55,7 +55,7 @@ var store = [{
         "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/",
         "teaser":null},{
         "title": "타원 곡선 암호 읽을거리",
-        "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   여려가지 문서를 찾아봤지만 타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 부드럽고 정확합니다. 저자의 노력과 필력에 감탄하며 이 글을 남깁니다.  ","categories": ["암호학","정보보안"],
+        "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!  ","categories": ["암호학","정보보안"],
         "tags": ["ECC","타원 곡선","공유"],
         "url": "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/",
         "teaser":null},{
@@ -63,4 +63,9 @@ var store = [{
         "excerpt":"1. Workaholic 나는 워커홀릭 기질이 있어 보인다. 개강과 함께 사람들을 만나고 중단했던 동아리 활동을 다시 시작하면서 할 일이 많아져서 아직은(?) 하루를 활기차게 보내고 있다. 그러고도 할 일을 더 찾아내서 얹으면서 희열을 느낀다. 특히 올해 해킹 공부를 시작하면서 알고리즘적 문제해결이나 작은 개발 프로젝트만 하던 때와는 새삼 다르게 컴퓨터를 바라보는 시야가 넓어져가는...","categories": ["일상"],
         "tags": [],
         "url": "http://localhost:4000/%EC%9D%BC%EC%83%81/190903/",
+        "teaser":null},{
+        "title": "내가 확률을 싫어하는 이유",
+        "excerpt":"제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠. 확률도 물론 잘 정의됩니다. 유한 또는 가산의 표본 공간 $S$에서 확률 함수 $P:\\varphi(S) \\to [0,1]$는 다음과 같은 성질을 만족해야 해요: $P(A\\cup...","categories": ["수학","생각"],
+        "tags": ["확률"],
+        "url": "http://localhost:4000/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/",
         "teaser":null}]
