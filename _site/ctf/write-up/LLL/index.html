@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>내가 확률을 싫어하는 이유 - 푹신푹신 후와후와</title>
-<meta name="description" content="제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠.">
+<!-- begin _includes/seo.html --><title>poka2019 writeup 1 - Lenstra-Lenstra-Lovász - 푹신푹신 후와후와</title>
+<meta name="description" content="  I am not good at Linear Algebra : (Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?Add) e=151. This is for make challenge easy.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="내가 확률을 싫어하는 이유">
-<meta property="og:url" content="http://localhost:4000/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/">
+<meta property="og:title" content="poka2019 writeup 1 - Lenstra-Lenstra-Lovász">
+<meta property="og:url" content="http://localhost:4000/ctf/write-up/LLL/">
 
 
-  <meta property="og:description" content="제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-09-15T00:00:00+09:00">
+  <meta property="og:description" content="  I am not good at Linear Algebra : (Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?Add) e=151. This is for make challenge easy.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-09-25T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/">
+
+<link rel="canonical" href="http://localhost:4000/ctf/write-up/LLL/">
 
 
 
@@ -130,7 +130,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -306,15 +306,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="내가 확률을 싫어하는 이유">
-    <meta itemprop="description" content="제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠.">
-    <meta itemprop="datePublished" content="September 15, 2019">
+    <meta itemprop="headline" content="poka2019 writeup 1 - Lenstra-Lenstra-Lovász">
+    <meta itemprop="description" content="  I am not good at Linear Algebra : (Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?Add) e=151. This is for make challenge easy.">
+    <meta itemprop="datePublished" content="September 25, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">내가 확률을 싫어하는 이유
+          <h1 id="page-title" class="page__title" itemprop="headline">poka2019 writeup 1 - Lenstra-Lenstra-Lovász
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -330,31 +330,110 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p>제가 수학을 좋아하는 이유는 <strong>공리</strong> 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 <strong>참/거짓/나머지 무언가(판별 불가능)</strong>가 명확하게 결정되었죠.</p>
-
-<p>확률도 물론 잘 정의됩니다. 유한 또는 가산의 표본 공간 $S$에서 확률 함수 $P:\varphi(S) \to [0,1]$는 다음과 같은 성질을 만족해야 해요:</p>
-
-<ul>
-  <li>$P(A\cup B ) = P(A) + P(B) \quad \text{for disjoint} \; A,B \subseteq S$</li>
-  <li>$P(\emptyset) = 0, \quad P(S) = 1$</li>
-</ul>
-
-<p>물론 일반적인 집합을 다 다루려면 측도론을 도입해야 하는데, 저도 잘 모르고 이 글에서는 중요하지 않으니까 넘어가겠습니다. 요점은 확률 함수는 표본 공간 위에서 <strong>수학적으로 잘 정의된다</strong>는 거에요!</p>
-
-<p>근데 제가 접해온 확률 문제는</p>
-
-<blockquote>
-  <p>주사위를 두 개 던질 때 합쳐서 12가 나올 확률은 얼마인가?</p>
+        <blockquote>
+  <p>I am not good at Linear Algebra : (
+Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?
+Add) e=151. This is for make challenge easy.</p>
 </blockquote>
 
-<p>인데, 여기에서는 어떤 확률 함수도, 표본 공간도 명확하게 제시되어 있지 않아요. 표본 공간이 2부터 12까지의 수들이라고 해도 확률 함수는 극단적으로 $Q:\{2,3,\cdots , 12 \}\to [0,1]$을 다음과 같이 잡아버려도 말이 되거든요:</p>
+<p><a href="https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/enc.txt">enc.txt</a></p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-Q(x) = \begin{cases} 1 & \text{if } x = \{12\} \\ 0 & \text{otherwise} \end{cases} %]]></script>
+<p><a href="https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz.sage">Lenstra-Lenstra-Lovász.sage</a></p>
 
-<p>그러면 $Q ( { 12 } ) = 1$이네요. 하지만 일반적으로는 모든 경우의 수를 생각하고 합이 12가 되는 경우의 비율을 따져 1/36이 답이라고 하잖아요? 그것은 문제에서 각 주사위에 대해 잘 근사하는 확률 분포인 균일 분포를 사용한다는 가정을 했기 때문이에요. 즉, 마치 과학처럼 처음부터 <strong>현실의 문제를 수학적으로 모델링하는 과정을 요구</strong>하는 거였던겁니다. 이런 생각을 자세히 안해보고 무작정 배우다가 의욕을 잃었던 것 같아요.</p>
+<h2 id="notations">Notations</h2>
 
-<p>한 마디 더: 예전에는 정보과학의 시간복잡도라는 개념을 거부할 정도로 순수한 수학 자체에 집착했는데 요즘은 많이 나아졌어요. 언젠가는 모델링도 친해질 수 있기를..!</p>
+<p>Before start, let’s make the notations clear.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">n</code> : RSA modulus</p>
+
+    <p><code class="highlighter-rouge">p,q</code> : two distinct prime factor of <code class="highlighter-rouge">n</code>.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">e</code> : RSA encryption exponent
+<code class="highlighter-rouge">d</code> : RSA decryption exponent</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">dp = d % (p-1)</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">bits</code> : bit length of <code class="highlighter-rouge">dp</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">shiftbits = bits//2 - bits//10</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">ct</code> : ciphertext</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">s,x</code> : <code class="highlighter-rouge">dp = s &lt;&lt; shiftbits + x</code>. i.e., <code class="highlighter-rouge">shiftbits</code>-length leaked <code class="highlighter-rouge">dp</code> is <code class="highlighter-rouge">s</code> and the remainder part is <code class="highlighter-rouge">x</code>.</p>
+  </li>
+</ul>
+
+<p>Given values are <code class="highlighter-rouge">n,e,ct,s</code>. Of course the objective is getting the plaintext of this RSA encryption.</p>
+
+<h2 id="modular-arithmetics">Modular Arithmetics</h2>
+
+<p>Since $ed \equiv 1 \mod ((p-1)(q-1)) $,</p>
+
+<script type="math/tex; mode=display">ed_p \equiv 1 \mod (p-1).</script>
+
+<p>Let $ed_p = 1 + (p-1)k $. Then</p>
+
+<script type="math/tex; mode=display">e(s \ll \texttt{shiftbits} + x ) = 1 + (p-1)k</script>
+
+<h2 id="range-for-bit-and-shiftbits">Range For <code class="highlighter-rouge">bit</code> and <code class="highlighter-rouge">shiftbits</code></h2>
+
+<p>We have bit-length of <code class="highlighter-rouge">secret</code> which is approximately 6/10 bit-length of <code class="highlighter-rouge">dp</code>, which was 614. Therefore <code class="highlighter-rouge">bits</code> is either 1023 or 1024.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">bits</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1010</span><span class="p">,</span><span class="mi">1030</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">bits</span> <span class="o">-</span> <span class="p">(</span><span class="n">bits</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">bits</span><span class="o">//</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+1018 610
+1019 611
+1020 612
+1021 613
+1022 613
+1023 614 (*)
+1024 614 (*)
+1025 615
+1026 615
+1027 616
+1028 616
+...
+</code></pre></div></div>
+
+<p>Also note that $ed_p = k (p-1)+1$ and $d_p &lt; p-1 $, so $k\le e=151$. So bound of <code class="highlighter-rouge">k</code> and bit-length of <code class="highlighter-rouge">dp</code> is reasonable.</p>
+
+<h2 id="polynomial-modulo-p">Polynomial Modulo <code class="highlighter-rouge">p</code></h2>
+
+<p>We now have appropriate range for <code class="highlighter-rouge">shiftbits</code> and <code class="highlighter-rouge">k</code> to solve</p>
+
+<script type="math/tex; mode=display">e(s \ll \texttt{shiftbits} + x ) -1 + k \equiv 0 \mod p</script>
+
+<p>I used <code class="highlighter-rouge">small_roots</code> in SageMath to use <strong>Coppersmith’s Method</strong> to solve above this.</p>
+
+<script type="math/tex; mode=display">s \ll \texttt{shiftbits} + x + (k-1) e^{-1} \equiv 0 \mod N</script>
+
+<p>Where $e^{-1}$ is modular inverse of $e$ respect to $N$.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">coppersmith</span><span class="p">(</span><span class="n">shiftbits</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">F</span><span class="o">.&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">Zmod</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">invE</span> <span class="o">=</span> <span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">shiftbits</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">invE</span>   <span class="c1"># make monic
+</span>    <span class="n">x0</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">small_roots</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="n">shiftbits</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.44</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x0</span>
+</code></pre></div></div>
+
+<p>Therefore we get<code class="highlighter-rouge">dp</code> and also <code class="highlighter-rouge">p</code> using $p = \frac {e d_p -1} k +1 $. By processing a simple RSA decryption, I could get a flag.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POKA{You_4r3_Crypt0_N00000B_XDD}
+</code></pre></div></div>
+
+<p><a href="https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/solve.sage">solve.sage</a> is the full code.</p>
 
         
       </section>
@@ -375,7 +454,27 @@ Q(x) = \begin{cases} 1 & \text{if } x = \{12\} \\ 0 & \text{otherwise} \end{case
     
       
       
-      <a href="/tags/#%ED%99%95%EB%A5%A0" class="page__taxonomy-item" rel="tag">확률</a>
+      <a href="/tags/#coppersmith" class="page__taxonomy-item" rel="tag">Coppersmith</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#crt" class="page__taxonomy-item" rel="tag">CRT</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#ctf" class="page__taxonomy-item" rel="tag">CTF</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#lll" class="page__taxonomy-item" rel="tag">LLL</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#rsa" class="page__taxonomy-item" rel="tag">RSA</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#write-up" class="page__taxonomy-item" rel="tag">write-up</a>
     
     </span>
   </p>
@@ -396,18 +495,18 @@ Q(x) = \begin{cases} 1 & \text{if } x = \{12\} \\ 0 & \text{otherwise} \end{case
     
       
       
-      <a href="/categories/#%EC%83%9D%EA%B0%81" class="page__taxonomy-item" rel="tag">생각</a><span class="sep">, </span>
+      <a href="/categories/#ctf" class="page__taxonomy-item" rel="tag">CTF</a><span class="sep">, </span>
     
       
       
-      <a href="/categories/#%EC%88%98%ED%95%99" class="page__taxonomy-item" rel="tag">수학</a>
+      <a href="/categories/#write-up" class="page__taxonomy-item" rel="tag">write-up</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-15T00:00:00+09:00">September 15, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-25T00:00:00+09:00">September 25, 2019</time></p>
         
       </footer>
 
@@ -416,22 +515,22 @@ Q(x) = \begin{cases} 1 & \text{if } x = \{12\} \\ 0 & \text{otherwise} \end{case
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EB%82%B4%EA%B0%80+%ED%99%95%EB%A5%A0%EC%9D%84+%EC%8B%AB%EC%96%B4%ED%95%98%EB%8A%94+%EC%9D%B4%EC%9C%A0%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%2583%259D%25EA%25B0%2581%2FWhyHateProb%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=poka2019+writeup+1+-+Lenstra-Lenstra-Lov%C3%A1sz%20http%3A%2F%2Flocalhost%3A4000%2Fctf%2Fwrite-up%2FLLL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%2583%259D%25EA%25B0%2581%2FWhyHateProb%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fctf%2Fwrite-up%2FLLL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2588%2598%25ED%2595%2599%2F%25EC%2583%259D%25EA%25B0%2581%2FWhyHateProb%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fctf%2Fwrite-up%2FLLL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EC%9D%BC%EC%83%81/190903/" class="pagination--pager" title="무제
+      <a href="/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/" class="pagination--pager" title="내가 확률을 싫어하는 이유
 ">Previous</a>
     
     
-      <a href="/ctf/write-up/LLL/" class="pagination--pager" title="poka2019 writeup 1 - Lenstra-Lenstra-Lovász
+      <a href="/ctf/write-up/ROCA/" class="pagination--pager" title="poka2019 writeup 2 - 강한가 약한가
 ">Next</a>
     
   </nav>
@@ -489,7 +588,7 @@ Caution! Maybe “Strong” one will took 2 hours to get your treasure.
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/ctf/write-up/LLL/" rel="permalink">poka2019 writeup 1 - Lenstra-Lenstra-Lovász
+        <a href="/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/" rel="permalink">내가 확률을 싫어하는 이유
 </a>
       
     </h2>
@@ -499,13 +598,12 @@ Caution! Maybe “Strong” one will took 2 hours to get your treasure.
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">
-  I am not good at Linear Algebra : (
-Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?
-Add) e=151. This is for make challenge...</p>
+    <p class="archive__item-excerpt" itemprop="description">제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠.
+
+</p>
   </article>
 </div>
 
@@ -642,8 +740,8 @@ Add) e=151. This is for make challenge...</p>
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/ctf/write-up/LLL/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/ctf/write-up/LLL"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

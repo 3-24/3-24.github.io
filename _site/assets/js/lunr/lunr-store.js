@@ -68,4 +68,14 @@ var store = [{
         "excerpt":"제가 수학을 좋아하는 이유는 공리 위에서 만들어진 학문이기 때문이에요. 약 100~200년 전 칸토어가 세운 집합론의 기초를 시작으로 모든 수학이 공리 위에 놓이게 되었고, 정리의 참/거짓/나머지 무언가(판별 불가능)가 명확하게 결정되었죠. 확률도 물론 잘 정의됩니다. 유한 또는 가산의 표본 공간 $S$에서 확률 함수 $P:\\varphi(S) \\to [0,1]$는 다음과 같은 성질을 만족해야 해요: $P(A\\cup...","categories": ["수학","생각"],
         "tags": ["확률"],
         "url": "http://localhost:4000/%EC%88%98%ED%95%99/%EC%83%9D%EA%B0%81/WhyHateProb/",
+        "teaser":null},{
+        "title": "poka2019 writeup 1 - Lenstra-Lenstra-Lovász",
+        "excerpt":"I am not good at Linear Algebra : ( Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm? Add) e=151. This is for make challenge easy. enc.txt Lenstra-Lenstra-Lovász.sage Notations Before start, let’s make the notations clear. n : RSA modulus p,q : two distinct prime factor of n. e...","categories": ["CTF","write-up"],
+        "tags": ["CTF","write-up","LLL","Coppersmith","RSA","CRT"],
+        "url": "http://localhost:4000/ctf/write-up/LLL/",
+        "teaser":null},{
+        "title": "poka2019 writeup 2 - 강한가 약한가",
+        "excerpt":"You have two choice- “Weak” and “Strong”. What do you want? Caution! Maybe “Strong” one will took 2 hours to get your treasure. enc.txt weak-strong.py Motivation Me and diff worked on this problem. At first, we tried some simple number-theoritic calcuations but failed to make a meaningful result. However the...","categories": ["CTF","write-up"],
+        "tags": ["CTF","write-up","ROCA","RSA"],
+        "url": "http://localhost:4000/ctf/write-up/ROCA/",
         "teaser":null}]
