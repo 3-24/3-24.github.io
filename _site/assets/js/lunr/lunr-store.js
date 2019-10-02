@@ -78,4 +78,9 @@ var store = [{
         "excerpt":"You have two choice- “Weak” and “Strong”. What do you want? Caution! Maybe “Strong” one will took 2 hours to get your treasure. enc.txt weak-strong.py Motivation Me and diff worked on this problem. At first, we tried some simple number-theoritic calcuations but failed to make a meaningful result. However the...","categories": ["CTF","write-up"],
         "tags": ["CTF","write-up","ROCA","RSA"],
         "url": "http://localhost:4000/ctf/write-up/ROCA/",
+        "teaser":null},{
+        "title": "norae",
+        "excerpt":"Github repository   구현된 웹 페이지   예전에 재미로 만들어봤던 노래방 번호 페이지를 훨씬 멋있게 만들어보았습니다. 오늘 하루종일 시간 가는 걸 모르고 개발해봤네요! 얄팍하던 웹 개발 지식이 어느정도 두터워진 것 같습니다.  ","categories": ["일상"],
+        "tags": ["개발"],
+        "url": "http://localhost:4000/%EC%9D%BC%EC%83%81/norae/",
         "teaser":null}]
