@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-02T22:25:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">norae</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/" rel="alternate" type="text/html" title="norae" /><published>2019-10-01T00:00:00+09:00</published><updated>2019-10-01T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/norae</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/">&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/norae&quot;&gt;Github repository&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-11T00:03:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">감기에 걸렸습니다</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/" rel="alternate" type="text/html" title="감기에 걸렸습니다" /><published>2019-10-10T00:00:00+09:00</published><updated>2019-10-10T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/">&lt;p&gt;일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!</summary></entry><entry><title type="html">norae</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/" rel="alternate" type="text/html" title="norae" /><published>2019-10-01T00:00:00+09:00</published><updated>2019-10-01T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/norae</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/">&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/norae&quot;&gt;Github repository&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://3-24.github.io/norae&quot;&gt;구현된 웹 페이지&lt;/a&gt;&lt;/p&gt;
 
@@ -379,53 +379,4 @@ D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;이 연산은 닫혀있으면서 associative이고, 항등원이 잘 작동하고 역원이 언제나 존재하므로 $G$는 군이고, 사실 Klein 4 군과 동형이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="군" /><summary type="html">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.</summary></entry><entry><title type="html">유리수의 조밀성</title><link href="http://localhost:4000/%EC%88%98%ED%95%99/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/" rel="alternate" type="text/html" title="유리수의 조밀성" /><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%98%ED%95%99/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1</id><content type="html" xml:base="http://localhost:4000/%EC%88%98%ED%95%99/%EC%9C%A0%EB%A6%AC%EC%88%98%EC%9D%98-%EC%A1%B0%EB%B0%80%EC%84%B1/">&lt;p&gt;임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;실수와-cut&quot;&gt;실수와 cut&lt;/h2&gt;
-
-&lt;p&gt;실수는 cut의 집합으로 정의할 수 있습니다. 그리고 이 cut은 사실 어떤 유리수의 집합인데, 다음 성질들을 만족해야 해요:&lt;/p&gt;
-
-&lt;p&gt;$\alpha \subset \mathbb{Q}$가 cut이려면&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$\alpha \ne \mathbb{Q}$이고 $ \alpha \ne \emptyset $이다.&lt;/li&gt;
-  &lt;li&gt;모든 $x \in \alpha$에 대하여 유리수 $ y &amp;lt; x $일 때 $ y \in \alpha $이다.&lt;/li&gt;
-  &lt;li&gt;모든 $x \in \alpha$에 대하여 $x&amp;lt;y$ 인 $y \in \alpha$가 존재함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;즉 이렇게 $- \infty$부터 어떤 수까지 (열린) 범위를 cut이라고 정했어요. 그리고 이런 cut들을 다 모아놓으면 실수가 되는 것이죠. 연산도 수학자들이 잘 정의해서 우리가 아는 사칙연산이 모두 정상적으로 작동합니다.&lt;/p&gt;
-
-&lt;p&gt;순서 관계는 어떨까요? cut의 포함 관계를 이용해서 정의하면 우리가 아는 일반적인 순서 관계의 성질을 그대로 만족합니다. 즉, $\alpha \subseteq \beta$ 이면 그냥 $\alpha \le \beta$라고 해버리는 거에요.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\alpha \le \beta \quad \text{if} \quad \alpha \subseteq \beta&lt;/script&gt;
-
-&lt;h2 id=&quot;실수-안의-유리수&quot;&gt;실수 안의 유리수&lt;/h2&gt;
-
-&lt;p&gt;눈치가 빠르면 사실 $\mathbb{Q} \not\subset \mathbb{R}$  임을 확인했을 거에요. 왜냐하면 cut이 $\mathbb{Q}$의 부분집합이었기 때문이죠. 그런데 유리수라는 개념은 실수에서도 중요한 역할을 합니다. 그래서 수학자들은 엄밀하게 실수 위에서 유리수를 따로 정의했어요.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\mathrm{For} \; q \in \mathbb{Q}, \quad q^\ast := \{ x \in \mathbb{Q} : x &lt; q \}​ %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;그러면 $q^\ast$는 cut이에요. 증명은 쉬우니까 넘어갈게요. 이렇게 생긴 애들을 싹 모아서&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbb{Q}^\ast := \{q^\ast \in \mathbb{R} : q \in \mathbb{Q} \}&lt;/script&gt;
-
-&lt;p&gt;이렇게 모아놓으면 이 $\mathbb{Q}^\ast \subseteq \mathbb{R} $은 원래 알던 유리수의 성질을 그대로 만족합니다. 앞으로도  $\mathbb{Q}$와 $\mathbb{Q} ^\ast$를 구별해서 사용한다는 점 유의해주세요.&lt;/p&gt;
-
-&lt;h2 id=&quot;실수-사이의-유리수&quot;&gt;실수 사이의 유리수&lt;/h2&gt;
-
-&lt;p&gt;이야기가 길어졌네요. ‘주어진 서로 다른 두 실수 사이에 유리수가 존재할까?’는 실수의 정의로부터 확인됩니다.&lt;/p&gt;
-
-&lt;p&gt;서로 다른 실수 $\alpha, \beta $가 주어졌으면 순서 관계의 정의에 의해 $\alpha \subset \beta$입니다. 그러니까 $q \not\in \alpha$이고 $q \in \beta$인 유리수 $q\in \mathbb{Q}$가 존재한다는 거에요. 이런 $q$에 대해 $q^\ast \in \mathbb{Q}^\ast$를 생각해보면,&lt;/p&gt;
-
-&lt;p&gt;$q \notin \alpha$이기 때문에 모든 $a \in \alpha$에 대해 $a &amp;lt; q$이므로 $\alpha \subseteq q^ \ast $입니다.  만약 $ a \not&amp;lt; q$였다면 cut의 두 번째 조건에 의해서 모순이었겠죠?&lt;/p&gt;
-
-&lt;p&gt;또, $q \in \beta$이므로 $q$보다 작은 모든 유리수가 cut의 두 번째 조건에 의해 $\beta$에 들어갑니다. 따라서 $q^\ast \subset \beta$이죠. $q^\ast \ne \beta$인 이유는 $q \not\in q^\ast$이지만 $q \in \beta$이기 때문입니다.&lt;/p&gt;
-
-&lt;p&gt;우리는 따라서 $\alpha \subseteq q^\ast \subset \beta$를 얻어냈습니다. 하지만 ‘사이’라는 것을 보이기에는 부족하죠. $q^\ast = \alpha$이면 어떡하죠?&lt;/p&gt;
-
-&lt;p&gt;저도 쓰다가 당황했는데요, 그래도 상관 없는게 $\alpha &amp;lt; (\alpha + \beta) / 2 $를 잘 이용하면 되요. 그러니까 $\alpha, \beta$대신 $\frac {\alpha + \beta} 2 , \beta$에서 위 과정을 반복하면 또 $\frac {\alpha + \beta} 2 \subseteq p^\ast \subset \beta$를 만족하는 유리수 $p ^ \ast \in \mathbb{Q}^\ast $가 존재하기 때문에 $\alpha \subset p^\ast \subset \beta $입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-
-&lt;p&gt;이 내용을 더 공부하고 싶다면 Walter Rudin의 Principle of Mathematical Analysis 1단원을 읽어보세요. 불친절하지만 많은 내용을 담고 있는 유명한 해석학 책입니다. 여기서 정의한 cut이 어떻게 실수가 되는지 더 자세하게 알 수 있을 거에요.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="유리수" /><category term="실수" /><category term="해석학" /><summary type="html">임의의 서로 다른 두 실수 사이에 유리수가 존재합니다. 이를 유리수의 조밀성이라고 하고 본 글에서는 이것의 해석학적 접근을 소개하려 합니다.</summary></entry></feed>
+&lt;p&gt;이 연산은 닫혀있으면서 associative이고, 항등원이 잘 작동하고 역원이 언제나 존재하므로 $G$는 군이고, 사실 Klein 4 군과 동형이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="군" /><summary type="html">모든 크기 4인 군은 순환군 $Z_4$나 Klein-4군 $V_4$와 동형isomorphic다.</summary></entry></feed>
