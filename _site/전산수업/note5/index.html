@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>타원 곡선 암호 읽을거리 - 푹신푹신 후와후와</title>
-<meta name="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
+<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 5 - 함수와 스택 메모리 - 푹신푹신 후와후와</title>
+<meta name="description" content="  어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="타원 곡선 암호 읽을거리">
-<meta property="og:url" content="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+<meta property="og:title" content="시스템 프로그래밍 노트 5 - 함수와 스택 메모리">
+<meta property="og:url" content="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/">
 
 
-  <meta property="og:description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-08-29T00:00:00+09:00">
+  <meta property="og:description" content="  어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-10-22T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+
+<link rel="canonical" href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/">
 
 
 
@@ -130,7 +130,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -306,15 +306,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="타원 곡선 암호 읽을거리">
-    <meta itemprop="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-    <meta itemprop="datePublished" content="August 29, 2019">
+    <meta itemprop="headline" content="시스템 프로그래밍 노트 5 - 함수와 스택 메모리">
+    <meta itemprop="description" content="  어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.">
+    <meta itemprop="datePublished" content="October 22, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">타원 곡선 암호 읽을거리
+          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트 5 - 함수와 스택 메모리
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -330,9 +330,87 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/</a></p>
+        <blockquote>
+  <p>어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.</p>
+</blockquote>
 
-<p>타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!</p>
+<h2 id="stack">stack</h2>
+
+<ul>
+  <li>메모리에 있다.</li>
+  <li>높은 주소에서 낮은 주소로 자란다.</li>
+  <li>%rsp는 가장 낮은 스택 주소를 가리킨다.</li>
+  <li>%rbp는 선택적으로 가장 높은 스택 프레임 주소로 사용된다.</li>
+</ul>
+
+<h3 id="instructions">Instructions</h3>
+
+<ul>
+  <li>push
+    <ul>
+      <li>pushq Src</li>
+      <li><code class="highlighter-rouge">%rsp</code>를 8 감소시키고 <code class="highlighter-rouge">%rsp</code>에 Src에 있는 값을 적는다.</li>
+    </ul>
+  </li>
+  <li>pop
+    <ul>
+      <li>popq Dest</li>
+      <li><code class="highlighter-rouge">%rsp</code>에 적힌 값을 Dest에 적고 <code class="highlighter-rouge">%rsp</code>를 8 증가시킨다. 이 때, Dest는 레지스터이다.</li>
+    </ul>
+  </li>
+  <li>call
+    <ul>
+      <li>call label</li>
+      <li>리턴 주소를 stack에 push하고 label로 jump한다.</li>
+    </ul>
+  </li>
+  <li>ret
+    <ul>
+      <li>스택에서 리턴 주소를 pop하고 그 주소로 이동한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="인자-전달">인자 전달</h3>
+
+<ul>
+  <li>처음 6개의 인자는 순서대로 %rdi, %rsi, %rdx, %rcx, r8, r9이다.</li>
+  <li>7번째 이후의 인자는 스택에 저장된다.
+    <ul>
+      <li>Return Addr 위에 차곡차곡 쌓인다.</li>
+      <li>%rbp에서 상대적인 값을 더해서 접근한다. 즉, 함수가 시작될 때 다음과 같은 코드를 사용하여 이전 %rbp값을 저장한 후 %rsp와 %rbp 값을 맞춘 다음 %rbp 위에 예전 %rbp 위에 return address 위에 있는 인자들에 접근한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<pre><code class="language-assembly">push %rbp
+mov %rsp, %rbp
+...
+pop %rbp
+</code></pre>
+
+<ul>
+  <li>return 값은 %rax이다.</li>
+</ul>
+
+<h2 id="saving-conventions">Saving Conventions</h2>
+
+<p>같은 레지스터를 다른 프레임의 함수에서 사용하면 충돌한다. 이를 방지하기 위해서 레지스터 별로 saving cocnvention 이 있다.</p>
+
+<ul>
+  <li>Caller Saved
+    <ul>
+      <li>부르는 쪽이 저장한다.</li>
+      <li>rax랑 argument registers rdi, rsi, rdx, rcx, r8, r9, 그리고 r10, r11까지이다.</li>
+    </ul>
+  </li>
+  <li>Callee Saved
+    <ul>
+      <li>부름당한 쪽이 값을 저장하고 return하기 전에 값을 불러온다.</li>
+      <li>rbx랑 r12, r13, r14, 그리고 스택 포인터로 사용되는 rbp랑 rsp도 여기에 해당한다.</li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -340,33 +418,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#ecc" class="page__taxonomy-item" rel="tag">ECC</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%EA%B3%B5%EC%9C%A0" class="page__taxonomy-item" rel="tag">공유</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%ED%83%80%EC%9B%90-%EA%B3%A1%EC%84%A0" class="page__taxonomy-item" rel="tag">타원 곡선</a>
-    
-    </span>
-  </p>
-
-
 
 
   
@@ -382,18 +433,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/categories/#%EC%95%94%ED%98%B8%ED%95%99" class="page__taxonomy-item" rel="tag">암호학</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/categories/#%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88" class="page__taxonomy-item" rel="tag">정보보안</a>
+      <a href="/categories/#%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85" class="page__taxonomy-item" rel="tag">전산수업</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-29T00:00:00+09:00">August 29, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-22T00:00:00+09:00">October 22, 2019</time></p>
         
       </footer>
 
@@ -402,22 +449,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%ED%83%80%EC%9B%90+%EA%B3%A1%EC%84%A0+%EC%95%94%ED%98%B8+%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8+5+-+%ED%95%A8%EC%88%98%EC%99%80+%EC%8A%A4%ED%83%9D+%EB%A9%94%EB%AA%A8%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote5%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote5%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/" class="pagination--pager" title="RSA
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/" class="pagination--pager" title="시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어
 ">Previous</a>
     
     
-      <a href="/%EC%9D%BC%EC%83%81/190903/" class="pagination--pager" title="무제
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6/" class="pagination--pager" title="시스템 프로그래밍 노트 6 - 배열과 구조체
 ">Next</a>
     
   </nav>
@@ -473,37 +520,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/" rel="permalink">시스템 프로그래밍 노트 5 - 함수와 스택 메모리
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-  어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.
-
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
         <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/" rel="permalink">시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어
 </a>
       
@@ -514,7 +530,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  5 minute read
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">프로세서 상태
@@ -543,7 +559,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  2 minute read
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -551,6 +567,35 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     이 강의에서는 x86-64 ISA만 커버한다.
   
 
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/" rel="permalink">시스템 프로그래밍 노트 2 - 실수
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">IEEE 실수 표현
 
 </p>
   </article>
@@ -631,8 +676,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

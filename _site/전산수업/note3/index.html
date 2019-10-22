@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>타원 곡선 암호 읽을거리 - 푹신푹신 후와후와</title>
-<meta name="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
+<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리 - 푹신푹신 후와후와</title>
+<meta name="description" content="      이 강의에서는 x86-64 ISA만 커버한다.  ">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="타원 곡선 암호 읽을거리">
-<meta property="og:url" content="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+<meta property="og:title" content="시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리">
+<meta property="og:url" content="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/">
 
 
-  <meta property="og:description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-08-29T00:00:00+09:00">
+  <meta property="og:description" content="      이 강의에서는 x86-64 ISA만 커버한다.  ">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-10-22T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+
+<link rel="canonical" href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/">
 
 
 
@@ -130,7 +130,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -306,15 +306,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="타원 곡선 암호 읽을거리">
-    <meta itemprop="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-    <meta itemprop="datePublished" content="August 29, 2019">
+    <meta itemprop="headline" content="시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리">
+    <meta itemprop="description" content="      이 강의에서는 x86-64 ISA만 커버한다.  ">
+    <meta itemprop="datePublished" content="October 22, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">타원 곡선 암호 읽을거리
+          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -322,7 +322,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
           
         </header>
@@ -330,9 +330,149 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/</a></p>
+        <blockquote>
+  <blockquote>
+    <p>이 강의에서는 x86-64 ISA만 커버한다.</p>
+  </blockquote>
+</blockquote>
 
-<p>타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!</p>
+<h2 id="기본-용어">기본 용어</h2>
+
+<ul>
+  <li>아키텍쳐 : 어셈블리/기계어를 읽거나 쓸 때 필요한 프로세서 디자인의 일부</li>
+  <li>마이크로 아키텍쳐 : 하드웨어의 운영에 대한 기술</li>
+  <li>기계 코드 : 프로세서가 실행하는 프로그램 그 자체</li>
+  <li>어셈블리 코드 : 기계어의 글자 표현text representation</li>
+</ul>
+
+<h2 id="c-코드의-변환-과정">C 코드의 변환 과정</h2>
+
+<p>C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고, 어셈블리 프로그램은 어셈블러에 의해 binary Object 프로그램으로 변환된다. 마지막으로 Linker를 통해 정적 라이브러리를 사용할 수 있게 만들어 실행 가능한 프로그램executable program이 된다(<code class="highlighter-rouge">printf</code>과 같은 라이브러리 함수나 다른 파일의 referencing).</p>
+
+<p>즉, C 코드를 어셈블리 코드로 변환하려면 c 컴파일러만 실행해야 하고, 이는 gcc가 지원한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-Og</span> <span class="nt">-S</span> sum.c
+</code></pre></div></div>
+
+<h2 id="x86-64-정수-레지스터">x86-64 정수 레지스터</h2>
+
+<p>기본적으로 각 정수 레지스터에는 8바이트의 공간이 할당된다.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">%rax, %rcx, %rdx, %rbx, %rsi, %rdi, %rsp, %rbp</code>
+    <ul>
+      <li>r 대신에 e를 사용하면 하위 4바이트에 접근 가능하다.</li>
+      <li>prefix를 사용하지 않으면 하위 2바이트에 접근 가능하다.</li>
+      <li><code class="highlighter-rouge">a/b/c/dx</code>의 경우 <code class="highlighter-rouge">%ax = %ah : %al</code>  식의 접근이 가능하다. (각 1바이트)</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">rsi, rdi, rsp, rbp</code>의 경우 <code class="highlighter-rouge">sil, dil, spl, bpl</code>식의 하위 1바이트 접근이 가능하다.</p>
+  </li>
+  <li><code class="highlighter-rouge">%r8, %r9, %r10, %r11, %r12, %r13, %r14, %r15</code>
+    <ul>
+      <li>뒤에 d를 붙이면 하위 4바이트에 접근 가능하다.</li>
+      <li>뒤에 b를 붙이면 하위 1바이트에 접근 가능하다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="operand-types">Operand Types</h2>
+
+<ul>
+  <li>Immediate : 상수 정수. <code class="highlighter-rouge">$0x400, $-533</code> 이런 식으로 접근한다.</li>
+  <li>Register : 위에서 기술한 16개의 정수 레지스터들</li>
+  <li>Memory : 레지스터에 의해 주어진 주소가 메모리의 8개의 연속적인 바이트에 대응된다. <code class="highlighter-rouge">(%rax)</code>과 같이 접근한다.</li>
+</ul>
+
+<h2 id="memory-addressing-modes">Memory Addressing Modes</h2>
+
+<p>D(Rb,Ri, S)  = Mem[Reg[RB] + S*Reg[Ri] + D]</p>
+
+<ul>
+  <li>D: Constant displacement</li>
+  <li>Rb: Base Register</li>
+  <li>Ri: index Register</li>
+  <li>S: Scale</li>
+</ul>
+
+<h2 id="movq"><code class="highlighter-rouge">movq</code></h2>
+
+<p><code class="highlighter-rouge">movq Source, Dest;</code>를 통해 데이터를 이동시킨다.</p>
+
+<ul>
+  <li><strong>메모리를 메모리로</strong> 옮기거나 어떤 값을 상수로 옮기는 것을 <strong>제외</strong>한 모든 경우가 가능하다.</li>
+</ul>
+
+<h2 id="leaq"><code class="highlighter-rouge">leaq</code></h2>
+
+<p><code class="highlighter-rouge">leaq Src, Dst</code>는 메모리 reference 없이 Src 자체를 Dst의 값에 넣는다.</p>
+
+<h2 id="arithematic-operations">Arithematic Operations</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Format</th>
+      <th>Computation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>addq Src, Dest</td>
+      <td>Dest = Dest + Src</td>
+    </tr>
+    <tr>
+      <td>subq Src, Dest</td>
+      <td>Dest = Dest - Src</td>
+    </tr>
+    <tr>
+      <td>imulq Src, Dest</td>
+      <td>Dest = Dest * Src</td>
+    </tr>
+    <tr>
+      <td>salq Src, Dest (= shlq Src, Dest)</td>
+      <td>Dest = Dest « Src</td>
+    </tr>
+    <tr>
+      <td>sarq Src, Dest</td>
+      <td>Dest = Dest » Src (Arithmetic)</td>
+    </tr>
+    <tr>
+      <td>shrq Src, Dest</td>
+      <td>Dest = Dest » Src (Logical)</td>
+    </tr>
+    <tr>
+      <td>orq Src, Dest</td>
+      <td>Dest = Dest ^ Src</td>
+    </tr>
+    <tr>
+      <td>andq Src, Dest</td>
+      <td>Dest = Dest &amp; Src</td>
+    </tr>
+    <tr>
+      <td>orq Src, Dest</td>
+      <td>Dest = Dest | Src</td>
+    </tr>
+    <tr>
+      <td>incq Dest</td>
+      <td>Dest = Dest + 1</td>
+    </tr>
+    <tr>
+      <td>decq Dest</td>
+      <td>Dest = Dest - 1</td>
+    </tr>
+    <tr>
+      <td>negq Dest</td>
+      <td>Dest = -Dest</td>
+    </tr>
+    <tr>
+      <td>notq Dest</td>
+      <td>Dest = ~Dest</td>
+    </tr>
+  </tbody>
+</table>
+
 
         
       </section>
@@ -340,33 +480,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#ecc" class="page__taxonomy-item" rel="tag">ECC</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%EA%B3%B5%EC%9C%A0" class="page__taxonomy-item" rel="tag">공유</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%ED%83%80%EC%9B%90-%EA%B3%A1%EC%84%A0" class="page__taxonomy-item" rel="tag">타원 곡선</a>
-    
-    </span>
-  </p>
-
-
 
 
   
@@ -382,18 +495,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/categories/#%EC%95%94%ED%98%B8%ED%95%99" class="page__taxonomy-item" rel="tag">암호학</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/categories/#%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88" class="page__taxonomy-item" rel="tag">정보보안</a>
+      <a href="/categories/#%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85" class="page__taxonomy-item" rel="tag">전산수업</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-29T00:00:00+09:00">August 29, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-22T00:00:00+09:00">October 22, 2019</time></p>
         
       </footer>
 
@@ -402,22 +511,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%ED%83%80%EC%9B%90+%EA%B3%A1%EC%84%A0+%EC%95%94%ED%98%B8+%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8+3+-+%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%99%80+%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0+%EA%B4%80%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote3%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote3%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote3%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/" class="pagination--pager" title="RSA
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/" class="pagination--pager" title="시스템 프로그래밍 노트 2 - 실수
 ">Previous</a>
     
     
-      <a href="/%EC%9D%BC%EC%83%81/190903/" class="pagination--pager" title="무제
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/" class="pagination--pager" title="시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어
 ">Next</a>
     
   </nav>
@@ -533,7 +642,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/" rel="permalink">시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리
+        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/" rel="permalink">시스템 프로그래밍 노트 2 - 실수
 </a>
       
     </h2>
@@ -543,14 +652,10 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  2 minute read
+  1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">
-  
-    이 강의에서는 x86-64 ISA만 커버한다.
-  
-
+    <p class="archive__item-excerpt" itemprop="description">IEEE 실수 표현
 
 </p>
   </article>
@@ -631,8 +736,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

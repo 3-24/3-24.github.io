@@ -88,4 +88,34 @@ var store = [{
         "excerpt":"일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!  ","categories": ["일상"],
         "tags": [],
         "url": "http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현",
+        "excerpt":"기본 표현 단위 bit : 0,1 byte: 여덟 개의 bit를 묶어서 부른다. 이진수로는 00000000~11111111, 십진수로는 0~255, 십육진수로는 00~ff로 표현된다. 비트 연산자 &amp;, |, ~, ^ C에서 사용하는 &amp;&amp;, ||, !는 논리 연산자로, 0을 거짓, 나머지를 모두 참으로 대응한다는 점에서 큰 차이가 있다. &lt;&lt;, &gt;&gt;. &gt;&gt;의 경우 왼쪽을 0으로 채운다. 반면...","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note1/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 2 - 실수",
+        "excerpt":"IEEE 실수 표현 표현 방법 $(-1)^s M \\;2^E $ sign bit는 수의 부호를 결정한다. significand는 [1.0,2.0) 사이의 값을 결정한다.(물론 예외가 딱 하나 있음) exponent는 값에 2의 지수의 형태로 가중치를 준다. 이걸 인코딩할 때는 sign bit - exponent - significand 순으로 놓는다. Normalized Values exp가 00…0이나 11…1이 아닐 때의 일반적인 상황이다....","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리",
+        "excerpt":"이 강의에서는 x86-64 ISA만 커버한다. 기본 용어 아키텍쳐 : 어셈블리/기계어를 읽거나 쓸 때 필요한 프로세서 디자인의 일부 마이크로 아키텍쳐 : 하드웨어의 운영에 대한 기술 기계 코드 : 프로세서가 실행하는 프로그램 그 자체 어셈블리 코드 : 기계어의 글자 표현text representation C 코드의 변환 과정 C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고,...","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어",
+        "excerpt":"프로세서 상태 %rsp는 stack의 위치 %rip는 프로그램 카운터, 즉 현재 실행되고 있는 코드의 위치를 가리키는 레지스터 CF, ZF, SF, OF의 Condition Codes가 존재한다. Condition Codes 단일 비트 레지스터이다. CF는 Carry Flag로, unsigned overflow가 일어났을 때 설정된다. 즉, MSB가 튀어나오고 버려지면 1이 된다. ZF는 Zero Flag로, 0일 때 설정된다. SF는 Sign...","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 5 - 함수와 스택 메모리",
+        "excerpt":"어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. stack 메모리에 있다. 높은 주소에서 낮은 주소로 자란다. %rsp는 가장 낮은 스택 주소를 가리킨다. %rbp는 선택적으로 가장 높은 스택 프레임 주소로 사용된다. Instructions push pushq Src %rsp를 8 감소시키고 %rsp에 Src에 있는 값을 적는다. pop popq Dest %rsp에 적힌 값을 Dest에 적고...","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/",
+        "teaser":null},{
+        "title": "시스템 프로그래밍 노트 6 - 배열과 구조체",
+        "excerpt":"복잡한 구조의 데이터 관리, 접근 배열 1차원 배열 T A[L]; T는 타입, L은 배열의 길이이다. A는 0번째 element의 포인터로 사용된다. 타입은 따라서 T*. 배열의 접근 #define ZLEN 5 typedef int zip_dig[ZLEN]; int get_digit(zip_dig z, int digit){ return z[digit]; } # %rdi = z, %rsi = digit movq (%rdi,%rsi,4), %rax int가...","categories": ["전산수업"],
+        "tags": [],
+        "url": "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6/",
         "teaser":null}]

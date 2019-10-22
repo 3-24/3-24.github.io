@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>타원 곡선 암호 읽을거리 - 푹신푹신 후와후와</title>
-<meta name="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
+<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 2 - 실수 - 푹신푹신 후와후와</title>
+<meta name="description" content="IEEE 실수 표현">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="타원 곡선 암호 읽을거리">
-<meta property="og:url" content="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+<meta property="og:title" content="시스템 프로그래밍 노트 2 - 실수">
+<meta property="og:url" content="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/">
 
 
-  <meta property="og:description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-08-29T00:00:00+09:00">
+  <meta property="og:description" content="IEEE 실수 표현">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2019-10-22T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/">
+
+<link rel="canonical" href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/">
 
 
 
@@ -130,7 +130,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -306,15 +306,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="타원 곡선 암호 읽을거리">
-    <meta itemprop="description" content="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">
-    <meta itemprop="datePublished" content="August 29, 2019">
+    <meta itemprop="headline" content="시스템 프로그래밍 노트 2 - 실수">
+    <meta itemprop="description" content="IEEE 실수 표현">
+    <meta itemprop="datePublished" content="October 22, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">타원 곡선 암호 읽을거리
+          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트 2 - 실수
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -322,7 +322,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
           
         </header>
@@ -330,9 +330,120 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/</a></p>
+        <h2 id="ieee-실수-표현">IEEE 실수 표현</h2>
 
-<p>타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!</p>
+<h3 id="표현-방법">표현 방법</h3>
+
+<ul>
+  <li>$(-1)^s M \;2^E $</li>
+  <li>sign bit는 수의 부호를 결정한다.</li>
+  <li>significand는 [1.0,2.0) 사이의 값을 결정한다.(물론 예외가 딱 하나 있음)</li>
+  <li>exponent는 값에 2의 지수의 형태로 가중치를 준다.</li>
+  <li>이걸 인코딩할 때는 sign bit - exponent - significand 순으로 놓는다.</li>
+</ul>
+
+<h4 id="normalized-values">Normalized Values</h4>
+
+<ul>
+  <li>exp가 00…0이나 11…1이 아닐 때의 일반적인 상황이다.</li>
+  <li><code class="highlighter-rouge">E = exponent - bias</code>, <code class="highlighter-rouge">bias</code>는 <code class="highlighter-rouge">k</code>가 <code class="highlighter-rouge">exponent</code> 비트 수일 때 <code class="highlighter-rouge">2^{k-1} -1</code>.
+    <ul>
+      <li>bias를 저렇게 잡는 이유는</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">M = 1.xxx...x </code>, <code class="highlighter-rouge">xx---x</code>는 <code class="highlighter-rouge">significand</code>이다.</li>
+</ul>
+
+<h4 id="denormalized-values">Denormalized Values</h4>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">exp = 000...0</code>인 경우이다.</p>
+  </li>
+  <li><code class="highlighter-rouge">E = 1 - bias</code>. 원래는 Normalized Value였다면 <code class="highlighter-rouge">0 - bias</code>였겠지만, 예외적으로 이렇게 처리한다. 그 대신에 significand의 의미도 달라진다.</li>
+  <li><code class="highlighter-rouge">M = 0.xxx...x</code></li>
+</ul>
+
+<h4 id="special-values">Special Values</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">exp = 111...1</code></li>
+  <li><code class="highlighter-rouge">frac=000...0</code>이면 $\infty$로 해석한다. 오버플로우가 일어날 때 사용.
+    <ul>
+      <li>응용해서 sign bit가 1이면 $-\infty$로 해석된다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">frac!=000...0</code>이면 NaN(Not a Number)으로, 어떤 수로도 결정되지 않을 때 사용한다. $\sqrt{-1}$ 같은 연산의 결과이다.</li>
+</ul>
+
+<h3 id="rounding">Rounding</h3>
+
+<ul>
+  <li>반올림</li>
+  <li>정확히 절반일 때는 LSB가 짝수가 되는 방향으로 한다.</li>
+  <li><strong>모든 실수 연산의 마지막에 반드시 필요하다</strong>.</li>
+</ul>
+
+<h3 id="곱셈">곱셈</h3>
+
+<ul>
+  <li>$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} \times (-1)^{s_2} M_2 2^{E_2} $
+    <ul>
+      <li><code class="highlighter-rouge">s = s1 ^ s2</code></li>
+      <li><code class="highlighter-rouge">M = M1 * M2</code></li>
+      <li><code class="highlighter-rouge">E = E1 + E2</code></li>
+    </ul>
+  </li>
+  <li>만약 <code class="highlighter-rouge">M &gt;= 2</code>이면 M을 오른쪽으로 한 칸 밀고, E를 1 더한다.</li>
+  <li>M을 round한다.</li>
+</ul>
+
+<h3 id="덧셈">덧셈</h3>
+
+<ul>
+  <li>$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} + (-1)^{s_2} M_2 2^{E_2} $
+    <ul>
+      <li><code class="highlighter-rouge">E = E1</code> under <code class="highlighter-rouge">E_1 &gt; E_2</code>.</li>
+      <li>s, M은 정렬된 덧셈으로부터 결정된다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">M &gt;= 2</code>이면 M을 오른쪽으로 한 칸 밀고 E에 1 더한다.</li>
+  <li><code class="highlighter-rouge">M &lt; 1</code>이면 M을 1이 나올 때까지 k칸 밀고 E에 k를 뺀다.</li>
+  <li>오버플로우 처리를 한다.</li>
+  <li>M을 round한다.</li>
+</ul>
+
+<h3 id="c에서의-실수">C에서의 실수</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">float</code> : single precision
+    <ul>
+      <li>32bits : 1 sign, 8 exp, 23 frac</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">double</code> : double precision
+    <ul>
+      <li>64 bits: 1 sign, 11 exp, 52 frac</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="변환">변환</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">double/float</code>에서 <code class="highlighter-rouge">int</code>
+    <ul>
+      <li>소수부 버림</li>
+      <li>0을 향한 어림</li>
+      <li>NaN / infinity에 대해서는 일반적인 정의는 없다. 보통은 <code class="highlighter-rouge">TMin</code></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">int</code>에서 <code class="highlighter-rouge">double/float</code>
+    <ul>
+      <li>어림이 필요하면 실수의 반올림을 사용한다.</li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -340,33 +451,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#ecc" class="page__taxonomy-item" rel="tag">ECC</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%EA%B3%B5%EC%9C%A0" class="page__taxonomy-item" rel="tag">공유</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#%ED%83%80%EC%9B%90-%EA%B3%A1%EC%84%A0" class="page__taxonomy-item" rel="tag">타원 곡선</a>
-    
-    </span>
-  </p>
-
-
 
 
   
@@ -382,18 +466,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/categories/#%EC%95%94%ED%98%B8%ED%95%99" class="page__taxonomy-item" rel="tag">암호학</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/categories/#%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88" class="page__taxonomy-item" rel="tag">정보보안</a>
+      <a href="/categories/#%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85" class="page__taxonomy-item" rel="tag">전산수업</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-29T00:00:00+09:00">August 29, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-22T00:00:00+09:00">October 22, 2019</time></p>
         
       </footer>
 
@@ -402,22 +482,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%ED%83%80%EC%9B%90+%EA%B3%A1%EC%84%A0+%EC%95%94%ED%98%B8+%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8+2+-+%EC%8B%A4%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%2594%25ED%2598%25B8%25ED%2595%2599%2F%25EC%25A0%2595%25EB%25B3%25B4%25EB%25B3%25B4%25EC%2595%2588%2FECC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/" class="pagination--pager" title="RSA
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note1/" class="pagination--pager" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현
 ">Previous</a>
     
     
-      <a href="/%EC%9D%BC%EC%83%81/190903/" class="pagination--pager" title="무제
+      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/" class="pagination--pager" title="시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리
 ">Next</a>
     
   </nav>
@@ -631,8 +711,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
