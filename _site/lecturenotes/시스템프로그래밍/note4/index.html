@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어 - 푹신푹신 후와후와</title>
-<meta name="description" content="프로세서 상태">
+<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 4 - 상태 코드 - 푹신푹신 후와후와</title>
+<meta name="description" content="상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,11 +20,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="푹신푹신 후와후와">
-<meta property="og:title" content="시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어">
-<meta property="og:url" content="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/">
+<meta property="og:title" content="시스템 프로그래밍 노트 4 - 상태 코드">
+<meta property="og:url" content="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/">
 
 
-  <meta property="og:description" content="프로세서 상태">
+  <meta property="og:description" content="상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.">
 
 
 
@@ -43,7 +43,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/">
+<link rel="canonical" href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/">
 
 
 
@@ -306,15 +306,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어">
-    <meta itemprop="description" content="프로세서 상태">
+    <meta itemprop="headline" content="시스템 프로그래밍 노트 4 - 상태 코드">
+    <meta itemprop="description" content="상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.">
     <meta itemprop="datePublished" content="October 22, 2019">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어
+          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트 4 - 상태 코드
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -322,7 +322,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  4 minute read
+  5 minute read
 </p>
           
         </header>
@@ -330,15 +330,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="프로세서-상태">프로세서 상태</h2>
+        <p>상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.</p>
+
+<h2 id="1-프로세서-상태">1. 프로세서 상태</h2>
 
 <ul>
-  <li>%rsp는 stack의 위치</li>
-  <li>%rip는 프로그램 카운터, 즉 현재 실행되고 있는 코드의 위치를 가리키는 레지스터</li>
+  <li>%rsp는 stack의 위치이다. 이와 관련해서는 다음 노트에서 다룬다.</li>
+  <li>%rip는 프로그램 카운터, 즉 현재 실행되고 있는 코드의 위치를 가리키는 레지스터이다.</li>
   <li>CF, ZF, SF, OF의 Condition Codes가 존재한다.</li>
 </ul>
 
-<h3 id="condition-codes">Condition Codes</h3>
+<h3 id="11-condition-codes">1.1. Condition Codes</h3>
 
 <p>단일 비트 레지스터이다.</p>
 
@@ -361,9 +363,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   </li>
 </ul>
 
-<h2 id="setx-dest"><code class="highlighter-rouge">SetX Dest</code></h2>
+<h2 id="2-instructions-based-on-condition-codes">2. Instructions Based On Condition Codes</h2>
 
-<p>condition codes에 기초하여 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.</p>
+<h3 id="21-setx">2.1. <code class="highlighter-rouge">SetX</code></h3>
+
+<p><code class="highlighter-rouge">setX Dest</code>의 형태로 사용된다. condition codes에 따라 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.</p>
 
 <table>
   <thead>
@@ -429,15 +433,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>하위 1바이트만 변경하기 때문에 그것에만 집중하는 레지스터가 많이 사용된다. 예를 들면</p>
 
-<pre><code class="language-assembly">cmpq %rsi, %rdi
-setg %al
-movzbl %al, %eax # movzbl is the instruction for zero extending byte to 32bits.
-ret
-</code></pre>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cmpq</span> <span class="err">%</span><span class="n">rsi</span><span class="p">,</span> <span class="err">%</span><span class="n">rdi</span>
+<span class="k">setg</span> <span class="err">%</span><span class="n">als</span>
+<span class="n">movzbl</span> <span class="err">%</span><span class="n">al</span><span class="p">,</span> <span class="err">%</span><span class="n">eax</span>  <span class="c">;movzbl is the instruction for zero extending byte to 32bits.</span>
+<span class="k">ret</span>
+</code></pre></div></div>
 
-<h2 id="jx-dest"><code class="highlighter-rouge">jX Dest</code></h2>
+<h3 id="22-jx">2.2. <code class="highlighter-rouge">jX</code></h3>
 
-<p>condition codes에 기초하여 program counter를 Dest로 변경시킨다.</p>
+<p><code class="highlighter-rouge">jX Dest</code>의 형태로 사용된다. condition codes에 따라 program counter를 Dest로 변경시킨다.</p>
 
 <table>
   <thead>
@@ -512,7 +516,7 @@ ret
 
 <p><code class="highlighter-rouge">%rdi, %rsi, %rdx</code>가 순서대로 첫 번째 인자, 두 번째 인자, 세 번째 인자이다.</p>
 
-<h2 id="implementing-conditional-branches">Implementing Conditional Branches</h2>
+<h2 id="3-implementing-conditional-branches">3. Implementing Conditional Branches</h2>
 
 <p>goto는 코드를 읽고 디버깅하기 힘들기 때문에 나쁜 코드 스타일이다. 코드의 control flow를 설명할 때만 여기서는 사용될 예정이다.</p>
 
@@ -523,7 +527,7 @@ ret
 <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 
-<h3 id="conditional-control">Conditional Control</h3>
+<h3 id="31-conditional-control">3.1. Conditional Control</h3>
 
 <p>전통적인 방법으로, 위 코드를 이 방식으로 컴파일할 때 동등한 goto 코드는 다음과 같다.</p>
 
@@ -539,7 +543,7 @@ ret
 
 <p>와 같다. 이 형태의 control flow에서 어셈블리를 까보면 <code class="highlighter-rouge">cmpX, jX</code>의 (un)conditional jump 명령이 포함되고 각 if, else에  대해 코드 영역이 분리되어 있다.</p>
 
-<h3 id="conditional-move">Conditional Move</h3>
+<h3 id="32-conditional-move">3.2. Conditional Move</h3>
 
 <p>하지만 현대 프로세서에게 더 효율적인 형태는 conditional move이다.</p>
 
@@ -560,9 +564,9 @@ ret
   <li>계산을 할 때 예측하지 못한 부가 효과가 생긴다. <code class="highlighter-rouge">val = x &gt; 0 ? x*=7 : x+=3</code></li>
 </ul>
 
-<h2 id="implementing-loops-while-for-">Implementing Loops (While, For, …)</h2>
+<h2 id="4-implementing-loops-while-for-">4. Implementing Loops (While, For, …)</h2>
 
-<h3 id="do-while">Do-While</h3>
+<h3 id="41-do-while">4.1. Do-While</h3>
 
 <p>Do-While 문은 루프를 만들어 루프 끝에서 조건을 체크하고, 조건이 맞으면 다시 되돌아가는 형태이다.</p>
 
@@ -586,27 +590,27 @@ ret
 <span class="p">}</span>
 </code></pre></div></div>
 
-<pre><code class="language-assembly"># %rdi is x, %rax is result
-pcountdo_do:
-	xor %rax, %rax				# movl $0, %eax
-.L1:
-	movq %rdi, %rdx
-	andq $1, %rdx
-	addq %rdx, %rax
-	shrq $1, %rdi        		# can be replaced to shr %rdi
-	jne .L1
-	ret
-</code></pre>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi is x, %rax is result</span>
+<span class="n">pcountdo_do</span><span class="o">:</span>
+	<span class="k">xor</span> <span class="err">%</span><span class="n">rax</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>				<span class="c">; movl $0, %eax</span>
+<span class="p">.</span><span class="n">L1</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">%</span><span class="n">rdi</span><span class="p">,</span> <span class="err">%</span><span class="n">rdx</span>
+	<span class="n">andq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">%</span><span class="n">rdx</span>
+	<span class="n">addq</span> <span class="err">%</span><span class="n">rdx</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="n">shrq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">%</span><span class="n">rdi</span>        		<span class="c">; can be replaced to shr %rdi</span>
+	<span class="k">jne</span> <span class="p">.</span><span class="n">L1</span>
+	<span class="k">ret</span>
+</code></pre></div></div>
 
-<h3 id="while">While</h3>
+<h3 id="42-while">4.2. While</h3>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="n">Test</span><span class="p">)</span>
     <span class="n">Body</span>
 </code></pre></div></div>
 
-<p>오히려 while 문이 어셈블리 레벨에서는 더 복잡한데, 두 가지 방법이 존재한다.</p>
+<p>오히려 while 문이 어셈블리 레벨에서는 더 복잡한데, 두 가지 방법이 존재한다. 각 방법의 이름은 gcc에서 컴파일할 때 주는 flag를 의미한다.</p>
 
-<h4 id="-og-translation">-Og Translation</h4>
+<h4 id="421--og-translation">4.2.1. -Og Translation</h4>
 
 <p>jump-to-middle. 조건을 체크하는 부분으로 먼저 가버린다.</p>
 
@@ -619,7 +623,7 @@ pcountdo_do:
 <span class="n">done</span><span class="o">:</span>
 </code></pre></div></div>
 
-<h4 id="-o1-translation">-O1 Translation</h4>
+<h4 id="422--o1-translation">4.2.2. -O1 Translation</h4>
 
 <p>초기 상태를 확인하고 do-while을 사용한다.</p>
 
@@ -644,7 +648,7 @@ pcountdo_do:
 <span class="n">done</span><span class="o">:</span>
 </code></pre></div></div>
 
-<h3 id="for">For</h3>
+<h3 id="43-for">4.3. For</h3>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">Init</span><span class="p">;</span> <span class="n">Test</span><span class="p">;</span> <span class="n">Update</span><span class="p">)</span>
     <span class="n">Body</span>
@@ -689,7 +693,7 @@ pcountdo_do:
 
 <p>경우에 따라 초기 테스트는 생략 가능하기도 하다. 결국 while을 초기 조건 확인 + do-while 문으로 생각하는 -O1 Translation을 거친 결과다.</p>
 
-<h2 id="switch-statement">Switch Statement</h2>
+<h2 id="5-switch-statement">5. Switch Statement</h2>
 
 <p>동시에 여러 조건을 확인하는 경우 if-else를 계속 사용하는 것보다 switch-case 문이 효율적이다.</p>
 
@@ -717,47 +721,47 @@ pcountdo_do:
 
 <p>이런 식으로 생겼고, 어셈블리에서는 Jump Table을 통해 관리된다. 루프 포인터를 한 번에 모아서 x값에 따라 서로 다른 루프로 대응시킨다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.section	.rodata
-	.align 8
-.L4:
-	.quad	.L8
-	.quad	.L3
-	.quad	.L5
-	.quad	.L9
-	.quad	.L8
-	.quad	.L7
-	.quad	.L7
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="kr">section</span>	<span class="p">.</span><span class="n">rodata</span>
+	<span class="p">.</span><span class="n">align</span> <span class="mi">8</span>
+<span class="p">.</span><span class="n">L4</span><span class="o">:</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L8</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L3</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L5</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L9</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L8</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L7</span>
+	<span class="p">.</span><span class="n">quad</span>	<span class="p">.</span><span class="n">L7</span>
 </code></pre></div></div>
 
-<pre><code class="language-assembly">switch_eg:
-	movq %rdx, %rcx		#backup.
-	cmpq $6, %rdx
-	ja .L8
-	jmp *.L4(,%rdi, 8)
-</code></pre>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">switch_eg</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">%</span><span class="n">rdx</span><span class="p">,</span> <span class="err">%</span><span class="n">rcx</span>		<span class="c">;backup.</span>
+	<span class="n">cmpq</span> <span class="err">$</span><span class="mi">6</span><span class="p">,</span> <span class="err">%</span><span class="n">rdx</span>
+	<span class="k">ja</span> <span class="p">.</span><span class="n">L8</span>
+	<span class="k">jmp</span> <span class="o">*</span><span class="p">.</span><span class="n">L4</span><span class="p">(,</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</code></pre></div></div>
 
-<pre><code class="language-assembly">.L3:
-	movq %rsi, %rax
-	imulq %rdx, %rax
-	ret
-.L5:
-	movq %rsi, %rax
-	cqto 				# sign extend %rax into octaword %rdx:%rax
-	idivq %rcx 			# signed divide %rdx:%rax by %rbx. q in %rax, r in %rdx 
-	jmp .L6
-.L9:
-	movq $1, %rax
-.L6:
-	addq %rcx, %rax
-	ret
-.L7:
-	movq $1, %rax
-	subq %rcx, %rax
-	ret
-.L8:
-	movq $1, $rax
-	ret
-</code></pre>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="n">L3</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">%</span><span class="n">rsi</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="n">imulq</span> <span class="err">%</span><span class="n">rdx</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="k">ret</span>
+<span class="p">.</span><span class="n">L5</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">%</span><span class="n">rsi</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="n">cqto</span> 				<span class="c">; sign extend %rax into octaword %rdx:%rax</span>
+	<span class="n">idivq</span> <span class="err">%</span><span class="n">rcx</span> 			<span class="c">; signed divide %rdx:%rax by %rbx. q in %rax, r in %rdx </span>
+	<span class="k">jmp</span> <span class="p">.</span><span class="n">L6</span>
+<span class="p">.</span><span class="n">L9</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+<span class="p">.</span><span class="n">L6</span><span class="o">:</span>
+	<span class="n">addq</span> <span class="err">%</span><span class="n">rcx</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="k">ret</span>
+<span class="p">.</span><span class="n">L7</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="n">subq</span> <span class="err">%</span><span class="n">rcx</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
+	<span class="k">ret</span>
+<span class="p">.</span><span class="n">L8</span><span class="o">:</span>
+	<span class="k">movq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">$</span><span class="n">rax</span>
+	<span class="k">ret</span>
+</code></pre></div></div>
 
 
         
@@ -781,7 +785,11 @@ pcountdo_do:
     
       
       
-      <a href="/categories/#%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85" class="page__taxonomy-item" rel="tag">전산수업</a>
+      <a href="/categories/#lecturenotes" class="page__taxonomy-item" rel="tag">lecturenotes</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="page__taxonomy-item" rel="tag">시스템프로그래밍</a>
     
     </span>
   </p>
@@ -797,22 +805,22 @@ pcountdo_do:
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8+4+-+%EC%83%81%ED%83%9C+%EC%BD%94%EB%93%9C%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+control+flow+%EC%A0%9C%EC%96%B4%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8+4+-+%EC%83%81%ED%83%9C+%EC%BD%94%EB%93%9C%20http%3A%2F%2Flocalhost%3A4000%2Flecturenotes%2F%25EC%258B%259C%25EC%258A%25A4%25ED%2585%259C%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2Fnote4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Flecturenotes%2F%25EC%258B%259C%25EC%258A%25A4%25ED%2585%259C%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2Fnote4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%25A0%2584%25EC%2582%25B0%25EC%2588%2598%25EC%2597%2585%2Fnote4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Flecturenotes%2F%25EC%258B%259C%25EC%258A%25A4%25ED%2585%259C%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%2598%25EB%25B0%258D%2Fnote4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/" class="pagination--pager" title="시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리
+      <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/" class="pagination--pager" title="시스템 프로그래밍 노트 3 - 어셈블리의 기본
 ">Previous</a>
     
     
-      <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/" class="pagination--pager" title="시스템 프로그래밍 노트 5 - 함수와 스택 메모리
+      <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/" class="pagination--pager" title="시스템 프로그래밍 노트 5 - 함수와 스택 메모리
 ">Next</a>
     
   </nav>
@@ -837,7 +845,7 @@ pcountdo_do:
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6/" rel="permalink">시스템 프로그래밍 노트 6 - 배열과 구조체
+        <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/" rel="permalink">시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수
 </a>
       
     </h2>
@@ -851,7 +859,7 @@ pcountdo_do:
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
-  복잡한 구조의 데이터 관리, 접근
+  복잡한 구조의 데이터 관리, 접근에 대해 알아본다.
 
 
 </p>
@@ -868,7 +876,7 @@ pcountdo_do:
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/" rel="permalink">시스템 프로그래밍 노트 5 - 함수와 스택 메모리
+        <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/" rel="permalink">시스템 프로그래밍 노트 5 - 함수와 스택 메모리
 </a>
       
     </h2>
@@ -899,7 +907,7 @@ pcountdo_do:
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/" rel="permalink">시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리
+        <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/" rel="permalink">시스템 프로그래밍 노트 3 - 어셈블리의 기본
 </a>
       
     </h2>
@@ -913,9 +921,7 @@ pcountdo_do:
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
-  
-    이 강의에서는 x86-64 ISA만 커버한다.
-  
+  이 강의에서는 64비트 아키텍쳐만 커버한다.
 
 
 </p>
@@ -932,7 +938,7 @@ pcountdo_do:
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/" rel="permalink">시스템 프로그래밍 노트 2 - 실수
+        <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2/" rel="permalink">시스템 프로그래밍 노트 2 - 실수
 </a>
       
     </h2>
@@ -945,7 +951,7 @@ pcountdo_do:
   1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">IEEE 실수 표현
+    <p class="archive__item-excerpt" itemprop="description">1. IEEE 실수 표현
 
 </p>
   </article>
@@ -1026,8 +1032,8 @@ pcountdo_do:
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

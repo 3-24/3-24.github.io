@@ -1,11 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-22T15:43:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note1/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note1</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note1/">&lt;h2 id=&quot;기본-표현-단위&quot;&gt;기본 표현 단위&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-22T20:28:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">푹신푹신 후와후와</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note1&quot;&gt;기본 표현 단위와 정수 표현&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note2&quot;&gt;실수&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note3&quot;&gt;어셈블리의 기본&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note4&quot;&gt;상태 코드&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note5&quot;&gt;함수와 스택 메모리&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note6&quot;&gt;배열과 구조체, 그리고 실수&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;출처&quot;&gt;출처&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;KAIST CS230 fall 2019 Syststem Programming slides&lt;/li&gt;
+  &lt;li&gt;Computer Systems: A Programmer’s Perspective 3rd edition&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1/">&lt;h2 id=&quot;1-기본-표현-단위&quot;&gt;1. 기본 표현 단위&lt;/h2&gt;
+
+&lt;p&gt;모든 정보의 최소 표현 단위는 비트이다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;bit : 0,1&lt;/li&gt;
   &lt;li&gt;byte: 여덟 개의 bit를 묶어서 부른다. 이진수로는 00000000~11111111, 십진수로는 0~255, 십육진수로는 00~ff로 표현된다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;비트-연산자&quot;&gt;비트 연산자&lt;/h2&gt;
+&lt;h3 id=&quot;11-비트-연산자&quot;&gt;1.1. 비트 연산자&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt;
@@ -16,9 +33,11 @@
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;의 경우 왼쪽을 0으로 채운다. 반면 논리 연산자에서는 왼쪽을 가장 중요한 비트most siginificant bit로 채운다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;정수&quot;&gt;정수&lt;/h2&gt;
+&lt;h2 id=&quot;2-정수&quot;&gt;2. 정수&lt;/h2&gt;
 
-&lt;h3 id=&quot;unsigned&quot;&gt;unsigned&lt;/h3&gt;
+&lt;p&gt;크게 unsigned와 Two’s Complement로 구분할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;21-unsigned&quot;&gt;2.1. unsigned&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -35,7 +54,7 @@
   &lt;li&gt;0부터 $2^w -1$&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;twos-complement&quot;&gt;Two’s Complement&lt;/h3&gt;
+&lt;h3 id=&quot;22-twos-complement&quot;&gt;2.2. Two’s Complement&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;가장 왼쪽에 있는 비트가 부호 비트로, 0이면 양수, 1이면 음수를 뜻한다.&lt;/li&gt;
@@ -52,7 +71,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;변환&quot;&gt;변환&lt;/h3&gt;
+&lt;h3 id=&quot;23-변환&quot;&gt;2.3. 변환&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -78,7 +97,7 @@
   &lt;li&gt;두 가지 표현이 섞여있으면 암시적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned&lt;/code&gt;로 변환한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;확장축소&quot;&gt;확장/축소&lt;/h3&gt;
+&lt;h3 id=&quot;24-확장축소&quot;&gt;2.4. 확장/축소&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;확장의 경우, &lt;code class=&quot;highlighter-rouge&quot;&gt;signed&lt;/code&gt;일 때 부호 비트를 앞에다가 붙인다. 확장을 하는 상황은 다음과 같다:&lt;/li&gt;
@@ -92,7 +111,7 @@
   &lt;li&gt;축소는 그 수가 양쪽 영역에 모두 포함되어 있으면 확장의 역변환이다. 그렇지 않다면, 예를 들어 int를 short로 바꾸는 경우에 mod 0x10000한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;덧셈&quot;&gt;덧셈&lt;/h3&gt;
+&lt;h3 id=&quot;25-덧셈&quot;&gt;2.5. 덧셈&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;$UAdd_w (u,v) = u+v \mod 2^w $&lt;/li&gt;
@@ -103,7 +122,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;곱셈&quot;&gt;곱셈&lt;/h3&gt;
+&lt;h3 id=&quot;26-곱셈&quot;&gt;2.6. 곱셈&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;$ UMult_w (u,v) = uv \mod 2^w $&lt;/li&gt;
@@ -114,16 +133,16 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;bitwise-shift&quot;&gt;Bitwise Shift&lt;/h3&gt;
+&lt;h3 id=&quot;27-bitwise-shift&quot;&gt;2.7. Bitwise Shift&lt;/h3&gt;
 
-&lt;h4 id=&quot;left-shift&quot;&gt;Left Shift&lt;/h4&gt;
+&lt;h4 id=&quot;271-left-shift&quot;&gt;2.7.1. Left Shift&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;u &amp;lt;&amp;lt; k&lt;/code&gt;는 $u \times 2^k$와 동일하다.&lt;/li&gt;
   &lt;li&gt;앞에다가 0을 k개 붙인 후 나머지 비트는 버린다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;right-shift&quot;&gt;Right Shift&lt;/h4&gt;
+&lt;h4 id=&quot;272-right-shift&quot;&gt;2.7.2. Right Shift&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;unsigned는 앞에 k개의 0비트를 넣으면서 오른쪽으로 밀어버린다.
@@ -139,7 +158,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;byte-ordering&quot;&gt;Byte Ordering&lt;/h2&gt;
+&lt;h2 id=&quot;3-byte-ordering&quot;&gt;3. Byte Ordering&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;메모리를 처리하는 단위를 word라고 하고, 32비트 아키텍쳐는 4바이트, 64비트는 8바이트이다.&lt;/li&gt;
@@ -217,9 +236,9 @@
 
     &lt;p&gt;단, 문자열에 대해서는 조심해야 하는게, char의 배열로 취급된다. 그러니까 ‘abcd’를 넣는다면 각 a, b, c, d에 해당하는 아스키코드가 순서대로 저장된다. 마지막 바이트는 널바이트&lt;code class=&quot;highlighter-rouge&quot;&gt;0x00&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">기본 표현 단위</summary></entry><entry><title type="html">시스템 프로그래밍 노트 2 - 실수</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 2 - 실수" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note2/">&lt;h2 id=&quot;ieee-실수-표현&quot;&gt;IEEE 실수 표현&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="정수" /><category term="byte ordering" /><summary type="html">1. 기본 표현 단위</summary></entry><entry><title type="html">시스템 프로그래밍 노트 2 - 실수</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 2 - 실수" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2/">&lt;h2 id=&quot;1-ieee-실수-표현&quot;&gt;1. IEEE 실수 표현&lt;/h2&gt;
 
-&lt;h3 id=&quot;표현-방법&quot;&gt;표현 방법&lt;/h3&gt;
+&lt;h3 id=&quot;11-표현-방법&quot;&gt;1.1. 표현 방법&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;$(-1)^s M \;2^E $&lt;/li&gt;
@@ -229,7 +248,7 @@
   &lt;li&gt;이걸 인코딩할 때는 sign bit - exponent - significand 순으로 놓는다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;normalized-values&quot;&gt;Normalized Values&lt;/h4&gt;
+&lt;h4 id=&quot;111-normalized-values&quot;&gt;1.1.1. Normalized Values&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;exp가 00…0이나 11…1이 아닐 때의 일반적인 상황이다.&lt;/li&gt;
@@ -241,7 +260,7 @@
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M = 1.xxx...x &lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;xx---x&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;significand&lt;/code&gt;이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;denormalized-values&quot;&gt;Denormalized Values&lt;/h4&gt;
+&lt;h4 id=&quot;112-denormalized-values&quot;&gt;1.1.2. Denormalized Values&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -251,7 +270,7 @@
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M = 0.xxx...x&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;special-values&quot;&gt;Special Values&lt;/h4&gt;
+&lt;h4 id=&quot;113-special-values&quot;&gt;1.1.3. Special Values&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exp = 111...1&lt;/code&gt;&lt;/li&gt;
@@ -263,7 +282,7 @@
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;frac!=000...0&lt;/code&gt;이면 NaN(Not a Number)으로, 어떤 수로도 결정되지 않을 때 사용한다. $\sqrt{-1}$ 같은 연산의 결과이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;rounding&quot;&gt;Rounding&lt;/h3&gt;
+&lt;h3 id=&quot;12-rounding&quot;&gt;1.2. Rounding&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;반올림&lt;/li&gt;
@@ -271,7 +290,7 @@
   &lt;li&gt;&lt;strong&gt;모든 실수 연산의 마지막에 반드시 필요하다&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;곱셈&quot;&gt;곱셈&lt;/h3&gt;
+&lt;h3 id=&quot;13-곱셈&quot;&gt;1.3. 곱셈&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} \times (-1)^{s_2} M_2 2^{E_2} $
@@ -285,7 +304,7 @@
   &lt;li&gt;M을 round한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;덧셈&quot;&gt;덧셈&lt;/h3&gt;
+&lt;h3 id=&quot;14-덧셈&quot;&gt;1.4. 덧셈&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} + (-1)^{s_2} M_2 2^{E_2} $
@@ -300,7 +319,7 @@
   &lt;li&gt;M을 round한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;c에서의-실수&quot;&gt;C에서의 실수&lt;/h3&gt;
+&lt;h2 id=&quot;2-c-실수&quot;&gt;2. C 실수&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;float&lt;/code&gt; : single precision
@@ -315,7 +334,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;변환&quot;&gt;변환&lt;/h4&gt;
+&lt;h3 id=&quot;21-변환&quot;&gt;2.1. 변환&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;double/float&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;
@@ -330,13 +349,11 @@
       &lt;li&gt;어림이 필요하면 실수의 반올림을 사용한다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">IEEE 실수 표현</summary></entry><entry><title type="html">시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 3 - 어셈블리와 레지스터 관리" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note3/">&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;이 강의에서는 x86-64 ISA만 커버한다.&lt;/p&gt;
-  &lt;/blockquote&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. IEEE 실수 표현</summary></entry><entry><title type="html">시스템 프로그래밍 노트 3 - 어셈블리의 기본</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 3 - 어셈블리의 기본" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/">&lt;blockquote&gt;
+  &lt;p&gt;이 강의에서는 64비트 아키텍쳐만 커버한다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;기본-용어&quot;&gt;기본 용어&lt;/h2&gt;
+&lt;h2 id=&quot;1-기본-용어&quot;&gt;1. 기본 용어&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;아키텍쳐 : 어셈블리/기계어를 읽거나 쓸 때 필요한 프로세서 디자인의 일부&lt;/li&gt;
@@ -345,7 +362,7 @@
   &lt;li&gt;어셈블리 코드 : 기계어의 글자 표현text representation&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;c-코드의-변환-과정&quot;&gt;C 코드의 변환 과정&lt;/h2&gt;
+&lt;h2 id=&quot;2-c-코드의-변환-과정&quot;&gt;2. C 코드의 변환 과정&lt;/h2&gt;
 
 &lt;p&gt;C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고, 어셈블리 프로그램은 어셈블러에 의해 binary Object 프로그램으로 변환된다. 마지막으로 Linker를 통해 정적 라이브러리를 사용할 수 있게 만들어 실행 가능한 프로그램executable program이 된다(&lt;code class=&quot;highlighter-rouge&quot;&gt;printf&lt;/code&gt;과 같은 라이브러리 함수나 다른 파일의 referencing).&lt;/p&gt;
 
@@ -354,7 +371,7 @@
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Og&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; sum.c
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;x86-64-정수-레지스터&quot;&gt;x86-64 정수 레지스터&lt;/h2&gt;
+&lt;h2 id=&quot;3-x86-64-정수-레지스터&quot;&gt;3. x86-64 정수 레지스터&lt;/h2&gt;
 
 &lt;p&gt;기본적으로 각 정수 레지스터에는 8바이트의 공간이 할당된다.&lt;/p&gt;
 
@@ -377,7 +394,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;operand-types&quot;&gt;Operand Types&lt;/h2&gt;
+&lt;h2 id=&quot;4-operand-types&quot;&gt;4. Operand Types&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Immediate : 상수 정수. &lt;code class=&quot;highlighter-rouge&quot;&gt;$0x400, $-533&lt;/code&gt; 이런 식으로 접근한다.&lt;/li&gt;
@@ -385,7 +402,7 @@
   &lt;li&gt;Memory : 레지스터에 의해 주어진 주소가 메모리의 8개의 연속적인 바이트에 대응된다. &lt;code class=&quot;highlighter-rouge&quot;&gt;(%rax)&lt;/code&gt;과 같이 접근한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;memory-addressing-modes&quot;&gt;Memory Addressing Modes&lt;/h2&gt;
+&lt;h2 id=&quot;5-memory-addressing-modes&quot;&gt;5. Memory Addressing Modes&lt;/h2&gt;
 
 &lt;p&gt;D(Rb,Ri, S)  = Mem[Reg[RB] + S*Reg[Ri] + D]&lt;/p&gt;
 
@@ -396,7 +413,9 @@
   &lt;li&gt;S: Scale&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;movq&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;movq&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;6-기초-instructions&quot;&gt;6. 기초 Instructions&lt;/h2&gt;
+
+&lt;h3 id=&quot;61-movq&quot;&gt;6.1. &lt;code class=&quot;highlighter-rouge&quot;&gt;movq&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;movq Source, Dest;&lt;/code&gt;를 통해 데이터를 이동시킨다.&lt;/p&gt;
 
@@ -404,11 +423,11 @@
   &lt;li&gt;&lt;strong&gt;메모리를 메모리로&lt;/strong&gt; 옮기거나 어떤 값을 상수로 옮기는 것을 &lt;strong&gt;제외&lt;/strong&gt;한 모든 경우가 가능하다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;leaq&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leaq&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;62-leaq&quot;&gt;6.2. &lt;code class=&quot;highlighter-rouge&quot;&gt;leaq&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leaq Src, Dst&lt;/code&gt;는 메모리 reference 없이 Src 자체를 Dst의 값에 넣는다.&lt;/p&gt;
 
-&lt;h2 id=&quot;arithematic-operations&quot;&gt;Arithematic Operations&lt;/h2&gt;
+&lt;h3 id=&quot;63-arithematic-operations&quot;&gt;6.3. Arithematic Operations&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -471,15 +490,17 @@
       &lt;td&gt;Dest = ~Dest&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">이 강의에서는 x86-64 ISA만 커버한다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 4 - 상태 코드를 이용한 control flow 제어" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note4/">&lt;h2 id=&quot;프로세서-상태&quot;&gt;프로세서 상태&lt;/h2&gt;
+&lt;/table&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="어셈블리" /><category term="레지스터" /><summary type="html">이 강의에서는 64비트 아키텍쳐만 커버한다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 4 - 상태 코드</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 4 - 상태 코드" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/">&lt;p&gt;상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-프로세서-상태&quot;&gt;1. 프로세서 상태&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;%rsp는 stack의 위치&lt;/li&gt;
-  &lt;li&gt;%rip는 프로그램 카운터, 즉 현재 실행되고 있는 코드의 위치를 가리키는 레지스터&lt;/li&gt;
+  &lt;li&gt;%rsp는 stack의 위치이다. 이와 관련해서는 다음 노트에서 다룬다.&lt;/li&gt;
+  &lt;li&gt;%rip는 프로그램 카운터, 즉 현재 실행되고 있는 코드의 위치를 가리키는 레지스터이다.&lt;/li&gt;
   &lt;li&gt;CF, ZF, SF, OF의 Condition Codes가 존재한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;condition-codes&quot;&gt;Condition Codes&lt;/h3&gt;
+&lt;h3 id=&quot;11-condition-codes&quot;&gt;1.1. Condition Codes&lt;/h3&gt;
 
 &lt;p&gt;단일 비트 레지스터이다.&lt;/p&gt;
 
@@ -502,9 +523,11 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;setx-dest&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SetX Dest&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;2-instructions-based-on-condition-codes&quot;&gt;2. Instructions Based On Condition Codes&lt;/h2&gt;
 
-&lt;p&gt;condition codes에 기초하여 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.&lt;/p&gt;
+&lt;h3 id=&quot;21-setx&quot;&gt;2.1. &lt;code class=&quot;highlighter-rouge&quot;&gt;SetX&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;setX Dest&lt;/code&gt;의 형태로 사용된다. condition codes에 따라 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -570,15 +593,15 @@
 
 &lt;p&gt;하위 1바이트만 변경하기 때문에 그것에만 집중하는 레지스터가 많이 사용된다. 예를 들면&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;cmpq %rsi, %rdi
-setg %al
-movzbl %al, %eax # movzbl is the instruction for zero extending byte to 32bits.
-ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cmpq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;setg&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;als&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;movzbl&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;al&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eax&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;;movzbl is the instruction for zero extending byte to 32bits.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;jx-dest&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jX Dest&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;22-jx&quot;&gt;2.2. &lt;code class=&quot;highlighter-rouge&quot;&gt;jX&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;condition codes에 기초하여 program counter를 Dest로 변경시킨다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jX Dest&lt;/code&gt;의 형태로 사용된다. condition codes에 따라 program counter를 Dest로 변경시킨다.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -653,7 +676,7 @@ ret
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%rdi, %rsi, %rdx&lt;/code&gt;가 순서대로 첫 번째 인자, 두 번째 인자, 세 번째 인자이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;implementing-conditional-branches&quot;&gt;Implementing Conditional Branches&lt;/h2&gt;
+&lt;h2 id=&quot;3-implementing-conditional-branches&quot;&gt;3. Implementing Conditional Branches&lt;/h2&gt;
 
 &lt;p&gt;goto는 코드를 읽고 디버깅하기 힘들기 때문에 나쁜 코드 스타일이다. 코드의 control flow를 설명할 때만 여기서는 사용될 예정이다.&lt;/p&gt;
 
@@ -664,7 +687,7 @@ ret
 &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;conditional-control&quot;&gt;Conditional Control&lt;/h3&gt;
+&lt;h3 id=&quot;31-conditional-control&quot;&gt;3.1. Conditional Control&lt;/h3&gt;
 
 &lt;p&gt;전통적인 방법으로, 위 코드를 이 방식으로 컴파일할 때 동등한 goto 코드는 다음과 같다.&lt;/p&gt;
 
@@ -680,7 +703,7 @@ ret
 
 &lt;p&gt;와 같다. 이 형태의 control flow에서 어셈블리를 까보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;cmpX, jX&lt;/code&gt;의 (un)conditional jump 명령이 포함되고 각 if, else에  대해 코드 영역이 분리되어 있다.&lt;/p&gt;
 
-&lt;h3 id=&quot;conditional-move&quot;&gt;Conditional Move&lt;/h3&gt;
+&lt;h3 id=&quot;32-conditional-move&quot;&gt;3.2. Conditional Move&lt;/h3&gt;
 
 &lt;p&gt;하지만 현대 프로세서에게 더 효율적인 형태는 conditional move이다.&lt;/p&gt;
 
@@ -701,9 +724,9 @@ ret
   &lt;li&gt;계산을 할 때 예측하지 못한 부가 효과가 생긴다. &lt;code class=&quot;highlighter-rouge&quot;&gt;val = x &amp;gt; 0 ? x*=7 : x+=3&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;implementing-loops-while-for-&quot;&gt;Implementing Loops (While, For, …)&lt;/h2&gt;
+&lt;h2 id=&quot;4-implementing-loops-while-for-&quot;&gt;4. Implementing Loops (While, For, …)&lt;/h2&gt;
 
-&lt;h3 id=&quot;do-while&quot;&gt;Do-While&lt;/h3&gt;
+&lt;h3 id=&quot;41-do-while&quot;&gt;4.1. Do-While&lt;/h3&gt;
 
 &lt;p&gt;Do-While 문은 루프를 만들어 루프 끝에서 조건을 체크하고, 조건이 맞으면 다시 되돌아가는 형태이다.&lt;/p&gt;
 
@@ -727,27 +750,27 @@ ret
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi is x, %rax is result
-pcountdo_do:
-	xor %rax, %rax				# movl $0, %eax
-.L1:
-	movq %rdi, %rdx
-	andq $1, %rdx
-	addq %rdx, %rax
-	shrq $1, %rdi        		# can be replaced to shr %rdi
-	jne .L1
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi is x, %rax is result&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pcountdo_do&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;				&lt;span class=&quot;c&quot;&gt;; movl $0, %eax&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;andq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;shrq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;        		&lt;span class=&quot;c&quot;&gt;; can be replaced to shr %rdi&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;jne&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L1&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;while&quot;&gt;While&lt;/h3&gt;
+&lt;h3 id=&quot;42-while&quot;&gt;4.2. While&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;오히려 while 문이 어셈블리 레벨에서는 더 복잡한데, 두 가지 방법이 존재한다.&lt;/p&gt;
+&lt;p&gt;오히려 while 문이 어셈블리 레벨에서는 더 복잡한데, 두 가지 방법이 존재한다. 각 방법의 이름은 gcc에서 컴파일할 때 주는 flag를 의미한다.&lt;/p&gt;
 
-&lt;h4 id=&quot;-og-translation&quot;&gt;-Og Translation&lt;/h4&gt;
+&lt;h4 id=&quot;421--og-translation&quot;&gt;4.2.1. -Og Translation&lt;/h4&gt;
 
 &lt;p&gt;jump-to-middle. 조건을 체크하는 부분으로 먼저 가버린다.&lt;/p&gt;
 
@@ -760,7 +783,7 @@ pcountdo_do:
 &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;-o1-translation&quot;&gt;-O1 Translation&lt;/h4&gt;
+&lt;h4 id=&quot;422--o1-translation&quot;&gt;4.2.2. -O1 Translation&lt;/h4&gt;
 
 &lt;p&gt;초기 상태를 확인하고 do-while을 사용한다.&lt;/p&gt;
 
@@ -785,7 +808,7 @@ pcountdo_do:
 &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;for&quot;&gt;For&lt;/h3&gt;
+&lt;h3 id=&quot;43-for&quot;&gt;4.3. For&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;
@@ -830,7 +853,7 @@ pcountdo_do:
 
 &lt;p&gt;경우에 따라 초기 테스트는 생략 가능하기도 하다. 결국 while을 초기 조건 확인 + do-while 문으로 생각하는 -O1 Translation을 거친 결과다.&lt;/p&gt;
 
-&lt;h2 id=&quot;switch-statement&quot;&gt;Switch Statement&lt;/h2&gt;
+&lt;h2 id=&quot;5-switch-statement&quot;&gt;5. Switch Statement&lt;/h2&gt;
 
 &lt;p&gt;동시에 여러 조건을 확인하는 경우 if-else를 계속 사용하는 것보다 switch-case 문이 효율적이다.&lt;/p&gt;
 
@@ -858,51 +881,53 @@ pcountdo_do:
 
 &lt;p&gt;이런 식으로 생겼고, 어셈블리에서는 Jump Table을 통해 관리된다. 루프 포인터를 한 번에 모아서 x값에 따라 서로 다른 루프로 대응시킨다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.section	.rodata
-	.align 8
-.L4:
-	.quad	.L8
-	.quad	.L3
-	.quad	.L5
-	.quad	.L9
-	.quad	.L8
-	.quad	.L7
-	.quad	.L7
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;section&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rodata&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;align&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L8&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L3&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L5&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L9&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L8&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L7&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L7&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;switch_eg:
-	movq %rdx, %rcx		#backup.
-	cmpq $6, %rdx
-	ja .L8
-	jmp *.L4(,%rdi, 8)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;switch_eg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;		&lt;span class=&quot;c&quot;&gt;;backup.&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;cmpq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ja&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L8&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;jmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;.L3:
-	movq %rsi, %rax
-	imulq %rdx, %rax
-	ret
-.L5:
-	movq %rsi, %rax
-	cqto 				# sign extend %rax into octaword %rdx:%rax
-	idivq %rcx 			# signed divide %rdx:%rax by %rbx. q in %rax, r in %rdx 
-	jmp .L6
-.L9:
-	movq $1, %rax
-.L6:
-	addq %rcx, %rax
-	ret
-.L7:
-	movq $1, %rax
-	subq %rcx, %rax
-	ret
-.L8:
-	movq $1, $rax
-	ret
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">프로세서 상태</summary></entry><entry><title type="html">시스템 프로그래밍 노트 5 - 함수와 스택 메모리</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 5 - 함수와 스택 메모리" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note5/">&lt;blockquote&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;imulq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;cqto&lt;/span&gt; 				&lt;span class=&quot;c&quot;&gt;; sign extend %rax into octaword %rdx:%rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;idivq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt; 			&lt;span class=&quot;c&quot;&gt;; signed divide %rdx:%rax by %rbx. q in %rax, r in %rdx &lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;jmp&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L6&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;subq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">상태 코드와 관련된 어셈블리 Instructions과 c에서 루프가 어셈블리어로 어떻게 구현되는지 살펴본다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 5 - 함수와 스택 메모리</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 5 - 함수와 스택 메모리" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/">&lt;blockquote&gt;
   &lt;p&gt;어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;stack&quot;&gt;stack&lt;/h2&gt;
+&lt;p&gt;기본적으로 함수는 stack을 통해 관리된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-stack&quot;&gt;1. stack&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;메모리에 있다.&lt;/li&gt;
@@ -911,7 +936,7 @@ pcountdo_do:
   &lt;li&gt;%rbp는 선택적으로 가장 높은 스택 프레임 주소로 사용된다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;instructions&quot;&gt;Instructions&lt;/h3&gt;
+&lt;h3 id=&quot;11-related-instructions&quot;&gt;1.1. Related Instructions&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;push
@@ -939,7 +964,7 @@ pcountdo_do:
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;인자-전달&quot;&gt;인자 전달&lt;/h3&gt;
+&lt;h3 id=&quot;12-인자-전달&quot;&gt;1.2. 인자 전달&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;처음 6개의 인자는 순서대로 %rdi, %rsi, %rdx, %rcx, r8, r9이다.&lt;/li&gt;
@@ -951,17 +976,17 @@ pcountdo_do:
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;push %rbp
-mov %rsp, %rbp
-...
-pop %rbp
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbp&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;mov&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbp&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;pop&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;return 값은 %rax이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;saving-conventions&quot;&gt;Saving Conventions&lt;/h2&gt;
+&lt;h3 id=&quot;13-saving-conventions&quot;&gt;1.3. Saving Conventions&lt;/h3&gt;
 
 &lt;p&gt;같은 레지스터를 다른 프레임의 함수에서 사용하면 충돌한다. 이를 방지하기 위해서 레지스터 별로 saving cocnvention 이 있다.&lt;/p&gt;
 
@@ -978,13 +1003,13 @@ pop %rbp
       &lt;li&gt;rbx랑 r12, r13, r14, 그리고 스택 포인터로 사용되는 rbp랑 rsp도 여기에 해당한다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 6 - 배열과 구조체</title><link href="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 6 - 배열과 구조체" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6</id><content type="html" xml:base="http://localhost:4000/%EC%A0%84%EC%82%B0%EC%88%98%EC%97%85/note6/">&lt;blockquote&gt;
-  &lt;p&gt;복잡한 구조의 데이터 관리, 접근&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="stack" /><summary type="html">어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/">&lt;blockquote&gt;
+  &lt;p&gt;복잡한 구조의 데이터 관리, 접근에 대해 알아본다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+&lt;h2 id=&quot;1-배열&quot;&gt;1. 배열&lt;/h2&gt;
 
-&lt;h3 id=&quot;1차원-배열&quot;&gt;1차원 배열&lt;/h3&gt;
+&lt;h3 id=&quot;11-1차원-배열&quot;&gt;1.1. 1차원 배열&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -994,7 +1019,7 @@ pop %rbp
   &lt;li&gt;A는 0번째 element의 포인터로 사용된다. 타입은 따라서 T*.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;배열의-접근&quot;&gt;배열의 접근&lt;/h4&gt;
+&lt;h4 id=&quot;111-배열의-접근&quot;&gt;1.1.1. 배열의 접근&lt;/h4&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#define ZLEN 5
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
@@ -1004,13 +1029,13 @@ pop %rbp
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = z, %rsi = digit
-movq (%rdi,%rsi,4), %rax
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = z, %rsi = digit&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;int가 4바이트이기 때문에 z[digit]을 담고 있는 실제 주소는 z + 4*digit이다.&lt;/p&gt;
 
-&lt;h4 id=&quot;for-문과-섞인-예시&quot;&gt;For 문과 섞인 예시&lt;/h4&gt;
+&lt;h4 id=&quot;112-for-문과-섞인-예시&quot;&gt;1.1.2. For 문과 섞인 예시&lt;/h4&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;zincr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -1019,23 +1044,23 @@ movq (%rdi,%rsi,4), %rax
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;zincr:
-	movq $0, %rax
-.L4
-	addq $1, (%rdi,%rax,4)
-	addq $1, %rax
-.L3:
-	cmpq 4, %rax
-	jbe .L4
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;zincr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;cmpq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;jbe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;다차원-배열&quot;&gt;다차원 배열&lt;/h3&gt;
+&lt;h3 id=&quot;12-다차원-배열&quot;&gt;1.2. 다차원 배열&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;배열의-접근-1&quot;&gt;배열의 접근&lt;/h4&gt;
+&lt;h4 id=&quot;121-배열의-접근&quot;&gt;1.2.1. 배열의 접근&lt;/h4&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#define ZLEN 5
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
@@ -1047,17 +1072,17 @@ movq (%rdi,%rsi,4), %rax
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = index, %rsi = dig
-get_pgh_digit:
-	leaq (%rdi,%rdi,$4), %rax
-	addl $rax, %rsi								# rsi = 5*index + dig
-	movl pgh(,%rsi,$4), %rax
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = index, %rsi = dig&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;get_pgh_digit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;leaq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addl&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;								&lt;span class=&quot;c&quot;&gt;; rsi = 5*index + dig&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;movl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;zip_dig의 크기가 4*5 = 20바이트이기 때문에 &lt;code class=&quot;highlighter-rouge&quot;&gt;pgh[index][dig]&lt;/code&gt;에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;pgh+20index + 4dig&lt;/code&gt;의 값을 불러와야 한다.&lt;/p&gt;
 
-&lt;h3 id=&quot;배열-포인터-배열&quot;&gt;배열 포인터 배열&lt;/h3&gt;
+&lt;h3 id=&quot;13-배열-포인터-배열&quot;&gt;1.3. 배열 포인터 배열&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
@@ -1071,34 +1096,34 @@ get_pgh_digit:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = index, %rsi = digit
-# objective: data in [univ + 8*index] + 4*digit
-get_univ_digit:
-	salq $2, %rsi
-	addq univ(,%rdi,8), %rsi
-	movq (%rsi), %rax
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = index, %rsi = digit&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;; objective: data in [univ + 8*index] + 4*digit&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;get_univ_digit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;salq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;univ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;univ[index]&lt;/code&gt;는 univ + 8index에 저장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;int *&lt;/code&gt;이고, &lt;code class=&quot;highlighter-rouge&quot;&gt;univ[index][digit]&lt;/code&gt;에 접근하려면 univ+8index에 저장된 값에 &lt;code class=&quot;highlighter-rouge&quot;&gt;4*digit&lt;/code&gt;을 더해서 dereferencing해야 한다.&lt;/p&gt;
 
-&lt;h3 id=&quot;n-x-n-배열&quot;&gt;n X n 배열&lt;/h3&gt;
+&lt;h3 id=&quot;14-n-x-n-배열&quot;&gt;1.4. n X n 배열&lt;/h3&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var_ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = n, %rsi = a, %rdx = i, %rcx = j
-# [a+(4*n)*i + 4*j] = [a + 4(ni+j)]
-var_ele:
-	imulq %rdx, %rdi
-	addq %rdi, %rcx
-	movq %rsi(,%rcx,$4), %rax
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = n, %rsi = a, %rdx = i, %rcx = j&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;; [a+(4*n)*i + 4*j] = [a + 4(ni+j)]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;var_ele&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;imulq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;구조체-struct&quot;&gt;구조체 Struct&lt;/h2&gt;
+&lt;h2 id=&quot;2-구조체-struct&quot;&gt;2. 구조체 Struct&lt;/h2&gt;
 
 &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;				&lt;span class=&quot;c1&quot;&gt;// 16바이트&lt;/span&gt;
@@ -1116,18 +1141,18 @@ var_ele:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = r, %rsi = val
-set_val:
-.L11:
-	movslq 16(%rdi), %rax			# sign extension (%rdi+16), which is long.
-	movl %esi, (%rdi,%rax,4)
-	movq 24(%rdi), %rdi
-	testq %rdi, %rdi
-	jne .L11
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = r, %rsi = val&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;set_val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;movslq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;			&lt;span class=&quot;c&quot;&gt;; sign extension (%rdi+16), which is long.&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;movl&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;esi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;testq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;jne&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L11&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;alignment&quot;&gt;Alignment&lt;/h3&gt;
+&lt;h3 id=&quot;21-alignment&quot;&gt;2.1. Alignment&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;struct 내부의 각 데이터에 대해 그 데이터의 대표 타입이 K 바이트면, 시작 주소도 K의 배수여야 한다.&lt;/li&gt;
@@ -1148,7 +1173,7 @@ set_val:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;구조체의-배열&quot;&gt;구조체의 배열&lt;/h2&gt;
+&lt;h3 id=&quot;22-구조체의-배열&quot;&gt;2.2. 구조체의 배열&lt;/h3&gt;
 
 &lt;p&gt;그냥 응용이다.&lt;/p&gt;
 
@@ -1163,12 +1188,12 @@ set_val:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;get_j:
-	leaq (%rdi,%rdi,2), %rax
-	movzwl a+8(,%rax,4), %eax
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;get_j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;leaq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;movzwl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eax&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;실수&quot;&gt;실수&lt;/h2&gt;
+&lt;h2 id=&quot;3-실수&quot;&gt;3. 실수&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;XMM 레지스터가 사용된다. 각 16바이트씩 16개가 존재한다.
@@ -1186,7 +1211,7 @@ set_val:
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;add-연산&quot;&gt;add 연산&lt;/h3&gt;
+&lt;h3 id=&quot;31-add-연산&quot;&gt;3.1. add 연산&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;addss %xmm0, %xmm1: 레지스터 앞쪽의 single precision float addition을 한 번 한다.&lt;/li&gt;
@@ -1196,7 +1221,7 @@ set_val:
 
 &lt;p&gt;adds로 시작하는 연산을 Scalar 연산, addp로 시작하는 연산을 SIMD 연산이라고 한다.&lt;/p&gt;
 
-&lt;h3 id=&quot;기초&quot;&gt;기초&lt;/h3&gt;
+&lt;h3 id=&quot;32-기초&quot;&gt;3.2. 기초&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;인자는 %xmm0, %xmm1, … 을 통해 전달된다.&lt;/li&gt;
@@ -1209,13 +1234,13 @@ set_val:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %xmm0 = x, %xmm1 = y
+&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;; %xmm0 = x, %xmm1 = y
 fadd:
 	addss %xmm1, %xmm0
 	ret
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;memory-referencing&quot;&gt;Memory Referencing&lt;/h3&gt;
+&lt;h3 id=&quot;33-memory-referencing&quot;&gt;3.3. Memory Referencing&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mov&lt;/code&gt; instruction은 정수 전용이다. 따라서 실수에 대해서는 다른 instruction이 적용된다.&lt;/p&gt;
 
@@ -1226,16 +1251,16 @@ fadd:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;# %rdi = p, %xmm0 = v
-dincr:
-	movapd %xmm0, %xmm1;		# double 실수를 다른 레지스터에 그대로 복사할 때 사용되는 명령
-	movsd (%rdi), %xmm0;
-	addsd %xmm0, %xmm1;
-	movsd %xmm1, (%rdi)
-	ret
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = p, %xmm0 = v&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dincr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;movapd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;		; double 실수를 다른 레지스터에 그대로 복사할 때 사용되는 명령&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movsd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;addsd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;movsd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;movapd는 aligned packed-doubles의 약자이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">복잡한 구조의 데이터 관리, 접근</summary></entry><entry><title type="html">감기에 걸렸습니다</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/" rel="alternate" type="text/html" title="감기에 걸렸습니다" /><published>2019-10-10T00:00:00+09:00</published><updated>2019-10-10T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/">&lt;p&gt;일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!</summary></entry><entry><title type="html">norae</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/" rel="alternate" type="text/html" title="norae" /><published>2019-10-01T00:00:00+09:00</published><updated>2019-10-01T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/norae</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/">&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/norae&quot;&gt;Github repository&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;movapd는 aligned packed-doubles의 약자이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">복잡한 구조의 데이터 관리, 접근에 대해 알아본다.</summary></entry><entry><title type="html">감기에 걸렸습니다</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/" rel="alternate" type="text/html" title="감기에 걸렸습니다" /><published>2019-10-10T00:00:00+09:00</published><updated>2019-10-10T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/">&lt;p&gt;일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!</summary></entry><entry><title type="html">norae</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/" rel="alternate" type="text/html" title="norae" /><published>2019-10-01T00:00:00+09:00</published><updated>2019-10-01T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/norae</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/">&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/norae&quot;&gt;Github repository&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://3-24.github.io/norae&quot;&gt;구현된 웹 페이지&lt;/a&gt;&lt;/p&gt;
 
@@ -1342,38 +1367,4 @@ Add) e=151. This is for make challenge easy.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POKA{You_4r3_Crypt0_N00000B_XDD}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/solve.sage&quot;&gt;solve.sage&lt;/a&gt; is the full code.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="CTF" /><category term="write-up" /><category term="LLL" /><category term="Coppersmith" /><category term="RSA" /><category term="CRT" /><summary type="html">I am not good at Linear Algebra : ( Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm? Add) e=151. This is for make challenge easy.</summary></entry><entry><title type="html">poka2019 writeup 2 - 강한가 약한가</title><link href="http://localhost:4000/ctf/write-up/ROCA/" rel="alternate" type="text/html" title="poka2019 writeup 2 - 강한가 약한가" /><published>2019-09-25T00:00:00+09:00</published><updated>2019-09-25T00:00:00+09:00</updated><id>http://localhost:4000/ctf/write-up/ROCA</id><content type="html" xml:base="http://localhost:4000/ctf/write-up/ROCA/">&lt;blockquote&gt;
-  &lt;p&gt;You have two choice- “Weak” and “Strong”.
-What do you want?
-&lt;strong&gt;Caution! Maybe “Strong” one will took 2 hours to get your treasure.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/WeakOrStrong/enc.txt&quot;&gt;enc.txt&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/WeakOrStrong/weak-strong.py&quot;&gt;weak-strong.py&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;Me and &lt;a href=&quot;https://github.com/pcw109550&quot;&gt;diff&lt;/a&gt; worked on this problem. At first, we tried some simple number-theoritic calcuations but failed to make a meaningful result. However the interesting fact was the factorization of modulus of prime generating functions.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;4014476939...30&amp;lt;49&amp;gt; = 2 · 3 · 5 · 7 · 11 · ... · 109 · 113 · 127
-
-9629474207...70&amp;lt;66&amp;gt; = 2 · 3 · 5 · 7 · 11 · ... · 157 · 163 · 167
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Those were generated by &lt;strong&gt;the product of consecutive primes&lt;/strong&gt;! I searched for this kind of RSA prime generation and &lt;a href=&quot;https://acmccs.github.io/papers/p1631-nemecA.pdf&quot;&gt;a remarkable paper about ROCA(Return of Coppersmith’s Attack)&lt;/a&gt;, noticing this problem would be solved with ROCA.&lt;/p&gt;
-
-&lt;h2 id=&quot;walkthrough&quot;&gt;Walkthrough&lt;/h2&gt;
-
-&lt;p&gt;After that, we found a &lt;a href=&quot;https://ctftime.org/writeup/8805&quot;&gt;ROCA write-up&lt;/a&gt; and tried &lt;a href=&quot;https://sourceforge.net/projects/yafu/&quot;&gt;Yafu&lt;/a&gt;, &lt;a href=&quot;https://github.com/Ganapati/RsaCtfTool&quot;&gt;RsaCTFTool&lt;/a&gt;, and &lt;a href=&quot;https://gitlab.com/jix/neca&quot;&gt;neca&lt;/a&gt; with weak RSA modulus &lt;code class=&quot;highlighter-rouge&quot;&gt;N = 400...579&lt;/code&gt; but failed. So we tried implementation of ROCA with sage refering to the paper.&lt;/p&gt;
-
-&lt;p&gt;It was a hard work. So I kept tried to find ROCA solver but there was no meaningful write-ups and tools for it. In a moment, A flash of idea came to me: “How about trying neca with strong modulus &lt;code class=&quot;highlighter-rouge&quot;&gt;670...77&lt;/code&gt;?”.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/3-24/write-up/master/2019/poka/WeakOrStrong/images/Screenshot%20from%202019-09-21%2011-58-26.png&quot; alt=&quot;neca result&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It took only 64 seconds to get the prime factorization of the modulus,&lt;code class=&quot;highlighter-rouge&quot;&gt;96519019965985189420318021978086209355220104728842768493515285964382881562961 * 69517189020993799354976567194165615733741804094602331588109289689403844859157&lt;/code&gt;. I think it was possible since strong one was written in RSALib format, which was the expected input format of neca. With simple RSA decryption, we captured the flag.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POKA{ROCA_POKA_Return_Of_Coppersmith_Attack}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I uploaded &lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/WeakOrStrong/solve.py&quot;&gt;solve.py&lt;/a&gt; for RSA decryption with given factorization.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="CTF" /><category term="write-up" /><category term="ROCA" /><category term="RSA" /><summary type="html">You have two choice- “Weak” and “Strong”. What do you want? Caution! Maybe “Strong” one will took 2 hours to get your treasure.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/solve.sage&quot;&gt;solve.sage&lt;/a&gt; is the full code.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="CTF" /><category term="write-up" /><category term="LLL" /><category term="Coppersmith" /><category term="RSA" /><category term="CRT" /><summary type="html">I am not good at Linear Algebra : ( Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm? Add) e=151. This is for make challenge easy.</summary></entry></feed>
