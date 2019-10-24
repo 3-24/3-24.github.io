@@ -115,13 +115,13 @@ var store = [{
         "url": "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note4/",
         "teaser":null},{
         "title": "시스템 프로그래밍 노트 5 - 함수와 스택 메모리",
-        "excerpt":"어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. 기본적으로 함수는 stack을 통해 관리된다. 1. stack 메모리에 있다. 높은 주소에서 낮은 주소로 자란다. %rsp는 가장 낮은 스택 주소를 가리킨다. %rbp는 선택적으로 가장 높은 스택 프레임 주소로 사용된다. 1.1. Related Instructions push pushq Src %rsp를 8 감소시키고 %rsp에 Src에 있는 값을 적는다....","categories": ["lecturenotes","시스템프로그래밍"],
+        "excerpt":"어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. - x64 Calling Convention 1. 스택 기본적으로 서브루틴은 스택을 통해 관리된다. 스택은 메모리에 있다. 높은 주소에서 낮은 주소로 자란다. %rsp는 가장 낮은 스택 주소를 가리킨다. %rbp는 선택적으로 가장 높은 스택 프레임 주소로 사용된다. 대충 형태는 다음과 같다: %rbp -&gt; 0x7fffffffdd08 0x7fffffffdd00 0x7fffffffdcf8...","categories": ["lecturenotes","시스템프로그래밍"],
         "tags": ["stack"],
         "url": "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/",
         "teaser":null},{
         "title": "시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수",
-        "excerpt":"복잡한 구조의 데이터 관리, 접근에 대해 알아본다. 1. 배열 1.1. 1차원 배열 T A[L]; T는 타입, L은 배열의 길이이다. A는 0번째 element의 포인터로 사용된다. 타입은 따라서 T*. 1.1.1. 배열의 접근 #define ZLEN 5 typedef int zip_dig[ZLEN]; int get_digit(zip_dig z, int digit){ return z[digit]; } ; %rdi = z, %rsi =...","categories": ["lecturenotes","시스템프로그래밍"],
-        "tags": [],
+        "excerpt":"복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가? 1. 배열 변수 여러 개를 한꺼번에 관리할 때 사용하는 구조이다. 1.1. 1차원 배열 c에서는 1차원 배열을 다음과 같이 만들 수 있다: T A[L]; T는 타입, L은 배열의 길이이다. A는 0번째 element의 포인터로 사용된다. 타입은 따라서 T*. 1.1.1....","categories": ["lecturenotes","시스템프로그래밍"],
+        "tags": ["배열","구조체","실수"],
         "url": "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/",
         "teaser":null},{
         "title": "Ubuntu 18.04 한글 입력 설정",
