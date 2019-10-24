@@ -101,6 +101,10 @@
 <lastmod>2019-10-22T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/</loc>
+<lastmod>2019-10-24T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 <lastmod>2019-08-30T07:50:30+09:00</lastmod>
 </url>
@@ -208,6 +212,9 @@
 <loc>http://localhost:4000/tags/stack/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/tags/uim/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/categories/%EC%88%98%ED%95%99/</loc>
 </url>
 <url>
@@ -254,5 +261,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page5/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page6/</loc>
 </url>
 </urlset>

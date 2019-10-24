@@ -123,4 +123,9 @@ var store = [{
         "excerpt":"복잡한 구조의 데이터 관리, 접근에 대해 알아본다. 1. 배열 1.1. 1차원 배열 T A[L]; T는 타입, L은 배열의 길이이다. A는 0번째 element의 포인터로 사용된다. 타입은 따라서 T*. 1.1.1. 배열의 접근 #define ZLEN 5 typedef int zip_dig[ZLEN]; int get_digit(zip_dig z, int digit){ return z[digit]; } ; %rdi = z, %rsi =...","categories": ["lecturenotes","시스템프로그래밍"],
         "tags": [],
         "url": "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/",
+        "teaser":null},{
+        "title": "Ubuntu 18.04 한글 입력 설정",
+        "excerpt":"항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다. uim 패키지 설정 Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다. sudo apt install uim...","categories": [],
+        "tags": ["uim"],
+        "url": "http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
         "teaser":null}]

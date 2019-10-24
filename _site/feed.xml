@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-24T18:29:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-24T18:54:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Ubuntu 18.04 한글 입력 설정</title><link href="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/" rel="alternate" type="text/html" title="Ubuntu 18.04 한글 입력 설정" /><published>2019-10-24T00:00:00+09:00</published><updated>2019-10-24T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80</id><content type="html" xml:base="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">&lt;p&gt;항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;uim-패키지-설정&quot;&gt;uim 패키지 설정&lt;/h2&gt;
+
+&lt;p&gt;Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;uim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;검색을 통해 언어 지원(Language Support)를 열어 언어(language) 탭에 키보드 입력기를 iBus에서 uim으로 바꾼다. 이제 나머지 입력기는 지워도 무관하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;한글-한자-키맵&quot;&gt;한글, 한자 키맵&lt;/h2&gt;
+&lt;p&gt;키보드의 한영키를 우분투에서는 기본적으로 Alt로 인식한다. 따라서 한/영키로 바꿔줄 수 있는데 방법은 크게 다음 &lt;strong&gt;세 가지&lt;/strong&gt;가 있다. 가장 쉽고 추천하는 방법은 첫 번째의 gnome-tweak-tool를 이용한 방법이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;gnome-tweak-tool&quot;&gt;gnome-tweak-tool&lt;/h3&gt;
+
+&lt;p&gt;현재 우분투 18.04가 사용하고 있는 gnome이라는 데스크탑 환경의 테마를 변경할 때 주로 사용하는 패키지이다.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gnome-tweak-tool
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;설치가 되면 Tweaks를 열어 Keyboard &amp;amp; Mouse 탭 - Additional Layout Options - Korean Hangul/Hanja Keys - Right Alt as Hangul, right Ctrl as Hanja 체크박스를 활성화해주고 모두 닫는다.&lt;/p&gt;
+
+&lt;h3 id=&quot;altwin&quot;&gt;altwin&lt;/h3&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /usr/share/X11/xkb/symbols/altwin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;symbols[Group1] = [ Alt_R, Meta_R ]&lt;/code&gt;의 값을 다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;Hangul&lt;/code&gt;로 바꿔준다:&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Meta is mapped to second level of Alt.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;partial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;modifier_keys&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xkb_symbols&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;meta_alt&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LALT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Alt_L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Meta_L&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RALT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Group1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;TWO_LEVEL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;symbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Group1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hangul&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;modifier_map&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mod1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Alt_L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Alt_R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Meta_L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Meta_R&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//  modifier_map Mod4 {};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;xmodmap&quot;&gt;xmodmap&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'remove mod1 = Alt_R'&lt;/span&gt;
+xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'keycode 108 = Hangul'&lt;/span&gt;
+
+xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'remove control = Control_R'&lt;/span&gt;
+xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'keycode 105 = Hangul_Hanja'&lt;/span&gt;
+
+xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.Xmodmap
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;를 순서대로 터미널에 입력한다. 문제는 이 설정이 재부팅을 했을 때 유지가 되지 않는다는 점이다. 적어도 필자의 환경에서는 그랬다. 이를 해결하기 위해서는&lt;/p&gt;
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;go&quot;&gt;vim ~/.xinitrc
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;(vim이 없다면 다른 텍스트 에디터를 사용해도 무관하다) 를 열어&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmodmap .Xmodmap
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 끝에 추가해주면 부팅할때마다 저장된 Xmodmap을 불러올 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;uim-설정&quot;&gt;uim 설정&lt;/h2&gt;
+
+&lt;p&gt;이제 추가한 한영키를 uim에서 한글 입력기를 키고 끄는 키로 추가하면 된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Global Settings에서 Specify Default IM에 체크하고 Default input method에 Byeoru, Enabled input methods에 &lt;strong&gt;Byeoru만&lt;/strong&gt; 추가한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;hangul&quot;&lt;/code&gt;만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note1&quot;&gt;기본 표현 단위와 정수 표현&lt;/a&gt;&lt;/li&gt;
@@ -1264,107 +1330,4 @@ fadd:
 
 &lt;p&gt;&lt;a href=&quot;https://3-24.github.io/norae&quot;&gt;구현된 웹 페이지&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;예전에 재미로 만들어봤던 노래방 번호 페이지를 훨씬 멋있게 만들어보았습니다. 오늘 하루종일 시간 가는 걸 모르고 개발해봤네요! 얄팍하던 웹 개발 지식이 어느정도 두터워진 것 같습니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="개발" /><summary type="html">Github repository</summary></entry><entry><title type="html">poka2019 writeup 1 - Lenstra-Lenstra-Lovász</title><link href="http://localhost:4000/ctf/write-up/LLL/" rel="alternate" type="text/html" title="poka2019 writeup 1 - Lenstra-Lenstra-Lovász" /><published>2019-09-25T00:00:00+09:00</published><updated>2019-09-25T00:00:00+09:00</updated><id>http://localhost:4000/ctf/write-up/LLL</id><content type="html" xml:base="http://localhost:4000/ctf/write-up/LLL/">&lt;blockquote&gt;
-  &lt;p&gt;I am not good at Linear Algebra : (
-Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm?
-Add) e=151. This is for make challenge easy.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/enc.txt&quot;&gt;enc.txt&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz.sage&quot;&gt;Lenstra-Lenstra-Lovász.sage&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;notations&quot;&gt;Notations&lt;/h2&gt;
-
-&lt;p&gt;Before start, let’s make the notations clear.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; : RSA modulus&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;p,q&lt;/code&gt; : two distinct prime factor of &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; : RSA encryption exponent
-&lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt; : RSA decryption exponent&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dp = d % (p-1)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bits&lt;/code&gt; : bit length of &lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shiftbits = bits//2 - bits//10&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ct&lt;/code&gt; : ciphertext&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s,x&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;dp = s &amp;lt;&amp;lt; shiftbits + x&lt;/code&gt;. i.e., &lt;code class=&quot;highlighter-rouge&quot;&gt;shiftbits&lt;/code&gt;-length leaked &lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; and the remainder part is &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Given values are &lt;code class=&quot;highlighter-rouge&quot;&gt;n,e,ct,s&lt;/code&gt;. Of course the objective is getting the plaintext of this RSA encryption.&lt;/p&gt;
-
-&lt;h2 id=&quot;modular-arithmetics&quot;&gt;Modular Arithmetics&lt;/h2&gt;
-
-&lt;p&gt;Since $ed \equiv 1 \mod ((p-1)(q-1)) $,&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;ed_p \equiv 1 \mod (p-1).&lt;/script&gt;
-
-&lt;p&gt;Let $ed_p = 1 + (p-1)k $. Then&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;e(s \ll \texttt{shiftbits} + x ) = 1 + (p-1)k&lt;/script&gt;
-
-&lt;h2 id=&quot;range-for-bit-and-shiftbits&quot;&gt;Range For &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;shiftbits&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;We have bit-length of &lt;code class=&quot;highlighter-rouge&quot;&gt;secret&lt;/code&gt; which is approximately 6/10 bit-length of &lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt;, which was 614. Therefore &lt;code class=&quot;highlighter-rouge&quot;&gt;bits&lt;/code&gt; is either 1023 or 1024.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1010&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1030&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
-1018 610
-1019 611
-1020 612
-1021 613
-1022 613
-1023 614 (*)
-1024 614 (*)
-1025 615
-1026 615
-1027 616
-1028 616
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Also note that $ed_p = k (p-1)+1$ and $d_p &amp;lt; p-1 $, so $k\le e=151$. So bound of &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt; and bit-length of &lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt; is reasonable.&lt;/p&gt;
-
-&lt;h2 id=&quot;polynomial-modulo-p&quot;&gt;Polynomial Modulo &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;We now have appropriate range for &lt;code class=&quot;highlighter-rouge&quot;&gt;shiftbits&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt; to solve&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;e(s \ll \texttt{shiftbits} + x ) -1 + k \equiv 0 \mod p&lt;/script&gt;
-
-&lt;p&gt;I used &lt;code class=&quot;highlighter-rouge&quot;&gt;small_roots&lt;/code&gt; in SageMath to use &lt;strong&gt;Coppersmith’s Method&lt;/strong&gt; to solve above this.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;s \ll \texttt{shiftbits} + x + (k-1) e^{-1} \equiv 0 \mod N&lt;/script&gt;
-
-&lt;p&gt;Where $e^{-1}$ is modular inverse of $e$ respect to $N$.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;coppersmith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shiftbits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PolynomialRing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Zmod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;invE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inverse_mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shiftbits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;invE&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# make monic
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;x0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;small_roots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shiftbits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.44&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epsilon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Therefore we get&lt;code class=&quot;highlighter-rouge&quot;&gt;dp&lt;/code&gt; and also &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; using $p = \frac {e d_p -1} k +1 $. By processing a simple RSA decryption, I could get a flag.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POKA{You_4r3_Crypt0_N00000B_XDD}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/solve.sage&quot;&gt;solve.sage&lt;/a&gt; is the full code.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="CTF" /><category term="write-up" /><category term="LLL" /><category term="Coppersmith" /><category term="RSA" /><category term="CRT" /><summary type="html">I am not good at Linear Algebra : ( Can you tell me about Lenstra-Lenstra-Lovász lattice basis reduction algorithm? Add) e=151. This is for make challenge easy.</summary></entry></feed>
+&lt;p&gt;예전에 재미로 만들어봤던 노래방 번호 페이지를 훨씬 멋있게 만들어보았습니다. 오늘 하루종일 시간 가는 걸 모르고 개발해봤네요! 얄팍하던 웹 개발 지식이 어느정도 두터워진 것 같습니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="개발" /><summary type="html">Github repository</summary></entry></feed>
