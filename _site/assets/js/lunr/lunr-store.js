@@ -17,7 +17,7 @@ var store = [{
         "title": "Codeforces Round #531 (Div. 3) 후기",
         "excerpt":"1. Integer Sequence Dividing https://codeforces.com/contest/1102/problem/A 처음에 임의의 원소를 받아서 차가 최소가 되도록 나눈다는 줄 알고 이상한 방향으로 고민했었습니다. 만약 그런 문제였다면 어떻게 풀어야 할 지 아직도 모르겠네요. 문제에서는 연속된 n개의 수에 대해서만 풀면 됩니다. 연속된 4개의 수가 x, x+1, x+2, x+3 이렇게 주어졌다면 A에다가 x와 x+3을 넣고 B에다가 x+1과 x+2를...","categories": [],
         "tags": [],
-        "url": "http://localhost:4000/CF-Round-531-DIv-3/",
+        "url": "http://localhost:4000/CF-Round-531-Div-3/",
         "teaser":null},{
         "title": "Codeforces Round #532 (Div. 2) 후기",
         "excerpt":"1. Roman and Browser https://codeforces.com/contest/1100/problem/A b를 0부터 k-1까지 바꿔가면서 비교를 통해 최대 절대값을 찾아내면 됩니다. 직접 b+ik만 제외하면서 더하는 것이 쉽지 않기 때문에 전체 합을 구해놓고 b+ik의 원소를 빼는 형태로 구현했습니다. #include &lt;bits/stdc++.h&gt; using namespace std; int main() { ios_base::sync_with_stdio(false); cin.tie(NULL); int n,k; cin &gt;&gt; n &gt;&gt; k; int Data[n]={0,},...","categories": [],
