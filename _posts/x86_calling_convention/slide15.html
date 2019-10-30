@@ -1,7 +1,7 @@
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
--&gt; 0x080483f8 &lt;+0&gt;:	push   %ebp
+   0x080483f8 &lt;+0&gt;:	push   %ebp
    0x080483f9 &lt;+1&gt;:	mov    %esp,%ebp
    0x080483fb &lt;+3&gt;:	sub    $0x10,%esp
    0x080483fe &lt;+6&gt;:	movl   $0x3,-0xc(%ebp)
@@ -23,7 +23,7 @@ Dump of assembler code for function add:
    0x080483f1 &lt;+6&gt;:	mov    0xc(%ebp),%eax
    0x080483f4 &lt;+9&gt;:	add    %edx,%eax
    0x080483f6 &lt;+11&gt;:	pop    %ebp
-   0x080483f7 &lt;+12&gt;:	ret    
+-&gt; 0x080483f7 &lt;+12&gt;:	ret    
 End of assembler dump.
 </code></pre></div>
 </div>
@@ -48,11 +48,18 @@ End of assembler dump.
 <tbody>
 </tbody>
 <tr><td></td><td>0xffffd4fc</td><td></td></tr>
-<tr><td>esp</td><td>0xffffd4f8</td><td>0x0</td></tr>
+<tr><td>ebp</td><td>0xffffd4f8</td><td>0x0</td></tr>
+	<tr><td></td><td>0xffffd4f4</td></tr>
+	<tr><td></td><td>0xffffd4f0</td><td>0x7</td></tr>
+	<tr><td></td><td>0xffffd4ec</td><td>0x3</td></tr>
+	<tr><td></td><td>0xffffd4e8</td><td></td></tr>
+	<tr><td></td><td>0xffffd4e4</td><td>0x7</td></tr>
+	<tr><td>esp</td><td>0xffffd4e0</td><td>0x3</td></tr>
+	<tr><td></td><td>0xffffd4dc</td><td>0x08048417</td></tr>
+	<tr><td></td><td>0xffffd4d8</td><td>0xffffd4f8</td></tr>
 </table>
 
 <br>
-
 <table style="width:100%;display:table;">
 <colgroup>
 	<col span="1" style="width:50%;">
@@ -67,10 +74,11 @@ End of assembler dump.
 </thead>
 
 <tbody>
-	<tr><td>ebp</td><td>0x0</td></tr>
+	<tr><td>edx</td><td>0x3</td></tr>
+	<tr><td>eax</td><td>0xa</td></tr>
+	<tr><td>eip</td><td>0xffffd4e0</td></tr>
 </tbody>
 </table>
-
 
 </div>
 
