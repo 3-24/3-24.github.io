@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-25T00:53:03+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Ubuntu 18.04 한글 입력 설정</title><link href="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/" rel="alternate" type="text/html" title="Ubuntu 18.04 한글 입력 설정" /><published>2019-10-24T00:00:00+09:00</published><updated>2019-10-24T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80</id><content type="html" xml:base="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">&lt;p&gt;항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-25T17:38:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Test</title><link href="http://localhost:4000/test/" rel="alternate" type="text/html" title="Test" /><published>2019-10-25T00:00:00+09:00</published><updated>2019-10-25T00:00:00+09:00</updated><id>http://localhost:4000/test</id><content type="html" xml:base="http://localhost:4000/test/">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/swiper/css/swiper.min.css&quot; /&gt;
+
+&lt;script src=&quot;https://unpkg.com/swiper/js/swiper.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Slider main container --&gt;
+&lt;div class=&quot;swiper-container&quot;&gt;
+&lt;!-- Additional required wrapper --&gt;
+&lt;div class=&quot;swiper-wrapper&quot;&gt;
+&lt;!-- Slides --&gt;
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div&gt;
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;&amp;lt;/div&amp;gt;&lt;/p&gt;
+      &lt;/div&gt;
+&lt;div class=&quot;swiper-slide&quot;&gt;Slide 2&lt;/div&gt;
+&lt;div class=&quot;swiper-slide&quot;&gt;Slide 3&lt;/div&gt;
+...
+&lt;/div&gt;
+&lt;!-- If we need pagination --&gt;
+&lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;!-- If we need navigation buttons --&gt;
+&lt;div class=&quot;swiper-button-prev&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;swiper-button-next&quot;&gt;&lt;/div&gt;
+&lt;!-- If we need scrollbar --&gt;
+&lt;div class=&quot;swiper-scrollbar&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    direction: 'vertical',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  })
+  &lt;/script&gt;
+&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">test&amp;lt;/div&amp;gt; Slide 2 Slide 3 ...</summary></entry><entry><title type="html">Ubuntu 18.04 한글 입력 설정</title><link href="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/" rel="alternate" type="text/html" title="Ubuntu 18.04 한글 입력 설정" /><published>2019-10-24T00:00:00+09:00</published><updated>2019-10-24T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80</id><content type="html" xml:base="http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">&lt;p&gt;항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.&lt;/p&gt;
 
 &lt;h2 id=&quot;uim-패키지-설정&quot;&gt;uim 패키지 설정&lt;/h2&gt;
 
@@ -1360,8 +1407,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;movapd는 aligned packed-doubles의 약자이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="배열" /><category term="구조체" /><category term="실수" /><summary type="html">복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가?</summary></entry><entry><title type="html">감기에 걸렸습니다</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/" rel="alternate" type="text/html" title="감기에 걸렸습니다" /><published>2019-10-10T00:00:00+09:00</published><updated>2019-10-10T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/">&lt;p&gt;일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!</summary></entry><entry><title type="html">norae</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/" rel="alternate" type="text/html" title="norae" /><published>2019-10-01T00:00:00+09:00</published><updated>2019-10-01T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/norae</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/norae/">&lt;p&gt;&lt;a href=&quot;https://github.com/3-24/norae&quot;&gt;Github repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://3-24.github.io/norae&quot;&gt;구현된 웹 페이지&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;예전에 재미로 만들어봤던 노래방 번호 페이지를 훨씬 멋있게 만들어보았습니다. 오늘 하루종일 시간 가는 걸 모르고 개발해봤네요! 얄팍하던 웹 개발 지식이 어느정도 두터워진 것 같습니다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="개발" /><summary type="html">Github repository</summary></entry></feed>
+&lt;p&gt;movapd는 aligned packed-doubles의 약자이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="배열" /><category term="구조체" /><category term="실수" /><summary type="html">복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가?</summary></entry><entry><title type="html">감기에 걸렸습니다</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/" rel="alternate" type="text/html" title="감기에 걸렸습니다" /><published>2019-10-10T00:00:00+09:00</published><updated>2019-10-10T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EA%B0%90%EA%B8%B0/">&lt;p&gt;일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">일교차가 갑자기 커진 한글날 때 멀리 있던 친구가 학교에 찾아와서 밤새 놀다가 감기에 옳다구나 하고 걸려버렸습니다. 다음 주에 퀴즈랑 과제가 많고 다다음 주는 시험기간인데 큰일이네요(언제나 잃고서 건강의 소중함을 깨닫는다는).. 모두 조심하세요!</summary></entry></feed>
