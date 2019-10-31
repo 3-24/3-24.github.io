@@ -1,0 +1,89 @@
+<div class="highlighter-rouge" style="width:70%;">
+<div class="highlight"><pre class="highlight"><code>(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &lt;+0&gt;:	push   %rbp
+   0x000000000040050b &lt;+1&gt;:	mov    %rsp,%rbp
+   0x000000000040050e &lt;+4&gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &lt;+8&gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &lt;+15&gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &lt;+22&gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &lt;+25&gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &lt;+28&gt;:	mov    %edx,%esi
+   0x0000000000400528 &lt;+30&gt;:	mov    %eax,%edi
+   0x000000000040052a &lt;+32&gt;:	callq  0x4004f6 &lt;add&gt;
+   0x000000000040052f &lt;+37&gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &lt;+40&gt;:	mov    $0x0,%eax
+   0x0000000000400537 &lt;+45&gt;:	leaveq 
+   0x0000000000400538 &lt;+46&gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &lt;+0&gt;:	push   %rbp
+   0x00000000004004f7 &lt;+1&gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &lt;+4&gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &lt;+7&gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &lt;+10&gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &lt;+13&gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &lt;+16&gt;:	add    %edx,%eax
+   0x0000000000400508 &lt;+18&gt;:	pop    %rbp
+-&gt; 0x0000000000400509 &lt;+19&gt;:	retq   
+End of assembler dump.
+</code></pre></div>
+</div>
+<div style="width:1%"></div>
+<div style="width:29%;">
+
+<table style="width:100%;display:table;">
+<colgroup>
+	<col span="1" style="width:10%">
+	<col span="1" style="width:45%;">
+	<col span="1" style="width:45%;">
+</colgroup>
+
+<thead>
+	<tr>
+	<th></th>
+	<th>Address</th>
+	<th>Value</th>
+	</tr>
+</thead>
+
+<tbody>
+	<tr><td></td><td>0x7fffffffe388</td></tr>
+	<tr><td>rbp</td><td>0x7fffffffe380</td><td>0x400540</td></tr>
+	<tr><td></td><td>0x7fffffffe37c</td><td></td></tr>
+	<tr><td></td><td>0x7fffffffe378</td><td>0x7</td></tr>
+	<tr><td></td><td>0x7fffffffe374</td><td>0x3</td></tr>
+	<tr><td>rsp</td><td>0x7fffffffe370</td></tr>
+	<tr><td></td><td>0x7fffffffe368</td><td>0x40052f</td></tr>
+	<tr><td></td><td>0x7fffffffe360</td><td>0x7fffffffe380</td></tr>
+	<tr><td></td><td>0x7fffffffe35c</td><td>0x3</td></tr>
+	<tr><td></td><td>0x7fffffffe358</td><td>0x7</td></tr>
+</tbody>
+</table>
+<br>
+<table style="width:100%;display:table;">
+<colgroup>
+	<col span="1" style="width:50%;">
+	<col span="1" style="width:50%;">
+</colgroup>
+
+<thead>
+	<tr>
+	<th>Register</th>
+	<th>Value</th>
+	</tr>
+</thead>
+
+<tbody>
+	<tr><td>rdx</td><td>0x3</td></tr>
+	<tr><td>rax</td><td>0xa</td></tr>
+	<tr><td>rsi</td><td>0x7</td></tr>
+	<tr><td>rdi</td><td>0x3</td></tr>
+</tbody>
+</table>
+
+
+
+</div>
+
