@@ -45,19 +45,19 @@ var store = [{
         "url": "http://localhost:4000/%EC%88%98%ED%95%99/order4_subgp/",
         "teaser":null},{
         "title": "Oracle Padding Attack",
-        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다. Decryption Oracle Oracle Padding Attack은 CBC 암호의 decryption oracle이...","categories": ["정보보안","암호학"],
+        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다. Decryption Oracle Oracle Padding Attack은 CBC 암호의 decryption oracle이...","categories": ["Crypto"],
         "tags": ["블록 암호","패딩"],
-        "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/opa/",
+        "url": "http://localhost:4000/crypto/opa/",
         "teaser":null},{
         "title": "RSA",
-        "excerpt":"RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다. 키 형성 두 소수 $p,q$를 골라서 $n=pq$로 놓는다. $e$를 $\\gcd ( \\phi (n), e) = 1$이 되도록 뽑는다. $\\phi$는 오일러 totient 함수이다. $d =...","categories": ["정보보안","암호학"],
+        "excerpt":"RSA는 어떤 수의 소인수분해는 아주 어렵지만, 반대로 소인수를 곱해서 원래 수를 만드는 것은 쉽다는 성질을 이용한 암호 체계이다. 암호명은 이 암호를 개발한 세 암호학자 Rivest-Shamir-Adelman에서 유래한다. 키 형성 두 소수 $p,q$를 골라서 $n=pq$로 놓는다. $e$를 $\\gcd ( \\phi (n), e) = 1$이 되도록 뽑는다. $\\phi$는 오일러 totient 함수이다. $d =...","categories": ["Crypto"],
         "tags": ["RSA"],
-        "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/%EC%95%94%ED%98%B8%ED%95%99/RSA/",
+        "url": "http://localhost:4000/crypto/RSA/",
         "teaser":null},{
         "title": "타원 곡선 암호 읽을거리",
-        "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!  ","categories": ["암호학","정보보안"],
+        "excerpt":"https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/   타원 곡선 암호Elliptic Curve Cryptography를 처음 배우는 입장에서 수학적 배경부터 암호의 형성까지 모두 설명이 그야말로 gentle해서 좋았던 글입니다!  ","categories": ["Crypto"],
         "tags": ["ECC","타원 곡선","공유"],
-        "url": "http://localhost:4000/%EC%95%94%ED%98%B8%ED%95%99/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/ECC/",
+        "url": "http://localhost:4000/crypto/ECC/",
         "teaser":null},{
         "title": "무제",
         "excerpt":"1. Workaholic 나는 워커홀릭 기질이 있어 보인다. 개강과 함께 사람들을 만나고 중단했던 동아리 활동을 다시 시작하면서 할 일이 많아져서 아직은(?) 하루를 활기차게 보내고 있다. 그러고도 할 일을 더 찾아내서 얹으면서 희열을 느낀다. 특히 올해 해킹 공부를 시작하면서 알고리즘적 문제해결이나 작은 개발 프로젝트만 하던 때와는 새삼 다르게 컴퓨터를 바라보는 시야가 넓어져가는...","categories": ["일상"],
@@ -130,9 +130,9 @@ var store = [{
         "url": "http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
         "teaser":null},{
         "title": "리눅스 x86 호출규약",
-        "excerpt":"32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. eax 레지스터로 리턴값을 전달한다. ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다. 예 int add(int a, int b){ return a+b; } int main(){ int a,b,c; a = 3; b = 7; c = add(a,...","categories": ["정보보안","pwnable"],
+        "excerpt":"32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. eax 레지스터로 리턴값을 전달한다. ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다. 예 int add(int a, int b){ return a+b; } int main(){ int a,b,c; a = 3; b = 7; c = add(a,...","categories": ["Pwnable"],
         "tags": [],
-        "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/",
+        "url": "http://localhost:4000/pwnable/x86callconv/",
         "teaser":null},{
         "title": "출결 제도에 관한 생각",
         "excerpt":"대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 생각의 흐름을 정리해보면 다음과 같다. 출석을 부르는 강의 출결 제도는 학생들의 수업 참여율을 강제하기 위해서 도입한 시스템이다. 그러나 이미 결석이 확실시되면 그 행위를 설명하기 위해 수업을...","categories": ["일상"],
@@ -140,7 +140,7 @@ var store = [{
         "url": "http://localhost:4000/%EC%9D%BC%EC%83%81/%EC%B6%9C%EC%84%9D/",
         "teaser":null},{
         "title": "리눅스 x64 호출규약",
-        "excerpt":"64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. 인자는 순서대로 rdi, rsi, rdx, r8, r9, r10 레지스터를 통해 전달된다. 6번째 이후의 인자는 32비트 호출 규약과 동일하게 rbp 위 함수의 return address 위에 쌓인다. rax 레지스터는 리턴값을 전달한다. 예 int add(int a, int b){ return a+b;...","categories": ["정보보안","pwnable"],
+        "excerpt":"64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. 인자는 순서대로 rdi, rsi, rdx, r8, r9, r10 레지스터를 통해 전달된다. 6번째 이후의 인자는 32비트 호출 규약과 동일하게 rbp 위 함수의 return address 위에 쌓인다. rax 레지스터는 리턴값을 전달한다. 예 int add(int a, int b){ return a+b;...","categories": ["Pwnable"],
         "tags": [],
-        "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x64callconv/",
+        "url": "http://localhost:4000/pwnable/x64callconv/",
         "teaser":null}]
