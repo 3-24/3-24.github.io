@@ -125,9 +125,9 @@ var store = [{
         "url": "http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/",
         "teaser":null},{
         "title": "Ubuntu 18.04 한글 입력 설정",
-        "excerpt":"항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다. uim 패키지 설정 Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다. sudo apt install uim...","categories": [],
+        "excerpt":"항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다. uim 패키지 설정 Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다. sudo apt install uim...","categories": ["Linux"],
         "tags": ["uim"],
-        "url": "http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
+        "url": "http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
         "teaser":null},{
         "title": "리눅스 x86 호출규약",
         "excerpt":"32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. eax 레지스터로 리턴값을 전달한다. ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다. 예 int add(int a, int b){ return a+b; } int main(){ int a,b,c; a = 3; b = 7; c = add(a,...","categories": ["Pwnable"],
