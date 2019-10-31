@@ -337,6 +337,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <ul>
   <li>스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.</li>
+  <li>eax 레지스터로 리턴값을 전달한다.</li>
   <li>ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다.</li>
 </ul>
 
@@ -360,7 +361,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 gdb add
 </code></pre></div></div>
 
-<p>add를 실행하는 과정을 쪼개서 과정을 표현해보았다.</p>
+<p>add를 실행하는 과정을 쪼개서 과정을 표현해보았다(가로가 긴 화면에서 보는 것을 권장한다). 메모리를 한 열이 4바이트인 표로 그렸다. eip는 레지스터 표가 아닌 왼쪽에 어셈블리 코드에 화살표로 나타냈고, esp와 ebp는 메모리 표에 위치를 나타낼 수 있을 때 메모리에 표시했다.</p>
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
@@ -1703,7 +1704,6 @@ End of assembler dump.
 <tbody>
 	<tr><td>edx</td><td>0x3</td></tr>
 	<tr><td>eax</td><td>0xa</td></tr>
-	<tr><td>eip</td><td>0xffffd4e0</td></tr>
 </tbody>
 </table>
 
@@ -2253,6 +2253,35 @@ pagination : {
     
     <h2 class="archive__item-title" itemprop="headline">
       
+        <a href="/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x64callconv/" rel="permalink">리눅스 x64 호출규약
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
         <a href="/%EC%9D%BC%EC%83%81/%EC%B6%9C%EC%84%9D/" rel="permalink">출결 제도에 관한 생각
 </a>
       
@@ -2326,37 +2355,6 @@ pagination : {
     
     <p class="archive__item-excerpt" itemprop="description">
   복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가?
-
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note5/" rel="permalink">시스템 프로그래밍 노트 5 - 함수와 스택 메모리
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-  어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. - x64 Calling Convention
 
 
 </p>

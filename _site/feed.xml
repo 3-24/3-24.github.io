@@ -1,7 +1,2120 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-31T10:50:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">리눅스 x86 호출규약</title><link href="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/" rel="alternate" type="text/html" title="리눅스 x86 호출규약" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv</id><content type="html" xml:base="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/">&lt;p&gt;32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-10-31T13:23:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">리눅스 x64 호출규약</title><link href="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x64callconv/" rel="alternate" type="text/html" title="리눅스 x64 호출규약" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x64callconv</id><content type="html" xml:base="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x64callconv/">&lt;p&gt;64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.&lt;/li&gt;
+  &lt;li&gt;인자는 순서대로 rdi, rsi, rdx, r8, r9, r10 레지스터를 통해 전달된다. 6번째 이후의 인자는 32비트 호출 규약과 동일하게 rbp 위 함수의 return address 위에 쌓인다.&lt;/li&gt;
+  &lt;li&gt;rax 레지스터는 리턴값을 전달한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;예&quot;&gt;예&lt;/h2&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 다음과 같이 32비트 컴파일을 하고 gdb로 확인해보자.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc &lt;span class=&quot;nt&quot;&gt;-m64&lt;/span&gt; add.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; add
+gdb add
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;add를 실행하는 과정을 쪼개서 과정을 표현해보았다. 메모리를 표로 그렸는데, 기본적으로 한 칸은 8바이트이지만 movl과 같이 4바이트 단위로 쪼개지는 instruction이 발생할 경우 예외적으로 4바이트 띄어서 표현했다. 가로가 긴 화면에서 잘 보인다. rip는 레지스터 표가 아닌, 왼쪽에 어셈블리 코드에 화살표로 나타냈고, rsp와 rbp는 메모리에 위치를 나타낼 수 있을 때 메모리에 표시했다.&lt;/p&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/swiper/css/swiper.min.css&quot; /&gt;
+
+&lt;script src=&quot;https://unpkg.com/swiper/js/swiper.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;style&gt;
+.swiper-slide{
+display:flex;
+justify-content:center;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;swiper-container&quot;&gt;
+&lt;div class=&quot;swiper-wrapper&quot;&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+-&amp;gt; 0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+-&amp;gt; 0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+-&amp;gt; 0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+-&amp;gt; 0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+-&amp;gt; 0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+-&amp;gt; 0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+-&amp;gt; 0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+-&amp;gt; 0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+-&amp;gt; 0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+-&amp;gt; 0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+-&amp;gt; 0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+-&amp;gt; 0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+-&amp;gt; 0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+-&amp;gt; 0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+-&amp;gt; 0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+-&amp;gt; 0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+-&amp;gt; 0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+-&amp;gt; 0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+-&amp;gt; 0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+-&amp;gt; 0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x0&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+-&amp;gt; 0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+   0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp,rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x0&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;div class=&quot;swiper-slide&quot;&gt;
+&lt;div class=&quot;highlighter-rouge&quot; style=&quot;width:70%;&quot;&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040050a &amp;lt;+0&amp;gt;:	push   %rbp
+   0x000000000040050b &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x000000000040050e &amp;lt;+4&amp;gt;:	sub    $0x10,%rsp
+   0x0000000000400512 &amp;lt;+8&amp;gt;:	movl   $0x3,-0xc(%rbp)
+   0x0000000000400519 &amp;lt;+15&amp;gt;:	movl   $0x7,-0x8(%rbp)
+   0x0000000000400520 &amp;lt;+22&amp;gt;:	mov    -0x8(%rbp),%edx
+   0x0000000000400523 &amp;lt;+25&amp;gt;:	mov    -0xc(%rbp),%eax
+   0x0000000000400526 &amp;lt;+28&amp;gt;:	mov    %edx,%esi
+   0x0000000000400528 &amp;lt;+30&amp;gt;:	mov    %eax,%edi
+   0x000000000040052a &amp;lt;+32&amp;gt;:	callq  0x4004f6 &amp;lt;add&amp;gt;
+   0x000000000040052f &amp;lt;+37&amp;gt;:	mov    %eax,-0x4(%rbp)
+   0x0000000000400532 &amp;lt;+40&amp;gt;:	mov    $0x0,%eax
+   0x0000000000400537 &amp;lt;+45&amp;gt;:	leaveq 
+-&amp;gt; 0x0000000000400538 &amp;lt;+46&amp;gt;:	retq   
+End of assembler dump.
+(gdb) disass add
+Dump of assembler code for function add:
+   0x00000000004004f6 &amp;lt;+0&amp;gt;:	push   %rbp
+   0x00000000004004f7 &amp;lt;+1&amp;gt;:	mov    %rsp,%rbp
+   0x00000000004004fa &amp;lt;+4&amp;gt;:	mov    %edi,-0x4(%rbp)
+   0x00000000004004fd &amp;lt;+7&amp;gt;:	mov    %esi,-0x8(%rbp)
+   0x0000000000400500 &amp;lt;+10&amp;gt;:	mov    -0x4(%rbp),%edx
+   0x0000000000400503 &amp;lt;+13&amp;gt;:	mov    -0x8(%rbp),%eax
+   0x0000000000400506 &amp;lt;+16&amp;gt;:	add    %edx,%eax
+   0x0000000000400508 &amp;lt;+18&amp;gt;:	pop    %rbp
+   0x0000000000400509 &amp;lt;+19&amp;gt;:	retq   
+End of assembler dump.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:1%&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;width:29%;&quot;&gt;
+
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:10%&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:45%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;&lt;/th&gt;
+	&lt;th&gt;Address&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rsp&lt;/td&gt;&lt;td&gt;0x7fffffffe388&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe37c&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe378&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe374&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe370&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe368&lt;/td&gt;&lt;td&gt;0x40052f&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe360&lt;/td&gt;&lt;td&gt;0x7fffffffe380&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe35c&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0x7fffffffe358&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table style=&quot;width:100%;display:table;&quot;&gt;
+&lt;colgroup&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+	&lt;col span=&quot;1&quot; style=&quot;width:50%;&quot; /&gt;
+&lt;/colgroup&gt;
+
+&lt;thead&gt;
+	&lt;tr&gt;
+	&lt;th&gt;Register&lt;/th&gt;
+	&lt;th&gt;Value&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+	&lt;tr&gt;&lt;td&gt;rdx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rax&lt;/td&gt;&lt;td&gt;0x0&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rsi&lt;/td&gt;&lt;td&gt;0x7&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rdi&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;rbp&lt;/td&gt;&lt;td&gt;0x400540&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+new Swiper('.swiper-container',{
+pagination : {
+	el: '.swiper-pagination',
+	type:'progressbar',
+}
+});
+&lt;/script&gt;
+
+&lt;h2 id=&quot;관련된-assembly-instructions&quot;&gt;관련된 Assembly Instructions&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;push Reg&lt;/code&gt;: rsp를 8 감소시키고 &lt;code class=&quot;highlighter-rouge&quot;&gt;mov Reg, (%rsp)&lt;/code&gt;한다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pop Reg&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mov (%rsp), Reg&lt;/code&gt; 후 rsp를 8 증가시킨다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;call Dest&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;push 다음 인스트럭션&lt;/code&gt; 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;mov Dest, %rip&lt;/code&gt;한다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ret&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;pop %rip&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leave&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mov %rsp, %rbp&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.</summary></entry><entry><title type="html">리눅스 x86 호출규약</title><link href="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/" rel="alternate" type="text/html" title="리눅스 x86 호출규약" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv</id><content type="html" xml:base="http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/">&lt;p&gt;32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.&lt;/li&gt;
+  &lt;li&gt;eax 레지스터로 리턴값을 전달한다.&lt;/li&gt;
   &lt;li&gt;ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -25,7 +2138,7 @@
 gdb add
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;add를 실행하는 과정을 쪼개서 과정을 표현해보았다.&lt;/p&gt;
+&lt;p&gt;add를 실행하는 과정을 쪼개서 과정을 표현해보았다(가로가 긴 화면에서 보는 것을 권장한다). 메모리를 한 열이 4바이트인 표로 그렸다. eip는 레지스터 표가 아닌 왼쪽에 어셈블리 코드에 화살표로 나타냈고, esp와 ebp는 메모리 표에 위치를 나타낼 수 있을 때 메모리에 표시했다.&lt;/p&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/swiper/css/swiper.min.css&quot; /&gt;
 
 &lt;script src=&quot;https://unpkg.com/swiper/js/swiper.min.js&quot;&gt;&lt;/script&gt;
@@ -1368,7 +3481,6 @@ End of assembler dump.
 &lt;tbody&gt;
 	&lt;tr&gt;&lt;td&gt;edx&lt;/td&gt;&lt;td&gt;0x3&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;eax&lt;/td&gt;&lt;td&gt;0xa&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td&gt;eip&lt;/td&gt;&lt;td&gt;0xffffd4e0&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -2956,268 +5068,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 &lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbx&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;pop&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbx&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="stack" /><summary type="html">어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. - x64 Calling Convention</summary></entry><entry><title type="html">시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 6 - 배열과 구조체, 그리고 실수" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note6/">&lt;blockquote&gt;
-  &lt;p&gt;복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;1-배열&quot;&gt;1. 배열&lt;/h2&gt;
-
-&lt;p&gt;변수 여러 개를 한꺼번에 관리할 때 사용하는 구조이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;11-1차원-배열&quot;&gt;1.1. 1차원 배열&lt;/h3&gt;
-
-&lt;p&gt;c에서는 1차원 배열을 다음과 같이 만들 수 있다:&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;T는 타입, L은 배열의 길이이다.&lt;/li&gt;
-  &lt;li&gt;A는 0번째 element의 포인터로 사용된다. 타입은 따라서 &lt;code class=&quot;highlighter-rouge&quot;&gt;T*&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;111-배열의-접근&quot;&gt;1.1.1. 배열의 접근&lt;/h4&gt;
-
-&lt;p&gt;배열의 i번째 원소에 어떻게 접근하는지 예시를 통해서 알아보자.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#define ZLEN 5
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = z, %rsi = digit&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;get_digit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;int가 4바이트이기 때문에 z[digit]을 담고 있는 실제 주소는 z + 4*digit이다.&lt;/p&gt;
-
-&lt;h4 id=&quot;112-for-문과-섞인-예시&quot;&gt;1.1.2. For 문과 섞인 예시&lt;/h4&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;zincr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ZLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;zincr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;cmpq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;jbe&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L4&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;12-다차원-배열&quot;&gt;1.2. 다차원 배열&lt;/h3&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;121-배열의-접근&quot;&gt;1.2.1. 배열의 접근&lt;/h4&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#define ZLEN 5
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#define ZLEN2 4
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_dig_pgh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZLEN2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;zip_dig_pgh&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...};&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_pgh_digit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = index, %rsi = dig&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;get_pgh_digit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;leaq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addl&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;					&lt;span class=&quot;c&quot;&gt;; rsi = 5*index + dig&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;movl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;zip_dig의 크기가 4*5 = 20바이트이기 때문에 &lt;code class=&quot;highlighter-rouge&quot;&gt;pgh[index][dig]&lt;/code&gt;에 접근하려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;pgh+20index + 4dig&lt;/code&gt;의 값을 불러와야 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;13-배열-포인터-배열&quot;&gt;1.3. 배열 포인터 배열&lt;/h3&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;zip_dig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;zip_dif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ucb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;cp&quot;&gt;# define UCOUNT 3
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;univ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UCOUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ucb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_univ_digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;univ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;digit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = index, %rsi = digit&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;; objective: data in [univ + 8*index] + 4*digit&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;get_univ_digit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;salq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;univ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;univ[index]&lt;/code&gt;는 univ + 8index에 저장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;int *&lt;/code&gt;이고, &lt;code class=&quot;highlighter-rouge&quot;&gt;univ[index][digit]&lt;/code&gt;에 접근하려면 univ+8index에 저장된 값에 &lt;code class=&quot;highlighter-rouge&quot;&gt;4*digit&lt;/code&gt;을 더해서 dereferencing해야 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;14-n-x-n-배열&quot;&gt;1.4. n X n 배열&lt;/h3&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var_ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = n, %rsi = a, %rdx = i, %rcx = j&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;; [a+(4*n)*i + 4*j] = [a + 4(ni+j)]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;var_ele&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;imulq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-구조체-struct&quot;&gt;2. 구조체 Struct&lt;/h2&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;				&lt;span class=&quot;c1&quot;&gt;// 16바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;				&lt;span class=&quot;c1&quot;&gt;//  8바이트&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;//	8바이트&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// a - size_t - next 순서로 저장된다!&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = r, %rsi = val&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;set_val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;movslq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;		&lt;span class=&quot;c&quot;&gt;; sign extension (%rdi+16), which is long.&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;movl&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;esi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;testq&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;jne&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L11&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;21-alignment&quot;&gt;2.1. Alignment&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;struct 내부의 각 데이터에 대해 그 데이터의 대표 타입이 K 바이트면, 시작 주소도 K의 배수여야 한다.&lt;/li&gt;
-  &lt;li&gt;전체 struct의 위치도 K의 배수여야 한다. 그 K는 모든 element의 가장 큰 alignment이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이런 특성으로 큰 데이터 타입을 앞에 두면 공간을 아낄 수 있다. 예를 들면&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 총 12바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 1바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 4바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 1바이트&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 총 8바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 4바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 1바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 1바이트&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;22-구조체의-배열&quot;&gt;2.2. 구조체의 배열&lt;/h3&gt;
-
-&lt;p&gt;그냥 응용이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;S3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;			&lt;span class=&quot;c1&quot;&gt;// 12바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// 2바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// 4바이트&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;c1&quot;&gt;// 2바이트&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;get_j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;leaq&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;movzwl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eax&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-실수&quot;&gt;3. 실수&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;XMM 레지스터가 사용된다. 각 16바이트씩 16개가 존재한다.
-    &lt;ul&gt;
-      &lt;li&gt;%xmm0, %xmm1, …&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;한 레지스터 안에 여러 개의 수를 저장할 수 있다.
-    &lt;ul&gt;
-      &lt;li&gt;8 16-bit integers&lt;/li&gt;
-      &lt;li&gt;4 single precision floats&lt;/li&gt;
-      &lt;li&gt;2 double precision floats&lt;/li&gt;
-      &lt;li&gt;1 single precision float&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;31-add-연산&quot;&gt;3.1. add 연산&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;addss %xmm0, %xmm1: 레지스터 앞쪽의 single precision float addition을 한 번 한다.&lt;/li&gt;
-  &lt;li&gt;addps %xmm0, %xmm1: 모든 레지스터 영역에 걸쳐 single precision float addition을 한다.&lt;/li&gt;
-  &lt;li&gt;addsd %xmm0, %xmm1: 레지스터 앞쪽의 double precision float addition을 한 번 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;adds로 시작하는 연산을 Scalar 연산, addp로 시작하는 연산을 SIMD 연산이라고 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;32-기초&quot;&gt;3.2. 기초&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인자는 %xmm0, %xmm1, … 을 통해 전달된다.&lt;/li&gt;
-  &lt;li&gt;리턴값은 %xmm0이다.&lt;/li&gt;
-  &lt;li&gt;모든 XMM 레지스터는 caller-saved 이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fadd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %xmm0 = x, %xmm1 = y&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fadd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addss&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;33-memory-referencing&quot;&gt;3.3. Memory Referencing&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mov&lt;/code&gt; instruction은 정수 전용이다. 따라서 실수에 대해서는 다른 instruction이 적용된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dincr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-nasm highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;; %rdi = p, %xmm0 = v&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;dincr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;movapd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;	; double 실수를 다른 레지스터에 그대로 복사할 때 사용되는 명령&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movsd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;addsd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;movsd&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmm1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;ret&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;movapd는 aligned packed-doubles의 약자이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="배열" /><category term="구조체" /><category term="실수" /><summary type="html">복잡한 구조의 데이터 관리, 접근을 낮은 레벨에서는 어떻게 하는가? 실수는 어떤 레지스터를 사용하는가?</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="stack" /><summary type="html">어떻게 함수가 호출되고 인자가 전달될 것인지에 대해 살펴본다. - x64 Calling Convention</summary></entry></feed>
