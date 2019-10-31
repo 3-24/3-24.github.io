@@ -130,7 +130,7 @@ var store = [{
         "url": "http://localhost:4000/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
         "teaser":null},{
         "title": "리눅스 x86 호출규약",
-        "excerpt":"32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다. 예 int add(int a, int b){ return a+b; } int main(){ int a,b,c; a = 3; b = 7; c = a + b; return 0;...","categories": ["정보보안","pwnable"],
+        "excerpt":"32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자. 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. ebp 레지스터 위에 함수의 return address가 있고, 그 위에 인자argument가 쌓여있다. 예 int add(int a, int b){ return a+b; } int main(){ int a,b,c; a = 3; b = 7; c = add(a, b); return 0; }...","categories": ["정보보안","pwnable"],
         "tags": [],
         "url": "http://localhost:4000/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/pwnable/x86callconv/",
         "teaser":null},{
