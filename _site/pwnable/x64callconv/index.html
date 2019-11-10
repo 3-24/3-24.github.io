@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>리눅스 x64 호출규약 - Three Dash Two Four</title>
-<meta name="description" content="64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.">
+<meta name="description" content="x64 Linux Calling Convention">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -24,7 +24,7 @@
 <meta property="og:url" content="http://localhost:4000/pwnable/x64callconv/">
 
 
-  <meta property="og:description" content="64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.">
+  <meta property="og:description" content="x64 Linux Calling Convention">
 
 
 
@@ -310,7 +310,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="리눅스 x64 호출규약">
-    <meta itemprop="description" content="64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.">
+    <meta itemprop="description" content="x64 Linux Calling Convention">
     <meta itemprop="datePublished" content="October 31, 2019">
     
 
@@ -333,15 +333,20 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p>64비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.</p>
+        <p><strong>x64 Linux Calling Convention</strong></p>
 
 <ul>
   <li>스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.</li>
   <li>인자는 순서대로 rdi, rsi, rdx, r8, r9, r10 레지스터를 통해 전달된다. 6번째 이후의 인자는 32비트 호출 규약과 동일하게 rbp 위 함수의 return address 위에 쌓인다.</li>
-  <li>rax 레지스터는 리턴값을 전달한다.</li>
+  <li>rax 레지스터는 서브루틴의 리턴값을 전달한다.</li>
 </ul>
 
+<p>예를 통해 직접 과정을 따라가보는 것이 가장 이해하기 좋다.</p>
+
 <h2 id="예">예</h2>
+
+<p>단순하게 두 수를 더해서 다른 변수에 저장하는 c코드를 작성해보았다:</p>
+
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -361,7 +366,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 gdb add
 </code></pre></div></div>
 
-<p>add를 실행하는 과정을 쪼개서 과정을 표현해보았다. 메모리를 표로 그렸는데, 기본적으로 한 칸은 8바이트이지만 movl과 같이 4바이트 단위로 쪼개지는 instruction이 발생할 경우 예외적으로 4바이트 띄어서 표현했다. 가로가 긴 화면에서 잘 보인다. rip는 레지스터 표가 아닌, 왼쪽에 어셈블리 코드에 화살표로 나타냈고, rsp와 rbp는 메모리에 위치를 나타낼 수 있을 때 메모리에 표시했다.</p>
+<p>그러면 아래와 같은 어셈블리 코드를 볼 수 있는데 main의 시작 지점부터 어셈블리 instruction을 한 단계씩 실행시켜서 메모리와 레지스터 정보를 확인하면 아래와 같은 과정을 그려볼 수 있다. 모바일 환경에서는 잘려서 보이니 데스크탑 환경으로 보자.</p>
+
+<ul>
+  <li>메모리를 표로 그렸는데, 기본적으로 한 칸은 8바이트이지만 movl과 같이 4바이트 단위로 쪼개지는 instruction이 발생할 경우 예외적으로 4바이트 띄어서 표현했다.</li>
+  <li>rip는 레지스터 표가 아닌, 왼쪽에 어셈블리 코드에 화살표로 나타냈고, rsp와 rbp는 메모리 표에 위치를 나타낼 수 있을 때 메모리에 표시했다.</li>
+</ul>
+
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
@@ -2440,7 +2451,7 @@ pagination : {
 <h2 id="관련된-assembly-instructions">관련된 Assembly Instructions</h2>
 
 <ul>
-  <li><code class="highlighter-rouge">push Reg</code>: rsp를 8 감소시키고 <code class="highlighter-rouge">mov Reg, (%rsp)</code>한다.</li>
+  <li><code class="highlighter-rouge">push Reg</code>: rsp를 8만큼 감소시키고 <code class="highlighter-rouge">mov Reg, (%rsp)</code>한다.</li>
   <li><code class="highlighter-rouge">pop Reg</code>: <code class="highlighter-rouge">mov (%rsp), Reg</code> 후 rsp를 8 증가시킨다.</li>
   <li><code class="highlighter-rouge">call Dest</code>: <code class="highlighter-rouge">push 다음 인스트럭션</code> 후 <code class="highlighter-rouge">mov Dest, %rip</code>한다.</li>
   <li><code class="highlighter-rouge">ret</code>: <code class="highlighter-rouge">pop %rip</code></li>
@@ -2536,7 +2547,7 @@ pagination : {
   less than 1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 생각의 흐름을 정리해보면 다음과 같다.
+    <p class="archive__item-excerpt" itemprop="description">대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 이 생각의 흐름이 신기해서 쪼개서 정리해보았다!
 
 </p>
   </article>
