@@ -153,4 +153,9 @@ var store = [{
         "excerpt":"모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다. Requirements 안드로이드 기기의 루트 권한 Busybox 앱 설치(#) Linux Deploy 앱 설치(#) Busybox 설치 Figure 1. Busybox 설치 busybox는 리눅스에서 ls, cp 등 자주 사용하는...","categories": ["Linux"],
         "tags": ["Linux"],
         "url": "http://localhost:4000/linux/linux-android/",
+        "teaser":null},{
+        "title": "\\[픽셀 아트\\] 자화상",
+        "excerpt":"        나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.   ","categories": ["Pixel Art"],
+        "tags": ["pixel art"],
+        "url": "http://localhost:4000/pixel%20art/pixelart/",
         "teaser":null}]

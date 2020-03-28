@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-28T18:07:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-29T00:30:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;init-설정&quot;&gt;init 설정&lt;/h2&gt;
 
@@ -116,7 +116,13 @@ startScript ... done
  * Support:        https://ubuntu.com/advantage
 
 Ubuntu 18.04 LTS [running via Linux Deploy]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Linux" /><summary type="html">모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다.</summary></entry><entry><title type="html">리눅스 x64 호출규약</title><link href="http://localhost:4000/pwnable/x64callconv/" rel="alternate" type="text/html" title="리눅스 x64 호출규약" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/pwnable/x64callconv</id><content type="html" xml:base="http://localhost:4000/pwnable/x64callconv/">&lt;p&gt;&lt;strong&gt;x64 Linux Calling Convention&lt;/strong&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Linux" /><summary type="html">모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다.</summary></entry><entry><title type="html">\[픽셀 아트\] 자화상</title><link href="http://localhost:4000/pixel%20art/pixelart/" rel="alternate" type="text/html" title="\[픽셀 아트\] 자화상" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/pixel%20art/pixelart</id><content type="html" xml:base="http://localhost:4000/pixel%20art/pixelart/">&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;img src=&quot;http://localhost:4000/assets/img/pixel_art/me.jpg&quot; width=&quot;70%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry><entry><title type="html">리눅스 x64 호출규약</title><link href="http://localhost:4000/pwnable/x64callconv/" rel="alternate" type="text/html" title="리눅스 x64 호출규약" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/pwnable/x64callconv</id><content type="html" xml:base="http://localhost:4000/pwnable/x64callconv/">&lt;p&gt;&lt;strong&gt;x64 Linux Calling Convention&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.&lt;/li&gt;
@@ -4514,145 +4520,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
       &lt;li&gt;어림이 필요하면 실수의 반올림을 사용한다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. IEEE 실수 표현</summary></entry><entry><title type="html">시스템 프로그래밍 노트 3 - 어셈블리의 기본</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 3 - 어셈블리의 기본" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note3/">&lt;blockquote&gt;
-  &lt;p&gt;이 강의에서는 64비트 아키텍쳐만 커버한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;1-기본-용어&quot;&gt;1. 기본 용어&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;아키텍쳐 : 어셈블리/기계어를 읽거나 쓸 때 필요한 프로세서 디자인의 일부&lt;/li&gt;
-  &lt;li&gt;마이크로 아키텍쳐 : 하드웨어의 운영에 대한 기술&lt;/li&gt;
-  &lt;li&gt;기계 코드 : 프로세서가 실행하는 프로그램 그 자체&lt;/li&gt;
-  &lt;li&gt;어셈블리 코드 : 기계어의 글자 표현text representation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-c-코드의-변환-과정&quot;&gt;2. C 코드의 변환 과정&lt;/h2&gt;
-
-&lt;p&gt;C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고, 어셈블리 프로그램은 어셈블러에 의해 binary Object 프로그램으로 변환된다. 마지막으로 Linker를 통해 정적 라이브러리를 사용할 수 있게 만들어 실행 가능한 프로그램executable program이 된다(&lt;code class=&quot;highlighter-rouge&quot;&gt;printf&lt;/code&gt;과 같은 라이브러리 함수나 다른 파일의 referencing).&lt;/p&gt;
-
-&lt;p&gt;즉, C 코드를 어셈블리 코드로 변환하려면 c 컴파일러만 실행해야 하고, 이는 gcc가 지원한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc &lt;span class=&quot;nt&quot;&gt;-Og&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; sum.c
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-x86-64-정수-레지스터&quot;&gt;3. x86-64 정수 레지스터&lt;/h2&gt;
-
-&lt;p&gt;기본적으로 각 정수 레지스터에는 8바이트의 공간이 할당된다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%rax, %rcx, %rdx, %rbx, %rsi, %rdi, %rsp, %rbp&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;r 대신에 e를 사용하면 하위 4바이트에 접근 가능하다.&lt;/li&gt;
-      &lt;li&gt;prefix를 사용하지 않으면 하위 2바이트에 접근 가능하다.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a/b/c/dx&lt;/code&gt;의 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;%ax = %ah : %al&lt;/code&gt;  식의 접근이 가능하다. (각 1바이트)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rsi, rdi, rsp, rbp&lt;/code&gt;의 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;sil, dil, spl, bpl&lt;/code&gt;식의 하위 1바이트 접근이 가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%r8, %r9, %r10, %r11, %r12, %r13, %r14, %r15&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;뒤에 d를 붙이면 하위 4바이트에 접근 가능하다.&lt;/li&gt;
-      &lt;li&gt;뒤에 b를 붙이면 하위 1바이트에 접근 가능하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;4-operand-types&quot;&gt;4. Operand Types&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Immediate : 상수 정수. &lt;code class=&quot;highlighter-rouge&quot;&gt;$0x400, $-533&lt;/code&gt; 이런 식으로 접근한다.&lt;/li&gt;
-  &lt;li&gt;Register : 위에서 기술한 16개의 정수 레지스터들&lt;/li&gt;
-  &lt;li&gt;Memory : 레지스터에 의해 주어진 주소가 메모리의 8개의 연속적인 바이트에 대응된다. &lt;code class=&quot;highlighter-rouge&quot;&gt;(%rax)&lt;/code&gt;과 같이 접근한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;5-memory-addressing-modes&quot;&gt;5. Memory Addressing Modes&lt;/h2&gt;
-
-&lt;p&gt;D(Rb,Ri, S)  = Mem[Reg[RB] + S*Reg[Ri] + D]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;D: Constant displacement&lt;/li&gt;
-  &lt;li&gt;Rb: Base Register&lt;/li&gt;
-  &lt;li&gt;Ri: index Register&lt;/li&gt;
-  &lt;li&gt;S: Scale&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;6-기초-instructions&quot;&gt;6. 기초 Instructions&lt;/h2&gt;
-
-&lt;h3 id=&quot;61-movq&quot;&gt;6.1. &lt;code class=&quot;highlighter-rouge&quot;&gt;movq&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;movq Source, Dest;&lt;/code&gt;를 통해 데이터를 이동시킨다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;메모리를 메모리로&lt;/strong&gt; 옮기거나 어떤 값을 상수로 옮기는 것을 &lt;strong&gt;제외&lt;/strong&gt;한 모든 경우가 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;62-leaq&quot;&gt;6.2. &lt;code class=&quot;highlighter-rouge&quot;&gt;leaq&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leaq Src, Dst&lt;/code&gt;는 메모리 reference 없이 Src 자체를 Dst의 값에 넣는다.&lt;/p&gt;
-
-&lt;h3 id=&quot;63-arithematic-operations&quot;&gt;6.3. Arithematic Operations&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Format&lt;/th&gt;
-      &lt;th&gt;Computation&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;addq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest + Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;subq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest - Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;imulq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest * Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;salq Src, Dest (= shlq Src, Dest)&lt;/td&gt;
-      &lt;td&gt;Dest = Dest « Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;sarq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest » Src (Arithmetic)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;shrq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest » Src (Logical)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;orq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest ^ Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;andq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest &amp;amp; Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;orq Src, Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest | Src&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;incq Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest + 1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;decq Dest&lt;/td&gt;
-      &lt;td&gt;Dest = Dest - 1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;negq Dest&lt;/td&gt;
-      &lt;td&gt;Dest = -Dest&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;notq Dest&lt;/td&gt;
-      &lt;td&gt;Dest = ~Dest&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="어셈블리" /><category term="레지스터" /><summary type="html">이 강의에서는 64비트 아키텍쳐만 커버한다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. IEEE 실수 표현</summary></entry></feed>
