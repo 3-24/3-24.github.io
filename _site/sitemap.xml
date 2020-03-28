@@ -117,6 +117,14 @@
 <lastmod>2019-10-31T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/linux/linux-android-startup/</loc>
+<lastmod>2020-03-28T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/linux/linux-android/</loc>
+<lastmod>2020-03-28T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 <lastmod>2019-08-30T07:50:30+09:00</lastmod>
 </url>
@@ -233,6 +241,12 @@
 <loc>http://localhost:4000/tags/uim/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/tags/linux/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/rc-local/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/categories/%EC%88%98%ED%95%99/</loc>
 </url>
 <url>
@@ -285,5 +299,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page6/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page7/</loc>
 </url>
 </urlset>

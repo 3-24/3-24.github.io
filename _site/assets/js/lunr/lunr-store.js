@@ -143,4 +143,14 @@ var store = [{
         "excerpt":"x64 Linux Calling Convention 스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다. 인자는 순서대로 rdi, rsi, rdx, r8, r9, r10 레지스터를 통해 전달된다. 6번째 이후의 인자는 32비트 호출 규약과 동일하게 rbp 위 함수의 return address 위에 쌓인다. rax 레지스터는 서브루틴의 리턴값을 전달한다. 예를 통해 직접 과정을 따라가보는 것이 가장 이해하기 좋다. 예...","categories": ["Pwnable"],
         "tags": [],
         "url": "http://localhost:4000/pwnable/x64callconv/",
+        "teaser":null},{
+        "title": "Linux Deploy에서 부팅 시 스크립트 자동 실행하기",
+        "excerpt":"모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다. init 설정 Linux Deploy에서 속성에 들어가 init을 활성화한다. rc.local에서 돌릴 스크립트 추가 SSH로 접속한 서버 쉘을 열어서 다음을 입력한다: $ cd /etc $ mkdir rc.local $...","categories": ["Linux"],
+        "tags": ["Linux","rc.local"],
+        "url": "http://localhost:4000/linux/linux-android-startup/",
+        "teaser":null},{
+        "title": "루팅된 안드로이드 기기를 리눅스 서버로 사용하기",
+        "excerpt":"모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다. Requirements 안드로이드 기기의 루트 권한 Busybox 앱 설치(#) Linux Deploy 앱 설치(#) Busybox 설치 Figure 1. Busybox 설치 busybox는 리눅스에서 ls, cp 등 자주 사용하는...","categories": ["Linux"],
+        "tags": ["Linux"],
+        "url": "http://localhost:4000/linux/linux-android/",
         "teaser":null}]
