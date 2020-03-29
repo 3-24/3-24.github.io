@@ -2,8 +2,8 @@
 layout: single
 title: 내가 확률을 싫어하는 이유
 categories:
-- 수학
-- 생각
+- Scribbles
+- Mathematics
 tags:
 - 확률
 ---
