@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-29T00:30:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-30T01:50:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;init-설정&quot;&gt;init 설정&lt;/h2&gt;
 
@@ -122,7 +122,42 @@ Ubuntu 18.04 LTS [running via Linux Deploy]
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry><entry><title type="html">리눅스 x64 호출규약</title><link href="http://localhost:4000/pwnable/x64callconv/" rel="alternate" type="text/html" title="리눅스 x64 호출규약" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/pwnable/x64callconv</id><content type="html" xml:base="http://localhost:4000/pwnable/x64callconv/">&lt;p&gt;&lt;strong&gt;x64 Linux Calling Convention&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry><entry><title type="html">리눅스 업타임</title><link href="http://localhost:4000/linux/system/uptime/" rel="alternate" type="text/html" title="리눅스 업타임" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/system/uptime</id><content type="html" xml:base="http://localhost:4000/linux/system/uptime/">&lt;p&gt;리눅스 서버의 업타임을 확인할 때 기본적으로는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ uptime (-p)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;하면 서버가 부팅된 후 유지된 시간을 쉘에 출력한다.&lt;/p&gt;
+
+&lt;p&gt;나는 Python으로 이를 확인해야 했기에, &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocss&lt;/code&gt; 모듈을 사용하여 저 명령어를 쉘에 직접 입력해서 결과를 얻으려고 했었는데, 구글링하다가 더 쉬운 방법을 찾아냈다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_uptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/proc/uptime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;uptime_seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uptime_seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc/uptime&lt;/code&gt;의 첫 번째 값을 확인하는 것인데, proc manpage에서는 다음과 같이 설명한다:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ man proc
+...
+/proc/uptime
+	This file contains two numbers: the uptime of the system (seconds),
+	and the amount of time spent in idle process (seconds).
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그러면 이 업타임은 정확히 어떻게 측정되는 것일까? &lt;a href=&quot;https://unix.stackexchange.com/questions/275907/on-linux-when-does-uptime-start-counting-from&quot;&gt;이 글&lt;/a&gt;과 확인해본 리눅스 커널 코드에 의하면,  &lt;a href=&quot;https://github.com/torvalds/linux/blob/master/fs/proc/uptime.c&quot;&gt;fs/proc/uptime.c&lt;/a&gt;에서 찾을 수 있는&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;proc_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uptime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uptime_proc_fops&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가 proc 파일시스템에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;uptime&lt;/code&gt;을 갱신하는데, 아직 확인해보지는 않았지만 결국 &lt;a href=&quot;https://github.com/torvalds/linux/blob/master/kernel/time/timekeeping.c&quot;&gt;kernel/time/timekeeping.c&lt;/a&gt;가 계산한다고 한다.&lt;/p&gt;
+
+&lt;p&gt;결론적으로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;uptime&lt;/code&gt;의 카운팅은 커널이 초기화된 직후 시작된다. 이 값은 리눅스 커널에서 계산할 수 있는 가장 정확하고 낮은 레벨의 업타임인 셈이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uptime" /><category term="proc" /><summary type="html">리눅스 서버의 업타임을 확인할 때 기본적으로는</summary></entry><entry><title type="html">리눅스 x64 호출규약</title><link href="http://localhost:4000/system/x64callconv/" rel="alternate" type="text/html" title="리눅스 x64 호출규약" /><published>2019-10-31T00:00:00+09:00</published><updated>2019-10-31T00:00:00+09:00</updated><id>http://localhost:4000/system/x64callconv</id><content type="html" xml:base="http://localhost:4000/system/x64callconv/">&lt;p&gt;&lt;strong&gt;x64 Linux Calling Convention&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.&lt;/li&gt;
@@ -2245,7 +2280,7 @@ pagination : {
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;call Dest&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;push 다음 인스트럭션&lt;/code&gt; 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;mov Dest, %rip&lt;/code&gt;한다.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ret&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;pop %rip&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leave&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mov %rsp, %rbp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">x64 Linux Calling Convention</summary></entry><entry><title type="html">리눅스 x86 호출규약</title><link href="http://localhost:4000/pwnable/x86callconv/" rel="alternate" type="text/html" title="리눅스 x86 호출규약" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/pwnable/x86callconv</id><content type="html" xml:base="http://localhost:4000/pwnable/x86callconv/">&lt;p&gt;32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">x64 Linux Calling Convention</summary></entry><entry><title type="html">리눅스 x86 호출규약</title><link href="http://localhost:4000/system/x86callconv/" rel="alternate" type="text/html" title="리눅스 x86 호출규약" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/system/x86callconv</id><content type="html" xml:base="http://localhost:4000/system/x86callconv/">&lt;p&gt;32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;스택 메모리에서 서브루틴은 호출자의 아래쪽으로 생성된다.&lt;/li&gt;
@@ -4081,7 +4116,7 @@ pagination : {
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;call Dest&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;push 다음 인스트럭션&lt;/code&gt; 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;mov Dest, %eip&lt;/code&gt;한다.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ret&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;pop %eip&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;leave&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;mov %esp, %ebp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.</summary></entry><entry><title type="html">출결 제도에 관한 생각</title><link href="http://localhost:4000/%EC%9D%BC%EC%83%81/%EC%B6%9C%EC%84%9D/" rel="alternate" type="text/html" title="출결 제도에 관한 생각" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/%EC%9D%BC%EC%83%81/%EC%B6%9C%EC%84%9D</id><content type="html" xml:base="http://localhost:4000/%EC%9D%BC%EC%83%81/%EC%B6%9C%EC%84%9D/">&lt;p&gt;대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 이 생각의 흐름이 신기해서 쪼개서 정리해보았다!&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">32비트 리눅스의 호출 규약Calling Convention에 대해서 알아보자.</summary></entry><entry><title type="html">출결 제도에 관한 생각</title><link href="http://localhost:4000/scribbles/%EC%B6%9C%EC%84%9D/" rel="alternate" type="text/html" title="출결 제도에 관한 생각" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/scribbles/%EC%B6%9C%EC%84%9D</id><content type="html" xml:base="http://localhost:4000/scribbles/%EC%B6%9C%EC%84%9D/">&lt;p&gt;대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 이 생각의 흐름이 신기해서 쪼개서 정리해보았다!&lt;/p&gt;
 
 &lt;h3 id=&quot;출석을-부르는-강의&quot;&gt;출석을 부르는 강의&lt;/h3&gt;
 
@@ -4169,7 +4204,7 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
   &lt;li&gt;
     &lt;p&gt;Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;hangul&quot;&lt;/code&gt;만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecture%20notes/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecture%20notes/cover</id><content type="html" xml:base="http://localhost:4000/lecture%20notes/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note1&quot;&gt;기본 표현 단위와 정수 표현&lt;/a&gt;&lt;/li&gt;
@@ -4184,7 +4219,7 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 &lt;ol&gt;
   &lt;li&gt;KAIST CS230 fall 2019 Syststem Programming slides&lt;/li&gt;
   &lt;li&gt;Computer Systems: A Programmer’s Perspective 3rd edition&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note1/">&lt;h2 id=&quot;1-기본-표현-단위&quot;&gt;1. 기본 표현 단위&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현</title><link href="http://localhost:4000/lecture%20notes/note1/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecture%20notes/note1</id><content type="html" xml:base="http://localhost:4000/lecture%20notes/note1/">&lt;h2 id=&quot;1-기본-표현-단위&quot;&gt;1. 기본 표현 단위&lt;/h2&gt;
 
 &lt;p&gt;모든 정보의 최소 표현 단위는 비트이다.&lt;/p&gt;
 
@@ -4407,117 +4442,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 
     &lt;p&gt;단, 문자열에 대해서는 조심해야 하는게, char의 배열로 취급된다. 그러니까 ‘abcd’를 넣는다면 각 a, b, c, d에 해당하는 아스키코드가 순서대로 저장된다. 마지막 바이트는 널바이트&lt;code class=&quot;highlighter-rouge&quot;&gt;0x00&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="정수" /><category term="byte ordering" /><summary type="html">1. 기본 표현 단위</summary></entry><entry><title type="html">시스템 프로그래밍 노트 2 - 실수</title><link href="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 2 - 실수" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2</id><content type="html" xml:base="http://localhost:4000/lecturenotes/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/note2/">&lt;h2 id=&quot;1-ieee-실수-표현&quot;&gt;1. IEEE 실수 표현&lt;/h2&gt;
-
-&lt;h3 id=&quot;11-표현-방법&quot;&gt;1.1. 표현 방법&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$(-1)^s M \;2^E $&lt;/li&gt;
-  &lt;li&gt;sign bit는 수의 부호를 결정한다.&lt;/li&gt;
-  &lt;li&gt;significand는 [1.0,2.0) 사이의 값을 결정한다.(물론 예외가 딱 하나 있음)&lt;/li&gt;
-  &lt;li&gt;exponent는 값에 2의 지수의 형태로 가중치를 준다.&lt;/li&gt;
-  &lt;li&gt;이걸 인코딩할 때는 sign bit - exponent - significand 순으로 놓는다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;111-normalized-values&quot;&gt;1.1.1. Normalized Values&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;exp가 00…0이나 11…1이 아닐 때의 일반적인 상황이다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E = exponent - bias&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;bias&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;가 &lt;code class=&quot;highlighter-rouge&quot;&gt;exponent&lt;/code&gt; 비트 수일 때 &lt;code class=&quot;highlighter-rouge&quot;&gt;2^{k-1} -1&lt;/code&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;bias를 저렇게 잡는 이유는&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M = 1.xxx...x &lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;xx---x&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;significand&lt;/code&gt;이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;112-denormalized-values&quot;&gt;1.1.2. Denormalized Values&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exp = 000...0&lt;/code&gt;인 경우이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E = 1 - bias&lt;/code&gt;. 원래는 Normalized Value였다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;0 - bias&lt;/code&gt;였겠지만, 예외적으로 이렇게 처리한다. 그 대신에 significand의 의미도 달라진다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M = 0.xxx...x&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;113-special-values&quot;&gt;1.1.3. Special Values&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exp = 111...1&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;frac=000...0&lt;/code&gt;이면 $\infty$로 해석한다. 오버플로우가 일어날 때 사용.
-    &lt;ul&gt;
-      &lt;li&gt;응용해서 sign bit가 1이면 $-\infty$로 해석된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;frac!=000...0&lt;/code&gt;이면 NaN(Not a Number)으로, 어떤 수로도 결정되지 않을 때 사용한다. $\sqrt{-1}$ 같은 연산의 결과이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;12-rounding&quot;&gt;1.2. Rounding&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;반올림&lt;/li&gt;
-  &lt;li&gt;정확히 절반일 때는 LSB가 짝수가 되는 방향으로 한다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;모든 실수 연산의 마지막에 반드시 필요하다&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;13-곱셈&quot;&gt;1.3. 곱셈&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} \times (-1)^{s_2} M_2 2^{E_2} $
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s = s1 ^ s2&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M = M1 * M2&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E = E1 + E2&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;M &amp;gt;= 2&lt;/code&gt;이면 M을 오른쪽으로 한 칸 밀고, E를 1 더한다.&lt;/li&gt;
-  &lt;li&gt;M을 round한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;14-덧셈&quot;&gt;1.4. 덧셈&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$ (-1)^s M 2^E = (-1)^{s_1} M_1 2^{E_1} + (-1)^{s_2} M_2 2^{E_2} $
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E = E1&lt;/code&gt; under &lt;code class=&quot;highlighter-rouge&quot;&gt;E_1 &amp;gt; E_2&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;s, M은 정렬된 덧셈으로부터 결정된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M &amp;gt;= 2&lt;/code&gt;이면 M을 오른쪽으로 한 칸 밀고 E에 1 더한다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M &amp;lt; 1&lt;/code&gt;이면 M을 1이 나올 때까지 k칸 밀고 E에 k를 뺀다.&lt;/li&gt;
-  &lt;li&gt;오버플로우 처리를 한다.&lt;/li&gt;
-  &lt;li&gt;M을 round한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-c-실수&quot;&gt;2. C 실수&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;float&lt;/code&gt; : single precision
-    &lt;ul&gt;
-      &lt;li&gt;32bits : 1 sign, 8 exp, 23 frac&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; : double precision
-    &lt;ul&gt;
-      &lt;li&gt;64 bits: 1 sign, 11 exp, 52 frac&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;21-변환&quot;&gt;2.1. 변환&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;double/float&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;소수부 버림&lt;/li&gt;
-      &lt;li&gt;0을 향한 어림&lt;/li&gt;
-      &lt;li&gt;NaN / infinity에 대해서는 일반적인 정의는 없다. 보통은 &lt;code class=&quot;highlighter-rouge&quot;&gt;TMin&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;double/float&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;어림이 필요하면 실수의 반올림을 사용한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">1. IEEE 실수 표현</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="정수" /><category term="byte ordering" /><summary type="html">1. 기본 표현 단위</summary></entry></feed>
