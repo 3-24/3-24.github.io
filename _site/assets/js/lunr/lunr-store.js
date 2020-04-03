@@ -158,4 +158,9 @@ var store = [{
         "excerpt":"리눅스 서버의 업타임을 확인할 때 기본적으로는 $ uptime (-p) 하면 서버가 부팅된 후 유지된 시간을 쉘에 출력한다. 나는 Python으로 이를 확인해야 했기에, subprocss 모듈을 사용하여 저 명령어를 쉘에 직접 입력해서 결과를 얻으려고 했었는데, 구글링하다가 더 쉬운 방법을 찾아냈다. from datetime import timedelta def get_uptime(): with open(\"/proc/uptime\", 'r') as f: uptime_seconds...","categories": ["Linux","System"],
         "tags": ["uptime","proc"],
         "url": "http://localhost:4000/linux/system/uptime/",
+        "teaser":null},{
+        "title": "Merkle-Damgard 해시 함수",
+        "excerpt":"Merkle-Damgard construction는 collision-resistant한 해시 함수를 만드는 방법 MD5(!), SHA1, SHA2 등에 적용된다. (아쉽게도, MD5의 MD는 Message Digest의 약자라고 한다) 그림으로 표현하면 다음과 같다. IV에 메시지 블록1을 압축시키고, 그 출력에 메시지 블록2를 압축시키고 … 이를 반복하여 마지막 메시지 블록을 통과시킨다. Figure 1. MD construction의 구조 Compression Function compression 함수 $f$를 가정한다....","categories": ["Cryptography"],
+        "tags": ["hash function","md5"],
+        "url": "http://localhost:4000/cryptography/Merkle-Damgard/",
         "teaser":null}]

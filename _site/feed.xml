@@ -1,4 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-30T01:50:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-03T10:49:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Merkle-Damgard 해시 함수</title><link href="http://localhost:4000/cryptography/Merkle-Damgard/" rel="alternate" type="text/html" title="Merkle-Damgard 해시 함수" /><published>2020-04-03T00:00:00+09:00</published><updated>2020-04-03T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/Merkle-Damgard</id><content type="html" xml:base="http://localhost:4000/cryptography/Merkle-Damgard/">&lt;blockquote&gt;
+  &lt;p&gt;Merkle-Damgard construction는 collision-resistant한 해시 함수를 만드는 방법&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;MD5(!), SHA1, SHA2 등에 적용된다. (아쉽게도, MD5의 MD는 Message Digest의 약자라고 한다) 그림으로 표현하면 다음과 같다. IV에 메시지 블록1을 압축시키고, 그 출력에 메시지 블록2를 압축시키고 … 이를 반복하여 마지막 메시지 블록을 통과시킨다.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Merkle-Damgard_hash_big.svg/1920px-Merkle-Damgard_hash_big.svg.png&quot; /&gt;
+    &lt;figcaption&gt; Figure 1. MD construction의 구조 &lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;compression-function&quot;&gt;Compression Function&lt;/h2&gt;
+
+&lt;p&gt;compression 함수 $f$를 가정한다. compression 함수라 함은 다음을 의미한다:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f:\{0,1\}^m \times \{0,1\}^n \to \{0,1\}^m&lt;/script&gt;
+
+&lt;p&gt;즉, m비트와 n비트의 입력을 받아 m비트로 대응시킨다.&lt;/p&gt;
+
+&lt;p&gt;단, 이 $f$는 출력으로부터 두 입력을 아는 것이 어려워야 하며(단방향, one-way) $f(m_1)=f(m_2)$인 서로 다른 $m_1, m_2$를 아는 것도 어려워야 한다(collision-resistant).&lt;/p&gt;
+
+&lt;h2 id=&quot;initialization-vector&quot;&gt;Initialization Vector&lt;/h2&gt;
+
+&lt;p&gt;처음 compression 함수에 들어가는 m비트는 IV이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;merkle-damgard-compliant-padding&quot;&gt;Merkle-Damgard Compliant Padding&lt;/h2&gt;
+
+&lt;p&gt;메시지를 n비트 블록 단위로 쪼개어서 compression 함수에 넣기 때문에 메시지의 길이가 n비트의 단위가 아닐 경우 이를 n비트로 강제로 만드는 과정이 필요하다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Pad : \{0,1\}^* \to \{0,1\}^{n} \cup \{0,1\}^{2n} \cup \cdots&lt;/script&gt;
+
+&lt;p&gt;MD construction의 안전성을 보장하기 위해 이 패딩함수 $Pad$에는 메시지 $M$에 대해 다음과 같은 충분조건이 존재한다:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$Pad(M)$은 $M$으로 시작해야한다.&lt;/li&gt;
+  &lt;li&gt;$\lvert M_1\rvert = \lvert M_2 \rvert \implies \lvert Pad(M_1) \rvert = \lvert Pad(M_2) \rvert $&lt;/li&gt;
+  &lt;li&gt;$\lvert M_1\rvert  \ne \lvert M_2\rvert  \implies Pad(M_1) $의 마지막 블록 $\ne Pad(M_2)$의 마지막 블록&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;md5의-예시&quot;&gt;MD5의 예시&lt;/h2&gt;
+
+&lt;p&gt;Merkle-Damgard construction이라는 것을 확인하기 위해 알고리즘을 다소 생략했다. 전문(&lt;a href=&quot;https://en.wikipedia.org/wiki/MD5#Pseudocode&quot;&gt;#&lt;/a&gt;)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Note: All variables are unsigned 32 bit and wrap modulo 2^32 when calculating
+var int s[64], K[64] // predefined arrays
+var int i
+
+// Initialize variables:
+var int a0 := 0x67452301   // A
+var int b0 := 0xefcdab89   // B
+var int c0 := 0x98badcfe   // C
+var int d0 := 0x10325476   // D
+
+// Padding 추가
+append &quot;1&quot; bit to message    
+// Notice: the input bytes are considered as bits strings,
+//  where the first bit is the most significant bit of the byte.[50]
+append &quot;0&quot; bit until message length in bits ≡ 448 (mod 512)
+append original length in bits mod 2^64 to message
+
+// Process the message in successive 512-bit chunks:
+for each 512-bit chunk of padded message do
+    break chunk into sixteen 32-bit words M[j], 0 ≤ j ≤ 15
+    // Initialize hash value for this chunk:
+    var int A := a0
+    var int B := b0
+    var int C := c0
+    var int D := d0
+    // Main loop:
+    for i from 0 to 63 do
+        var int F, g
+        if 0 ≤ i ≤ 15 then
+            F := (B and C) or ((not B) and D)
+            g := i
+        else if 16 ≤ i ≤ 31 then
+            F := (D and B) or ((not D) and C)
+            g := (5×i + 1) mod 16
+        else if 32 ≤ i ≤ 47 then
+            F := B xor C xor D
+            g := (3×i + 5) mod 16
+        else if 48 ≤ i ≤ 63 then
+            F := C xor (B or (not D))
+            g := (7×i) mod 16
+        // Be wary of the below definitions of a,b,c,d
+        F := F + A + K[i] + M[g]  // M[g] must be a 32-bits block
+        A := D
+        D := C
+        C := B
+        B := B + leftrotate(F, s[i])
+    end for
+    // Add this chunk's hash to result so far:
+    a0 := a0 + A
+    b0 := b0 + B
+    c0 := c0 + C
+    d0 := d0 + D
+end for
+
+var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-endian)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;따라서 MD5 Merkle-Damgard 해시 함수이다. 여기서 사용한 패딩은 다른 SHA1, SHA2와도 공유하는 방법으로, 과정은 다음과 같다:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;메시지 끝에 1을 붙인다.&lt;/li&gt;
+  &lt;li&gt;그 뒤에 비트 mod 512로 448이 될 때까지 0을 붙인다. 그러면 이제 채워야 할 64비트가 남는다.&lt;/li&gt;
+  &lt;li&gt;$\lvert M \rvert $를 mod $2^{64}$한 값을 little-endian 64비트로 채운다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;예를 들어, 메시지가 400비트였다면, 448비트가 될 때까지 &lt;code class=&quot;highlighter-rouge&quot;&gt;100...00&lt;/code&gt;을 붙이고, 448비트는 이진수로 111000000이기 때문에, little-eian은 하위 비트가 낮은 주소에 들어와야 하기 때문에 000000111이고, 64비트를 채우면 &lt;code class=&quot;highlighter-rouge&quot;&gt;00000011100..00&lt;/code&gt;형태가 된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="hash function" /><category term="md5" /><summary type="html">Merkle-Damgard construction는 collision-resistant한 해시 함수를 만드는 방법</summary></entry><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;init-설정&quot;&gt;init 설정&lt;/h2&gt;
 
@@ -4219,227 +4326,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 &lt;ol&gt;
   &lt;li&gt;KAIST CS230 fall 2019 Syststem Programming slides&lt;/li&gt;
   &lt;li&gt;Computer Systems: A Programmer’s Perspective 3rd edition&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현</title><link href="http://localhost:4000/lecture%20notes/note1/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecture%20notes/note1</id><content type="html" xml:base="http://localhost:4000/lecture%20notes/note1/">&lt;h2 id=&quot;1-기본-표현-단위&quot;&gt;1. 기본 표현 단위&lt;/h2&gt;
-
-&lt;p&gt;모든 정보의 최소 표현 단위는 비트이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;bit : 0,1&lt;/li&gt;
-  &lt;li&gt;byte: 여덟 개의 bit를 묶어서 부른다. 이진수로는 00000000~11111111, 십진수로는 0~255, 십육진수로는 00~ff로 표현된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;11-비트-연산자&quot;&gt;1.1. 비트 연산자&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;C에서 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;||&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;는 논리 연산자로, 0을 거짓, 나머지를 모두 참으로 대응한다는 점에서 큰 차이가 있다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;의 경우 왼쪽을 0으로 채운다. 반면 논리 연산자에서는 왼쪽을 가장 중요한 비트most siginificant bit로 채운다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;2-정수&quot;&gt;2. 정수&lt;/h2&gt;
-
-&lt;p&gt;크게 unsigned와 Two’s Complement로 구분할 수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;21-unsigned&quot;&gt;2.1. unsigned&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;언제나 0보다 크거나 같은 수들을 뜻한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;단순히 이진수 표현을 한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;B2U(X) = \sum _{i=0} ^{w-1} x_i \cdot 2^i&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;0부터 $2^w -1$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;22-twos-complement&quot;&gt;2.2. Two’s Complement&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가장 왼쪽에 있는 비트가 부호 비트로, 0이면 양수, 1이면 음수를 뜻한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;B2T(X) = -x_{w-1} \cdot 2^{w-1} + \sum _{i=0} ^{w-2} x_i \cdot 2^i&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;$-2^{w-1}$부터 $2^{w-1} -1$&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;-1을 표현하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;111...11&lt;/code&gt;이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;23-변환&quot;&gt;2.3. 변환&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;c에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;(int)&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;(signed int)&lt;/code&gt; 변환casting을 말하는 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Two’s Complement 기준 양수 영역은 그대로&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Two’s Complement 기준 음수 영역은 unsigned의 큰 양수 영역으로 그대로 옮겨진다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;$ U2T = B2T \circ U2B$, $T2U = B2U \circ T2B$. 어려울 건 없고 그냥 &lt;strong&gt;같은 비트 표현을 공유한다&lt;/strong&gt;고 생각하면 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;실제 언어에서는 암시된 변환implicit casting을 허용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ux&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;tx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ux&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// same as tx = (int) ux;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;uy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// same as uy = (unsigned) ty;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;두 가지 표현이 섞여있으면 암시적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;unsigned&lt;/code&gt;로 변환한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;24-확장축소&quot;&gt;2.4. 확장/축소&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;확장의 경우, &lt;code class=&quot;highlighter-rouge&quot;&gt;signed&lt;/code&gt;일 때 부호 비트를 앞에다가 붙인다. 확장을 하는 상황은 다음과 같다:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15213&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 0xc493&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// 0xffffc493     &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;축소는 그 수가 양쪽 영역에 모두 포함되어 있으면 확장의 역변환이다. 그렇지 않다면, 예를 들어 int를 short로 바꾸는 경우에 mod 0x10000한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;25-덧셈&quot;&gt;2.5. 덧셈&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$UAdd_w (u,v) = u+v \mod 2^w $&lt;/li&gt;
-  &lt;li&gt;$TAdd_w$는 $UAdd_w$와 비트 단위에서 동일하다.
-    &lt;ul&gt;
-      &lt;li&gt;즉, $TAdd_w (u,v) = U2T(UAdd_w (T2U(u), T2U(v)))$&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;26-곱셈&quot;&gt;2.6. 곱셈&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$ UMult_w (u,v) = uv \mod 2^w $&lt;/li&gt;
-  &lt;li&gt;$TMult_w$는 $UMult_w$와 비트 단위에서 동일하다. (증명 가능)
-    &lt;ul&gt;
-      &lt;li&gt;즉, $TMult_w (u,v) = U2T_w (UMult_w (T2U (u), T2U(v))) $&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;27-bitwise-shift&quot;&gt;2.7. Bitwise Shift&lt;/h3&gt;
-
-&lt;h4 id=&quot;271-left-shift&quot;&gt;2.7.1. Left Shift&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;u &amp;lt;&amp;lt; k&lt;/code&gt;는 $u \times 2^k$와 동일하다.&lt;/li&gt;
-  &lt;li&gt;앞에다가 0을 k개 붙인 후 나머지 비트는 버린다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;272-right-shift&quot;&gt;2.7.2. Right Shift&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;unsigned는 앞에 k개의 0비트를 넣으면서 오른쪽으로 밀어버린다.
-    &lt;ul&gt;
-      &lt;li&gt;반올림 그런거 없고 그냥 버린다. 수학적으로는 $\lfloor x / 2^k \rfloor$.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;signed는 앞에 k개의 부호 비트를 넣으면서 오른쪽으로 밀어버린다.
-    &lt;ul&gt;
-      &lt;li&gt;x가 0보다 크거나 같을 때는 똑같이 버린다.&lt;/li&gt;
-      &lt;li&gt;x가 음수이면 $\lfloor (x+2^k -1) / 2^k \rfloor $의 형태로 계산한다. 이는 어림 하는 방향을 0으로 맞추기 위함이다. $x$가 $2^k$의 배수이면 상관이 없지만, 그렇지 않으면 1이 더해져서 올림이 된다. 궁극적으로 $\lceil x / 2^k \rceil$을 비트 레벨에서 구현한 것과 같다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-byte-ordering&quot;&gt;3. Byte Ordering&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메모리를 처리하는 단위를 word라고 하고, 32비트 아키텍쳐는 4바이트, 64비트는 8바이트이다.&lt;/li&gt;
-  &lt;li&gt;각 주소에는 바이트가 할당된다. 즉, 그 주소들을 묶어서 처리하는 것.&lt;/li&gt;
-  &lt;li&gt;각 C 데이터 타입에 따른 크기는 다음과 같다:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;데이터 타입&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;32비트&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;64비트&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;x86-64&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;char&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;short&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;int&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;long&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;float&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;double&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;long double&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10/16&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;pointer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;여러 바이트로 이루어진 단어를 어떻게 메모리에 저장할까? 그 방법에는 두 가지가 있다. 예를 들어 0xdeadbeef를 각 방법에 맞춰 넣는다고 하면
-    &lt;ul&gt;
-      &lt;li&gt;Big Endian : LSB가 가장 높은 추소, &lt;code class=&quot;highlighter-rouge&quot;&gt;deadbeef&lt;/code&gt;. Sun, PPC Mac, Internet에서 이용한다.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Little Endian&lt;/strong&gt; : LSB가 가장 낮은 주소, &lt;code class=&quot;highlighter-rouge&quot;&gt;efbeadde&lt;/code&gt;. x86, Android, iOS, WIndows의 ARM 프로세서에서 이용한다.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;단, 문자열에 대해서는 조심해야 하는게, char의 배열로 취급된다. 그러니까 ‘abcd’를 넣는다면 각 a, b, c, d에 해당하는 아스키코드가 순서대로 저장된다. 마지막 바이트는 널바이트&lt;code class=&quot;highlighter-rouge&quot;&gt;0x00&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="정수" /><category term="byte ordering" /><summary type="html">1. 기본 표현 단위</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry></feed>
