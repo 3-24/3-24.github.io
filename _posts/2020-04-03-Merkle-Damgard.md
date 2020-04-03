@@ -10,7 +10,7 @@ tags:
 use_math: true
 ---
 
-> Merkle-Damgard construction는 collision-resistant한 해시 함수를 만드는 방법
+> collision-resistant한 해시 함수를 만드는 방법
 
 MD5(!), SHA1, SHA2 등에 적용된다. (아쉽게도, MD5의 MD는 Message Digest의 약자라고 한다) 그림으로 표현하면 다음과 같다. IV에 메시지 블록1을 압축시키고, 그 출력에 메시지 블록2를 압축시키고 ... 이를 반복하여 마지막 메시지 블록을 통과시킨다.
 
