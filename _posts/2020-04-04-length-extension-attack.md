@@ -2,9 +2,9 @@
 layout: single
 classes: wide
 title: Length Extension Attack
-Categories:
+categories:
 - Cryptography
-Tags:
+tags:
 - hash function
 - Merkle-Damgard
 - MD5

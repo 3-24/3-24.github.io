@@ -165,7 +165,7 @@ var store = [{
         "url": "http://localhost:4000/cryptography/Merkle-Damgard/",
         "teaser":null},{
         "title": "Length Extension Attack",
-        "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, 이 때, 패딩을 포함한 단일 블럭의 메시지...","categories": [],
-        "tags": [],
-        "url": "http://localhost:4000/length-extension-attack/",
+        "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, 이 때, 패딩을 포함한 단일 블럭의 메시지...","categories": ["Cryptography"],
+        "tags": ["hash function","Merkle-Damgard","MD5"],
+        "url": "http://localhost:4000/cryptography/length-extension-attack/",
         "teaser":null}]

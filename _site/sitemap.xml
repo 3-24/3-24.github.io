@@ -133,7 +133,7 @@
 <lastmod>2020-04-03T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/length-extension-attack/</loc>
+<loc>http://localhost:4000/cryptography/length-extension-attack/</loc>
 <lastmod>2020-04-04T00:00:00+09:00</lastmod>
 </url>
 <url>
@@ -269,6 +269,12 @@
 </url>
 <url>
 <loc>http://localhost:4000/tags/hash-function/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/md5/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/merkle-damgard/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tags/md5/</loc>
