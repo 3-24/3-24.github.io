@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Youngseok Choe"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "KAIST SoF 19'"
+  bio              : "KAIST SoC 19'"
   location         : "Republic of Korea"
   email            : "dev.youngseok@gmail.com"
   links:
