@@ -163,4 +163,9 @@ var store = [{
         "excerpt":"collision-resistant한 해시 함수를 만드는 방법 MD5(!), SHA1, SHA2 등에 적용된다. (아쉽게도, MD5의 MD는 Message Digest의 약자라고 한다) 그림으로 표현하면 다음과 같다. IV에 메시지 블록1을 압축시키고, 그 출력에 메시지 블록2를 압축시키고 … 이를 반복하여 마지막 메시지 블록을 통과시킨다. Figure 1. MD construction의 구조 Compression Function compression 함수 $f$를 가정한다. compression 함수라...","categories": ["Cryptography"],
         "tags": ["hash function","md5"],
         "url": "http://localhost:4000/cryptography/Merkle-Damgard/",
+        "teaser":null},{
+        "title": "Length Extension Attack",
+        "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, 이 때, 패딩을 포함한 단일 블럭의 메시지...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/length-extension-attack/",
         "teaser":null}]

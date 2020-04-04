@@ -1,4 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-03T11:00:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Merkle-Damgard 해시 함수</title><link href="http://localhost:4000/cryptography/Merkle-Damgard/" rel="alternate" type="text/html" title="Merkle-Damgard 해시 함수" /><published>2020-04-03T00:00:00+09:00</published><updated>2020-04-03T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/Merkle-Damgard</id><content type="html" xml:base="http://localhost:4000/cryptography/Merkle-Damgard/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T12:19:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Length Extension Attack</title><link href="http://localhost:4000/length-extension-attack/" rel="alternate" type="text/html" title="Length Extension Attack" /><published>2020-04-04T00:00:00+09:00</published><updated>2020-04-04T00:00:00+09:00</updated><id>http://localhost:4000/length-extension-attack</id><content type="html" xml:base="http://localhost:4000/length-extension-attack/">&lt;p&gt;Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;어떻게&quot;&gt;어떻게?&lt;/h2&gt;
+
+&lt;p&gt;비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;hash(m_1) = compress(IV, m_1 \vert\vert pad_1 )&lt;/script&gt;
+
+&lt;p&gt;이 때, 패딩을 포함한 단일 블럭의 메시지 $m_2$에 대하여, $m_3 = m_1 \vert\vert pad_1 \vert\vert m_2$를 고려하고, $Pad(m_3) = m_1 \vert\vert pad_1 \vert\vert m_2 \vert\vert pad_3$로 놓자.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;hash(m_3) = compress(compress(IV,m_1 \vert\vert pad_1 ), m_2 \vert\vert pad_3)
+\\= compress(hash(m_1),m_2\vert\vert pad_3)&lt;/script&gt;
+
+&lt;p&gt;이런 식으로 $m_1, m_2$가 단일 블럭이 아니어도, Merkle-Damgard 해시 함수의 특성 상 $hash(m_3)$를 계산할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;예시&quot;&gt;예시&lt;/h2&gt;
+
+&lt;p&gt;예를 들어, 메시지의 인증을 확인하기 위해 MAC(Message Authentication Code)로 다음과 같은 함수를 사용한다고 하자:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SECRET!&quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# message의 해시 값을 계산
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_mac&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hexdigest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 유저가 보낸 message의 mac 시그니처가 해시값과 일치하는지 확인
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check_auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;usermac&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_mac&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;usermac&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;어떤 웹사이트에 PHP 리퀘스트를 GET 방식으로 데이터와 시그니처를 다음과 같이 보낼 수 있다고 하자:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user_id=1323&amp;amp;size=large&amp;amp;count=1&amp;amp;flavor=choco
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sign=8ccb1040d76a517033265be77f7b8506
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 때 시그니처의 길이가 32이기 때문에, 16진수 하나당 4비트이므로 128비트이고, 128비트의 출력을 하는 자주 쓰이는 암호학적 해시 함수는 MD5 정도라고 추측할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이제 공격자가 하고 싶은 것은 flavor를 &lt;code class=&quot;highlighter-rouge&quot;&gt;mintchoco&lt;/code&gt;로 덮는것이라고 하자.&lt;/p&gt;
+
+&lt;p&gt;length extension attack을 적용할 때 문제는 secret의 길이를 모른다는 부분인다. 그냥 짧을 것이라고 추측해서 직접 패딩을 일일이 만들어서 직접 MD5 해시를 계산해서 인증을 시도해보고, 맞으면 secret의 길이가 7임을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;따라서 m1의 길이는 51이고 한 글자는 1바이트=8비트이므로, 총 408비트이고, MD5에서 패딩을 만드는 방식에 의하면 pad1은 다음과 같이 형성된다:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1000 0000 0000 0000 0000 0000 0000 0000
+0000 0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;10...0&lt;/code&gt;을 448비트가 될 때까지 채우고&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1000 1001 0001 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;408비트는 이진수로 110011000이므로 little-endian으로 채웠을 때 (총 64비트)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이걸 다 붙여서&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user_id=1323&amp;amp;size=large&amp;amp;count=1&amp;amp;flavor=choco\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00&amp;amp;flavor=mintchoco
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;로 덮는다. 이 때 인증키 sign은&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compress(8ccb1040d76a517033265be77f7b8506, &quot;&amp;amp;flavor=mintchoco&quot; + pad3)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 계산해서 얻을 수 있다. 이제 pad3를 계산하고 compress를 md5 algorithm에서 가져와야 하는데..&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그냥 다른 사람이 만들어놓은 툴을 쓰자(&lt;a href=&quot;https://github.com/iagox86/hash_extender&quot;&gt;hash_extender&lt;/a&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;직접 하길 원한다면 hash_extender의 README를 읽어보는 것도 괜찮다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./hash_extender -d &quot;user_id=1323&amp;amp;size=large&amp;amp;count=1&amp;amp;flavor=choco&quot; -l 7 -a &quot;&amp;amp;flavor=mintchoco&quot; -s 8ccb1040d76a517033265be77f7b8506 -f md5
+Type: md5
+Secret length: 7
+New signature: aed5d57ec6cb8c79b245d864665b3193
+New string: 757365725f69643d313332332673697a653d6c6172676526636f756e743d3126666c61766f723d63686f636f8000000000980100000000000026666c61766f723d6d696e7463686f636f
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;새로 얻은 &lt;code class=&quot;highlighter-rouge&quot;&gt;sign=aed5d57ec6cb8c79b245d864665b3193&lt;/code&gt;이 이제 있다.&lt;/p&gt;
+
+&lt;p&gt;New string을 bytearray로 바꿔서 출력해보면 다음과 같다:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# s는 아까 얻은 New String
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;barr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytearray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;barr&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;bytearray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'user_id=1323&amp;amp;size=large&amp;amp;count=1&amp;amp;flavor=choco&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;amp;flavor=mintchoco'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(위에서 직접 손으로 패딩을 계산했던 것이 일치함을 확인할 수 있다!) 어쩄든 결과로 인증을 시도해보자.&lt;/p&gt;
+
+&lt;p&gt;직접 secret을 붙여서 인증 서버 쪽에서 md5를 계산하면 다음과 같을 것이다:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hashlib&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SECRET!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;barr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hexdigest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;'aed5d57ec6cb8c79b245d864665b3193'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해시 값이 위에서 얻은 &lt;code class=&quot;highlighter-rouge&quot;&gt;sign&lt;/code&gt;과 동일하다!&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.</summary></entry><entry><title type="html">Merkle-Damgard 해시 함수</title><link href="http://localhost:4000/cryptography/Merkle-Damgard/" rel="alternate" type="text/html" title="Merkle-Damgard 해시 함수" /><published>2020-04-03T00:00:00+09:00</published><updated>2020-04-03T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/Merkle-Damgard</id><content type="html" xml:base="http://localhost:4000/cryptography/Merkle-Damgard/">&lt;blockquote&gt;
   &lt;p&gt;collision-resistant한 해시 함수를 만드는 방법&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -4311,19 +4417,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
   &lt;li&gt;
     &lt;p&gt;Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;hangul&quot;&lt;/code&gt;만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry><entry><title type="html">시스템 프로그래밍 노트</title><link href="http://localhost:4000/lecture%20notes/cover/" rel="alternate" type="text/html" title="시스템 프로그래밍 노트" /><published>2019-10-22T00:00:00+09:00</published><updated>2019-10-22T00:00:00+09:00</updated><id>http://localhost:4000/lecture%20notes/cover</id><content type="html" xml:base="http://localhost:4000/lecture%20notes/cover/">&lt;p&gt;KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note1&quot;&gt;기본 표현 단위와 정수 표현&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note2&quot;&gt;실수&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note3&quot;&gt;어셈블리의 기본&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note4&quot;&gt;상태 코드&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note5&quot;&gt;함수와 스택 메모리&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/lecturenotes/시스템프로그래밍/note6&quot;&gt;배열과 구조체, 그리고 실수&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;출처&quot;&gt;출처&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;KAIST CS230 fall 2019 Syststem Programming slides&lt;/li&gt;
-  &lt;li&gt;Computer Systems: A Programmer’s Perspective 3rd edition&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry></feed>
