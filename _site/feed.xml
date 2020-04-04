@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T12:31:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Length Extension Attack</title><link href="http://localhost:4000/cryptography/length-extension-attack/" rel="alternate" type="text/html" title="Length Extension Attack" /><published>2020-04-04T00:00:00+09:00</published><updated>2020-04-04T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/length-extension-attack</id><content type="html" xml:base="http://localhost:4000/cryptography/length-extension-attack/">&lt;p&gt;Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T13:00:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Length Extension Attack</title><link href="http://localhost:4000/cryptography/length-extension-attack/" rel="alternate" type="text/html" title="Length Extension Attack" /><published>2020-04-04T00:00:00+09:00</published><updated>2020-04-04T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/length-extension-attack</id><content type="html" xml:base="http://localhost:4000/cryptography/length-extension-attack/">&lt;p&gt;Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다.&lt;/p&gt;
@@ -208,10 +208,32 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 &lt;ol&gt;
   &lt;li&gt;메시지 끝에 1을 붙인다.&lt;/li&gt;
   &lt;li&gt;그 뒤에 비트 mod 512로 448이 될 때까지 0을 붙인다. 그러면 이제 채워야 할 64비트가 남는다.&lt;/li&gt;
-  &lt;li&gt;$\lvert M \rvert $를 mod $2^{64}$한 값을 little-endian 64비트로 채운다.&lt;/li&gt;
+  &lt;li&gt;$\lvert M \rvert $를 mod $2^{64}$한 값을 little-endian 64비트 정수가 되도록 채운다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;예를 들어, 메시지가 400비트였다면, 448비트가 될 때까지 &lt;code class=&quot;highlighter-rouge&quot;&gt;100...00&lt;/code&gt;을 붙이고, 448비트는 이진수로 111000000이기 때문에, little-eian은 하위 비트가 낮은 주소에 들어와야 하기 때문에 000000111이고, 64비트를 채우면 &lt;code class=&quot;highlighter-rouge&quot;&gt;00000011100..00&lt;/code&gt;형태가 된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="hash function" /><category term="md5" /><summary type="html">collision-resistant한 해시 함수를 만드는 방법</summary></entry><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
+&lt;p&gt;예를 들어, 메시지가 400비트였다면, 448비트가 될 때까지&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 붙이고&lt;/p&gt;
+
+&lt;p&gt;400비트는 이진수로 110010000이기 때문에 little-endian은 하위 바이트가 낮은 주소로 들어와야 하므로,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0000 1001 0001 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 붙여야 한다. 즉, 4000비트 메시지의 패딩은&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 1001 0001 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 byte-array로 바꾼 &lt;code class=&quot;highlighter-rouge&quot;&gt;\x80\x00\x00\x00\x00\x00\x09\x10\x00\x00\x00\x00\x00\x00&lt;/code&gt;이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="hash function" /><category term="Merkle-Damgard" /><summary type="html">collision-resistant한 해시 함수를 만드는 방법</summary></entry><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;init-설정&quot;&gt;init 설정&lt;/h2&gt;
 
