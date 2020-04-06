@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-04T13:05:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Length Extension Attack</title><link href="http://localhost:4000/cryptography/length-extension-attack/" rel="alternate" type="text/html" title="Length Extension Attack" /><published>2020-04-04T00:00:00+09:00</published><updated>2020-04-04T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/length-extension-attack</id><content type="html" xml:base="http://localhost:4000/cryptography/length-extension-attack/">&lt;p&gt;Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-06T17:57:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Length Extension Attack</title><link href="http://localhost:4000/cryptography/length-extension-attack/" rel="alternate" type="text/html" title="Length Extension Attack" /><published>2020-04-04T00:00:00+09:00</published><updated>2020-04-04T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/length-extension-attack</id><content type="html" xml:base="http://localhost:4000/cryptography/length-extension-attack/">&lt;p&gt;Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다.&lt;/p&gt;
@@ -4373,7 +4373,7 @@ pagination : {
   &lt;li&gt;늦었더라도 수업에 간다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;분명 두 강의의 차이는 출석을 성적에 반영하는지에 대한 여부임에도 불구하고 생각의 초점이 달라 기대했던 결과와 완전히 반대로 된 결과가 나타난다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 이 생각의 흐름이 신기해서 쪼개서 정리해보았다!</summary></entry><entry><title type="html">Ubuntu 18.04 한글 입력 설정</title><link href="http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/" rel="alternate" type="text/html" title="Ubuntu 18.04 한글 입력 설정" /><published>2019-10-24T00:00:00+09:00</published><updated>2019-10-24T00:00:00+09:00</updated><id>http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80</id><content type="html" xml:base="http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">&lt;p&gt;항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.&lt;/p&gt;
+&lt;p&gt;분명 두 강의의 차이는 출석을 성적에 반영하는지에 대한 여부임에도 불구하고 생각의 초점이 달라 기대했던 결과와 완전히 반대로 된 결과가 나타난다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><summary type="html">대학에 다니면서 아침잠이 급격하게 늘어나면서 오전 강의에 늦거나 안 가는 일이 많다. 그런데 늦게 일어나더라도 출석체크가 있는 수업에는 가지 않고 없는 수업에는 가게 된다. 이 생각의 흐름이 신기해서 쪼개서 정리해보았다!</summary></entry><entry><title type="html">Ubuntu 18.04 한글 입력 설정</title><link href="http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/" rel="alternate" type="text/html" title="Ubuntu 18.04 한글 입력 설정" /><published>2019-10-24T00:00:00+09:00</published><updated>2019-10-24T00:00:00+09:00</updated><id>http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80</id><content type="html" xml:base="http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">&lt;p&gt;항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.&lt;/p&gt;
 
 &lt;h2 id=&quot;uim-패키지-설정&quot;&gt;uim 패키지 설정&lt;/h2&gt;
 
@@ -4382,17 +4382,17 @@ pagination : {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;검색을 통해 언어 지원(Language Support)를 열어 언어(language) 탭에 키보드 입력기를 iBus에서 uim으로 바꾼다. 이제 나머지 입력기는 지워도 무관하다.&lt;/p&gt;
 
-&lt;h2 id=&quot;한글-한자-키맵&quot;&gt;한글, 한자 키맵&lt;/h2&gt;
-&lt;p&gt;키보드의 한영키를 우분투에서는 기본적으로 Alt로 인식한다. 따라서 한/영키로 바꿔줄 수 있는데 방법은 크게 다음 &lt;strong&gt;세 가지&lt;/strong&gt;가 있다. 가장 쉽고 추천하는 방법은 첫 번째의 gnome-tweak-tool를 이용한 방법이다.&lt;/p&gt;
+&lt;h2 id=&quot;한글-키맵&quot;&gt;한글 키맵&lt;/h2&gt;
+&lt;p&gt;키보드의 한영키를 우분투에서는 기본적으로 Alt로 인식한다. 따라서 이 키맵을 바꿔줘야 하는데 방법은 크게 다음 &lt;strong&gt;세 가지&lt;/strong&gt;가 있다. 가장 쉽고 추천하는 방법은 첫 번째의 gnome-tweak-tool를 이용한 방법이다.&lt;/p&gt;
 
-&lt;h3 id=&quot;gnome-tweak-tool&quot;&gt;gnome-tweak-tool&lt;/h3&gt;
+&lt;h3 id=&quot;방법-1-gnome-tweak-tool&quot;&gt;방법 1. gnome-tweak-tool&lt;/h3&gt;
 
 &lt;p&gt;현재 우분투 18.04가 사용하고 있는 gnome이라는 데스크탑 환경의 테마를 변경할 때 주로 사용하는 패키지이다.&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gnome-tweak-tool
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;설치가 되면 Tweaks를 열어 Keyboard &amp;amp; Mouse 탭 - Additional Layout Options - Korean Hangul/Hanja Keys - Right Alt as Hangul, right Ctrl as Hanja 체크박스를 활성화해주고 모두 닫는다.&lt;/p&gt;
 
-&lt;h3 id=&quot;altwin&quot;&gt;altwin&lt;/h3&gt;
+&lt;h3 id=&quot;방법-2-altwin&quot;&gt;방법 2. altwin&lt;/h3&gt;
 
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /usr/share/X11/xkb/symbols/altwin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -4410,7 +4410,7 @@ pagination : {
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;xmodmap&quot;&gt;xmodmap&lt;/h3&gt;
+&lt;h3 id=&quot;방법-3-xmodmap&quot;&gt;방법 3. xmodmap&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'remove mod1 = Alt_R'&lt;/span&gt;
 xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'keycode 108 = Hangul'&lt;/span&gt;
 
@@ -4419,7 +4419,7 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1
 
 xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.Xmodmap
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;를 순서대로 터미널에 입력한다. 문제는 이 설정이 재부팅을 했을 때 유지가 되지 않는다는 점이다. 적어도 필자의 환경에서는 그랬다. 이를 해결하기 위해서는&lt;/p&gt;
+&lt;p&gt;를 순서대로 터미널에 입력한다. 문제는 이 설정이 재부팅을 했을 때 유지가 되지 않는다는 점이다. 이를 해결하기 위해서는&lt;/p&gt;
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;go&quot;&gt;vim ~/.xinitrc
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;(vim이 없다면 다른 텍스트 에디터를 사용해도 무관하다) 를 열어&lt;/p&gt;
@@ -4430,7 +4430,7 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
 
 &lt;h2 id=&quot;uim-설정&quot;&gt;uim 설정&lt;/h2&gt;
 
-&lt;p&gt;이제 추가한 한영키를 uim에서 한글 입력기를 키고 끄는 키로 추가하면 된다.&lt;/p&gt;
+&lt;p&gt;이제 추가한 한영키를 uim에서 한글 입력기를 켜고 끄는 키로 추가하면 된다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -4439,4 +4439,4 @@ xmodmap &lt;span class=&quot;nt&quot;&gt;-pke&lt;/span&gt; &lt;span class=&quot;
   &lt;li&gt;
     &lt;p&gt;Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;hangul&quot;&lt;/code&gt;만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><summary type="html">항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uim" /><category term="keymap" /><summary type="html">항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</summary></entry></feed>

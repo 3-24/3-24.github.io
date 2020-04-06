@@ -120,8 +120,8 @@ var store = [{
         "url": "http://localhost:4000/lecture%20notes/note6/",
         "teaser":null},{
         "title": "Ubuntu 18.04 한글 입력 설정",
-        "excerpt":"항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다. uim 패키지 설정 Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다. sudo apt install uim...","categories": ["Linux"],
-        "tags": ["uim"],
+        "excerpt":"항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다. uim 패키지 설정 Ubuntu 18.04에서 기본으로 지원하는 입력기는 iBus인데, 한글 입력이 잘 되지 않아서 여러 다른 입력기를 시도해본 결과 uim이 가장 안정적이다. sudo apt install...","categories": ["Linux"],
+        "tags": ["uim","keymap"],
         "url": "http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/",
         "teaser":null},{
         "title": "리눅스 x86 호출규약",

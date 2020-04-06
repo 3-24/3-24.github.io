@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Ubuntu 18.04 한글 입력 설정 - Three Dash Two Four</title>
-<meta name="description" content="항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
+<meta name="description" content="항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -24,7 +24,7 @@
 <meta property="og:url" content="http://localhost:4000/linux/%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%95%9C%EA%B8%80/">
 
 
-  <meta property="og:description" content="항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
+  <meta property="og:description" content="항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
 
 
 
@@ -310,7 +310,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Ubuntu 18.04 한글 입력 설정">
-    <meta itemprop="description" content="항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
+    <meta itemprop="description" content="항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.">
     <meta itemprop="datePublished" content="October 24, 2019">
     
 
@@ -333,7 +333,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p>항상 우분투를 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</p>
+        <p>항상 우분투 데스크탑을 설치할 때마다 한글 설정을 하는 문서를 찾기가 번거롭다. 그동안 내가 찾은 설정 방법을 정리하면서 관련 설정을 하는 많은 사람들에게 도움이 되었으면 좋겠다.</p>
 
 <h2 id="uim-패키지-설정">uim 패키지 설정</h2>
 
@@ -342,17 +342,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 </code></pre></div></div>
 <p>검색을 통해 언어 지원(Language Support)를 열어 언어(language) 탭에 키보드 입력기를 iBus에서 uim으로 바꾼다. 이제 나머지 입력기는 지워도 무관하다.</p>
 
-<h2 id="한글-한자-키맵">한글, 한자 키맵</h2>
-<p>키보드의 한영키를 우분투에서는 기본적으로 Alt로 인식한다. 따라서 한/영키로 바꿔줄 수 있는데 방법은 크게 다음 <strong>세 가지</strong>가 있다. 가장 쉽고 추천하는 방법은 첫 번째의 gnome-tweak-tool를 이용한 방법이다.</p>
+<h2 id="한글-키맵">한글 키맵</h2>
+<p>키보드의 한영키를 우분투에서는 기본적으로 Alt로 인식한다. 따라서 이 키맵을 바꿔줘야 하는데 방법은 크게 다음 <strong>세 가지</strong>가 있다. 가장 쉽고 추천하는 방법은 첫 번째의 gnome-tweak-tool를 이용한 방법이다.</p>
 
-<h3 id="gnome-tweak-tool">gnome-tweak-tool</h3>
+<h3 id="방법-1-gnome-tweak-tool">방법 1. gnome-tweak-tool</h3>
 
 <p>현재 우분투 18.04가 사용하고 있는 gnome이라는 데스크탑 환경의 테마를 변경할 때 주로 사용하는 패키지이다.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>gnome-tweak-tool
 </code></pre></div></div>
 <p>설치가 되면 Tweaks를 열어 Keyboard &amp; Mouse 탭 - Additional Layout Options - Korean Hangul/Hanja Keys - Right Alt as Hangul, right Ctrl as Hanja 체크박스를 활성화해주고 모두 닫는다.</p>
 
-<h3 id="altwin">altwin</h3>
+<h3 id="방법-2-altwin">방법 2. altwin</h3>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>vim /usr/share/X11/xkb/symbols/altwin
 </code></pre></div></div>
@@ -370,7 +370,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">};</span>
 </code></pre></div></div>
 
-<h3 id="xmodmap">xmodmap</h3>
+<h3 id="방법-3-xmodmap">방법 3. xmodmap</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmodmap <span class="nt">-e</span> <span class="s1">'remove mod1 = Alt_R'</span>
 xmodmap <span class="nt">-e</span> <span class="s1">'keycode 108 = Hangul'</span>
 
@@ -379,7 +379,7 @@ xmodmap <span class="nt">-e</span> <span class="s1">'keycode 105 = Hangul_Hanja'
 
 xmodmap <span class="nt">-pke</span> <span class="o">&gt;</span> ~/.Xmodmap
 </code></pre></div></div>
-<p>를 순서대로 터미널에 입력한다. 문제는 이 설정이 재부팅을 했을 때 유지가 되지 않는다는 점이다. 적어도 필자의 환경에서는 그랬다. 이를 해결하기 위해서는</p>
+<p>를 순서대로 터미널에 입력한다. 문제는 이 설정이 재부팅을 했을 때 유지가 되지 않는다는 점이다. 이를 해결하기 위해서는</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">vim ~/.xinitrc
 </span></code></pre></div></div>
 <p>(vim이 없다면 다른 텍스트 에디터를 사용해도 무관하다) 를 열어</p>
@@ -390,7 +390,7 @@ xmodmap <span class="nt">-pke</span> <span class="o">&gt;</span> ~/.Xmodmap
 
 <h2 id="uim-설정">uim 설정</h2>
 
-<p>이제 추가한 한영키를 uim에서 한글 입력기를 키고 끄는 키로 추가하면 된다.</p>
+<p>이제 추가한 한영키를 uim에서 한글 입력기를 켜고 끄는 키로 추가하면 된다.</p>
 
 <ul>
   <li>
@@ -418,6 +418,10 @@ xmodmap <span class="nt">-pke</span> <span class="o">&gt;</span> ~/.Xmodmap
   <p class="page__taxonomy">
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#keymap" class="page__taxonomy-item" rel="tag">keymap</a><span class="sep">, </span>
     
       
       
