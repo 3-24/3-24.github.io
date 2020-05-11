@@ -167,5 +167,10 @@ var store = [{
         "title": "Length Extension Attack",
         "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, 이 때, 패딩을 포함한 단일 블럭의 메시지...","categories": ["Cryptography"],
         "tags": ["hash function","Merkle-Damgard","MD5"],
-        "url": "http://localhost:4000/cryptography/length-extension-attack/",
+        "url": "http://localhost:4000/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
+        "teaser":null},{
+        "title": "RSA LSB Oracle Attack",
+        "excerpt":"암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다. 어떻게? RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다: $c\\cdot 2^e$를 같은 방식으로 복호화시켜보자. ($2^{k\\phi(n)+1} \\equiv 2 \\mod n$이 되는 부분은 편의를 위해 과감히 생략했다. RSA를 설명한 글의 복호화 증명과 완전히...","categories": ["Cryptography"],
+        "tags": ["RSA","LSB"],
+        "url": "http://localhost:4000/cryptography/RSA-lsb-oracle-attack/",
         "teaser":null}]

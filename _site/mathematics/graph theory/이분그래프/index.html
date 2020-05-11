@@ -365,7 +365,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 </span>
 <span class="k">def</span> <span class="nf">isBipartite</span><span class="p">():</span>
     <span class="c1"># v and e is number of vertexes and edges, respectively.
-</span>    <span class="n">v</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span>    <span class="n">v</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
 
     <span class="c1"># None if not colored
 </span>    <span class="c1"># If colored, there are two bool cases: False and True.
@@ -373,16 +373,16 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <span class="n">adjacentPoints</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
-        <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="c1"># edge (v1, v2) is expected input
-</span>        <span class="n">adjacentPoints</span><span class="p">[</span><span class="n">v1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
-        <span class="n">adjacentPoints</span><span class="p">[</span><span class="n">v2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+        <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span> <span class="c1"># edge (v1, v2) is expected input
+</span>        <span class="n">adjacentPoints</span><span class="p">[</span><span class="n">v1</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+        <span class="n">adjacentPoints</span><span class="p">[</span><span class="n">v2</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
 
     <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">node</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">v</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span> <span class="c1"># for non-connected graph
 </span>
     <span class="k">while</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node</span><span class="p">):</span> <span class="c1"># node is nonempty
-</span>        <span class="n">c</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span>        <span class="n">c</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
         <span class="k">while</span> <span class="nb">bool</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span> <span class="c1"># queue is nonempty
 </span>            <span class="n">start</span> <span class="o">=</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">adjacentPoints</span><span class="p">[</span><span class="n">start</span><span class="p">]:</span>
@@ -391,9 +391,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
                         <span class="k">return</span> <span class="bp">False</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">colorArr</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">colorArr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+                    <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
             <span class="k">del</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span> <span class="n">node</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="bp">True</span>
 
@@ -544,7 +544,36 @@ B = \{ b \in V: \text{the shortest path from } b \text { to } v \text{ has even 
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/cryptography/length-extension-attack/" rel="permalink">Length Extension Attack
+        <a href="/cryptography/RSA-lsb-oracle-attack/" rel="permalink">RSA LSB Oracle Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">Length Extension Attack
 </a>
       
     </h2>
@@ -618,37 +647,6 @@ B = \{ b \in V: \text{the shortest path from } b \text { to } v \text{ has even 
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">리눅스 서버의 업타임을 확인할 때 기본적으로는
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/pixel%20art/pixelart/" rel="permalink">[픽셀 아트] 자화상
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-
-
 
 </p>
   </article>

@@ -365,9 +365,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = z, %rsi = digit</span>
-<span class="n">get_digit</span><span class="o">:</span>
-	<span class="k">movq</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">%</span><span class="n">rsi</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = z, %rsi = digit</span>
+<span class="nl">get_digit:</span>
+	<span class="nf">movq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="o">%</span><span class="nb">rsi</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
 </code></pre></div></div>
 
 <p>int가 4바이트이기 때문에 z[digit]을 담고 있는 실제 주소는 z + 4*digit이다.</p>
@@ -381,15 +381,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">zincr</span><span class="o">:</span>
-	<span class="k">movq</span> <span class="err">$</span><span class="mi">0</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
-<span class="p">.</span><span class="n">L4</span>
-	<span class="n">addq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">%</span><span class="n">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-	<span class="n">addq</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
-<span class="p">.</span><span class="n">L3</span><span class="o">:</span>
-	<span class="n">cmpq</span> <span class="mi">4</span><span class="p">,</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="k">jbe</span> <span class="p">.</span><span class="n">L4</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">zincr:</span>
+	<span class="nf">movq</span> <span class="kc">$</span><span class="mi">0</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nf">.L4</span>
+	<span class="nf">addq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="o">%</span><span class="nb">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+	<span class="nf">addq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">.L3:</span>
+	<span class="nf">cmpq</span> <span class="mi">4</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">jbe</span> <span class="nv">.L4</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <h3 id="12-다차원-배열">1.2. 다차원 배열</h3>
@@ -409,12 +409,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = index, %rsi = dig</span>
-<span class="n">get_pgh_digit</span><span class="o">:</span>
-	<span class="n">leaq</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">$</span><span class="mi">4</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="n">addl</span> <span class="err">$</span><span class="n">rax</span><span class="p">,</span> <span class="err">%</span><span class="n">rsi</span>					<span class="c">; rsi = 5*index + dig</span>
-	<span class="n">movl</span> <span class="n">pgh</span><span class="p">(,</span><span class="err">%</span><span class="n">rsi</span><span class="p">,</span><span class="err">$</span><span class="mi">4</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = index, %rsi = dig</span>
+<span class="nl">get_pgh_digit:</span>
+	<span class="nf">leaq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="kc">$</span><span class="mi">4</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">addl</span> <span class="kc">$</span><span class="nb">rax</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span>					<span class="c1">; rsi = 5*index + dig</span>
+	<span class="nf">movl</span> <span class="nv">pgh</span><span class="p">(,</span><span class="o">%</span><span class="nb">rsi</span><span class="p">,</span><span class="kc">$</span><span class="mi">4</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <p>zip_dig의 크기가 4*5 = 20바이트이기 때문에 <code class="highlighter-rouge">pgh[index][dig]</code>에 접근하려면 <code class="highlighter-rouge">pgh+20index + 4dig</code>의 값을 불러와야 한다.</p>
@@ -433,13 +433,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = index, %rsi = digit</span>
-<span class="c">; objective: data in [univ + 8*index] + 4*digit</span>
-<span class="n">get_univ_digit</span><span class="o">:</span>
-	<span class="n">salq</span> <span class="err">$</span><span class="mi">2</span><span class="p">,</span> <span class="err">%</span><span class="n">rsi</span>
-	<span class="n">addq</span> <span class="n">univ</span><span class="p">(,</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="err">%</span><span class="n">rsi</span>
-	<span class="k">movq</span> <span class="p">(</span><span class="err">%</span><span class="n">rsi</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = index, %rsi = digit</span>
+<span class="c1">; objective: data in [univ + 8*index] + 4*digit</span>
+<span class="nl">get_univ_digit:</span>
+	<span class="nf">salq</span> <span class="kc">$</span><span class="mi">2</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span>
+	<span class="nf">addq</span> <span class="nv">univ</span><span class="p">(,</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="o">%</span><span class="nb">rsi</span>
+	<span class="nf">movq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">univ[index]</code>는 univ + 8index에 저장된 <code class="highlighter-rouge">int *</code>이고, <code class="highlighter-rouge">univ[index][digit]</code>에 접근하려면 univ+8index에 저장된 값에 <code class="highlighter-rouge">4*digit</code>을 더해서 dereferencing해야 한다.</p>
@@ -451,13 +451,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = n, %rsi = a, %rdx = i, %rcx = j</span>
-<span class="c">; [a+(4*n)*i + 4*j] = [a + 4(ni+j)]</span>
-<span class="n">var_ele</span><span class="o">:</span>
-	<span class="n">imulq</span> <span class="err">%</span><span class="n">rdx</span><span class="p">,</span> <span class="err">%</span><span class="n">rdi</span>
-	<span class="n">addq</span> <span class="err">%</span><span class="n">rdi</span><span class="p">,</span> <span class="err">%</span><span class="n">rcx</span>
-	<span class="k">movq</span> <span class="err">%</span><span class="n">rsi</span><span class="p">(,</span><span class="err">%</span><span class="n">rcx</span><span class="p">,</span><span class="err">$</span><span class="mi">4</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = n, %rsi = a, %rdx = i, %rcx = j</span>
+<span class="c1">; [a+(4*n)*i + 4*j] = [a + 4(ni+j)]</span>
+<span class="nl">var_ele:</span>
+	<span class="nf">imulq</span> <span class="o">%</span><span class="nb">rdx</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdi</span>
+	<span class="nf">addq</span> <span class="o">%</span><span class="nb">rdi</span><span class="p">,</span> <span class="o">%</span><span class="nb">rcx</span>
+	<span class="nf">movq</span> <span class="o">%</span><span class="nb">rsi</span><span class="p">(,</span><span class="o">%</span><span class="nb">rcx</span><span class="p">,</span><span class="kc">$</span><span class="mi">4</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <h2 id="2-구조체-struct">2. 구조체 Struct</h2>
@@ -478,15 +478,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = r, %rsi = val</span>
-<span class="n">set_val</span><span class="o">:</span>
-<span class="p">.</span><span class="n">L11</span><span class="o">:</span>
-	<span class="n">movslq</span> <span class="mi">16</span><span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>		<span class="c">; sign extension (%rdi+16), which is long.</span>
-	<span class="n">movl</span> <span class="err">%</span><span class="n">esi</span><span class="p">,</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">%</span><span class="n">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-	<span class="k">movq</span> <span class="mi">24</span><span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">),</span> <span class="err">%</span><span class="n">rdi</span>
-	<span class="n">testq</span> <span class="err">%</span><span class="n">rdi</span><span class="p">,</span> <span class="err">%</span><span class="n">rdi</span>
-	<span class="k">jne</span> <span class="p">.</span><span class="n">L11</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = r, %rsi = val</span>
+<span class="nl">set_val:</span>
+<span class="nl">.L11:</span>
+	<span class="nf">movslq</span> <span class="mi">16</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>		<span class="c1">; sign extension (%rdi+16), which is long.</span>
+	<span class="nf">movl</span> <span class="o">%</span><span class="nb">esi</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="o">%</span><span class="nb">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+	<span class="nf">movq</span> <span class="mi">24</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nb">rdi</span>
+	<span class="nf">testq</span> <span class="o">%</span><span class="nb">rdi</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdi</span>
+	<span class="nf">jne</span> <span class="nv">.L11</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <h3 id="21-alignment">2.1. Alignment</h3>
@@ -525,9 +525,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_j</span><span class="o">:</span>
-	<span class="n">leaq</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="err">%</span><span class="n">rdi</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="err">%</span><span class="n">rax</span>
-	<span class="n">movzwl</span> <span class="n">a</span><span class="o">+</span><span class="mi">8</span><span class="p">(,</span><span class="err">%</span><span class="n">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="err">%</span><span class="n">eax</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">get_j:</span>
+	<span class="nf">leaq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="o">%</span><span class="nb">rdi</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="o">%</span><span class="nb">rax</span>
+	<span class="nf">movzwl</span> <span class="nv">a</span><span class="o">+</span><span class="mi">8</span><span class="p">(,</span><span class="o">%</span><span class="nb">rax</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="o">%</span><span class="nb">eax</span>
 </code></pre></div></div>
 
 <h2 id="3-실수">3. 실수</h2>
@@ -571,10 +571,10 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %xmm0 = x, %xmm1 = y</span>
-<span class="k">fadd</span><span class="o">:</span>
-	<span class="n">addss</span> <span class="err">%</span><span class="n">xmm1</span><span class="p">,</span> <span class="err">%</span><span class="n">xmm0</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %xmm0 = x, %xmm1 = y</span>
+<span class="nl">fadd:</span>
+	<span class="nf">addss</span> <span class="o">%</span><span class="nv">xmm1</span><span class="p">,</span> <span class="o">%</span><span class="nv">xmm0</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <h3 id="33-memory-referencing">3.3. Memory Referencing</h3>
@@ -588,13 +588,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">; %rdi = p, %xmm0 = v</span>
-<span class="n">dincr</span><span class="o">:</span>
-	<span class="n">movapd</span> <span class="err">%</span><span class="n">xmm0</span><span class="p">,</span> <span class="err">%</span><span class="n">xmm1</span><span class="c">;	; double 실수를 다른 레지스터에 그대로 복사할 때 사용되는 명령</span>
-	<span class="k">movsd</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">),</span> <span class="err">%</span><span class="n">xmm0</span><span class="c">;</span>
-	<span class="n">addsd</span> <span class="err">%</span><span class="n">xmm0</span><span class="p">,</span> <span class="err">%</span><span class="n">xmm1</span><span class="c">;</span>
-	<span class="k">movsd</span> <span class="err">%</span><span class="n">xmm1</span><span class="p">,</span> <span class="p">(</span><span class="err">%</span><span class="n">rdi</span><span class="p">)</span>
-	<span class="k">ret</span>
+<div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">; %rdi = p, %xmm0 = v</span>
+<span class="nl">dincr:</span>
+	<span class="nf">movapd</span> <span class="o">%</span><span class="nv">xmm0</span><span class="p">,</span> <span class="o">%</span><span class="nv">xmm1</span><span class="c1">;	; double 실수를 다른 레지스터에 그대로 복사할 때 사용되는 명령</span>
+	<span class="nf">movsd</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">xmm0</span><span class="c1">;</span>
+	<span class="nf">addsd</span> <span class="o">%</span><span class="nv">xmm0</span><span class="p">,</span> <span class="o">%</span><span class="nv">xmm1</span><span class="c1">;</span>
+	<span class="nf">movsd</span> <span class="o">%</span><span class="nv">xmm1</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">)</span>
+	<span class="nf">ret</span>
 </code></pre></div></div>
 
 <p>movapd는 aligned packed-doubles의 약자이다.</p>
@@ -704,7 +704,36 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/cryptography/length-extension-attack/" rel="permalink">Length Extension Attack
+        <a href="/cryptography/RSA-lsb-oracle-attack/" rel="permalink">RSA LSB Oracle Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">Length Extension Attack
 </a>
       
     </h2>
@@ -778,37 +807,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">리눅스 서버의 업타임을 확인할 때 기본적으로는
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/pixel%20art/pixelart/" rel="permalink">[픽셀 아트] 자화상
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-
-
 
 </p>
   </article>

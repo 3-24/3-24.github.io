@@ -346,9 +346,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <span class="k">def</span> <span class="nf">get_uptime</span><span class="p">():</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/proc/uptime"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">uptime_seconds</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">uptime_seconds</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span> <span class="o">=</span> <span class="n">uptime_seconds</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">seconds</span> <span class="o">//</span> <span class="mi">3600</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">seconds</span> <span class="o">//</span> <span class="mi">60</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">days</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">seconds</span> <span class="o">//</span> <span class="mi">3600</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">seconds</span> <span class="o">//</span> <span class="mi">60</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>바로 <code class="highlighter-rouge">/proc/uptime</code>의 첫 번째 값을 확인하는 것인데, proc manpage에서는 다음과 같이 설명한다:</p>
@@ -474,7 +474,36 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/cryptography/length-extension-attack/" rel="permalink">Length Extension Attack
+        <a href="/cryptography/RSA-lsb-oracle-attack/" rel="permalink">RSA LSB Oracle Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">Length Extension Attack
 </a>
       
     </h2>
@@ -550,35 +579,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <p class="archive__item-excerpt" itemprop="description">
 
 
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/linux/linux-android/" rel="permalink">루팅된 안드로이드 기기를 리눅스 서버로 사용하기
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다.
 
 </p>
   </article>

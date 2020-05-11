@@ -424,10 +424,10 @@ Add) e=151. This is for make challenge easy.</p>
 <p>Where $e^{-1}$ is modular inverse of $e$ respect to $N$.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">coppersmith</span><span class="p">(</span><span class="n">shiftbits</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="n">F</span><span class="o">.&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">Zmod</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">F</span><span class="p">.</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">Zmod</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
     <span class="n">invE</span> <span class="o">=</span> <span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">shiftbits</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">invE</span>   <span class="c1"># make monic
-</span>    <span class="n">x0</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">small_roots</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="n">shiftbits</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.44</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span>
+</span>    <span class="n">x0</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">small_roots</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="n">shiftbits</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.44</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x0</span>
 </code></pre></div></div>
 
@@ -558,7 +558,36 @@ Add) e=151. This is for make challenge easy.</p>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/cryptography/length-extension-attack/" rel="permalink">Length Extension Attack
+        <a href="/cryptography/RSA-lsb-oracle-attack/" rel="permalink">RSA LSB Oracle Attack
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="permalink">Length Extension Attack
 </a>
       
     </h2>
@@ -632,37 +661,6 @@ Add) e=151. This is for make challenge easy.</p>
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">리눅스 서버의 업타임을 확인할 때 기본적으로는
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/pixel%20art/pixelart/" rel="permalink">[픽셀 아트] 자화상
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">
-
-
 
 </p>
   </article>
