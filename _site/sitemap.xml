@@ -141,6 +141,10 @@
 <lastmod>2020-05-11T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/cryptography/Feistel-cipher/</loc>
+<lastmod>2020-06-15T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/scribbles/pintos-tips/</loc>
 <lastmod>2020-06-15T00:00:00+09:00</lastmod>
 </url>
@@ -289,6 +293,12 @@
 </url>
 <url>
 <loc>http://localhost:4000/tags/lsb/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/feistel/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/block-cipher/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/mathematics/</loc>

@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>카탈란 수-대각선을 넘지 않는 경우의 수 - Three Dash Two Four</title>
-<meta name="description" content="문제">
+<!-- begin _includes/seo.html --><title>Feistel Cipher - Three Dash Two Four</title>
+<meta name="description" content="Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Three Dash Two Four">
-<meta property="og:title" content="카탈란 수-대각선을 넘지 않는 경우의 수">
-<meta property="og:url" content="http://localhost:4000/mathematics/combinatorics/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
+<meta property="og:title" content="Feistel Cipher">
+<meta property="og:url" content="http://localhost:4000/cryptography/Feistel-cipher/">
 
 
-  <meta property="og:description" content="문제">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2018-12-20T00:00:00+09:00">
+  <meta property="og:description" content="Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2020-06-15T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/mathematics/combinatorics/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/">
+
+<link rel="canonical" href="http://localhost:4000/cryptography/Feistel-cipher/">
 
 
 
@@ -309,15 +309,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="카탈란 수-대각선을 넘지 않는 경우의 수">
-    <meta itemprop="description" content="문제">
-    <meta itemprop="datePublished" content="December 20, 2018">
+    <meta itemprop="headline" content="Feistel Cipher">
+    <meta itemprop="description" content="Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.">
+    <meta itemprop="datePublished" content="June 15, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">카탈란 수-대각선을 넘지 않는 경우의 수
+          <h1 id="page-title" class="page__title" itemprop="headline">Feistel Cipher
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -333,70 +333,65 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="문제">문제</h2>
+        <p>Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.</p>
 
-<p>$n \times n$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 오른쪽이나 위로 가는 이동만으로 이루어진 경로를 생각하자. 이 때 왼쪽 아래와 오른쪽 위 모서리를 연결한 대각선 위로 올라가지 않는 경로는 몇 개나 있을까?</p>
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan03.png" width="50%" />
-<figcaption> Figure 1. 대각선을 넘지 않는 경로의 예</figcaption>
+<div align="center">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Feistel_cipher_diagram_en.svg" width="40%" style="background-color:white;" />
+    <p>
+        Figure 1. Feistel 암호의 암호화와 복호화 [1]
+    </p>
 </div>
 
-<p>이 조건을 만족하는 경우의 수를 카탈란 수라고 하고, $C_n$으로 적습니다.</p>
+<p>후술할 암호화와 복호화 과정은 위 그림 하나로 다 설명된다. 암호화할 때 $f$라는 라운드 함수를 사용하는데, 암호화할 때나 복호화할 때나 공통적으로 $f^{-1}$도 아닌 $f$를 그대로 사용한다! 즉, 어떤 형태의 $f$를 제안해도 그것으로 블록 암호를 만들 수 있다는 자유도가 있다. 그리고 암호화하는 과정과 복호화하는 과정이 닮아있기 때문에 시간도 같게 걸린다.</p>
 
-<h2 id="일반항">일반항</h2>
+<h2 id="암호화">암호화</h2>
 
-<p>크게 두 단계에 걸쳐서 증명에 들어갑니다. 편의상 ‘오른쪽으로 이동’을 $\Rightarrow$, ‘위로 이동’을 $\Uparrow$로 앞으로 적겠습니다.</p>
+<ul>
+  <li>입력: 암호화할 $L_0 \vert\vert R_0$ 블록, 공통적으로 사용할 비밀키 $k_0, \cdots , k_{r-1} $</li>
+  <li>출력: r번의 라운드 함수를 거쳐서 만들어진 $L_r \vert\vert R_r $ 블록</li>
+</ul>
 
-<h3 id="대각선-조건이-없을-때">대각선 조건이 없을 때</h3>
+<p>기본적이므로 블록 암호이므로 고정된 길이의 입력 $L_0 \vert\vert R_0$을 암호화하는 과정을 살펴볼 것이다. $L_0$와 $R_0$의 길이는 같다.</p>
 
-<p>$n\times m$ 격자에서 왼쪽 아래에서 오른쪽 위 모서리로 가는 최단 경로의 개수는?</p>
+<p>r-round Feistel 암호는 이 블록을 매 단계마다 다음과 같이 암호화한다:</p>
 
-<p>가로 길이가 $n$, 세로 길이가 $m$이기 때문에 왼쪽 아래 모서리에서 순서에 상관 없이 $\Rightarrow$을 $n$번, $\Uparrow$을 $m$번 했을 때 오른쪽 위 모서리에 도달하게 됩니다. 따라서 문제에서 묻는 최단 경로의 개수 $D_{n,m}$는 다음과 같습니다.</p>
+<script type="math/tex; mode=display">(L_{i+1}, R_{i+1}) = (R_i, L_i \oplus f(R_i, k_i)) \quad \text{for } i=0,2,\cdots,r-1</script>
 
-<script type="math/tex; mode=display">D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}</script>
+<p>여기서 $f$를 라운드 함수round function이라고 부르고, 이 라운드 함수에 사용되는 $k_i$는 i번째 비밀 키이다.</p>
 
-<h3 id="대각선-조건이-있을-때">대각선 조건이 있을 때</h3>
+<p>이렇게 r개의 라운드를 거쳐서 나오는 $R_r \vert\vert L_r$이 암호화된 블록이다.</p>
 
-<p>2.1의 문제로 이 문제를 바꿀 것입니다. 핵심 아이디어는 다음과 같습니다:</p>
+<h2 id="복호화">복호화</h2>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan04.png" width="70%" />
-<figcaption> Figure 2. 경로의 대응변형</figcaption>
-</div>
+<ul>
+  <li>입력: 복호화할 $L_r \vert\vert R_r$ 블록, 공통적으로 사용할 비밀키  $k_0, \cdots , k_{r-1} $</li>
+  <li>출력: $L_0 \vert\vert R_0$ 평문 블록</li>
+</ul>
 
-<p>대각선을 넘어가는 경로를 생각합니다. 이 때, 대각선을 최초로 넘어간 이후의 경로를 대칭시켜버리면, $n-1 \times n+1$의 격자에서 경로를 얻을 수 있습니다. 즉, <strong>문제의 조건을 위배하는 경로는 $n-1 \times n+1$ 격자의 경로에 대응</strong>됩니다.</p>
+<p>암호화와 똑같은 과정을 뒤집어서 수행한다.</p>
 
-<p>그런데 그림의 $n-1 \times n+1$에 남아 있는 대각선을 살펴보면, <strong>모든 $n-1 \times n+1$경로가 대각선을 지나갈 수밖에 없습니다.</strong>  즉, 반대로 $n-1 \times n+1$ 경로를 문제를 만족하지 않는 $n \times n$ 경로에 대응할 수 있습니다.</p>
+<script type="math/tex; mode=display">(R_i, L_i) = (L_{i+1},R_{i+1}\oplus f(L_{i+1},k_i)) \quad \text{for } k=0,1,\cdots,r-1</script>
 
-<p>따라서 문제의 조건을 위배하는 경로의 개수는 $D_{n-1,n+1}$입니다.</p>
+<h2 id="검증">검증</h2>
 
-<p>이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!</p>
+<p>r-round Feistel의 복호화 과정이 정확한 지 확인하고 싶다면, 다음을 확인하면 된다. E와 D는 각각 암호화encrypt와 복호화decrypt를 의미한다.</p>
 
-<script type="math/tex; mode=display">C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}</script>
+<ol>
+  <li>$(L_{i+1}, R_{i+1}) = E(L_i, R_i) = (R_i, L_i \oplus f(R_i, k_i))$</li>
+  <li>$(L_i’, R_i’) = D(L_{i+1}, R_{i+1})=(R_{i+1} \oplus f(L_{i+1}, k_i)), L_{i+1} )$</li>
+  <li>$(L_i’,R_i ‘) = (L_i, R_i)$인가?</li>
+</ol>
 
-<p>이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.</p>
+<p>먼저, $R_i’ = L_{i+1} = R_i$임은 쉽게 확인된다.</p>
 
-<h2 id="점화식">점화식</h2>
+<script type="math/tex; mode=display">L_i' = R_{i+1} \oplus f(L_{i+1}, k_i) = (L_i \oplus f(R_i,k_i)) \oplus f(L_{i+1}, k_i) = L_i \oplus (f(R_i, k_i) \oplus f(L_{R_i, k_i})) = L_i</script>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan05.png" width="50%" />
-<figcaption> Figure 3. 경로의 분할</figcaption>
-</div>
+<p>따라서 각 단계마다 복호화가 유효하다는 것이 확인되었고, 이 단계들로 구성된 r-round Fesistel 암호의 전체 복호화 과정도 정확하다.</p>
 
-<p>처음으로 대각선과 만나는 좌표를 중심으로 생각을 전개하면 쉽습니다. 위 그림의 경우에는 $(3,3)$에서 만나는데, 그 이후로 $(3,3)$에서 $(8,8)$로 가는 대각선을 넘지 않는 경로를 세주면 되고, 그 경우의 수는 $C_5$입니다. (대각선을 만나지 않고 끝점에 도달했더라도, 그 끝점을 대각선과 만난 점으로 생각하면 됩니다)</p>
+<h2 id="출처">출처</h2>
 
-<p>이제 $(0,0)$에서 $(3,3)$으로 가는 대각선과 만나지 않는 경로들을 세야 하는데, 아래 그림을 보면 역시 이미 풀었던 문제라는 것을 알 수 있습니다. 처음에 $\Rightarrow$로, 마지막에도 $\Uparrow$로 행동이 강제되는데, 그러고 남은 문제는 $2 \times 2$의 문제, 즉 $C_2$입니다.</p>
+<p>[1] Wikipedia - Feistel Cipher</p>
 
-<div style="text-align: center">
-<img src="http://localhost:4000/assets/img/catalan06.png" width="20%" />
-<figcaption> Figure 4. 분할된 경로의 강제성</figcaption>
-</div>
-
-<p>이 셈을 $(1,1)$에서 $(8,8)$까지 모두 해서 더하면 점화식을 얻을 수 있습니다. 일반적으로 접근하면 다음과 같은 식을 쉽게 쓸 수 있습니다.</p>
-
-<script type="math/tex; mode=display">C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}</script>
-
-<p>그리고 이 점화식의 시작인 $C_0 = 1$도 같이 써주면 됩니다.</p>
 
         
       </section>
@@ -417,7 +412,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/tags/#%EC%B9%B4%ED%83%88%EB%9E%80" class="page__taxonomy-item" rel="tag">카탈란</a>
+      <a href="/tags/#block-cipher" class="page__taxonomy-item" rel="tag">block cipher</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#feistel" class="page__taxonomy-item" rel="tag">Feistel</a>
     
     </span>
   </p>
@@ -438,18 +437,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/categories/#combinatorics" class="page__taxonomy-item" rel="tag">Combinatorics</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/categories/#mathematics" class="page__taxonomy-item" rel="tag">Mathematics</a>
+      <a href="/categories/#cryptography" class="page__taxonomy-item" rel="tag">Cryptography</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-12-20T00:00:00+09:00">December 20, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-06-15T00:00:00+09:00">June 15, 2020</time></p>
         
       </footer>
 
@@ -458,22 +453,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%B9%B4%ED%83%88%EB%9E%80+%EC%88%98-%EB%8C%80%EA%B0%81%EC%84%A0%EC%9D%84+%EB%84%98%EC%A7%80+%EC%95%8A%EB%8A%94+%EA%B2%BD%EC%9A%B0%EC%9D%98+%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2Fmathematics%2Fcombinatorics%2F%25EC%25B9%25B4%25ED%2583%2588%25EB%259E%2580%25EC%2588%2598%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Feistel+Cipher%20http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FFeistel-cipher%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fmathematics%2Fcombinatorics%2F%25EC%25B9%25B4%25ED%2583%2588%25EB%259E%2580%25EC%2588%2598%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FFeistel-cipher%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fmathematics%2Fcombinatorics%2F%25EC%25B9%25B4%25ED%2583%2588%25EB%259E%2580%25EC%2588%2598%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FFeistel-cipher%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/mathematics/%EB%B2%88%EC%82%AC%EC%9D%B4%EB%93%9C/" class="pagination--pager" title="번사이드 보조정리
+      <a href="/cryptography/RSA-lsb-oracle-attack/" class="pagination--pager" title="RSA LSB Oracle Attack
 ">Previous</a>
     
     
-      <a href="/CF-Round-531-Div-3/" class="pagination--pager" title="Codeforces Round #531 (Div. 3) 후기
+      <a href="/scribbles/pintos-tips/" class="pagination--pager" title="PintOS를 짜면서 정리해본 팁과 설정들
 ">Next</a>
     
   </nav>
@@ -512,35 +507,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/cryptography/Feistel-cipher/" rel="permalink">Feistel Cipher
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.
 
 </p>
   </article>
@@ -595,10 +561,41 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  2 minute read
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/cryptography/Merkle-Damgard/" rel="permalink">Merkle-Damgard 해시 함수
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  collision-resistant한 해시 함수를 만드는 방법
+
 
 </p>
   </article>
@@ -679,8 +676,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/mathematics/combinatorics/%EC%B9%B4%ED%83%88%EB%9E%80%EC%88%98/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/mathematics/combinatorics/카탈란수"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/cryptography/Feistel-cipher/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/cryptography/Feistel-cipher"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

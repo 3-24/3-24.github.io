@@ -174,6 +174,11 @@ var store = [{
         "tags": ["RSA","LSB"],
         "url": "http://localhost:4000/cryptography/RSA-lsb-oracle-attack/",
         "teaser":null},{
+        "title": "Feistel Cipher",
+        "excerpt":"Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다. Figure 1. Feistel 암호의 암호화와 복호화 [1] 후술할 암호화와 복호화 과정은 위 그림 하나로 다 설명된다. 암호화할 때 $f$라는 라운드 함수를 사용하는데, 암호화할 때나 복호화할 때나 공통적으로 $f^{-1}$도 아닌 $f$를 그대로 사용한다! 즉, 어떤 형태의 $f$를 제안해도 그것으로 블록 암호를 만들 수 있다는...","categories": ["Cryptography"],
+        "tags": ["Feistel","block cipher"],
+        "url": "http://localhost:4000/cryptography/Feistel-cipher/",
+        "teaser":null},{
         "title": "PintOS를 짜면서 정리해본 팁과 설정들",
         "excerpt":"이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다. 반드시 꼭 설정해야 할 중요한 알맹이들만 있지는 않고, 프로그래밍을 하다가 지쳤을 때 재미로 설정한 것들도 다수 있다. 1. Git PintOS는 KAIST에서는 2인 1조로 작업하였고, 협업을 하기 위해서는 Git을 사용을 안할 수가 없었다. 잘 안되서 예전에...","categories": ["Scribbles"],
         "tags": [],
