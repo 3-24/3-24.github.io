@@ -173,4 +173,9 @@ var store = [{
         "excerpt":"암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다. 어떻게? RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다: $c\\cdot 2^e$를 같은 방식으로 복호화시켜보자. ($2^{k\\phi(n)+1} \\equiv 2 \\mod n$이 되는 부분은 편의를 위해 과감히 생략했다. RSA를 설명한 글의 복호화 증명과 완전히...","categories": ["Cryptography"],
         "tags": ["RSA","LSB"],
         "url": "http://localhost:4000/cryptography/RSA-lsb-oracle-attack/",
+        "teaser":null},{
+        "title": "PintOS를 짜면서 정리해본 팁과 설정들",
+        "excerpt":"이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다. 반드시 꼭 설정해야 할 중요한 알맹이들만 있지는 않고, 프로그래밍을 하다가 지쳤을 때 재미로 설정한 것들도 다수 있다. 1. Git PintOS는 KAIST에서는 2인 1조로 작업하였고, 협업을 하기 위해서는 Git을 사용을 안할 수가 없었다. 잘 안되서 예전에...","categories": ["Scribbles"],
+        "tags": [],
+        "url": "http://localhost:4000/scribbles/pintos-tips/",
         "teaser":null}]
