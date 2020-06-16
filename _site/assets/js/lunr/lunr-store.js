@@ -183,4 +183,9 @@ var store = [{
         "excerpt":"이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다. 반드시 꼭 설정해야 할 중요한 알맹이들만 있지는 않고, 프로그래밍을 하다가 지쳤을 때 재미로 설정한 것들도 다수 있다. 1. Git PintOS는 KAIST에서는 2인 1조로 작업하였고, 협업을 하기 위해서는 Git을 사용을 안할 수가 없었다. 잘 안되서 예전에...","categories": ["Scribbles"],
         "tags": [],
         "url": "http://localhost:4000/scribbles/pintos-tips/",
+        "teaser":null},{
+        "title": "Substitution-Permuation Network",
+        "excerpt":"DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다) Figure 1. 3단계 SP Network 암호 [1] 암호화 S-box S가 치환substitution의 약자인만큼, 입력 비트를 일정한 길이로...","categories": ["Cryptography"],
+        "tags": ["SP network","block cipher"],
+        "url": "http://localhost:4000/cryptography/SP-network/",
         "teaser":null}]
