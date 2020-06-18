@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Substitution-Permuation Network - Three Dash Two Four</title>
-<meta name="description" content="DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)">
+<!-- begin _includes/seo.html --><title>디렉토리의 구조 - Three Dash Two Four</title>
+<meta name="description" content="파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Three Dash Two Four">
-<meta property="og:title" content="Substitution-Permuation Network">
-<meta property="og:url" content="http://localhost:4000/cryptography/SP-network/">
+<meta property="og:title" content="디렉토리의 구조">
+<meta property="og:url" content="http://localhost:4000/stystem/directory/">
 
 
-  <meta property="og:description" content="DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-06-17T00:00:00+09:00">
+  <meta property="og:description" content="파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2020-06-18T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/cryptography/SP-network/">
+
+<link rel="canonical" href="http://localhost:4000/stystem/directory/">
 
 
 
@@ -309,15 +309,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Substitution-Permuation Network">
-    <meta itemprop="description" content="DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)">
-    <meta itemprop="datePublished" content="June 17, 2020">
+    <meta itemprop="headline" content="디렉토리의 구조">
+    <meta itemprop="description" content="파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.">
+    <meta itemprop="datePublished" content="June 18, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Substitution-Permuation Network
+          <h1 id="page-title" class="page__title" itemprop="headline">디렉토리의 구조
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -325,7 +325,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
           
         </header>
@@ -333,36 +333,65 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-        <p>DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)</p>
+        <p>파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.</p>
+
+<ol>
+  <li>파일명으로부터 디스크에 저장되어있는 inode를 찾아서 읽는다.</li>
+  <li>inode와 오프셋으로부터 해당 파일에서 오프셋 위치에 있는 블럭의 디스크상의 물리 주소를 구한다.</li>
+</ol>
 
 <div align="center">
-	<img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/SubstitutionPermutationNetwork2.png" width="40%" style="background-color:white;" />
+	<img src="/assets/img/directory/image01.png" width="90%" style="background-color:white;" />
     <p>
-        Figure 1. 3단계 SP Network 암호 [1]
+        Figure 1. inode and inode Array
     </p>
 </div>
 
-<h2 id="암호화">암호화</h2>
+<p>여기서 inode(information node)는 실제 데이터의 포인터와 기타 정보들을 담고 있는 데이터로, 앞으로 나올 inode 인덱스는 이 inode의 포인터를 담고 있는 배열의 인덱스를 의미한다.</p>
 
-<h3 id="s-box">S-box</h3>
+<p>이 글에서는 1번을 용이하게 만들어주는 <strong>디렉토리</strong>에 대해서 다루려고 한다.</p>
 
-<p>S가 치환substitution의 약자인만큼, 입력 비트를 일정한 길이로 쪼개서 그 각각을 <strong>같은 길이</strong>의 비트로 치환시킨다. 복호화도 가능하게 하기 위해서 <strong>one-to-one</strong> 관계를 유지해야 한다. Figure 1에서 16비트 평문을 4비트씩 쪼개서 치환시키는 것이 이에 해당한다. S-box는 비선형성이 보장된다.</p>
+<blockquote>
+  <p>디렉토리도 일종의 파일이다.</p>
+</blockquote>
 
-<h3 id="p-box">P-box</h3>
+<p>디렉토리도 파일과 크게 다르지 않다. 디렉토리도 그 디렉토리가 포함하는 하위 파일/디렉토리 정보를 디스크에 저장하고, 그 위치를 탐색하기 위해 해당 디렉토리의 inode 또한 디스크에 저장된다.</p>
 
-<p>P는 비트를 섞는 과정이다. permutation의 약자로, Figure 1에서 P 상자를 자세히 보면 세 번째 비트가 첫 번째 비트가 되고, 14번째 비트가 16번째 비트가 되는 것들을 볼 수 있을 것이다. 이는 입력 비트를 x 벡터, 출력 비트를 y 벡터로 표현했을 때 y=Ax가 되는 행렬 A가 간단하게 존재하므로 선형이다. 또한, 이 비트를 섞는 과정을 역으로 언제나 수행할 수 있고 이는 복호화해서 사용된다.</p>
+<p>예를 들어 <code class="highlighter-rouge">/home/minus21/workspace/app01/main.py</code>라는 파일에 접근하는 상황을 생각해보자. 루트 디렉토리인 <code class="highlighter-rouge">/</code>는 inode 인덱스가 고정되어있기 때문에 inode를 찾아낼 수 있고, 이 inode를 통해 하위 디렉토리들의 이름이 inode 인덱스로 다음과 같이 매핑된다. (이 매핑을 구현하기 위해 다양한 자료구조가 사용될 수 있다)</p>
 
-<h3 id="key">Key</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name | inode index
+-----|-------------
+bin  | 737
+usr  | 924
+home | 14
+proc | 47
+</code></pre></div></div>
 
-<p>매 라운드마다 비밀 키와 XOR시킨다.</p>
+<p>그러면 home의 inode 인덱스 14로부터 inode에 접근할 수 있고, 이 inode가 가리키는 블럭에는 또 같은 형태의 매핑이 존재한다.</p>
 
-<h2 id="복호화">복호화</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name   | inode index
+-------|-------------
+minus21| 287
+user01 | 894
+</code></pre></div></div>
 
-<p>앞에서 서술했듯 S-box와 P-box에 역함수의 존재성이 보장되므로 암호화하는 과정을 역함수를 이용해서 거꾸로 진행하면 된다.</p>
+<p>이런 식으로 반복하여 최종적으로 app01 디렉토리의 inode에 접근하고, 이 inode가 가리키는 블럭에 저장된 <code class="highlighter-rouge">main.py</code>라는 파일의 inode를 찾아내어 위에 적은 2번 과정을 하면 된다.</p>
+
+<h2 id="큰-디렉토리">큰 디렉토리</h2>
+
+<p>디스크는 블럭 단위(4KB)로 정보가 관리되는데, 디렉토리의 하위 파일/디렉토리가 아주 많아서 정보가 4KB를 넘어가면 어떻게 될까? 이 범람을 해결하기 위해서는 한 디렉토리를 여러 블럭으로 관리해야 하는데, 디렉토리를 접근하는 다음 두 상황을 모두 고려해야 한다.</p>
+
+<ul>
+  <li>파일명(또는 디렉토리명)으로부터 파일에 해당하는 inode를 찾는다.</li>
+  <li>디렉토리 내부의 파일(또는 디렉토리)들을 빠르게 순서대로 탐색할 수 있다.</li>
+</ul>
+
+<p>즉, 쉽게 말해서 무작위 접근, 순차적 접근 모두 빨라야 한다. 그래서 디렉토리를 구현할 때 B+ 트리와 같은 형태가 사용될 수 있다.</p>
 
 <h2 id="출처">출처</h2>
 
-<p>[1] Wikipedia - Substitution-permutation network</p>
+<p>[1] 2020 Spring CS330 Operating System Lecture of KAIST</p>
+
 
         
       </section>
@@ -383,11 +412,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/tags/#block-cipher" class="page__taxonomy-item" rel="tag">block cipher</a><span class="sep">, </span>
+      <a href="/tags/#directory" class="page__taxonomy-item" rel="tag">directory</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#sp-network" class="page__taxonomy-item" rel="tag">SP network</a>
+      <a href="/tags/#file-system" class="page__taxonomy-item" rel="tag">file system</a>
     
     </span>
   </p>
@@ -408,14 +437,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/categories/#cryptography" class="page__taxonomy-item" rel="tag">Cryptography</a>
+      <a href="/categories/#stystem" class="page__taxonomy-item" rel="tag">Stystem</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-06-17T00:00:00+09:00">June 17, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-06-18T00:00:00+09:00">June 18, 2020</time></p>
         
       </footer>
 
@@ -424,22 +453,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Substitution-Permuation+Network%20http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FSP-network%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%EC%9D%98+%EA%B5%AC%EC%A1%B0%20http%3A%2F%2Flocalhost%3A4000%2Fstystem%2Fdirectory%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FSP-network%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fstystem%2Fdirectory%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcryptography%2FSP-network%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fstystem%2Fdirectory%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/scribbles/pintos-tips/" class="pagination--pager" title="PintOS를 짜면서 정리해본 팁과 설정들
+      <a href="/cryptography/SP-network/" class="pagination--pager" title="Substitution-Permuation Network
 ">Previous</a>
     
     
-      <a href="/stystem/directory/" class="pagination--pager" title="디렉토리의 구조
+      <a href="/stystem/file-indexing/" class="pagination--pager" title="File Indexing Structure
 ">Next</a>
     
   </nav>
@@ -493,7 +522,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/stystem/directory/" rel="permalink">디렉토리의 구조
+        <a href="/cryptography/SP-network/" rel="permalink">Substitution-Permuation Network
 </a>
       
     </h2>
@@ -503,12 +532,10 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  1 minute read
+  less than 1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round ...</p>
   </article>
 </div>
 
@@ -645,8 +672,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/cryptography/SP-network/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/cryptography/SP-network"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/stystem/directory/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/stystem/directory"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

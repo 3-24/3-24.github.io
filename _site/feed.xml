@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-18T23:18:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">File Indexing Structure</title><link href="http://localhost:4000/stystem/file-indexing/" rel="alternate" type="text/html" title="File Indexing Structure" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/stystem/file-indexing</id><content type="html" xml:base="http://localhost:4000/stystem/file-indexing/">&lt;p&gt;운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-19T00:58:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">디렉토리의 구조</title><link href="http://localhost:4000/stystem/directory/" rel="alternate" type="text/html" title="디렉토리의 구조" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/stystem/directory</id><content type="html" xml:base="http://localhost:4000/stystem/directory/">&lt;p&gt;파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;파일명으로부터 디스크에 저장되어있는 inode를 찾아서 읽는다.&lt;/li&gt;
+  &lt;li&gt;inode와 오프셋으로부터 해당 파일에서 오프셋 위치에 있는 블럭의 디스크상의 물리 주소를 구한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+	&lt;img src=&quot;/assets/img/directory/image01.png&quot; width=&quot;90%&quot; style=&quot;background-color:white;&quot; /&gt;
+    &lt;p&gt;
+        Figure 1. inode and inode Array
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기서 inode(information node)는 실제 데이터의 포인터와 기타 정보들을 담고 있는 데이터로, 앞으로 나올 inode 인덱스는 이 inode의 포인터를 담고 있는 배열의 인덱스를 의미한다.&lt;/p&gt;
+
+&lt;p&gt;이 글에서는 1번을 용이하게 만들어주는 &lt;strong&gt;디렉토리&lt;/strong&gt;에 대해서 다루려고 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;디렉토리도 일종의 파일이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;디렉토리도 파일과 크게 다르지 않다. 디렉토리도 그 디렉토리가 포함하는 하위 파일/디렉토리 정보를 디스크에 저장하고, 그 위치를 탐색하기 위해 해당 디렉토리의 inode 또한 디스크에 저장된다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 &lt;code class=&quot;highlighter-rouge&quot;&gt;/home/minus21/workspace/app01/main.py&lt;/code&gt;라는 파일에 접근하는 상황을 생각해보자. 루트 디렉토리인 &lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt;는 inode 인덱스가 고정되어있기 때문에 inode를 찾아낼 수 있고, 이 inode를 통해 하위 디렉토리들의 이름이 inode 인덱스로 다음과 같이 매핑된다. (이 매핑을 구현하기 위해 다양한 자료구조가 사용될 수 있다)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;name | inode index
+-----|-------------
+bin  | 737
+usr  | 924
+home | 14
+proc | 47
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그러면 home의 inode 인덱스 14로부터 inode에 접근할 수 있고, 이 inode가 가리키는 블럭에는 또 같은 형태의 매핑이 존재한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;name   | inode index
+-------|-------------
+minus21| 287
+user01 | 894
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이런 식으로 반복하여 최종적으로 app01 디렉토리의 inode에 접근하고, 이 inode가 가리키는 블럭에 저장된 &lt;code class=&quot;highlighter-rouge&quot;&gt;main.py&lt;/code&gt;라는 파일의 inode를 찾아내어 위에 적은 2번 과정을 하면 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;큰-디렉토리&quot;&gt;큰 디렉토리&lt;/h2&gt;
+
+&lt;p&gt;디스크는 블럭 단위(4KB)로 정보가 관리되는데, 디렉토리의 하위 파일/디렉토리가 아주 많아서 정보가 4KB를 넘어가면 어떻게 될까? 이 범람을 해결하기 위해서는 한 디렉토리를 여러 블럭으로 관리해야 하는데, 디렉토리를 접근하는 다음 두 상황을 모두 고려해야 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파일명(또는 디렉토리명)으로부터 파일에 해당하는 inode를 찾는다.&lt;/li&gt;
+  &lt;li&gt;디렉토리 내부의 파일(또는 디렉토리)들을 빠르게 순서대로 탐색할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;즉, 쉽게 말해서 무작위 접근, 순차적 접근 모두 빨라야 한다. 그래서 디렉토리를 구현할 때 B+ 트리와 같은 형태가 사용될 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
+
+&lt;p&gt;[1] 2020 Spring CS330 Operating System Lecture of KAIST&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><category term="directory" /><summary type="html">파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.</summary></entry><entry><title type="html">File Indexing Structure</title><link href="http://localhost:4000/stystem/file-indexing/" rel="alternate" type="text/html" title="File Indexing Structure" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/stystem/file-indexing</id><content type="html" xml:base="http://localhost:4000/stystem/file-indexing/">&lt;p&gt;운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고&lt;/li&gt;
@@ -672,10 +729,4 @@ startScript ... done
  * Support:        https://ubuntu.com/advantage
 
 Ubuntu 18.04 LTS [running via Linux Deploy]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Linux" /><summary type="html">모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다.</summary></entry><entry><title type="html">\[픽셀 아트\] 자화상</title><link href="http://localhost:4000/pixel%20art/pixelart/" rel="alternate" type="text/html" title="\[픽셀 아트\] 자화상" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/pixel%20art/pixelart</id><content type="html" xml:base="http://localhost:4000/pixel%20art/pixelart/">&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/pixel_art/me.jpg&quot; width=&quot;70%&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Linux" /><summary type="html">모바일 기기는 전력 소모가 적고 성능도 무난하기 때문에 소형 프로젝트를 돌릴 만한 서버로 적합하다. 루팅된 개인 모바일 안드로이드 기기를 개인 리눅스 서버로 탈바꿈하는 과정을 정리해보았다.</summary></entry></feed>

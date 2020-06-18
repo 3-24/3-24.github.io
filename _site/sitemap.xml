@@ -153,6 +153,10 @@
 <lastmod>2020-06-17T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/stystem/directory/</loc>
+<lastmod>2020-06-18T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/stystem/file-indexing/</loc>
 <lastmod>2020-06-18T00:00:00+09:00</lastmod>
 </url>
@@ -313,6 +317,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/tags/file-system/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/directory/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/mathematics/</loc>
