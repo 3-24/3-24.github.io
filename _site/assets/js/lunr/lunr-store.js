@@ -188,4 +188,9 @@ var store = [{
         "excerpt":"DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다) Figure 1. 3단계 SP Network 암호 [1] 암호화 S-box S가 치환substitution의 약자인만큼, 입력 비트를 일정한 길이로...","categories": ["Cryptography"],
         "tags": ["SP network","block cipher"],
         "url": "http://localhost:4000/cryptography/SP-network/",
+        "teaser":null},{
+        "title": "파일시스템 - File Indexing Structure",
+        "excerpt":"운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다. 파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고 메타데이터를 통해 필요한 데이터가 저장된 디스크의 블럭을 찾아내어 물리적 주소를 통해 접근한다. 이 글에서는 2번에서 어떤 indexing structure을 통해 어떤 방식으로 메타데이터에 디스크의...","categories": ["Stystem"],
+        "tags": ["file system"],
+        "url": "http://localhost:4000/stystem/file-indexing/",
         "teaser":null}]

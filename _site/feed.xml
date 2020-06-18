@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-17T08:29:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Substitution-Permuation Network</title><link href="http://localhost:4000/cryptography/SP-network/" rel="alternate" type="text/html" title="Substitution-Permuation Network" /><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/SP-network</id><content type="html" xml:base="http://localhost:4000/cryptography/SP-network/">&lt;p&gt;DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-18T23:07:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">파일시스템 - File Indexing Structure</title><link href="http://localhost:4000/stystem/file-indexing/" rel="alternate" type="text/html" title="파일시스템 - File Indexing Structure" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/stystem/file-indexing</id><content type="html" xml:base="http://localhost:4000/stystem/file-indexing/">&lt;p&gt;운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고&lt;/li&gt;
+  &lt;li&gt;메타데이터를 통해 필요한 데이터가 저장된 디스크의 블럭을 찾아내어 물리적 주소를 통해 접근한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이 글에서는 2번에서 어떤 indexing structure을 통해 어떤 방식으로 메타데이터에 디스크의 블럭 주소들이 저장되는지를 알아볼 것이다. 유저가 사용하는 파일과 디스크에 저장된 데이터에 대해 다음과 같은 특징이 존재한다는 것을 기억하자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;디스크에 있는 데이터는 블럭 단위로 관리된다.&lt;/li&gt;
+  &lt;li&gt;한 파일이 반드시 디스크에서 연속적으로 저장된다는 보장이 없다. fragmentation을 방지하기 위해 높은 확률로 이곳저곳에 쪼개져 있을 것이다.&lt;/li&gt;
+  &lt;li&gt;유저가 파일에 접근할 때 파일의 데이터를 연속적으로 읽기도 하고, 랜덤하게 읽기도 한다.&lt;/li&gt;
+  &lt;li&gt;파일의 크기는 변할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;linked-list&quot;&gt;Linked List&lt;/h2&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+	&lt;img src=&quot;https://media.geeksforgeeks.org/wp-content/uploads/linkedListAllocation.jpg&quot; width=&quot;40%&quot; style=&quot;background-color:white;&quot; /&gt;
+    &lt;p&gt;
+        Figure 1. Linked List File Allocation [1]
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;디스크에 있는 각 블럭이 다음 블럭의 포인터를 저장하고 있다. 파일의 메타데이터는 첫 번째 블럭을 가리킨다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;장점&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;순차적 접근이 빠르다.&lt;/li&gt;
+  &lt;li&gt;구현이 간단하다.&lt;/li&gt;
+  &lt;li&gt;쉽게 블럭을 추가하고 삭제한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;단점&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무작위 접근이 느리다. (크기가 작은 파일의 경우 캐시를 통해 해결 가능하다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;메타데이터에는 파일의 첫 번째 블럭 포인터만 저장되기 때문에 임의의 n번째 블럭에 도달하기 위해서 n개의 블럭을 직접 지나야 한다. 따라서 무작위 접근을 할 때 속도가 캐시 메모리에 의존도가 높기 때문에 크기가 작은 파일들을 주로 관리할 때 적합한 파일시스템이다. 실제로 FAT 파일시스템은 파일을 linked list로 관리하는데, USB와 같은 작은 디스크에서 자주 사용된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;array&quot;&gt;Array&lt;/h2&gt;
+
+&lt;p&gt;각 파일의 메타데이터가 모든 블럭 주소를 적어놓은 배열을 가진다. 배열이라는 자료구조의 장점과 단점을 그대로 답습한다.&lt;/p&gt;
+
+&lt;p&gt;장점&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;구현이 간단하다.&lt;/li&gt;
+  &lt;li&gt;순차적 접근, 무작위 접근 모두 빠르다.&lt;/li&gt;
+  &lt;li&gt;쉽게 블럭을 추가하고 삭제한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;단점&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;배열의 크기로 파일의 최대 크기가 고정된다&lt;/strong&gt;. 즉, 유동적인 파일 크기 변화가 불가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;파일의 최대 크기를 늘리자고 배열의 크기를 모든 파일에 대해서 크게 설정할 수도 없는 노릇이다. 파일시스템으로 사용할 수 없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;multi-level-indexing&quot;&gt;Multi-level Indexing&lt;/h2&gt;
+
+&lt;p&gt;배열의 단점을 보완한 방법이다. 해당 방법을 이용하는 파일 시스템으로는 Berkeley UNIX FFS가 있는데, inode에 15개의 블럭 포인터가 저장되어 있다. 이 블럭 포인터들은 디스크에 저장된 다른 블럭 포인터의 주소를 저장할 수도 있고, 바로 물리적 디스크 주소를 저장할 수도 있다.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+	&lt;img src=&quot;https://media.geeksforgeeks.org/wp-content/uploads/Combined-Scheme.jpg&quot; width=&quot;40%&quot; style=&quot;background-color:white;&quot; /&gt;
+    &lt;p&gt;
+        Figure 2. Multi-level indexing [1]
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;FFS를 기준으로, 첫 번째 12개의 포인터들은 바로 데이터가 담긴 블럭을 가리킨다. 각 블럭이 4KB일 때,  최대 48KB까지 수용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;13번째 포인터는 indirect 블럭 포인터인다. 이 포인터는 데이터 포인터들을 담고 있는 디스크의 블럭을 가리킨다. 즉, 가리키고 있는 블럭의 크기는 4KB이고, 물리적 주소가 32비트라고 했을 때 이는 4바이트이므로 가리키고 있는 블럭에 최대 1K개의 포인터를 수용할 수 있다. 이 1K개의 포인터는 각각 다른 4KB 짜리 데이터가 저장된 블럭을 가리키므로, 1K와 4KB를 곱해서 최대 4MB의 데이터가 수용 가능하다.&lt;/p&gt;
+
+&lt;p&gt;14번째 포인터는 doubly indirect 블럭 포인터이다. 이 포인터가 가리키고 있는 블럭은 1K의 indirect 블럭을 가리키는데, 각각의 indirect 블럭은 최대 4MB의 데이터가 수용 가능하므로 1K와 4MB를 곱한 4GB의 데이터가 수용 가능하다.&lt;/p&gt;
+
+&lt;p&gt;마지막인 15번째 포인터는 triply indirect 블럭 포인터로, 같은 방식으로 4TB의 데이터가 수용 가능하다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 총 4KB+4MB+4GB+4TB의 데이터를 저장하고 접근할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;장점&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무작위 접근, 순차적 접근 모두 좋다.&lt;/li&gt;
+  &lt;li&gt;용량의 제한이 거의 느껴지지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;단점&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;구현이 복잡하다.&lt;/li&gt;
+  &lt;li&gt;파일에 접근할 때 디스크에서 여러 번의 indirection을 반복하면 느려진다. (캐시로 보완 가능)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
+
+&lt;p&gt;[1] &lt;a href=&quot;https://www.geeksforgeeks.org/file-allocation-methods/&quot;&gt;GeeksforGeeks - File Allocation Methods&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] 2020 Spring CS330 Operating System Lecture of KAIST&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><summary type="html">운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.</summary></entry><entry><title type="html">Substitution-Permuation Network</title><link href="http://localhost:4000/cryptography/SP-network/" rel="alternate" type="text/html" title="Substitution-Permuation Network" /><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/SP-network</id><content type="html" xml:base="http://localhost:4000/cryptography/SP-network/">&lt;p&gt;DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/c/cd/SubstitutionPermutationNetwork2.png&quot; width=&quot;40%&quot; style=&quot;background-color:white;&quot; /&gt;
@@ -576,39 +678,4 @@ Ubuntu 18.04 LTS [running via Linux Deploy]
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry><entry><title type="html">리눅스 업타임</title><link href="http://localhost:4000/linux/system/uptime/" rel="alternate" type="text/html" title="리눅스 업타임" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/system/uptime</id><content type="html" xml:base="http://localhost:4000/linux/system/uptime/">&lt;p&gt;리눅스 서버의 업타임을 확인할 때 기본적으로는&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ uptime (-p)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;하면 서버가 부팅된 후 유지된 시간을 쉘에 출력한다.&lt;/p&gt;
-
-&lt;p&gt;나는 Python으로 이를 확인해야 했기에, &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocss&lt;/code&gt; 모듈을 사용하여 저 명령어를 쉘에 직접 입력해서 결과를 얻으려고 했었는데, 구글링하다가 더 쉬운 방법을 찾아냈다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_uptime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/proc/uptime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;uptime_seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uptime_seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc/uptime&lt;/code&gt;의 첫 번째 값을 확인하는 것인데, proc manpage에서는 다음과 같이 설명한다:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ man proc
-...
-/proc/uptime
-	This file contains two numbers: the uptime of the system (seconds),
-	and the amount of time spent in idle process (seconds).
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;그러면 이 업타임은 정확히 어떻게 측정되는 것일까? &lt;a href=&quot;https://unix.stackexchange.com/questions/275907/on-linux-when-does-uptime-start-counting-from&quot;&gt;이 글&lt;/a&gt;과 확인해본 리눅스 커널 코드에 의하면,  &lt;a href=&quot;https://github.com/torvalds/linux/blob/master/fs/proc/uptime.c&quot;&gt;fs/proc/uptime.c&lt;/a&gt;에서 찾을 수 있는&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;proc_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uptime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uptime_proc_fops&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;가 proc 파일시스템에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;uptime&lt;/code&gt;을 갱신하는데, 아직 확인해보지는 않았지만 결국 &lt;a href=&quot;https://github.com/torvalds/linux/blob/master/kernel/time/timekeeping.c&quot;&gt;kernel/time/timekeeping.c&lt;/a&gt;가 계산한다고 한다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;uptime&lt;/code&gt;의 카운팅은 커널이 초기화된 직후 시작된다. 이 값은 리눅스 커널에서 계산할 수 있는 가장 정확하고 낮은 레벨의 업타임인 셈이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="uptime" /><category term="proc" /><summary type="html">리눅스 서버의 업타임을 확인할 때 기본적으로는</summary></entry></feed>
+&lt;p&gt;나를 그려보았다. 손을 흔들고 있는 왼손은 뭔가 애매하지만 커피잔을 들고 있는 오른손이 잘 전달된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="pixel art" /><summary type="html"></summary></entry></feed>
