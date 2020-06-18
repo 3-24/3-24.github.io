@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: 디렉토리의 구조
 categories:
-- Stystem
+- System
 tags:
 - file system
 - directory

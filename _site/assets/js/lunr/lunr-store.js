@@ -190,12 +190,12 @@ var store = [{
         "url": "http://localhost:4000/cryptography/SP-network/",
         "teaser":null},{
         "title": "디렉토리의 구조",
-        "excerpt":"파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다. 파일명으로부터 디스크에 저장되어있는 inode를 찾아서 읽는다. inode와 오프셋으로부터 해당 파일에서 오프셋 위치에 있는 블럭의 디스크상의 물리 주소를 구한다. Figure 1. inode and inode Array 여기서 inode(information node)는 실제 데이터의 포인터와...","categories": ["Stystem"],
+        "excerpt":"파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다. 파일명으로부터 디스크에 저장되어있는 inode를 찾아서 읽는다. inode와 오프셋으로부터 해당 파일에서 오프셋 위치에 있는 블럭의 디스크상의 물리 주소를 구한다. Figure 1. inode and inode Array 여기서 inode(information node)는 실제 데이터의 포인터와...","categories": ["System"],
         "tags": ["file system","directory"],
-        "url": "http://localhost:4000/stystem/directory/",
+        "url": "http://localhost:4000/system/directory/",
         "teaser":null},{
         "title": "File Indexing Structure",
-        "excerpt":"운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다. 파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고 메타데이터를 통해 필요한 데이터가 저장된 디스크의 블럭을 찾아내어 물리적 주소를 통해 접근한다. 이 글에서는 2번에서 어떤 indexing structure을 통해 어떤 방식으로 메타데이터에 디스크의...","categories": ["Stystem"],
+        "excerpt":"운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다. 파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고 메타데이터를 통해 필요한 데이터가 저장된 디스크의 블럭을 찾아내어 물리적 주소를 통해 접근한다. 이 글에서는 2번에서 어떤 indexing structure을 통해 어떤 방식으로 메타데이터에 디스크의...","categories": ["System"],
         "tags": ["file system"],
-        "url": "http://localhost:4000/stystem/file-indexing/",
+        "url": "http://localhost:4000/system/file-indexing/",
         "teaser":null}]

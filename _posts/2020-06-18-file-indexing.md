@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: File Indexing Structure
 categories:
-- Stystem
+- System
 tags:
 - file system
 ---
