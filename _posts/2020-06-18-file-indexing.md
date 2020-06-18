@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: 파일시스템 - File Indexing Structure
+title: File Indexing Structure
 categories:
 - Stystem
 tags:
