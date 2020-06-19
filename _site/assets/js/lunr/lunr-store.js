@@ -45,8 +45,8 @@ var store = [{
         "url": "http://localhost:4000/mathematics/order4_subgp/",
         "teaser":null},{
         "title": "Oracle Padding Attack",
-        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다. Decryption Oracle Oracle Padding Attack은 CBC 암호의 decryption oracle이...","categories": ["Cryptography"],
-        "tags": ["블록 암호","패딩"],
+        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다. Decryption Oracle Oracle Padding Attack은 CBC 암호의 특수한 decryption...","categories": ["Cryptography"],
+        "tags": ["block cipher","padding","CBC"],
         "url": "http://localhost:4000/cryptography/opa/",
         "teaser":null},{
         "title": "RSA",

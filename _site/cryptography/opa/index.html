@@ -333,30 +333,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu">
-  <li><a href="#환경">환경</a>
-    <ul>
-      <li><a href="#cbc">CBC</a></li>
-      <li><a href="#decryption-oracle">Decryption Oracle</a></li>
-    </ul>
-  </li>
-  <li><a href="#패딩">패딩</a></li>
-  <li><a href="#공격-방법">공격 방법</a></li>
-</ul>
-            </nav>
-          </aside>
-        
         <h2 id="환경">환경</h2>
 <h3 id="cbc">CBC</h3>
 
 <p>이 글에서 집중할 부분은 CBC의 복호화 과정이다.</p>
 
 <div style="text-align: center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/ECB_decryption.svg/1920px-ECB_decryption.svg.png" width="100%" />
-<figcaption> Figure 1. CBC 암호의 복호화 과정</figcaption>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/CBC_decryption.svg/1920px-CBC_decryption.svg.png" width="100%" style="background-color:white;" />
+<p> Figure 1. CBC 암호의 복호화 과정 </p>
 </div>
 
 <p>CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다:</p>
@@ -367,7 +351,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <h3 id="decryption-oracle">Decryption Oracle</h3>
 
-<p>Oracle Padding Attack은 CBC 암호의 decryption oracle이 주어졌을 때 사용할 수 있는 공격 기법이다. Decryption oracle이란 내가 암호문을 보냈을 때 평문으로 바꿔주는 역할을 말하는 것으로, 대개 decryption oracle에 접근할 때는 관리자가 아닌 이상 암호문을 넣었을 때 평문을 출력받지 못하고 <strong>계산 가능 여부</strong>만 확인할 수 있다. 만약 정상적인 암호문을 넣었다면 정상적으로 작동하겠지만, 형식에 맞지 않은 암호문을 넣었을 때 에러를 뱉어낸다.</p>
+<p>Oracle Padding Attack은 CBC 암호의 특수한 decryption oracle이 주어졌을 때 사용할 수 있는 공격 기법이다. Decryption oracle이란 내가 암호문을 보냈을 때 평문으로 바꿔주는 역할인데, 여기서 말하는 ‘특수한’은 암호문을 넣었을 때 평문을 출력받지 못하고 <strong>계산 가능 여부</strong>만 확인할 수 있다는 조건이다. (그런 조건마저 없다면 공격할 것도 없이 암호문을 입력하면 평문이 나올 것이다) 만약 정상적인 암호문을 넣었다면 정상적으로 작동하겠지만, 형식에 맞지 않은 암호문을 넣었을 때 에러를 뱉어낸다.</p>
 
 <h2 id="패딩">패딩</h2>
 
@@ -389,16 +373,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <p>CBC 암호 방식에서 decryption oracle이 주어져 있을 때 ‘패딩’이라는 문법에 집중하는 공격</p>
 </blockquote>
 
-<p>먼저 타깃이 될 암호문이 주어지고, 공격자의 목적은 이 암호문의 평문이다. 편의상 16바이트 단위의 CBC이고 암호문은 32바이트라고 해보자. 이 때 나머지 바이트는 일정하게 유지한 채로 16번째 바이트를 바꿔가면서 입력을 넣는다. 다 해봤자 1바이트는 256가지 경우밖에 없으므로 순식간에 처리된다.</p>
+<p>먼저 타깃이 될 암호문이 주어지고, 공격자의 목적은 이 암호문의 평문이다. 편의상 16바이트 단위의 CBC이고 암호문은 32바이트라고 해보자. 이 때 암호문의 나머지 바이트는 일정하게 유지한 채로 16번째 바이트, 즉 첫 번째 블록의 맨 마지막 바이트를 바꿔가면서 입력을 넣는다. 다 해봤자 1바이트는 256가지 경우밖에 없으므로 순식간에 처리된다.</p>
 
 <div style="text-align: center">
-<img src="http://localhost:4000/assets/img/opa01.png" width="100%" />
-<figcaption> Figure 2. Oracle Padding Attack</figcaption>
+<img src="/assets/img/opa02.png" width="100%" />
+<p> Figure 2. Oracle Padding Attack</p>
 </div>
 
-<p>대부분은 에러를 decryption oracle에서 전달받을 것이다. 그런데 딱 하나, decryption oracle에서 에러를 뱉지 않는 경우가 존재한다.</p>
-
-<p>이 때 바꿔서 입력한 바이트를 ‘0xb3’이라고 해보자. 그러면 이게 의미하는 것은 <strong>우연히 패딩이 틀리지 않았을 경우</strong>이다.</p>
+<p>대부분은 패딩이 틀렸기 때문에 에러를 decryption oracle에서 전달받을 것이다. 그런데 딱 하나, decryption oracle에서 에러를 뱉지 않는 경우가 존재한다. 즉, <strong>우연히 패딩이 틀리지 않았을 경우</strong>가 발생한다. 이 때 바꿔서 입력한 바이트를 ‘0xb3’이라고 해보자.</p>
 
 <script type="math/tex; mode=display">P_2' = D_k ( C_2) \oplus C_1'</script>
 
@@ -406,7 +388,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <script type="math/tex; mode=display">a \oplus b = c \implies a \oplus b \oplus b = c \oplus b \implies a = c \oplus b</script>
 
-<p>그러니까 ‘0xb3’과 ‘0x01’을 xor한 ‘0xb2’가 $D_k (C_2)$의 마지막 두 자리이다.</p>
+<p>그러니까 ‘0xb3’과 ‘0x01’을 xor한 ‘0xb2’가 $D_k (C_2)$의 마지막 바이트이다.</p>
+
+<p>(원래 패딩이 0x01이었으면? 바이트를 바꿔넣은 모든 경우에 대해 decryption oracle이 에러를 출력한다. 그러면 바로 평문의 맨 마지막 비트가 0x01임을 알아넨 셈이다)</p>
 
 <p>이런 방법을 앞의 자리에도 적용할 수 있다. 이번에는 ‘0x02’가 두 번 나오도록 유도해야 하기 때문에 16번째 바이트를 ‘0xb2’에 ‘0x02’를 xor해서 ‘0xb0’로 고정시키고, 15번째 바이트에 대해서 모든 경우를 실험해본다. 만약 에러가 나타나지 않으면, 그 바이트를 통해 또 $D_k (C_2)$의 마지막에서 세번째, 네번째 자리를 찾아낼 수 있다.</p>
 
@@ -437,11 +421,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
       
       
-      <a href="/tags/#%EB%B8%94%EB%A1%9D-%EC%95%94%ED%98%B8" class="page__taxonomy-item" rel="tag">블록 암호</a><span class="sep">, </span>
+      <a href="/tags/#block-cipher" class="page__taxonomy-item" rel="tag">block cipher</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#%ED%8C%A8%EB%94%A9" class="page__taxonomy-item" rel="tag">패딩</a>
+      <a href="/tags/#cbc" class="page__taxonomy-item" rel="tag">CBC</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#padding" class="page__taxonomy-item" rel="tag">padding</a>
     
     </span>
   </p>
