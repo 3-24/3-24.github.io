@@ -198,4 +198,9 @@ var store = [{
         "excerpt":"운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다. 파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고 메타데이터를 통해 필요한 데이터가 저장된 디스크의 블럭을 찾아내어 물리적 주소를 통해 접근한다. 이 글에서는 2번에서 어떤 indexing structure을 통해 어떤 방식으로 메타데이터에 디스크의...","categories": ["System"],
         "tags": ["file system"],
         "url": "http://localhost:4000/system/file-indexing/",
+        "teaser":null},{
+        "title": "Uniprocessor Scheduling Policies",
+        "excerpt":"사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다. Performace Metric 어떤 방식의 스케줄링을 사용하는 것을 고민하기 전에, 그 스케줄링이 얼마나 효율적인지를 나타내는 지표들을 정리해보았다. throughput: 시간당 처리가 끝나는 일의 수 turnaround time: 일이 완전히...","categories": ["System"],
+        "tags": ["scheduler","FIFO","SJF","round robin","MLFQ"],
+        "url": "http://localhost:4000/system/scheduler-policy/",
         "teaser":null}]
