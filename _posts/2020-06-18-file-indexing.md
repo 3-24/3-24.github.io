@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: File Indexing Structure
+title: 파일 인덱싱 구조
 categories:
 - System
 tags:
@@ -99,5 +99,3 @@ FFS를 기준으로, 첫 번째 12개의 포인터들은 바로 데이터가 담
 ## 출처
 
 [1] [GeeksforGeeks - File Allocation Methods](https://www.geeksforgeeks.org/file-allocation-methods/)
-
-[2] 2020 Spring CS330 Operating System Lecture of KAIST

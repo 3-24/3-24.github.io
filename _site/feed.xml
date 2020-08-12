@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-20T21:33:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">Uniprocessor Scheduling Policies</title><link href="http://localhost:4000/system/scheduler-policy/" rel="alternate" type="text/html" title="Uniprocessor Scheduling Policies" /><published>2020-06-20T00:00:00+09:00</published><updated>2020-06-20T00:00:00+09:00</updated><id>http://localhost:4000/system/scheduler-policy</id><content type="html" xml:base="http://localhost:4000/system/scheduler-policy/">&lt;p&gt;사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-12T13:36:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">2020년 여름학기 몰입캠프 후기</title><link href="http://localhost:4000/scribbles/madcamp-review/" rel="alternate" type="text/html" title="2020년 여름학기 몰입캠프 후기" /><published>2020-08-08T00:00:00+09:00</published><updated>2020-08-08T00:00:00+09:00</updated><id>http://localhost:4000/scribbles/madcamp-review</id><content type="html" xml:base="http://localhost:4000/scribbles/madcamp-review/">&lt;p&gt;봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://madcamp.io/&quot;&gt;몰입캠프 메인페이지&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1flSaJ4kGRzkpxTTlRNqA7bOC0oI7idQR3PXPnMt9b-g/edit&quot;&gt;2020년 여름학기 몰입캠프 강의계획서&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;실라버스를 보면 알 수 있듯, 완전히 개발 프로젝트 중심의 수업이다. 4주동안 각 주마다 프로젝트 하나를 2~3인 팀을 구성하여 진행하게 된다. 매 주 프로젝트 발표를 마친 후 투표를 하여 금주의 픽으로 선택되면 전체 수강생들 앞에서 한 번 더 발표를 하게 되는 영광을 누릴 수 있다. 금주의 픽 발표가 끝나면 스타트업 관계자가 들려주는 생생한 창업 스토리나 프로젝트에 사용될만한 기술, 개발 방법론 등을 들을 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;프로젝트&quot;&gt;프로젝트&lt;/h2&gt;
+
+&lt;p&gt;프로젝트를 위해 20명으로 구성된 각 반마다 실습실 하나를 사용하게 된다. 인당 모니터 두 대와 쓸만한 성능의 컴퓨터를 사용하게 된다.&lt;/p&gt;
+
+&lt;p&gt;이 수업을 듣기 전에 나는 개발 중에 사용한 대부분의 프로그래밍 언어나 프레임워크로 개발한 경험은 없지만, CTF 문제를 풀어보면서 기본적인 서버와 데이터베이스 개념과 몇 가지 문법을 이용해본 적이 있는 정도였다. 그래서 사용하는 기술에 대한 적응은 빠른 편이었던 것 같다. 혼자서는 한 주 만에 절대 하지 못했을 것 같지만 주변에 물어볼 사람도 많고 다 같이 몰입하며 열심히 하는 분위기가 형성되기 때문에 나도 놀랄 정도로 많은 기술들을 공부하고 적용해볼 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;각 프로젝트에서 세부적으로 했던 일들은 다음과 같다. 자랑할만 하지는 않지만 프로젝트 소스코드도 같이 올려놓았다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1주차&quot;&gt;1주차&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/3-24/madcamp1&quot;&gt;영석이의 하루 Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;안드로이드 앱 개발을 한다. 탭1에는 사용자의 연락처 목록을 받아와 연락처 화면을 구성하고, 탭2에는 사진을 받아와서 갤러리 화면을 구성한다. 마지막 탭3은 자유 주제로, 나는 날씨 API에서 현재 위치하고 있는 지역의 날씨 정보를 받아와 일기예보를 보여주는 화면을 만들었다. 사용하는 언어나 프레임워크는 자유이고, 나를 포함한 대부분의 사람들은 기본 안드로이드 자바 프로그래밍을 하였다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2주차&quot;&gt;2주차&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/3-24/madcamp2&quot;&gt;밤편지 프런트엔드 Github&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/3-24/madcamp2_backend&quot;&gt;밤편지 백엔드 Github&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;안드로이드 앱 개발은 그대로이지만, 서버와 데이트베이스 기술을 적용해야 한다. 탭1과 탭2의 형식은 연락처와 갤러리로 동일하나 서버와 상호작용하는 부분을 추가해야 한다. 나는 1주차 때 했던 탭1 탭2 구성을 똑같이 하고 싶지 않아서 간단한 SNS 서비스를 만들어 탭1을 친구 목록, 탭2를 피드로 대체하였다. 새로운 개발 프레임워크를 경험하고 싶어서 React Native를 이용해보았고, 백엔드 서버는 NodeJS와 MySQL 데이터베이스를 사용하였다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3주차&quot;&gt;3주차&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/CatDominatesWorld/CatDominatesWorld&quot;&gt;고양이가세계를지배한다냥 프런트엔드 Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/CatDominatesWorld/CatDominatesWorld-backend&quot;&gt;고양이가세계를지배한다냥 백엔드 Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;https://github.com/CatDominatesWorld/CatDominatesWorld/blob/master/asset/demo.png?raw=true&quot; width=&quot;90%&quot; /&gt;
+    &lt;figcaption&gt; Figure 1. 위키피디아 COVID-19 문서에 적용한 모습 &lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;자유 주제&lt;/strong&gt;. 나는 웹 페이지에 표시되는 모든 텍스트를 ‘냥’과 ‘meow’로 바꾸고, 모든 사진에서 얼굴을 인식하면 고양이 얼굴로 바꾸는 크롬 익스텐션을 만드는 프로젝트를 하였다. 크롬 익스텐션 쪽은 HTML/CSS와 Javascript를 이용하여, 그리고 자연어 처리와 얼굴 인식을 하여 변환 부분을 담당하는 백엔드 서버는 Python 3기반으로, 통신은 Flask, 이미지 프로세싱은 OpenCV, 자연어 처리는 konlpy와 nltk 라이브러리, 얼굴 인식은 카카오 Vision API를 사용하였다.&lt;/p&gt;
+
+&lt;h3 id=&quot;4주차&quot;&gt;4주차&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;자유 주제&lt;/strong&gt;. Unreal Engine을 이용해 3차원 잠입 액션 게임을 만들었다. 언리얼 엔진은 애니메이션 하나만 추가해도 150MB만큼의 용량을 요구하기 때문에(…) Github를 통해 관리하다가 포기했다.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;/assets/img/phantom_sight.png&quot; width=&quot;90%&quot; /&gt;
+    &lt;figcaption&gt; Figure 2. Phantom Sight - 3차원 잠입 액션 게임 &lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
+
+&lt;p&gt;한 달 동안 같은 실습실에서 밤을 새면서 개발을 하기 때문에 다 같이 친해지게 된다. 식사나 술자리를 자주 가졌고, 심지어 엠티를 다녀오기도 했다. 정말 착하고 좋은 다양한 사람들을 만나서 4주 내내 행복했다. 신청을 할 때를 돌이켜 생각해보면 정말 여러가지 동기가 복합적으로 작용했었다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러 명이 참여하는 개발 프로젝트를 경험하고, 개발 역량을 키우기 위해서&lt;/li&gt;
+  &lt;li&gt;방학을 의미있게 보내고 싶어서&lt;/li&gt;
+  &lt;li&gt;개발에 관심이 있는 새로운 사람을 만나고 싶어서&lt;/li&gt;
+  &lt;li&gt;스타트업 생태계에 대한 생생한 정보를 듣고 싶어서&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;결과적으로 내가 기대했던 것들을 다 얻을 수 있었고, 정말 잊지 못할 방학이 될 것 같다. COVID-19로 어려움이 있음에도 불구하고 이런 기회를 준 교수님들, 강연자분들과 같은 공간에서 같이 밤을 샌 반 동료들에게 감사한다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="madcamp" /><summary type="html">봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.</summary></entry><entry><title type="html">단일프로세서 스케줄링</title><link href="http://localhost:4000/system/scheduler-policy/" rel="alternate" type="text/html" title="단일프로세서 스케줄링" /><published>2020-06-20T00:00:00+09:00</published><updated>2020-06-20T00:00:00+09:00</updated><id>http://localhost:4000/system/scheduler-policy</id><content type="html" xml:base="http://localhost:4000/system/scheduler-policy/">&lt;p&gt;사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다.&lt;/p&gt;
 
 &lt;h2 id=&quot;performace-metric&quot;&gt;Performace Metric&lt;/h2&gt;
 
@@ -17,7 +91,11 @@
 
 &lt;h2 id=&quot;1-fifo&quot;&gt;1. FIFO&lt;/h2&gt;
 
-&lt;p&gt;가장 먼저 생각해볼만한 방법이다. 먼저 오는 일을 먼저 처리한다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;먼저 오는 일을 먼저 처리한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;가장 먼저 생각해볼만한 방법이다. 먼저 오는 일을 먼저 처리한다. (First-In-First-Out)&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/assets/img/scheduler/scheduler01.png&quot; width=&quot;90%&quot; style=&quot;background-color:white;&quot; /&gt;
@@ -50,7 +128,11 @@
   &lt;li&gt;성능이 나쁘다. convoy effect에 의해 평균 response time, 평균 turnaround time, 평균 waiting time 모두 높다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;2-shortest-job-first&quot;&gt;2. Shortest Job First&lt;/h2&gt;
+&lt;h2 id=&quot;2-shortest-job-first-sjf&quot;&gt;2. Shortest Job First (SJF)&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;남은 시간이 가장 짧은 일을 먼저 처리한다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/assets/img/scheduler/scheduler02.png&quot; width=&quot;90%&quot; style=&quot;background-color:white;&quot; /&gt;
@@ -71,7 +153,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;starvation이 발생한다.&lt;/li&gt;
-  &lt;li&gt;완벽한 구현이 불가능하다. 일반적으로 스케줄러가 특정 일을 처리하기 전에 그 일이 얼마나 걸리는 지 확인할 방법이 없다. 그래서 그 일이 얼마나 걸릴지 이전 일들이 걸린 시간을 통해 유추하는 방법을 사용한다.&lt;/li&gt;
+  &lt;li&gt;완벽한 구현이 불가능하다. 일반적으로 스케줄러가 특정 일을 처리하기 전에 그 일이 얼마나 걸리는 지 확인할 방법이 없다. 그래서 그 일이 얼마나 걸릴지 이전 일들이 걸린 시간을 통해 유추하는 방법을 사용한다. 스케줄링은 운영체제에서 자주 일어나는 일이기 때문에 높은 계산량을 요구하는 유추 알고리즘은 사용할 수 없고, 이전 일들이 걸린 시간들의 단순한 선형 관계 정도의 유추 전략이 사용된다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;starvation을-해결하는-방법&quot;&gt;Starvation을 해결하는 방법&lt;/h3&gt;
@@ -79,12 +161,18 @@
 &lt;p&gt;SJF 스케줄링은 남은 시간을 priority(우선도)로 적용한 스케줄링 방식이다. 일반적으로 priority scheduling에서는 priority가 낮은 일이 priority가 높은 일에 비해 우선순위가 밀려서 처리되지 않는 starvation이 발생하는 것이 문제가 된다. 그래서 starvation을 해결하기 위해 다음 기법을 사용한다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Aging&lt;/strong&gt;. 프로세스가 오랫동안 기다릴수록 priority를 높인다.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Aging&lt;/strong&gt;: 프로세스가 오랫동안 기다릴수록 priority를 높인다.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;이렇게 starvation 문제를 해결하더라도 SJF는 어디까지나 ‘이론적인 스케줄러’일 뿐이다.&lt;/p&gt;
 
 &lt;h2 id=&quot;3-round-robin&quot;&gt;3. Round Robin&lt;/h2&gt;
 
-&lt;p&gt;FIFO지만, 각 일이 특정 시간 동안만 CPU를 점유할 수 있는 스케줄링 방식이다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;각 일이 정해진 시간 동안만 실행되는 FIFO&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;FIFO지만, 각 일이 특정 시간 동안만 CPU를 점유할 수 있는&lt;/strong&gt; 스케줄링 방식이다.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/assets/img/scheduler/scheduler03.png&quot; width=&quot;90%&quot; style=&quot;background-color:white;&quot; /&gt;
@@ -114,7 +202,7 @@
 &lt;p&gt;한편, time slice가 너무 길면 Figure 5와 같이 I/O에 늦게 반응하게 된다. 정리해보면 다음과 같다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;task가 대부분 CPU의 처리로 이루어진 CPU-bound task라면 time slicing이 길어질수록 효율이 좋다. Figure 4에서 논한 문제는 time slice가 짧아서 발생하였다.&lt;/li&gt;
+  &lt;li&gt;task가 대부분 CPU의 처리로 이루어진 CPU-bound task라면 time slice가 길어질수록 효율이 좋다. Figure 4에서 논한 문제는 time slice가 짧아서 발생하였다.&lt;/li&gt;
   &lt;li&gt;task가 대부분 I/O를 기다리는 I/O-bound task라면 time-slice가 짧아야 한다. 만약 time slice가 길다면 입력과 출력에 반응하는 시간이 오래 걸린다. (response time 중시)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -141,43 +229,44 @@
   &lt;li&gt;CPU-bound task에 대해서 turnaround time을 줄여야 하고, I/O-bound task에 대해서 response time을 줄여야 한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;4-multi-level-feedback-queuemlfq&quot;&gt;4. Multi-Level Feedback Queue(MLFQ)&lt;/h2&gt;
+&lt;h2 id=&quot;4-multi-level-feedback-queue-mfq&quot;&gt;4. Multi-Level Feedback Queue (MFQ)&lt;/h2&gt;
 
 &lt;p&gt;최종적으로 이 글에서 소개할, 가장 발전된 형태의 uniprocessor 스케줄링 방식이다.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;/assets/img/scheduler/scheduler06.png&quot; width=&quot;60%&quot; style=&quot;background-color:white;&quot; /&gt;
     &lt;p&gt;
-        Figure 6. MLFQ Scheduling
+        Figure 6. MFQ Scheduling
     &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;각자 독립된 priority를 가진 round robin 큐를 만든다. 높은 priority를 가진 큐를 rounb robin 방식으로 스케줄링하고, 종료되지 않은 프로세스를 한 단계 낮은 priority를 가진 큐에 넣는다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;SJF 처럼 짧게 걸리는 일이 빨리 처리되는가? 예&lt;/li&gt;
-&lt;/ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SJF 처럼 짧게 걸리는 일이 빨리 처리되는가? 예&lt;/p&gt;
 
-&lt;p&gt;오래 걸리는 일은 round robin 큐를 여러 개 거치면서 priority가 낮아지기 때문에 짧게 걸리는 일이 우선적으로 처리된다.&lt;/p&gt;
+    &lt;p&gt;오래 걸리는 일은 round robin 큐를 여러 개 거치면서 priority가 낮아지기 때문에 짧게 걸리는 일이 우선적으로 처리된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;starvation이 발생하지 않는가? 아니오 -&amp;gt; 예(해결 가능)&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;starvation이 발생하지 않는가? 아니오 -&amp;gt; 예(해결 가능)&lt;/li&gt;
-&lt;/ul&gt;
+    &lt;p&gt;스케줄러가 높은 priority의 큐를 우선적으로 처리하기 때문에 낮은 priority의 큐에 있는 일이 오랫동안 처리되지 않는 starvation이 발생할 우려가 있다. 이 문제는 aging을 이용하면 해결된다. 매번 기다리는 상태에 있는 task를 한 단계 더 높은 priority를 가지는 큐에 넣어주면 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;스케줄링을 하는데 많은 양의 계산을 요구하지 않는가? 예&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CPU-bound task의 turnaround time이 적은가? 아니요-&amp;gt;예(해결 가능)&lt;/p&gt;
 
-&lt;p&gt;aging을 이용하면 해결된다. 매번 기다리는 상태에 있는 task의 prioirty를 한 단계씩 올려준다.&lt;/p&gt;
+    &lt;p&gt;priority가 낮아질수록 round robin의 time slice를 높이면 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I/O-bound task의 reponse가 빠른가? 예&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;스케줄링을 하는데 많은 양의 계산을 요구하지 않는가? 예&lt;/li&gt;
-  &lt;li&gt;CPU-bound task의 turnaround time이 적은가? 아니요-&amp;gt;예(해결 가능)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;priority가 낮아질수록 round robin의 time slice를 높이면 된다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I/O-bound task의 reponse time이 적은가? 예&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;만약 많은 양의 CPU의 처리가 요구되는 CPU-bound task가 들어온다면, 여러 큐를 거쳐가면서 priority가 낮아지는 반면, I/O-bound task의 경우 priority가 잘 낮아지지 않기 때문에 높은 priority에 머무르게 된다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="scheduler" /><category term="FIFO" /><category term="SJF" /><category term="round robin" /><category term="MLFQ" /><summary type="html">사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다.</summary></entry><entry><title type="html">디렉토리의 구조</title><link href="http://localhost:4000/system/directory/" rel="alternate" type="text/html" title="디렉토리의 구조" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/system/directory</id><content type="html" xml:base="http://localhost:4000/system/directory/">&lt;p&gt;파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.&lt;/p&gt;
+    &lt;p&gt;만약 많은 양의 CPU의 처리가 요구되는 CPU-bound task가 들어온다면, 여러 큐를 거쳐가면서 priority가 낮아지는 반면, I/O-bound task의 경우 프로세서에서 처리하는 시간이 적어 priority가 잘 낮아지지 않기 때문에 높은 priority에 머무른다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="scheduler" /><category term="FIFO" /><category term="SJF" /><category term="round robin" /><category term="MFQ" /><summary type="html">사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다.</summary></entry><entry><title type="html">디렉토리의 구조</title><link href="http://localhost:4000/system/directory/" rel="alternate" type="text/html" title="디렉토리의 구조" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/system/directory</id><content type="html" xml:base="http://localhost:4000/system/directory/">&lt;p&gt;파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;파일명으로부터 디스크에 저장되어있는 inode를 찾아서 읽는다.&lt;/li&gt;
@@ -234,7 +323,7 @@ user01 | 894
 
 &lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
 
-&lt;p&gt;[1] 2020 Spring CS330 Operating System Lecture of KAIST&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><category term="directory" /><summary type="html">파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.</summary></entry><entry><title type="html">File Indexing Structure</title><link href="http://localhost:4000/system/file-indexing/" rel="alternate" type="text/html" title="File Indexing Structure" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/system/file-indexing</id><content type="html" xml:base="http://localhost:4000/system/file-indexing/">&lt;p&gt;운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.&lt;/p&gt;
+&lt;p&gt;[1] 2020 Spring CS330 Operating System Lecture of KAIST&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><category term="directory" /><summary type="html">파일시스템에서 유저가 특정 파일명에서 오프셋 위치에 있는 데이터에 접근하려고 할 때 실제 디스크에 접근하기 위해 일어나는 일은 두 단계로 나뉜다.</summary></entry><entry><title type="html">파일 인덱싱 구조</title><link href="http://localhost:4000/system/file-indexing/" rel="alternate" type="text/html" title="파일 인덱싱 구조" /><published>2020-06-18T00:00:00+09:00</published><updated>2020-06-18T00:00:00+09:00</updated><id>http://localhost:4000/system/file-indexing</id><content type="html" xml:base="http://localhost:4000/system/file-indexing/">&lt;p&gt;운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;파일 이름은 각 디렉토리에서 접근하려는 파일의 여러가지 정보를 담고 있는 메타데이터(inode)로 변환되고&lt;/li&gt;
@@ -334,9 +423,7 @@ user01 | 894
 
 &lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
 
-&lt;p&gt;[1] &lt;a href=&quot;https://www.geeksforgeeks.org/file-allocation-methods/&quot;&gt;GeeksforGeeks - File Allocation Methods&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] 2020 Spring CS330 Operating System Lecture of KAIST&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><summary type="html">운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.</summary></entry><entry><title type="html">Substitution-Permuation Network</title><link href="http://localhost:4000/cryptography/SP-network/" rel="alternate" type="text/html" title="Substitution-Permuation Network" /><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/SP-network</id><content type="html" xml:base="http://localhost:4000/cryptography/SP-network/">&lt;p&gt;DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&quot;https://www.geeksforgeeks.org/file-allocation-methods/&quot;&gt;GeeksforGeeks - File Allocation Methods&lt;/a&gt;&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="file system" /><summary type="html">운영체제에서 파일시스템은 유저가 파일 이름을 통해서 디스크의 물리적 주소에 저장된 데이터에 접근하는 것을 가능하게 해준다.</summary></entry><entry><title type="html">Substitution-Permuation Network</title><link href="http://localhost:4000/cryptography/SP-network/" rel="alternate" type="text/html" title="Substitution-Permuation Network" /><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><id>http://localhost:4000/cryptography/SP-network</id><content type="html" xml:base="http://localhost:4000/cryptography/SP-network/">&lt;p&gt;DES가 대표적인 Feistel cipher 형태의 블록 암호 알고리즘이었지만 취약한 것으로 알려지면서 미국이 공모전을 통해 새로 제정한 블록 암호 알고리즘이 있는데, 바로 SP-network 형태의 AES이다. (사실 DES도 유사 SP 과정을 Feristel 암호의 round function으로 사용한다)&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
 	&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/c/cd/SubstitutionPermutationNetwork2.png&quot; width=&quot;40%&quot; style=&quot;background-color:white;&quot; /&gt;
@@ -790,48 +877,4 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 0000 0000 0000 0000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;를 byte-array로 바꾼 &lt;code class=&quot;highlighter-rouge&quot;&gt;\x80\x00\x00\x00\x00\x00\x09\x10\x00\x00\x00\x00\x00\x00&lt;/code&gt;이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="hash function" /><category term="Merkle-Damgard" /><summary type="html">collision-resistant한 해시 함수를 만드는 방법</summary></entry><entry><title type="html">Linux Deploy에서 부팅 시 스크립트 자동 실행하기</title><link href="http://localhost:4000/linux/linux-android-startup/" rel="alternate" type="text/html" title="Linux Deploy에서 부팅 시 스크립트 자동 실행하기" /><published>2020-03-28T00:00:00+09:00</published><updated>2020-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/linux-android-startup</id><content type="html" xml:base="http://localhost:4000/linux/linux-android-startup/">&lt;p&gt;모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;init-설정&quot;&gt;init 설정&lt;/h2&gt;
-
-&lt;div style=&quot;text-align: center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/assets/img/linux-init.png&quot; width=&quot;50%&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Linux Deploy에서 속성에 들어가 init을 활성화한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;rclocal에서-돌릴-스크립트-추가&quot;&gt;rc.local에서 돌릴 스크립트 추가&lt;/h2&gt;
-
-&lt;p&gt;SSH로 접속한 서버 쉘을 열어서 다음을 입력한다:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd /etc
-$ mkdir rc.local
-$ cd rc.local
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;(만약 이미 rc.local이 있다면 그냥 &lt;code class=&quot;highlighter-rouge&quot;&gt;cd /etc/rc.local&lt;/code&gt;)을 하면 된다.&lt;/p&gt;
-
-&lt;p&gt;이제 여기서 부팅할 때 실행할 쉘 스크립트 파일을 만든다. 파일 이름 startScript는 다른 이름으로 해도 무관하다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo vim startScript
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 다음은 나의 예시로, 각자 원하는 목적에 맞춰서 쉘 스크립트를 입력해야 한다. 주의해야 할 점은, startScript는 부팅할 때 루트 계정으로 실행된다는 것이다. 따라서 다른 계정의 &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt;에 설정해놓은 환경 변수 등도 적용이 되지 않는다. 내가 원했던 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/workspace/discordbots/run.sh&lt;/code&gt;를 루트 계정이 아닌, 필요한 환경 변수들이 설정된 &lt;code class=&quot;highlighter-rouge&quot;&gt;youngseok&lt;/code&gt; 계정으로 실행하는 것이었고 이는 다음과 같이 작성된다:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-su youngseok &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bash /home/youngseok/workspace/discordbots/run.sh'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이걸 저장하고 서버를 재시작하면 스크립트에 문제가 없다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;startScript&lt;/code&gt;가 실행되는 것을 확인할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; start
-Check file system ... done
-Mounting the container:
-/ ... done
-/proc ... done
-/sys ... done
-(생략됨)
-:: Starting services:
-startScript ... done
-&amp;lt;&amp;lt;&amp;lt; start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Linux" /><category term="rc.local" /><summary type="html">모바일 안드로이드 기기에서 돌리고 있는 리눅스 서버에서 부팅할 때 돌릴 프로그램을 자동으로 실행하면 번거롭게 부팅할 때마다 SSH로 접속해서 프로그램을 실행하는 과정을 생략할 수 있다.</summary></entry></feed>
+&lt;p&gt;를 byte-array로 바꾼 &lt;code class=&quot;highlighter-rouge&quot;&gt;\x80\x00\x00\x00\x00\x00\x09\x10\x00\x00\x00\x00\x00\x00&lt;/code&gt;이다.&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="hash function" /><category term="Merkle-Damgard" /><summary type="html">collision-resistant한 해시 함수를 만드는 방법</summary></entry></feed>
