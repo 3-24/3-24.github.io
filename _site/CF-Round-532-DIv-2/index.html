@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -404,7 +393,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>간단한 식 계산 문제입니다. 그림을 잘 그리면 빗변이 R+r, 높이가 R인 직각삼각형이 만들어지고 밑변과 빗변 사이의 각이 $ \pi / n $이 됩니다. 따라서</p>
 
-<script type="math/tex; mode=display">\frac R {R+r} = \sin \frac {\pi} n</script>
+\[\frac R {R+r} = \sin \frac {\pi} n\]
 
 <p>의 관계식을 R을 중심으로 풀어서 계산하면 됩니다. 저는 cout의 실수 자릿수출력이 6까지밖에 안되는 것을 이때 처음 알아서 헤맸습니다.</p>
 
@@ -1575,7 +1564,7 @@ CBC
 
 
 
-  1 minute read
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">1. Roman and Browser
@@ -1670,7 +1659,7 @@ CBC
 
 
 
-  3 minute read
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">이 번사이드 보조정리는 유한 대칭군 위에서 기술되어 있습니다.

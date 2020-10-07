@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -372,35 +361,35 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <ul>
   <li>배포에서 리눅스 배포판 선택 : Ubuntu</li>
-  <li>사용자 이름, 비밀번호 설정 : 앞으로 이 글에서 <code class="highlighter-rouge">{id}</code>, <code class="highlighter-rouge">{passwd}</code>로 대체할 것이다.</li>
+  <li>사용자 이름, 비밀번호 설정 : 앞으로 이 글에서 <code class="language-plaintext highlighter-rouge">{id}</code>, <code class="language-plaintext highlighter-rouge">{passwd}</code>로 대체할 것이다.</li>
   <li>지역화 : en_US.UTF-8</li>
-  <li>SSH 활성화 : 포트도 설정하고 싶다면 바꿔주자. 이 글에서 <code class="highlighter-rouge">{port}</code>로 대체한다. 기본적으로는 22를 사용한다.</li>
+  <li>SSH 활성화 : 포트도 설정하고 싶다면 바꿔주자. 이 글에서 <code class="language-plaintext highlighter-rouge">{port}</code>로 대체한다. 기본적으로는 22를 사용한다.</li>
 </ul>
 
 <p>이제 다시 처음 화면으로 돌아가서 오른쪽 위에 메뉴(3)를 열어 설치를 누르면 된다. 꽤 오래 걸리니 조급해하지 말고 밖에 나가서 밀린 설거지나 하고 돌아오자.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;&lt;&lt;deploy
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;&lt;&lt;deploy
 </code></pre></div></div>
 
 <p>이렇게 끝나면 설치가 완료되었다는 뜻이다.</p>
 
 <h2 id="ssh-연결">SSH 연결</h2>
 
-<p>이제 START 버튼을 눌러 서버를 가동해주자. 화면 위쪽에 있는 아이피를 확인하고 이를 <code class="highlighter-rouge">{ip}</code>로 부르겠다. <code class="highlighter-rouge">192.168.0.4</code> 이런 형태일 것이다. 위에서 설정한 <code class="highlighter-rouge">{id}</code>, <code class="highlighter-rouge">{passwd}</code>도 여기서 사용된다.</p>
+<p>이제 START 버튼을 눌러 서버를 가동해주자. 화면 위쪽에 있는 아이피를 확인하고 이를 <code class="language-plaintext highlighter-rouge">{ip}</code>로 부르겠다. <code class="language-plaintext highlighter-rouge">192.168.0.4</code> 이런 형태일 것이다. 위에서 설정한 <code class="language-plaintext highlighter-rouge">{id}</code>, <code class="language-plaintext highlighter-rouge">{passwd}</code>도 여기서 사용된다.</p>
 
-<p>Mac이나 Linux같이 shell이 제공된다면 <code class="highlighter-rouge">ssh {id}@{ip}</code>를, ssh 포트를 따로 설정했다면 <code class="highlighter-rouge">ssh {id}@{ip} -p {port}</code>를 shell에서 입력하면 연결이 된다.</p>
+<p>Mac이나 Linux같이 shell이 제공된다면 <code class="language-plaintext highlighter-rouge">ssh {id}@{ip}</code>를, ssh 포트를 따로 설정했다면 <code class="language-plaintext highlighter-rouge">ssh {id}@{ip} -p {port}</code>를 shell에서 입력하면 연결이 된다.</p>
 
-<p>Windows라면 ssh에 접속하는 클라이언트를 사용한다. 필자는 <a href="https://github.com/iPuTTY/iPuTTY/releases">iPutty</a>를 사용중이다. 호스트 이름에 <code class="highlighter-rouge">{id}@{ip}</code>를 입력하고 포트도 바꿔놨다면 그 옆에 입력한다. 이제 “열기”를 누르면 쉘이 켜진다.</p>
+<p>Windows라면 ssh에 접속하는 클라이언트를 사용한다. 필자는 <a href="https://github.com/iPuTTY/iPuTTY/releases">iPutty</a>를 사용중이다. 호스트 이름에 <code class="language-plaintext highlighter-rouge">{id}@{ip}</code>를 입력하고 포트도 바꿔놨다면 그 옆에 입력한다. 이제 “열기”를 누르면 쉘이 켜진다.</p>
 
 <p>(별다른 설정을 안해놨다면 같은 네트워크에 접속되어있을 때만 연결이 가능하다)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Using username "{id}",
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Using username "{id}",
 {id}@{ip}'s password:
 </code></pre></div></div>
 
 <p>이제 {passwd}를 입력하면 로그인이 되면서 서버 쉘을 사용할 수 있다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to Ubuntu 18.04 LTS (GNU/Linux 3.10.49-g5ae7f00 aarch64)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to Ubuntu 18.04 LTS (GNU/Linux 3.10.49-g5ae7f00 aarch64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

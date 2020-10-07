@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -351,18 +340,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>순서 관계는 어떨까요? cut의 포함 관계를 이용해서 정의하면 우리가 아는 일반적인 순서 관계의 성질을 그대로 만족합니다. 즉, $\alpha \subseteq \beta$ 이면 그냥 $\alpha \le \beta$라고 해버리는 거에요.</p>
 
-<script type="math/tex; mode=display">\alpha \le \beta \quad \text{if} \quad \alpha \subseteq \beta</script>
+\[\alpha \le \beta \quad \text{if} \quad \alpha \subseteq \beta\]
 
 <h2 id="실수-안의-유리수">실수 안의 유리수</h2>
 
 <p>눈치가 빠르면 사실 $\mathbb{Q} \not\subset \mathbb{R}$  임을 확인했을 거에요. 왜냐하면 cut이 $\mathbb{Q}$의 부분집합이었기 때문이죠. 그런데 유리수라는 개념은 실수에서도 중요한 역할을 합니다. 그래서 수학자들은 엄밀하게 실수 위에서 유리수를 따로 정의했어요.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\mathrm{For} \; q \in \mathbb{Q}, \quad q^\ast := \{ x \in \mathbb{Q} : x < q \}​ %]]></script>
+\[\mathrm{For} \; q \in \mathbb{Q}, \quad q^\ast := \{ x \in \mathbb{Q} : x &lt; q \}​\]
 
 <p>그러면 $q^\ast$는 cut이에요. 증명은 쉬우니까 넘어갈게요. 이렇게 생긴 애들을 싹 모아서</p>
 
-<script type="math/tex; mode=display">\mathbb{Q}^\ast := \{q^\ast \in \mathbb{R} : q \in \mathbb{Q} \}</script>
+\[\mathbb{Q}^\ast := \{q^\ast \in \mathbb{R} : q \in \mathbb{Q} \}\]
 
 <p>이렇게 모아놓으면 이 $\mathbb{Q}^\ast \subseteq \mathbb{R} $은 원래 알던 유리수의 성질을 그대로 만족합니다. 앞으로도  $\mathbb{Q}$와 $\mathbb{Q} ^\ast$를 구별해서 사용한다는 점 유의해주세요.</p>
 

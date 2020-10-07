@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -348,7 +337,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <h2 id="2-c-코드의-변환-과정">2. C 코드의 변환 과정</h2>
 
-<p>C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고, 어셈블리 프로그램은 어셈블러에 의해 binary Object 프로그램으로 변환된다. 마지막으로 Linker를 통해 정적 라이브러리를 사용할 수 있게 만들어 실행 가능한 프로그램executable program이 된다(<code class="highlighter-rouge">printf</code>과 같은 라이브러리 함수나 다른 파일의 referencing).</p>
+<p>C 프로그램은 컴파일러에 의해 어셈블리 프로그램으로 변환되고, 어셈블리 프로그램은 어셈블러에 의해 binary Object 프로그램으로 변환된다. 마지막으로 Linker를 통해 정적 라이브러리를 사용할 수 있게 만들어 실행 가능한 프로그램executable program이 된다(<code class="language-plaintext highlighter-rouge">printf</code>과 같은 라이브러리 함수나 다른 파일의 referencing).</p>
 
 <p>즉, C 코드를 어셈블리 코드로 변환하려면 c 컴파일러만 실행해야 하고, 이는 gcc가 지원한다.</p>
 
@@ -360,17 +349,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <p>기본적으로 각 정수 레지스터에는 8바이트의 공간이 할당된다.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">%rax, %rcx, %rdx, %rbx, %rsi, %rdi, %rsp, %rbp</code>
+  <li><code class="language-plaintext highlighter-rouge">%rax, %rcx, %rdx, %rbx, %rsi, %rdi, %rsp, %rbp</code>
     <ul>
       <li>r 대신에 e를 사용하면 하위 4바이트에 접근 가능하다.</li>
       <li>prefix를 사용하지 않으면 하위 2바이트에 접근 가능하다.</li>
-      <li><code class="highlighter-rouge">a/b/c/dx</code>의 경우 <code class="highlighter-rouge">%ax = %ah : %al</code>  식의 접근이 가능하다. (각 1바이트)</li>
+      <li><code class="language-plaintext highlighter-rouge">a/b/c/dx</code>의 경우 <code class="language-plaintext highlighter-rouge">%ax = %ah : %al</code>  식의 접근이 가능하다. (각 1바이트)</li>
     </ul>
   </li>
   <li>
-    <p><code class="highlighter-rouge">rsi, rdi, rsp, rbp</code>의 경우 <code class="highlighter-rouge">sil, dil, spl, bpl</code>식의 하위 1바이트 접근이 가능하다.</p>
+    <p><code class="language-plaintext highlighter-rouge">rsi, rdi, rsp, rbp</code>의 경우 <code class="language-plaintext highlighter-rouge">sil, dil, spl, bpl</code>식의 하위 1바이트 접근이 가능하다.</p>
   </li>
-  <li><code class="highlighter-rouge">%r8, %r9, %r10, %r11, %r12, %r13, %r14, %r15</code>
+  <li><code class="language-plaintext highlighter-rouge">%r8, %r9, %r10, %r11, %r12, %r13, %r14, %r15</code>
     <ul>
       <li>뒤에 d를 붙이면 하위 4바이트에 접근 가능하다.</li>
       <li>뒤에 b를 붙이면 하위 1바이트에 접근 가능하다.</li>
@@ -381,9 +370,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <h2 id="4-operand-types">4. Operand Types</h2>
 
 <ul>
-  <li>Immediate : 상수 정수. <code class="highlighter-rouge">$0x400, $-533</code> 이런 식으로 접근한다.</li>
+  <li>Immediate : 상수 정수. <code class="language-plaintext highlighter-rouge">$0x400, $-533</code> 이런 식으로 접근한다.</li>
   <li>Register : 위에서 기술한 16개의 정수 레지스터들</li>
-  <li>Memory : 레지스터에 의해 주어진 주소가 메모리의 8개의 연속적인 바이트에 대응된다. <code class="highlighter-rouge">(%rax)</code>과 같이 접근한다.</li>
+  <li>Memory : 레지스터에 의해 주어진 주소가 메모리의 8개의 연속적인 바이트에 대응된다. <code class="language-plaintext highlighter-rouge">(%rax)</code>과 같이 접근한다.</li>
 </ul>
 
 <h2 id="5-memory-addressing-modes">5. Memory Addressing Modes</h2>
@@ -399,17 +388,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <h2 id="6-기초-instructions">6. 기초 Instructions</h2>
 
-<h3 id="61-movq">6.1. <code class="highlighter-rouge">movq</code></h3>
+<h3 id="61-movq">6.1. <code class="language-plaintext highlighter-rouge">movq</code></h3>
 
-<p><code class="highlighter-rouge">movq Source, Dest;</code>를 통해 데이터를 이동시킨다.</p>
+<p><code class="language-plaintext highlighter-rouge">movq Source, Dest;</code>를 통해 데이터를 이동시킨다.</p>
 
 <ul>
   <li><strong>메모리를 메모리로</strong> 옮기거나 어떤 값을 상수로 옮기는 것을 <strong>제외</strong>한 모든 경우가 가능하다.</li>
 </ul>
 
-<h3 id="62-leaq">6.2. <code class="highlighter-rouge">leaq</code></h3>
+<h3 id="62-leaq">6.2. <code class="language-plaintext highlighter-rouge">leaq</code></h3>
 
-<p><code class="highlighter-rouge">leaq Src, Dst</code>는 메모리 reference 없이 Src 자체를 Dst의 값에 넣는다.</p>
+<p><code class="language-plaintext highlighter-rouge">leaq Src, Dst</code>는 메모리 reference 없이 Src 자체를 Dst의 값에 넣는다.</p>
 
 <h3 id="63-arithematic-operations">6.3. Arithematic Operations</h3>
 

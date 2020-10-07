@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -318,11 +307,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>처음에 임의의 원소를 받아서 차가 최소가 되도록 나눈다는 줄 알고 이상한 방향으로 고민했었습니다. 만약 그런 문제였다면 어떻게 풀어야 할 지 아직도 모르겠네요.</p>
 
-<p>문제에서는 연속된 n개의 수에 대해서만 풀면 됩니다. 연속된 4개의 수가 x, x+1, x+2, x+3 이렇게 주어졌다면 A에다가 x와 x+3을 넣고 B에다가 x+1과 x+2를 넣으면 없는 걸로 생각할 수 있습니다. 그런 식으로 큰 쪽부터 네 개씩 덜어내면서 문제를 1,2,3 최대 세 개의 연속한 원소가 있는 형태로 바꿀 수 있어요. 이 형태의 출력은 그냥 <code class="highlighter-rouge">resultArr</code>라는 배열로 저장했습니다.</p>
+<p>문제에서는 연속된 n개의 수에 대해서만 풀면 됩니다. 연속된 4개의 수가 x, x+1, x+2, x+3 이렇게 주어졌다면 A에다가 x와 x+3을 넣고 B에다가 x+1과 x+2를 넣으면 없는 걸로 생각할 수 있습니다. 그런 식으로 큰 쪽부터 네 개씩 덜어내면서 문제를 1,2,3 최대 세 개의 연속한 원소가 있는 형태로 바꿀 수 있어요. 이 형태의 출력은 그냥 <code class="language-plaintext highlighter-rouge">resultArr</code>라는 배열로 저장했습니다.</p>
 
 <p>이게 최적인 이유는</p>
 
-<script type="math/tex; mode=display">\sum _{i=1 } ^n i = \frac { n(n+1)} 2</script>
+\[\sum _{i=1 } ^n i = \frac { n(n+1)} 2\]
 
 <p>이기 때문이에요. n을 4로 나눈 나머지에 따라 저 값의 홀짝 여부를 판단해보면 다음과 같습니다.</p>
 
@@ -1797,7 +1786,7 @@ CBC
 
 
 
-  3 minute read
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">이 번사이드 보조정리는 유한 대칭군 위에서 기술되어 있습니다.

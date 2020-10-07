@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -379,7 +368,7 @@ pip install bs4
 <figcaption> Figure 1. 로그인 리퀘스트</figcaption>
 </div>
 
-<p><code class="highlighter-rouge">login_user_id</code>에 아이디를, <code class="highlighter-rouge">login_password</code>에 비밀번호를 입력하고 <a href="https://acmicpc.net/signin">https://acmicpc.net/signin</a>으로 전송하는군요. 이 과정을 Python으로 작성해보면 다음과 같습니다:</p>
+<p><code class="language-plaintext highlighter-rouge">login_user_id</code>에 아이디를, <code class="language-plaintext highlighter-rouge">login_password</code>에 비밀번호를 입력하고 <a href="https://acmicpc.net/signin">https://acmicpc.net/signin</a>으로 전송하는군요. 이 과정을 Python으로 작성해보면 다음과 같습니다:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -415,7 +404,7 @@ pip install bs4
 <span class="kc">undefined</span>
 </code></pre></div></div>
 
-<p>이므로 username은 좋은 로그인 식별자가 된다는 것을 알 수 있습니다! <code class="highlighter-rouge">a.username</code>을 Python으로 읽어서 None인지 아닌지만 확인하면 됩니다.</p>
+<p>이므로 username은 좋은 로그인 식별자가 된다는 것을 알 수 있습니다! <code class="language-plaintext highlighter-rouge">a.username</code>을 Python으로 읽어서 None인지 아닌지만 확인하면 됩니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
@@ -450,7 +439,7 @@ pip install bs4
 
 <p>먼저 자동으로 제출할 소스를 준비해놓아야 합니다. 테스트용으로 저는 <a href="https://www.acmicpc.net/problem/1001">1001번</a> 소스를 Python 소스와 같은 경로에 저장해놓았습니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BOJ_bot
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BOJ_bot
 └─1001.cpp
 └─main.py
 </code></pre></div></div>
@@ -490,7 +479,7 @@ pip install bs4
 <figcaption> Figure 4. 소스 제출 리퀘스트</figcaption>
 </div>
 
-<p>눈에 띄는 것은 <code class="highlighter-rouge">problem_id</code>는 문제번호, <code class="highlighter-rouge">language</code>는 제가 선택한 언어인 C++14에 해당하는 번호, <code class="highlighter-rouge">code_open</code>은 코드 공개여부(저는 공개가 기본 설정입니다), <code class="highlighter-rouge">source</code>는 소스 전문인건 알겠는데, <code class="highlighter-rouge">csrf_key</code>는 또 뭐람.. 킁 보안토큰같은데..</p>
+<p>눈에 띄는 것은 <code class="language-plaintext highlighter-rouge">problem_id</code>는 문제번호, <code class="language-plaintext highlighter-rouge">language</code>는 제가 선택한 언어인 C++14에 해당하는 번호, <code class="language-plaintext highlighter-rouge">code_open</code>은 코드 공개여부(저는 공개가 기본 설정입니다), <code class="language-plaintext highlighter-rouge">source</code>는 소스 전문인건 알겠는데, <code class="language-plaintext highlighter-rouge">csrf_key</code>는 또 뭐람.. 킁 보안토큰같은데..</p>
 
 <p><a href="https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work">https://stackoverflow.com/questions/5207160/what-is-a-csrf-token-what-is-its-importance-and-how-does-it-work</a></p>
 
@@ -501,7 +490,7 @@ pip install bs4
 <figcaption> Figure 5. csrf_key의 발견</figcaption>
 </div>
 
-<p><code class="highlighter-rouge">csrf_key</code>는 제출 사이트의 html을 확인해보니까 hidden으로 감춰져있던 것이 모습을 드러내줍니다. 이걸 받아서 쓰면 되겠군요! input 태그 안에서 name으로 찾아주면 됩니다.</p>
+<p><code class="language-plaintext highlighter-rouge">csrf_key</code>는 제출 사이트의 html을 확인해보니까 hidden으로 감춰져있던 것이 모습을 드러내줍니다. 이걸 받아서 쓰면 되겠군요! input 태그 안에서 name으로 찾아주면 됩니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">try</span><span class="p">:</span>
 		<span class="n">key</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'input'</span><span class="p">,</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'csrf_key'</span><span class="p">})[</span><span class="s">'value'</span><span class="p">]</span>
@@ -510,7 +499,7 @@ pip install bs4
 		<span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">language</code>의 번호도 언어 선택창을 html로 읽어보면 확인할 수 있습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">language</code>의 번호도 언어 선택창을 html로 읽어보면 확인할 수 있습니다.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"language"</span> <span class="na">name=</span><span class="s">"language"</span> <span class="na">data-placeholder=</span><span class="s">"언어를 선택해 주세요."</span> <span class="na">class=</span><span class="s">"language-select col-md-2 chosen-select"</span> <span class="na">data-no_results_text=</span><span class="s">"없는 언어 입니다."</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"88"</span> <span class="na">data-mime=</span><span class="s">"text/x-c++src"</span><span class="nt">&gt;</span>C++14<span class="nt">&lt;/option&gt;</span>
@@ -585,7 +574,7 @@ pip install bs4
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">LANG</span> <span class="o">=</span> <span class="p">{</span><span class="s">"C++14"</span><span class="p">:</span><span class="mi">88</span><span class="p">,</span> <span class="s">"Python 3"</span><span class="p">:</span><span class="mi">28</span><span class="p">}</span>
 </code></pre></div></div>
 
-<p>지금까지 모은 제출 정보들을 dictionary로 모아서 제출하면 됩니다. <code class="highlighter-rouge">code_open</code>의 onlyaccepted는 ‘맞았을 때만 공개’ 옵션입니다. 위 패킷에서 읽은 주소 형태가 /submit/1001 이었죠? 그 주소 그대로 세션의 post에 사용하면 됩니다.</p>
+<p>지금까지 모은 제출 정보들을 dictionary로 모아서 제출하면 됩니다. <code class="language-plaintext highlighter-rouge">code_open</code>의 onlyaccepted는 ‘맞았을 때만 공개’ 옵션입니다. 위 패킷에서 읽은 주소 형태가 /submit/1001 이었죠? 그 주소 그대로 세션의 post에 사용하면 됩니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span> <span class="n">language</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LANG</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">"Invalid language"</span><span class="p">)</span>
@@ -688,7 +677,7 @@ pip install bs4
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"result-ac"</span><span class="nt">&gt;</span>맞았습니다!!<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/span&gt;</span>
 </code></pre></div></div>
-<p>class의 이름이 바뀌면서 채점 결과가 들어갑니다. 즉, “result-ac”가 None이면 아직 채점이 중이라는 뜻이에요. 이를 이용해 채점이 완료되었는지를 식별할 수 있습니다. 이를 이용해 while문을 탈출해주면 되겠습니다. 콘솔에 한 줄로 출력하기 위해 <code class="highlighter-rouge">\r</code>을 적극적으로 사용했습니다.</p>
+<p>class의 이름이 바뀌면서 채점 결과가 들어갑니다. 즉, “result-ac”가 None이면 아직 채점이 중이라는 뜻이에요. 이를 이용해 채점이 완료되었는지를 식별할 수 있습니다. 이를 이용해 while문을 탈출해주면 되겠습니다. 콘솔에 한 줄로 출력하기 위해 <code class="language-plaintext highlighter-rouge">\r</code>을 적극적으로 사용했습니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">boj_url</span> <span class="o">+</span> <span class="s">'/status?from_mine=1&amp;problem_id='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_id</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;user_id'</span> <span class="o">+</span> <span class="n">LOGIN_INFO</span><span class="p">[</span><span class="s">"login_user_id"</span><span class="p">]</span>
@@ -697,8 +686,8 @@ pip install bs4
         <span class="n">result</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-ac'</span><span class="p">})</span>
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">break</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">\</span><span class="se">r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">\</span><span class="se">r</span><span class="s">%s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">%s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
     
     <span class="k">print</span><span class="p">()</span>
 </code></pre></div></div>
@@ -752,8 +741,8 @@ pip install bs4
         <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">sess</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">text</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
         <span class="n">status</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-text'</span><span class="p">}).</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">).</span><span class="n">string</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'result-ac'</span><span class="p">})</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">\</span><span class="se">r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">\</span><span class="se">r</span><span class="s">%s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">                      '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\r</span><span class="s">%s'</span> <span class="o">%</span> <span class="n">status</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">break</span>
     

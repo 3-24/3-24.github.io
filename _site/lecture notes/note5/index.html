@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -350,7 +339,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>대충 형태는 다음과 같다:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%rbp -&gt; 0x7fffffffdd08
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%rbp -&gt; 0x7fffffffdd08
         0x7fffffffdd00
         0x7fffffffdcf8
         
@@ -371,13 +360,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>push
     <ul>
       <li>pushq Src</li>
-      <li><code class="highlighter-rouge">%rsp</code>를 8 감소시키고 <code class="highlighter-rouge">%rsp</code>에 Src에 있는 값을 적는다.</li>
+      <li><code class="language-plaintext highlighter-rouge">%rsp</code>를 8 감소시키고 <code class="language-plaintext highlighter-rouge">%rsp</code>에 Src에 있는 값을 적는다.</li>
     </ul>
   </li>
   <li>pop
     <ul>
       <li>popq Dest</li>
-      <li><code class="highlighter-rouge">%rsp</code>에 적힌 값을 Dest에 적고 <code class="highlighter-rouge">%rsp</code>를 8 증가시킨다. 이 때, Dest는 레지스터이다.</li>
+      <li><code class="language-plaintext highlighter-rouge">%rsp</code>에 적힌 값을 Dest에 적고 <code class="language-plaintext highlighter-rouge">%rsp</code>를 8 증가시킨다. 이 때, Dest는 레지스터이다.</li>
     </ul>
   </li>
   <li>call

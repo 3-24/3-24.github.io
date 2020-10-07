@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -348,7 +337,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>compression 함수 $f$를 가정한다. compression 함수라 함은 다음을 의미한다:</p>
 
-<script type="math/tex; mode=display">f:\{0,1\}^m \times \{0,1\}^n \to \{0,1\}^m</script>
+\[f:\{0,1\}^m \times \{0,1\}^n \to \{0,1\}^m\]
 
 <p>즉, m비트와 n비트의 입력을 받아 m비트로 대응시킨다.</p>
 
@@ -362,7 +351,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>메시지를 n비트 블록 단위로 쪼개어서 compression 함수에 넣기 때문에 메시지의 길이가 n비트의 단위가 아닐 경우 이를 n비트로 강제로 만드는 과정이 필요하다.</p>
 
-<script type="math/tex; mode=display">Pad : \{0,1\}^* \to \{0,1\}^{n} \cup \{0,1\}^{2n} \cup \cdots</script>
+\[Pad : \{0,1\}^* \to \{0,1\}^{n} \cup \{0,1\}^{2n} \cup \cdots\]
 
 <p>MD construction의 안전성을 보장하기 위해 이 패딩함수 $Pad$에는 메시지 $M$에 대해 다음과 같은 충분조건이 존재한다:</p>
 
@@ -376,7 +365,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>Merkle-Damgard construction이라는 것을 확인하기 위해 알고리즘을 다소 생략했다. 전문(<a href="https://en.wikipedia.org/wiki/MD5#Pseudocode">#</a>)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Note: All variables are unsigned 32 bit and wrap modulo 2^32 when calculating
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Note: All variables are unsigned 32 bit and wrap modulo 2^32 when calculating
 var int s[64], K[64] // predefined arrays
 var int i
 
@@ -442,7 +431,7 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 
 <p>예를 들어, 메시지가 400비트였다면, 448비트가 될 때까지</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
 0000 0000 0000 0000
 </code></pre></div></div>
 
@@ -450,19 +439,19 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 
 <p>400비트는 이진수로 110010000이기 때문에 little-endian은 하위 바이트가 낮은 주소로 들어와야 하므로,</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 1001 0001 0000 0000 0000 0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 1001 0001 0000 0000 0000 0000 0000
 0000 0000 0000 0000 0000 0000 0000 0000
 </code></pre></div></div>
 
 <p>를 붙여야 한다. 즉, 4000비트 메시지의 패딩은</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
 0000 0000 0000 0000 0000 1001 0001 0000
 0000 0000 0000 0000 0000 0000 0000 0000
 0000 0000 0000 0000
 </code></pre></div></div>
 
-<p>를 byte-array로 바꾼 <code class="highlighter-rouge">\x80\x00\x00\x00\x00\x00\x09\x10\x00\x00\x00\x00\x00\x00</code>이다.</p>
+<p>를 byte-array로 바꾼 <code class="language-plaintext highlighter-rouge">\x80\x00\x00\x00\x00\x00\x09\x10\x00\x00\x00\x00\x00\x00</code>이다.</p>
 
         
       </section>

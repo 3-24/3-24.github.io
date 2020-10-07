@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -2451,11 +2440,11 @@ pagination : {
 <h2 id="관련된-assembly-instructions">관련된 Assembly Instructions</h2>
 
 <ul>
-  <li><code class="highlighter-rouge">push Reg</code>: rsp를 8만큼 감소시키고 <code class="highlighter-rouge">mov Reg, (%rsp)</code>한다.</li>
-  <li><code class="highlighter-rouge">pop Reg</code>: <code class="highlighter-rouge">mov (%rsp), Reg</code> 후 rsp를 8 증가시킨다.</li>
-  <li><code class="highlighter-rouge">call Dest</code>: <code class="highlighter-rouge">push 다음 인스트럭션</code> 후 <code class="highlighter-rouge">mov Dest, %rip</code>한다.</li>
-  <li><code class="highlighter-rouge">ret</code>: <code class="highlighter-rouge">pop %rip</code></li>
-  <li><code class="highlighter-rouge">leave</code>: <code class="highlighter-rouge">mov %rsp, %rbp</code></li>
+  <li><code class="language-plaintext highlighter-rouge">push Reg</code>: rsp를 8만큼 감소시키고 <code class="language-plaintext highlighter-rouge">mov Reg, (%rsp)</code>한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">pop Reg</code>: <code class="language-plaintext highlighter-rouge">mov (%rsp), Reg</code> 후 rsp를 8 증가시킨다.</li>
+  <li><code class="language-plaintext highlighter-rouge">call Dest</code>: <code class="language-plaintext highlighter-rouge">push 다음 인스트럭션</code> 후 <code class="language-plaintext highlighter-rouge">mov Dest, %rip</code>한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">ret</code>: <code class="language-plaintext highlighter-rouge">pop %rip</code></li>
+  <li><code class="language-plaintext highlighter-rouge">leave</code>: <code class="language-plaintext highlighter-rouge">mov %rsp, %rbp</code></li>
 </ul>
 
         

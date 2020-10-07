@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -325,7 +314,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  3 minute read
+  4 minute read
 </p>
           
         </header>
@@ -349,7 +338,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <h2 id="1-정의">1. 정의</h2>
 
 <p>$(G,\circ,id)$를 유한 집합 $X$의 순열군으로 놓자. 그러면 다음이 성립한다:
-<script type="math/tex">|X/G| = \frac {1}{|G|} \sum _{\sigma \in G} | X_\sigma |</script>
+\(|X/G| = \frac {1}{|G|} \sum _{\sigma \in G} | X_\sigma |\)
 여기서 사용되었고 또 앞으로 사용할 집합들의 의미는 다음과 같습니다:</p>
 
 <ul>
@@ -418,17 +407,17 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li></li>
 </ul>
 
-<script type="math/tex; mode=display">|X/G| = \frac 1 {|G|} \sum _{ \sigma \in G} |X_\sigma| = \frac 1 {24} (4^6 + 6 \times 4^3 + 3 \times 4^4 + 8 \times 4^2 + 6 \times 4^3 )</script>
+\[|X/G| = \frac 1 {|G|} \sum _{ \sigma \in G} |X_\sigma| = \frac 1 {24} (4^6 + 6 \times 4^3 + 3 \times 4^4 + 8 \times 4^2 + 6 \times 4^3 )\]
 
 <p>마지막으로 얻는 식에서 알 수 있는 점은 칠할 수 있는  색깔의 가짓수는 사실 식의 형태에 큰 영향을 주지 않는다는 거에요! 만약 정육면체를 $n$개의 색으로 칠하는 방법의 수를 구한다면 다음과 같습니다:</p>
 
-<script type="math/tex; mode=display">\frac 1 {24} ( n^6 + 3n^4 + 12n^3 + 8n^2 )</script>
+\[\frac 1 {24} ( n^6 + 3n^4 + 12n^3 + 8n^2 )\]
 
 <h2 id="2-증명">2. 증명</h2>
 
 <h2 id="21-유한군에서의-궤도-안정자군-정리">2.1. 유한군에서의 궤도-안정자군 정리</h2>
 
-<script type="math/tex; mode=display">|G_x| |G(x)| = |G|</script>
+\[|G_x| |G(x)| = |G|\]
 
 <p>이 부분이 가장 힘든 단계입니다.</p>
 
@@ -436,13 +425,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>$G_x$를 확장해서 다루기 위해 $H_{x,y}$를 다음과 같이 정의하자:</p>
 
-<script type="math/tex; mode=display">H_{x,y} = \{ \sigma \in G : \sigma(x) = y \}</script>
+\[H_{x,y} = \{ \sigma \in G : \sigma(x) = y \}\]
 
 <p><strong>1. $y \in G(x)$일 때, $\vert H_{x,y}\vert  = \vert G_x\vert $이다.</strong></p>
 
 <p>$ f: G_x \to H_{x,y} $를 다음과 같이 정의한다:</p>
 
-<script type="math/tex; mode=display">f(\sigma) = h \circ \sigma  \quad \text{where } h(x) = y</script>
+\[f(\sigma) = h \circ \sigma  \quad \text{where } h(x) = y\]
 
 <p>$f \in G_x \times H_{x,y}$이고, 모든 $\sigma \in G_x$가 $H_{x,y}$로 대응되므로 $f$는 함수이다.</p>
 
@@ -460,16 +449,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>다음과 같은 관계relation을 고려합니다:</p>
 
-<script type="math/tex; mode=display">R = \{(x , \sigma )\in X \times G : \sigma(x) = x\}</script>
+\[R = \{(x , \sigma )\in X \times G : \sigma(x) = x\}\]
 
 <p>이런 관계를 정의하면 좋은 이유는 두 번 세면서 등식을 얻어내기 좋기 때문이에요.</p>
 
-<script type="math/tex; mode=display">|R| = \sum _{x \in X} | G_x | = \sum _{ \sigma \in G } |X_\sigma |</script>
+\[|R| = \sum _{x \in X} | G_x | = \sum _{ \sigma \in G } |X_\sigma |\]
 
 <p>이대로 위에서 증명한 보조정리를 써가면서 전개하면 원하던 결과를 얻을 수 있습니다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{aligned} \frac 1 {|G|} \sum _{\sigma \in G} |X_\sigma| &= \sum _{x \in X} \frac {|G_x|}{|G|} \\ &= \sum _{x\in X} \frac {1}{|G(x)|} = \sum _{A \in X/G} \sum _{x \in A} \frac {1}{|A|} = |X/G| \end{aligned} %]]></script>
+\[\begin{aligned} \frac 1 {|G|} \sum _{\sigma \in G} |X_\sigma| &amp;= \sum _{x \in X} \frac {|G_x|}{|G|} \\ &amp;= \sum _{x\in X} \frac {1}{|G(x)|} = \sum _{A \in X/G} \sum _{x \in A} \frac {1}{|A|} = |X/G| \end{aligned}\]
 
         
       </section>

@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -357,7 +346,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>vim /usr/share/X11/xkb/symbols/altwin
 </code></pre></div></div>
 
-<p>에서 <code class="highlighter-rouge">symbols[Group1] = [ Alt_R, Meta_R ]</code>의 값을 다음과 같이 <code class="highlighter-rouge">Hangul</code>로 바꿔준다:</p>
+<p>에서 <code class="language-plaintext highlighter-rouge">symbols[Group1] = [ Alt_R, Meta_R ]</code>의 값을 다음과 같이 <code class="language-plaintext highlighter-rouge">Hangul</code>로 바꿔준다:</p>
 
 <div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Meta is mapped to second level of Alt.</span>
 <span class="k">partial</span> <span class="n">modifier_keys</span>
@@ -397,7 +386,7 @@ xmodmap <span class="nt">-pke</span> <span class="o">&gt;</span> ~/.Xmodmap
     <p>Global Settings에서 Specify Default IM에 체크하고 Default input method에 Byeoru, Enabled input methods에 <strong>Byeoru만</strong> 추가한다.</p>
   </li>
   <li>
-    <p>Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 <code class="highlighter-rouge">"hangul"</code>만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.</p>
+    <p>Byeoru key bindings 1에서 [Byeoru] on과 [Byeoru] off에 한영키만 추가한다. 설정이 잘 되면 <code class="language-plaintext highlighter-rouge">"hangul"</code>만 남아있다.  위의 설정을 했는데도 만약에 한영키가 인식이 안된다면, 시스템을 재시작해보고 시도해본다.</p>
   </li>
 </ul>
 

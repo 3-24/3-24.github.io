@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -346,21 +335,20 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <h2 id="암호화">암호화</h2>
 
 <p>평문 $m$을 암호화 하는 함수는 다음과 같다:
-<script type="math/tex">E(m ) \equiv m^e \text{ mod }n</script>
+\(E(m ) \equiv m^e \text{ mod }n\)
 암호화 함수의 일대일 대응을 유지하기 위해 $m&lt;n$을 가정한다.</p>
 
 <h2 id="복호화">복호화</h2>
 
 <p>암호문 $c$를 복호화 하는 함수는 다음과 같다:
-<script type="math/tex">D(c) \equiv c^d \text{ mod } n</script>
+\(D(c) \equiv c^d \text{ mod } n\)
 실제로 평문을 암호화했다가 복호화하면 복구 가능하다는 것을 보일 수 있다.</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{aligned}
-D(E(m)) &\equiv E(m) ^d\text{ mod } n \\
-&\equiv m^{ed} \text{ mod } n\\
-&\equiv m ^{k \phi(n)+1} \text{ mod } n \\
-\end{aligned} %]]></script>
+\[\begin{aligned}
+D(E(m)) &amp;\equiv E(m) ^d\text{ mod } n \\
+&amp;\equiv m^{ed} \text{ mod } n\\
+&amp;\equiv m ^{k \phi(n)+1} \text{ mod } n \\
+\end{aligned}\]
 
 <p>$\gcd(m,n)  = 1 $ 일 경우, 오일러의 toitient 정리에 의해 $m^{\phi(n)} \equiv 1 \text{ mod } n$이므로 $D(E(m)) \equiv m \text{ mod } n $이다.</p>
 
@@ -370,9 +358,9 @@ D(E(m)) &\equiv E(m) ^d\text{ mod } n \\
 
 <p>$(m,q) = 1$이므로 페르마의 소정리에 의해 $m^{q-1} \equiv 1 \text{ mod } q $이다. 따라서</p>
 
-<script type="math/tex; mode=display">\begin{aligned}
+\[\begin{aligned}
 D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-1)} m \equiv m \text{ mod } q
-\end{aligned}</script>
+\end{aligned}\]
 
 <p>이다. 따라서 중국인의 나머지 정리에 의해 $D(E(m)) \equiv m \text{ mod } n $이다.</p>
 

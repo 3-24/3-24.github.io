@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -345,12 +334,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <h3 id="11-비트-연산자">1.1. 비트 연산자</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">&amp;</code>, <code class="highlighter-rouge">|</code>, <code class="highlighter-rouge">~</code>, <code class="highlighter-rouge">^</code>
+  <li><code class="language-plaintext highlighter-rouge">&amp;</code>, <code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">~</code>, <code class="language-plaintext highlighter-rouge">^</code>
     <ul>
-      <li>C에서 사용하는 <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">||</code>, <code class="highlighter-rouge">!</code>는 논리 연산자로, 0을 거짓, 나머지를 모두 참으로 대응한다는 점에서 큰 차이가 있다.</li>
+      <li>C에서 사용하는 <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">||</code>, <code class="language-plaintext highlighter-rouge">!</code>는 논리 연산자로, 0을 거짓, 나머지를 모두 참으로 대응한다는 점에서 큰 차이가 있다.</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">&lt;&lt;</code>, <code class="highlighter-rouge">&gt;&gt;</code>. <code class="highlighter-rouge">&gt;&gt;</code>의 경우 왼쪽을 0으로 채운다. 반면 논리 연산자에서는 왼쪽을 가장 중요한 비트most siginificant bit로 채운다.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;&gt;</code>. <code class="language-plaintext highlighter-rouge">&gt;&gt;</code>의 경우 왼쪽을 0으로 채운다. 반면 논리 연산자에서는 왼쪽을 가장 중요한 비트most siginificant bit로 채운다.</li>
 </ul>
 
 <h2 id="2-정수">2. 정수</h2>
@@ -368,7 +357,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   </li>
 </ul>
 
-<script type="math/tex; mode=display">B2U(X) = \sum _{i=0} ^{w-1} x_i \cdot 2^i</script>
+\[B2U(X) = \sum _{i=0} ^{w-1} x_i \cdot 2^i\]
 
 <ul>
   <li>0부터 $2^w -1$</li>
@@ -380,14 +369,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>가장 왼쪽에 있는 비트가 부호 비트로, 0이면 양수, 1이면 음수를 뜻한다.</li>
 </ul>
 
-<script type="math/tex; mode=display">B2T(X) = -x_{w-1} \cdot 2^{w-1} + \sum _{i=0} ^{w-2} x_i \cdot 2^i</script>
+\[B2T(X) = -x_{w-1} \cdot 2^{w-1} + \sum _{i=0} ^{w-2} x_i \cdot 2^i\]
 
 <ul>
   <li>
     <p>$-2^{w-1}$부터 $2^{w-1} -1$</p>
   </li>
   <li>
-    <p>-1을 표현하면 <code class="highlighter-rouge">111...11</code>이다.</p>
+    <p>-1을 표현하면 <code class="language-plaintext highlighter-rouge">111...11</code>이다.</p>
   </li>
 </ul>
 
@@ -395,7 +384,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <ul>
   <li>
-    <p>c에서 <code class="highlighter-rouge">(int)</code>, <code class="highlighter-rouge">(signed int)</code> 변환casting을 말하는 것이다.</p>
+    <p>c에서 <code class="language-plaintext highlighter-rouge">(int)</code>, <code class="language-plaintext highlighter-rouge">(signed int)</code> 변환casting을 말하는 것이다.</p>
   </li>
   <li>Two’s Complement 기준 양수 영역은 그대로</li>
   <li>
@@ -414,13 +403,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 </code></pre></div></div>
 
 <ul>
-  <li>두 가지 표현이 섞여있으면 암시적으로 <code class="highlighter-rouge">int</code>를 <code class="highlighter-rouge">unsigned</code>로 변환한다.</li>
+  <li>두 가지 표현이 섞여있으면 암시적으로 <code class="language-plaintext highlighter-rouge">int</code>를 <code class="language-plaintext highlighter-rouge">unsigned</code>로 변환한다.</li>
 </ul>
 
 <h3 id="24-확장축소">2.4. 확장/축소</h3>
 
 <ul>
-  <li>확장의 경우, <code class="highlighter-rouge">signed</code>일 때 부호 비트를 앞에다가 붙인다. 확장을 하는 상황은 다음과 같다:</li>
+  <li>확장의 경우, <code class="language-plaintext highlighter-rouge">signed</code>일 때 부호 비트를 앞에다가 붙인다. 확장을 하는 상황은 다음과 같다:</li>
 </ul>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">short</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15213</span><span class="p">;</span> <span class="c1">// 0xc493</span>
@@ -458,7 +447,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <h4 id="271-left-shift">2.7.1. Left Shift</h4>
 
 <ul>
-  <li><code class="highlighter-rouge">u &lt;&lt; k</code>는 $u \times 2^k$와 동일하다.</li>
+  <li><code class="language-plaintext highlighter-rouge">u &lt;&lt; k</code>는 $u \times 2^k$와 동일하다.</li>
   <li>앞에다가 0을 k개 붙인 후 나머지 비트는 버린다.</li>
 </ul>
 
@@ -550,11 +539,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <ul>
   <li>여러 바이트로 이루어진 단어를 어떻게 메모리에 저장할까? 그 방법에는 두 가지가 있다. 예를 들어 0xdeadbeef를 각 방법에 맞춰 넣는다고 하면
     <ul>
-      <li>Big Endian : LSB가 가장 높은 추소, <code class="highlighter-rouge">deadbeef</code>. Sun, PPC Mac, Internet에서 이용한다.</li>
-      <li><strong>Little Endian</strong> : LSB가 가장 낮은 주소, <code class="highlighter-rouge">efbeadde</code>. x86, Android, iOS, WIndows의 ARM 프로세서에서 이용한다.</li>
+      <li>Big Endian : LSB가 가장 높은 추소, <code class="language-plaintext highlighter-rouge">deadbeef</code>. Sun, PPC Mac, Internet에서 이용한다.</li>
+      <li><strong>Little Endian</strong> : LSB가 가장 낮은 주소, <code class="language-plaintext highlighter-rouge">efbeadde</code>. x86, Android, iOS, WIndows의 ARM 프로세서에서 이용한다.</li>
     </ul>
 
-    <p>단, 문자열에 대해서는 조심해야 하는게, char의 배열로 취급된다. 그러니까 ‘abcd’를 넣는다면 각 a, b, c, d에 해당하는 아스키코드가 순서대로 저장된다. 마지막 바이트는 널바이트<code class="highlighter-rouge">0x00</code>.</p>
+    <p>단, 문자열에 대해서는 조심해야 하는게, char의 배열로 취급된다. 그러니까 ‘abcd’를 넣는다면 각 a, b, c, d에 해당하는 아스키코드가 순서대로 저장된다. 마지막 바이트는 널바이트<code class="language-plaintext highlighter-rouge">0x00</code>.</p>
   </li>
 </ul>
 

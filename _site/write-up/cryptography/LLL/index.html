@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -349,52 +338,52 @@ Add) e=151. This is for make challenge easy.</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">n</code> : RSA modulus</p>
+    <p><code class="language-plaintext highlighter-rouge">n</code> : RSA modulus</p>
 
-    <p><code class="highlighter-rouge">p,q</code> : two distinct prime factor of <code class="highlighter-rouge">n</code>.</p>
+    <p><code class="language-plaintext highlighter-rouge">p,q</code> : two distinct prime factor of <code class="language-plaintext highlighter-rouge">n</code>.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">e</code> : RSA encryption exponent
-<code class="highlighter-rouge">d</code> : RSA decryption exponent</p>
+    <p><code class="language-plaintext highlighter-rouge">e</code> : RSA encryption exponent
+<code class="language-plaintext highlighter-rouge">d</code> : RSA decryption exponent</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">dp = d % (p-1)</code></p>
+    <p><code class="language-plaintext highlighter-rouge">dp = d % (p-1)</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">bits</code> : bit length of <code class="highlighter-rouge">dp</code></p>
+    <p><code class="language-plaintext highlighter-rouge">bits</code> : bit length of <code class="language-plaintext highlighter-rouge">dp</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">shiftbits = bits//2 - bits//10</code></p>
+    <p><code class="language-plaintext highlighter-rouge">shiftbits = bits//2 - bits//10</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">ct</code> : ciphertext</p>
+    <p><code class="language-plaintext highlighter-rouge">ct</code> : ciphertext</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">s,x</code> : <code class="highlighter-rouge">dp = s &lt;&lt; shiftbits + x</code>. i.e., <code class="highlighter-rouge">shiftbits</code>-length leaked <code class="highlighter-rouge">dp</code> is <code class="highlighter-rouge">s</code> and the remainder part is <code class="highlighter-rouge">x</code>.</p>
+    <p><code class="language-plaintext highlighter-rouge">s,x</code> : <code class="language-plaintext highlighter-rouge">dp = s &lt;&lt; shiftbits + x</code>. i.e., <code class="language-plaintext highlighter-rouge">shiftbits</code>-length leaked <code class="language-plaintext highlighter-rouge">dp</code> is <code class="language-plaintext highlighter-rouge">s</code> and the remainder part is <code class="language-plaintext highlighter-rouge">x</code>.</p>
   </li>
 </ul>
 
-<p>Given values are <code class="highlighter-rouge">n,e,ct,s</code>. Of course the objective is getting the plaintext of this RSA encryption.</p>
+<p>Given values are <code class="language-plaintext highlighter-rouge">n,e,ct,s</code>. Of course the objective is getting the plaintext of this RSA encryption.</p>
 
 <h2 id="modular-arithmetics">Modular Arithmetics</h2>
 
 <p>Since $ed \equiv 1 \mod ((p-1)(q-1)) $,</p>
 
-<script type="math/tex; mode=display">ed_p \equiv 1 \mod (p-1).</script>
+\[ed_p \equiv 1 \mod (p-1).\]
 
 <p>Let $ed_p = 1 + (p-1)k $. Then</p>
 
-<script type="math/tex; mode=display">e(s \ll \texttt{shiftbits} + x ) = 1 + (p-1)k</script>
+\[e(s \ll \texttt{shiftbits} + x ) = 1 + (p-1)k\]
 
-<h2 id="range-for-bit-and-shiftbits">Range For <code class="highlighter-rouge">bit</code> and <code class="highlighter-rouge">shiftbits</code></h2>
+<h2 id="range-for-bit-and-shiftbits">Range For <code class="language-plaintext highlighter-rouge">bit</code> and <code class="language-plaintext highlighter-rouge">shiftbits</code></h2>
 
-<p>We have bit-length of <code class="highlighter-rouge">secret</code> which is approximately 6/10 bit-length of <code class="highlighter-rouge">dp</code>, which was 614. Therefore <code class="highlighter-rouge">bits</code> is either 1023 or 1024.</p>
+<p>We have bit-length of <code class="language-plaintext highlighter-rouge">secret</code> which is approximately 6/10 bit-length of <code class="language-plaintext highlighter-rouge">dp</code>, which was 614. Therefore <code class="language-plaintext highlighter-rouge">bits</code> is either 1023 or 1024.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">bits</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1010</span><span class="p">,</span><span class="mi">1030</span><span class="p">):</span>
 	<span class="k">print</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">bits</span> <span class="o">-</span> <span class="p">(</span><span class="n">bits</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">bits</span><span class="o">//</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 1018 610
 1019 611
 1020 612
@@ -409,17 +398,17 @@ Add) e=151. This is for make challenge easy.</p>
 ...
 </code></pre></div></div>
 
-<p>Also note that $ed_p = k (p-1)+1$ and $d_p &lt; p-1 $, so $k\le e=151$. So bound of <code class="highlighter-rouge">k</code> and bit-length of <code class="highlighter-rouge">dp</code> is reasonable.</p>
+<p>Also note that $ed_p = k (p-1)+1$ and $d_p &lt; p-1 $, so $k\le e=151$. So bound of <code class="language-plaintext highlighter-rouge">k</code> and bit-length of <code class="language-plaintext highlighter-rouge">dp</code> is reasonable.</p>
 
-<h2 id="polynomial-modulo-p">Polynomial Modulo <code class="highlighter-rouge">p</code></h2>
+<h2 id="polynomial-modulo-p">Polynomial Modulo <code class="language-plaintext highlighter-rouge">p</code></h2>
 
-<p>We now have appropriate range for <code class="highlighter-rouge">shiftbits</code> and <code class="highlighter-rouge">k</code> to solve</p>
+<p>We now have appropriate range for <code class="language-plaintext highlighter-rouge">shiftbits</code> and <code class="language-plaintext highlighter-rouge">k</code> to solve</p>
 
-<script type="math/tex; mode=display">e(s \ll \texttt{shiftbits} + x ) -1 + k \equiv 0 \mod p</script>
+\[e(s \ll \texttt{shiftbits} + x ) -1 + k \equiv 0 \mod p\]
 
-<p>I used <code class="highlighter-rouge">small_roots</code> in SageMath to use <strong>Coppersmith’s Method</strong> to solve above this.</p>
+<p>I used <code class="language-plaintext highlighter-rouge">small_roots</code> in SageMath to use <strong>Coppersmith’s Method</strong> to solve above this.</p>
 
-<script type="math/tex; mode=display">s \ll \texttt{shiftbits} + x + (k-1) e^{-1} \equiv 0 \mod N</script>
+\[s \ll \texttt{shiftbits} + x + (k-1) e^{-1} \equiv 0 \mod N\]
 
 <p>Where $e^{-1}$ is modular inverse of $e$ respect to $N$.</p>
 
@@ -431,9 +420,9 @@ Add) e=151. This is for make challenge easy.</p>
     <span class="k">return</span> <span class="n">x0</span>
 </code></pre></div></div>
 
-<p>Therefore we get<code class="highlighter-rouge">dp</code> and also <code class="highlighter-rouge">p</code> using $p = \frac {e d_p -1} k +1 $. By processing a simple RSA decryption, I could get a flag.</p>
+<p>Therefore we get<code class="language-plaintext highlighter-rouge">dp</code> and also <code class="language-plaintext highlighter-rouge">p</code> using $p = \frac {e d_p -1} k +1 $. By processing a simple RSA decryption, I could get a flag.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POKA{You_4r3_Crypt0_N00000B_XDD}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POKA{You_4r3_Crypt0_N00000B_XDD}
 </code></pre></div></div>
 
 <p><a href="https://github.com/3-24/write-up/blob/master/2019/poka/Lenstra-Lenstra-Lovasz/solve.sage">solve.sage</a> is the full code.</p>

@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -339,11 +328,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다:</p>
 
-<script type="math/tex; mode=display">p \equiv c^d \mod n</script>
+\[p \equiv c^d \mod n\]
 
 <p>$c\cdot 2^e$를 같은 방식으로 복호화시켜보자.</p>
 
-<script type="math/tex; mode=display">(c \cdot 2^e)^d = c^d \cdot 2^{ed} = c^d \cdot 2^{k\phi(n)+1} \equiv 2 c^d \equiv 2p \mod n</script>
+\[(c \cdot 2^e)^d = c^d \cdot 2^{ed} = c^d \cdot 2^{k\phi(n)+1} \equiv 2 c^d \equiv 2p \mod n\]
 
 <p>($2^{k\phi(n)+1} \equiv 2 \mod n$이 되는 부분은 편의를 위해 과감히 생략했다. <a href="https://3-24.github.io/cryptography/RSA/">RSA를 설명한 글</a>의 복호화 증명과 완전히 동일하다.)</p>
 

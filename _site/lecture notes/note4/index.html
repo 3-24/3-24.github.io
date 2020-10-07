@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -348,18 +337,18 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <p>단일 비트 레지스터이다.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">CF</code>는 Carry Flag로, unsigned overflow가 일어났을 때 설정된다. 즉, MSB가 튀어나오고 버려지면 1이 된다.</li>
-  <li><code class="highlighter-rouge">ZF</code>는 Zero Flag로, 0일 때 설정된다.</li>
-  <li><code class="highlighter-rouge">SF</code>는 Sign Flag로, 음수일 때 설정된다.</li>
-  <li><code class="highlighter-rouge">OF</code>는 Overflow Flag로, signed overflow가 일어났을 때 설정된다. 예를 들어 <code class="highlighter-rouge">t=a+b</code>를 수행할 때 다음을 확인한다: <code class="highlighter-rouge">(a&gt; 0 &amp;&amp; bb &gt;0 &amp;&amp; t&lt;0) || (a&lt;0 &amp;&amp; b&lt;0 &amp;&amp; t&gt;=0)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">CF</code>는 Carry Flag로, unsigned overflow가 일어났을 때 설정된다. 즉, MSB가 튀어나오고 버려지면 1이 된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">ZF</code>는 Zero Flag로, 0일 때 설정된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">SF</code>는 Sign Flag로, 음수일 때 설정된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">OF</code>는 Overflow Flag로, signed overflow가 일어났을 때 설정된다. 예를 들어 <code class="language-plaintext highlighter-rouge">t=a+b</code>를 수행할 때 다음을 확인한다: <code class="language-plaintext highlighter-rouge">(a&gt; 0 &amp;&amp; bb &gt;0 &amp;&amp; t&lt;0) || (a&lt;0 &amp;&amp; b&lt;0 &amp;&amp; t&gt;=0)</code></li>
 </ul>
 
 <p>condition codes를 변경하는 경우에 대한 설명은 다음과 같다:</p>
 
 <ul>
-  <li>대부분의 어셈블리 명령 이후에 condition이 설정된다. 단, <code class="highlighter-rouge">leaq</code>은 예외적으로 무시한다.</li>
-  <li><code class="highlighter-rouge">cmpq</code>와 같은 비교 명령에 대해서는 <code class="highlighter-rouge">cmpq b,a</code>를 한다면 <code class="highlighter-rouge">a-b</code>에 대해 flag를 설정한다.</li>
-  <li><code class="highlighter-rouge">testq</code>에 대해서는 <code class="highlighter-rouge">testq b,a</code>을 한다면<code class="highlighter-rouge">a&amp;b</code>에 대해 flag를 설정한다. 이 명령은 한쪽이 mask가 될 때 주로 사용된다.
+  <li>대부분의 어셈블리 명령 이후에 condition이 설정된다. 단, <code class="language-plaintext highlighter-rouge">leaq</code>은 예외적으로 무시한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">cmpq</code>와 같은 비교 명령에 대해서는 <code class="language-plaintext highlighter-rouge">cmpq b,a</code>를 한다면 <code class="language-plaintext highlighter-rouge">a-b</code>에 대해 flag를 설정한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">testq</code>에 대해서는 <code class="language-plaintext highlighter-rouge">testq b,a</code>을 한다면<code class="language-plaintext highlighter-rouge">a&amp;b</code>에 대해 flag를 설정한다. 이 명령은 한쪽이 mask가 될 때 주로 사용된다.
     <ul>
       <li>testq %rax, %rax 후 je가 자주 사용된다. %rax가 0인지 체크하고 맞으면 %rip를 이동시킨다.</li>
     </ul>
@@ -368,9 +357,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <h2 id="2-instructions-based-on-condition-codes">2. Instructions Based On Condition Codes</h2>
 
-<h3 id="21-setx">2.1. <code class="highlighter-rouge">SetX</code></h3>
+<h3 id="21-setx">2.1. <code class="language-plaintext highlighter-rouge">SetX</code></h3>
 
-<p><code class="highlighter-rouge">setX Dest</code>의 형태로 사용된다. condition codes에 따라 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.</p>
+<p><code class="language-plaintext highlighter-rouge">setX Dest</code>의 형태로 사용된다. condition codes에 따라 dest의 마지막 바이트를 0이나 1로 변경한다. 나머지는 건들지 않는다.</p>
 
 <table>
   <thead>
@@ -442,9 +431,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="nf">ret</span>
 </code></pre></div></div>
 
-<h3 id="22-jx">2.2. <code class="highlighter-rouge">jX</code></h3>
+<h3 id="22-jx">2.2. <code class="language-plaintext highlighter-rouge">jX</code></h3>
 
-<p><code class="highlighter-rouge">jX Dest</code>의 형태로 사용된다. condition codes에 따라 program counter를 Dest로 변경시킨다.</p>
+<p><code class="language-plaintext highlighter-rouge">jX Dest</code>의 형태로 사용된다. condition codes에 따라 program counter를 Dest로 변경시킨다.</p>
 
 <table>
   <thead>
@@ -517,7 +506,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>다음 노트에서 다루겠지만 여기에서 다루는 아키텍쳐에서는 함수에 인자를 전달할 때 레지스터를 통해 전달한다.</p>
 
-<p><code class="highlighter-rouge">%rdi, %rsi, %rdx</code>가 순서대로 첫 번째 인자, 두 번째 인자, 세 번째 인자이다.</p>
+<p><code class="language-plaintext highlighter-rouge">%rdi, %rsi, %rdx</code>가 순서대로 첫 번째 인자, 두 번째 인자, 세 번째 인자이다.</p>
 
 <h2 id="3-implementing-conditional-branches">3. Implementing Conditional Branches</h2>
 
@@ -544,7 +533,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 	<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>와 같다. 이 형태의 control flow에서 어셈블리를 까보면 <code class="highlighter-rouge">cmpX, jX</code>의 (un)conditional jump 명령이 포함되고 각 if, else에  대해 코드 영역이 분리되어 있다.</p>
+<p>와 같다. 이 형태의 control flow에서 어셈블리를 까보면 <code class="language-plaintext highlighter-rouge">cmpX, jX</code>의 (un)conditional jump 명령이 포함되고 각 if, else에  대해 코드 영역이 분리되어 있다.</p>
 
 <h3 id="32-conditional-move">3.2. Conditional Move</h3>
 
@@ -557,14 +546,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>로, conditional move 명령을 통해 더 좋은 성능을 보여준다. 어셈블리로 까보면 <code class="highlighter-rouge">jX</code> 대신에 <code class="highlighter-rouge">cmovX</code> 명령이 사용된다. condition codes에 기초하여 mov 명령을 수행한다. 더 효율적인 이유는 대충 조건과 관계없이 실행할 수 있는 명령이 많기 대문이다. 하지만 무조건 좋다고 볼 수는 없는게,</p>
+<p>로, conditional move 명령을 통해 더 좋은 성능을 보여준다. 어셈블리로 까보면 <code class="language-plaintext highlighter-rouge">jX</code> 대신에 <code class="language-plaintext highlighter-rouge">cmovX</code> 명령이 사용된다. condition codes에 기초하여 mov 명령을 수행한다. 더 효율적인 이유는 대충 조건과 관계없이 실행할 수 있는 명령이 많기 대문이다. 하지만 무조건 좋다고 볼 수는 없는게,</p>
 
 <ul>
   <li>
     <p>각 expr을 계산하는데 비용이 많이 든다.</p>
   </li>
-  <li>어떤 expr은 조건이 성립되지 않으면 위험하다. <code class="highlighter-rouge">val = p ? *p : 0</code></li>
-  <li>계산을 할 때 예측하지 못한 부가 효과가 생긴다. <code class="highlighter-rouge">val = x &gt; 0 ? x*=7 : x+=3</code></li>
+  <li>어떤 expr은 조건이 성립되지 않으면 위험하다. <code class="language-plaintext highlighter-rouge">val = p ? *p : 0</code></li>
+  <li>계산을 할 때 예측하지 못한 부가 효과가 생긴다. <code class="language-plaintext highlighter-rouge">val = x &gt; 0 ? x*=7 : x+=3</code></li>
 </ul>
 
 <h2 id="4-implementing-loops-while-for-">4. Implementing Loops (While, For, …)</h2>

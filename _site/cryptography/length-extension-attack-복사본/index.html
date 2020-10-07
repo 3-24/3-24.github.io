@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -325,7 +314,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
 
-  1 minute read
+  2 minute read
 </p>
           
         </header>
@@ -343,12 +332,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면,</p>
 
-<script type="math/tex; mode=display">hash(m_1) = compress(IV, m_1 \vert\vert pad_1 )</script>
+\[hash(m_1) = compress(IV, m_1 \vert\vert pad_1 )\]
 
 <p>이 때, 패딩을 포함한 단일 블럭의 메시지 $m_2$에 대하여, $m_3 = m_1 \vert\vert pad_1 \vert\vert m_2$를 고려하고, $Pad(m_3) = m_1 \vert\vert pad_1 \vert\vert m_2 \vert\vert pad_3$로 놓자.</p>
 
-<script type="math/tex; mode=display">hash(m_3) = compress(compress(IV,m_1 \vert\vert pad_1 ), m_2 \vert\vert pad_3)
-\\= compress(hash(m_1),m_2\vert\vert pad_3)</script>
+\[hash(m_3) = compress(compress(IV,m_1 \vert\vert pad_1 ), m_2 \vert\vert pad_3)
+\\= compress(hash(m_1),m_2\vert\vert pad_3)\]
 
 <p>이런 식으로 $m_1, m_2$가 단일 블럭이 아니어도, Merkle-Damgard 해시 함수의 특성 상 $hash(m_3)$를 계산할 수 있다.</p>
 
@@ -368,26 +357,26 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>어떤 웹사이트에 PHP 리퀘스트를 GET 방식으로 데이터와 시그니처를 다음과 같이 보낼 수 있다고 하자:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sign=8ccb1040d76a517033265be77f7b8506
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sign=8ccb1040d76a517033265be77f7b8506
 </code></pre></div></div>
 
 <p>이 때 시그니처의 길이가 32이기 때문에, 16진수 하나당 4비트이므로 128비트이고, 128비트의 출력을 하는 자주 쓰이는 암호학적 해시 함수는 MD5 정도라고 추측할 수 있다.</p>
 
-<p>이제 공격자가 하고 싶은 것은 flavor를 <code class="highlighter-rouge">mintchoco</code>로 덮는것이라고 하자.</p>
+<p>이제 공격자가 하고 싶은 것은 flavor를 <code class="language-plaintext highlighter-rouge">mintchoco</code>로 덮는것이라고 하자.</p>
 
 <p>length extension attack을 적용할 때 문제는 secret의 길이를 모른다는 부분인다. 그냥 짧을 것이라고 추측해서 직접 패딩을 일일이 만들어서 직접 MD5 해시를 계산해서 인증을 시도해보고, 맞으면 secret의 길이가 7임을 알 수 있다.</p>
 
 <p>따라서 m1의 길이는 51이고 한 글자는 1바이트=8비트이므로, 총 408비트이고, MD5에서 패딩을 만드는 방식에 의하면 pad1은 다음과 같이 형성된다:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 0000 0000 0000 0000 0000 0000 0000
 0000 0000
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">10...0</code>을 448비트가 될 때까지 채우고</p>
+<p><code class="language-plaintext highlighter-rouge">10...0</code>을 448비트가 될 때까지 채우고</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 1001 0001 0000 0000 0000 0000 0000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 1001 0001 0000 0000 0000 0000 0000
 0000 0000 0000 0000 0000 0000 0000 0000 
 </code></pre></div></div>
 <ol>
@@ -396,12 +385,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>이걸 다 붙여서</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00&amp;flavor=mintchoco
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00&amp;flavor=mintchoco
 </code></pre></div></div>
 
 <p>로 덮는다. 이 때 인증키 sign은</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compress(8ccb1040d76a517033265be77f7b8506, "&amp;flavor=mintchoco" + pad3)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compress(8ccb1040d76a517033265be77f7b8506, "&amp;flavor=mintchoco" + pad3)
 </code></pre></div></div>
 
 <p>를 계산해서 얻을 수 있다. 이제 pad3를 계산하고 compress를 md5 algorithm에서 가져와야 하는데..</p>
@@ -412,7 +401,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>직접 하길 원한다면 hash_extender의 README를 읽어보는 것도 괜찮다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./hash_extender -d "user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco" -l 7 -a "&amp;flavor=mintchoco" -s 8ccb1040d76a517033265be77f7b8506 -f md5
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./hash_extender -d "user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco" -l 7 -a "&amp;flavor=mintchoco" -s 8ccb1040d76a517033265be77f7b8506 -f md5
 Type: md5
 Secret length: 7
 New signature: aed5d57ec6cb8c79b245d864665b3193
@@ -420,14 +409,14 @@ New string: 757365725f69643d313332332673697a653d6c6172676526636f756e743d3126666c
 
 </code></pre></div></div>
 
-<p>새로 얻은 <code class="highlighter-rouge">sign=aed5d57ec6cb8c79b245d864665b3193</code>이 이제 있다.</p>
+<p>새로 얻은 <code class="language-plaintext highlighter-rouge">sign=aed5d57ec6cb8c79b245d864665b3193</code>이 이제 있다.</p>
 
 <p>New string을 bytearray로 바꿔서 출력해보면 다음과 같다:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># s는 아까 얻은 New String
 </span><span class="o">&gt;&gt;&gt;</span> <span class="n">barr</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">barr</span>
-<span class="nb">bytearray</span><span class="p">(</span><span class="s">b'user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco</span><span class="si">\</span><span class="se">x80</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x98</span><span class="si">\</span><span class="se">x01</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="si">\</span><span class="se">x00</span><span class="s">&amp;flavor=mintchoco'</span><span class="p">)</span>
+<span class="nb">bytearray</span><span class="p">(</span><span class="s">b'user_id=1323&amp;size=large&amp;count=1&amp;flavor=choco</span><span class="se">\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00</span><span class="s">&amp;flavor=mintchoco'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>(위에서 직접 손으로 패딩을 계산했던 것이 일치함을 확인할 수 있다!) 어쩄든 결과로 인증을 시도해보자.</p>
@@ -439,7 +428,7 @@ New string: 757365725f69643d313332332673697a653d6c6172676526636f756e743d3126666c
 <span class="s">'aed5d57ec6cb8c79b245d864665b3193'</span>
 </code></pre></div></div>
 
-<p>해시 값이 위에서 얻은 <code class="highlighter-rouge">sign</code>과 동일하다!</p>
+<p>해시 값이 위에서 얻은 <code class="language-plaintext highlighter-rouge">sign</code>과 동일하다!</p>
 
         
       </section>

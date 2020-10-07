@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -350,7 +339,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <ul>
   <li>T는 타입, L은 배열의 길이이다.</li>
-  <li>A는 0번째 element의 포인터로 사용된다. 타입은 따라서 <code class="highlighter-rouge">T*</code>.</li>
+  <li>A는 0번째 element의 포인터로 사용된다. 타입은 따라서 <code class="language-plaintext highlighter-rouge">T*</code>.</li>
 </ul>
 
 <h4 id="111-배열의-접근">1.1.1. 배열의 접근</h4>
@@ -417,7 +406,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 	<span class="nf">ret</span>
 </code></pre></div></div>
 
-<p>zip_dig의 크기가 4*5 = 20바이트이기 때문에 <code class="highlighter-rouge">pgh[index][dig]</code>에 접근하려면 <code class="highlighter-rouge">pgh+20index + 4dig</code>의 값을 불러와야 한다.</p>
+<p>zip_dig의 크기가 4*5 = 20바이트이기 때문에 <code class="language-plaintext highlighter-rouge">pgh[index][dig]</code>에 접근하려면 <code class="language-plaintext highlighter-rouge">pgh+20index + 4dig</code>의 값을 불러와야 한다.</p>
 
 <h3 id="13-배열-포인터-배열">1.3. 배열 포인터 배열</h3>
 
@@ -442,7 +431,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 	<span class="nf">ret</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">univ[index]</code>는 univ + 8index에 저장된 <code class="highlighter-rouge">int *</code>이고, <code class="highlighter-rouge">univ[index][digit]</code>에 접근하려면 univ+8index에 저장된 값에 <code class="highlighter-rouge">4*digit</code>을 더해서 dereferencing해야 한다.</p>
+<p><code class="language-plaintext highlighter-rouge">univ[index]</code>는 univ + 8index에 저장된 <code class="language-plaintext highlighter-rouge">int *</code>이고, <code class="language-plaintext highlighter-rouge">univ[index][digit]</code>에 접근하려면 univ+8index에 저장된 값에 <code class="language-plaintext highlighter-rouge">4*digit</code>을 더해서 dereferencing해야 한다.</p>
 
 <h3 id="14-n-x-n-배열">1.4. n X n 배열</h3>
 
@@ -579,7 +568,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <h3 id="33-memory-referencing">3.3. Memory Referencing</h3>
 
-<p><code class="highlighter-rouge">mov</code> instruction은 정수 전용이다. 따라서 실수에 대해서는 다른 instruction이 적용된다.</p>
+<p><code class="language-plaintext highlighter-rouge">mov</code> instruction은 정수 전용이다. 따라서 실수에 대해서는 다른 instruction이 적용된다.</p>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="nf">dincr</span><span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="kt">double</span> <span class="n">v</span><span class="p">){</span>
     <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>

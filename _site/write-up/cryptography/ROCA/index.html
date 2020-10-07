@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -347,7 +336,7 @@ What do you want?
 
 <p>Me and <a href="https://github.com/pcw109550">diff</a> worked on this problem. At first, we tried some simple number-theoritic calcuations but failed to make a meaningful result. However the interesting fact was the factorization of modulus of prime generating functions.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4014476939...30&lt;49&gt; = 2 · 3 · 5 · 7 · 11 · ... · 109 · 113 · 127
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4014476939...30&lt;49&gt; = 2 · 3 · 5 · 7 · 11 · ... · 109 · 113 · 127
 
 9629474207...70&lt;66&gt; = 2 · 3 · 5 · 7 · 11 · ... · 157 · 163 · 167
 </code></pre></div></div>
@@ -356,15 +345,15 @@ What do you want?
 
 <h2 id="walkthrough">Walkthrough</h2>
 
-<p>After that, we found a <a href="https://ctftime.org/writeup/8805">ROCA write-up</a> and tried <a href="https://sourceforge.net/projects/yafu/">Yafu</a>, <a href="https://github.com/Ganapati/RsaCtfTool">RsaCTFTool</a>, and <a href="https://gitlab.com/jix/neca">neca</a> with weak RSA modulus <code class="highlighter-rouge">N = 400...579</code> but failed. So we tried implementation of ROCA with sage refering to the paper.</p>
+<p>After that, we found a <a href="https://ctftime.org/writeup/8805">ROCA write-up</a> and tried <a href="https://sourceforge.net/projects/yafu/">Yafu</a>, <a href="https://github.com/Ganapati/RsaCtfTool">RsaCTFTool</a>, and <a href="https://gitlab.com/jix/neca">neca</a> with weak RSA modulus <code class="language-plaintext highlighter-rouge">N = 400...579</code> but failed. So we tried implementation of ROCA with sage refering to the paper.</p>
 
-<p>It was a hard work. So I kept tried to find ROCA solver but there was no meaningful write-ups and tools for it. In a moment, A flash of idea came to me: “How about trying neca with strong modulus <code class="highlighter-rouge">670...77</code>?”.</p>
+<p>It was a hard work. So I kept tried to find ROCA solver but there was no meaningful write-ups and tools for it. In a moment, A flash of idea came to me: “How about trying neca with strong modulus <code class="language-plaintext highlighter-rouge">670...77</code>?”.</p>
 
 <p><img src="https://raw.githubusercontent.com/3-24/write-up/master/2019/poka/WeakOrStrong/images/Screenshot%20from%202019-09-21%2011-58-26.png" alt="neca result" /></p>
 
-<p>It took only 64 seconds to get the prime factorization of the modulus,<code class="highlighter-rouge">96519019965985189420318021978086209355220104728842768493515285964382881562961 * 69517189020993799354976567194165615733741804094602331588109289689403844859157</code>. I think it was possible since strong one was written in RSALib format, which was the expected input format of neca. With simple RSA decryption, we captured the flag.</p>
+<p>It took only 64 seconds to get the prime factorization of the modulus,<code class="language-plaintext highlighter-rouge">96519019965985189420318021978086209355220104728842768493515285964382881562961 * 69517189020993799354976567194165615733741804094602331588109289689403844859157</code>. I think it was possible since strong one was written in RSALib format, which was the expected input format of neca. With simple RSA decryption, we captured the flag.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POKA{ROCA_POKA_Return_Of_Coppersmith_Attack}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POKA{ROCA_POKA_Return_Of_Coppersmith_Attack}
 </code></pre></div></div>
 
 <p>I uploaded <a href="https://github.com/3-24/write-up/blob/master/2019/poka/WeakOrStrong/solve.py">solve.py</a> for RSA decryption with given factorization.</p>

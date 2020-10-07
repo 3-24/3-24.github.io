@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -355,7 +344,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>r-round Feistel 암호는 이 블록을 매 단계마다 다음과 같이 암호화한다:</p>
 
-<script type="math/tex; mode=display">(L_{i+1}, R_{i+1}) = (R_i, L_i \oplus f(R_i, k_i)) \quad \text{for } i=0,2,\cdots,r-1</script>
+\[(L_{i+1}, R_{i+1}) = (R_i, L_i \oplus f(R_i, k_i)) \quad \text{for } i=0,2,\cdots,r-1\]
 
 <p>여기서 $f$를 라운드 함수round function이라고 부르고, 이 라운드 함수에 사용되는 $k_i$는 i번째 비밀 키이다.</p>
 
@@ -370,7 +359,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>암호화와 똑같은 과정을 뒤집어서 수행한다.</p>
 
-<script type="math/tex; mode=display">(R_i, L_i) = (L_{i+1},R_{i+1}\oplus f(L_{i+1},k_i)) \quad \text{for } k=0,1,\cdots,r-1</script>
+\[(R_i, L_i) = (L_{i+1},R_{i+1}\oplus f(L_{i+1},k_i)) \quad \text{for } k=0,1,\cdots,r-1\]
 
 <h2 id="검증">검증</h2>
 
@@ -384,7 +373,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>먼저, $R_i’ = L_{i+1} = R_i$임은 쉽게 확인된다.</p>
 
-<script type="math/tex; mode=display">L_i' = R_{i+1} \oplus f(L_{i+1}, k_i) = (L_i \oplus f(R_i,k_i)) \oplus f(L_{i+1}, k_i) = L_i \oplus (f(R_i, k_i) \oplus f(L_{R_i, k_i})) = L_i</script>
+\[L_i' = R_{i+1} \oplus f(L_{i+1}, k_i) = (L_i \oplus f(R_i,k_i)) \oplus f(L_{i+1}, k_i) = L_i \oplus (f(R_i, k_i) \oplus f(L_{R_i, k_i})) = L_i\]
 
 <p>따라서 각 단계마다 복호화가 유효하다는 것이 확인되었고, 이 단계들로 구성된 r-round Fesistel 암호의 전체 복호화 과정도 정확하다.</p>
 

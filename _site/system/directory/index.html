@@ -107,29 +107,18 @@
 
     
      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$'] ],
-    processEscapes: true,
-  }
-});
-MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
-MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
-	  alert("Math Processing Error: "+message[1]);
-	});
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
 </script>
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     
   </head>
 
@@ -357,9 +346,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 <p>디렉토리도 파일과 크게 다르지 않다. 디렉토리도 그 디렉토리가 포함하는 하위 파일/디렉토리 정보를 디스크에 저장하고, 그 위치를 탐색하기 위해 해당 디렉토리의 inode 또한 디스크에 저장된다.</p>
 
-<p>예를 들어 <code class="highlighter-rouge">/home/minus21/workspace/app01/main.py</code>라는 파일에 접근하는 상황을 생각해보자. 루트 디렉토리인 <code class="highlighter-rouge">/</code>는 inode 인덱스가 고정되어있기 때문에 inode를 찾아낼 수 있고, 이 inode를 통해 하위 디렉토리들의 이름이 inode 인덱스로 다음과 같이 매핑된다. (이 매핑을 구현하기 위해 다양한 자료구조가 사용될 수 있다)</p>
+<p>예를 들어 <code class="language-plaintext highlighter-rouge">/home/minus21/workspace/app01/main.py</code>라는 파일에 접근하는 상황을 생각해보자. 루트 디렉토리인 <code class="language-plaintext highlighter-rouge">/</code>는 inode 인덱스가 고정되어있기 때문에 inode를 찾아낼 수 있고, 이 inode를 통해 하위 디렉토리들의 이름이 inode 인덱스로 다음과 같이 매핑된다. (이 매핑을 구현하기 위해 다양한 자료구조가 사용될 수 있다)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name | inode index
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name | inode index
 -----|-------------
 bin  | 737
 usr  | 924
@@ -369,13 +358,13 @@ proc | 47
 
 <p>그러면 home의 inode 인덱스 14로부터 inode에 접근할 수 있고, 이 inode가 가리키는 블럭에는 또 같은 형태의 매핑이 존재한다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name   | inode index
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name   | inode index
 -------|-------------
 minus21| 287
 user01 | 894
 </code></pre></div></div>
 
-<p>이런 식으로 반복하여 최종적으로 app01 디렉토리의 inode에 접근하고, 이 inode가 가리키는 블럭에 저장된 <code class="highlighter-rouge">main.py</code>라는 파일의 inode를 찾아내어 위에 적은 2번 과정을 하면 된다.</p>
+<p>이런 식으로 반복하여 최종적으로 app01 디렉토리의 inode에 접근하고, 이 inode가 가리키는 블럭에 저장된 <code class="language-plaintext highlighter-rouge">main.py</code>라는 파일의 inode를 찾아내어 위에 적은 2번 과정을 하면 된다.</p>
 
 <h2 id="큰-디렉토리">큰 디렉토리</h2>
 
