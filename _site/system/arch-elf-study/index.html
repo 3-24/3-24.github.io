@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>2020년 여름학기 몰입캠프 후기 - Three Dash Two Four</title>
-<meta name="description" content="봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.">
+<!-- begin _includes/seo.html --><title>x86-64 시스템의 i386 아키텍처 호환에 관한 고찰 - Three Dash Two Four</title>
+<meta name="description" content="  이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Three Dash Two Four">
-<meta property="og:title" content="2020년 여름학기 몰입캠프 후기">
-<meta property="og:url" content="http://localhost:4000/scribbles/madcamp-review/">
+<meta property="og:title" content="x86-64 시스템의 i386 아키텍처 호환에 관한 고찰">
+<meta property="og:url" content="http://localhost:4000/system/arch-elf-study/">
 
 
-  <meta property="og:description" content="봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-08-08T00:00:00+09:00">
+  <meta property="og:description" content="  이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2020-12-01T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/scribbles/madcamp-review/">
+
+<link rel="canonical" href="http://localhost:4000/system/arch-elf-study/">
 
 
 
@@ -298,15 +298,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="2020년 여름학기 몰입캠프 후기">
-    <meta itemprop="description" content="봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.">
-    <meta itemprop="datePublished" content="August 08, 2020">
+    <meta itemprop="headline" content="x86-64 시스템의 i386 아키텍처 호환에 관한 고찰">
+    <meta itemprop="description" content="  이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다.">
+    <meta itemprop="datePublished" content="December 01, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">2020년 여름학기 몰입캠프 후기
+          <h1 id="page-title" class="page__title" itemprop="headline">x86-64 시스템의 i386 아키텍처 호환에 관한 고찰
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -322,81 +322,92 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다.</p>
+        <blockquote>
+  <p>이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다.</p>
+</blockquote>
 
-<h2 id="개요">개요</h2>
+<p>가끔 오래된 바이너리를 보면 별도의 설정 없이 실행을 할 때 다음과 같이 오류를 출력한다. 분명 존재하는 파일인데 왜 없다고 뜨는걸까.</p>
 
-<ul>
-  <li><a href="https://madcamp.io/">몰입캠프 메인페이지</a></li>
-  <li><a href="https://docs.google.com/document/d/1flSaJ4kGRzkpxTTlRNqA7bOC0oI7idQR3PXPnMt9b-g/edit">2020년 여름학기 몰입캠프 강의계획서</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./bof
+bash: ./bof: No such file or directory
+$ file ./bof
+bof: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.24, BuildID[sha1]=ed643dfe8d026b7238d3033b0d0bcc499504f273, not stripped
+</code></pre></div></div>
 
-<p>실라버스를 보면 알 수 있듯, 완전히 개발 프로젝트 중심의 수업이다. 4주동안 각 주마다 프로젝트 하나를 2~3인 팀을 구성하여 진행하게 된다. 매 주 프로젝트 발표를 마친 후 투표를 하여 금주의 픽으로 선택되면 전체 수강생들 앞에서 한 번 더 발표를 하게 되는 영광을 누릴 수 있다. 금주의 픽 발표가 끝나면 스타트업 관계자가 들려주는 생생한 창업 스토리나 프로젝트에 사용될만한 기술, 개발 방법론 등을 들을 수 있다.</p>
+<p>그래서 file 명령어로 확인해보면 32비트 바이너리라고 하는데, 왜 실행이 안되나 하고 찾아봤더니 <a href="https://askubuntu.com/questions/454253/how-to-run-32-bit-app-in-ubuntu-64-bit">해당 답변</a>에서는 i386 아키텍처와 관련된 libc 라이브러리를 설치하라고 한다:</p>
 
-<h2 id="프로젝트">프로젝트</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">--add-architecture</span> i386
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>libc6:i386 libncurses5:i386 libstdc++6:i386
+</code></pre></div></div>
 
-<p>프로젝트를 위해 20명으로 구성된 각 반마다 실습실 하나를 사용하게 된다. 인당 모니터 두 대와 쓸만한 성능의 컴퓨터를 사용하게 된다.</p>
+<p>물론 문제는 해결이 되지만, 아키텍처의 개념과, i386의 의미, 그리고 바이너리가 왜 실행이 안되었는지에 관해 의문이 남아서 열심히 공부하면서 찾아보았다.</p>
 
-<p>이 수업을 듣기 전에 나는 개발 중에 사용한 대부분의 프로그래밍 언어나 프레임워크로 개발한 경험은 없지만, CTF 문제를 풀어보면서 기본적인 서버와 데이터베이스 개념과 몇 가지 문법을 이용해본 적이 있는 정도였다. 그래서 사용하는 기술에 대한 적응은 빠른 편이었던 것 같다. 혼자서는 한 주 만에 절대 하지 못했을 것 같지만 주변에 물어볼 사람도 많고 다 같이 몰입하며 열심히 하는 분위기가 형성되기 때문에 나도 놀랄 정도로 많은 기술들을 공부하고 적용해볼 수 있었다.</p>
+<p>‘컴퓨터 아키텍처’란 흔히 기계어라고 불리는 명령어 집합(Itruction Set Assembly)에 이를 회로로 구현하는데 사용하는 마이크로아키텍처와 하드웨어 구성을 의미한다. 그리고 x86은 인텔이 개발한 CPU 시리즈와 명령어 집합을 통칭하는 말로, 이름이 x86인 이유는 초기 프로세서들 이름이 8086, 80186, 80286 등 다 86으로 끝나서였다고 한다. 그 중에서도 처음으로 32비트를 지원하는 CPU가 인텔 i386인데, 후에 인텔의 32비트 CPU 컴퓨터 아키텍처 IA-32는 다 이 i386을 기준으로 만들어졌기 때문에 i386 아키텍처는 IA-32를 통칭한다고 볼 수도 있는 것 같다.</p>
 
-<p>각 프로젝트에서 세부적으로 했던 일들은 다음과 같다. 자랑할만 하지는 않지만 프로젝트 소스코드도 같이 올려놓았다.</p>
+<p>하지만 32비트는 메모리 주소를 32비트밖에 사용할 수 없으므로, $2^{32}$바이트, 즉 4기가바이트의 메모리까지만 접근이 가능하다는 한계가 있었고, 더 나아가기 위해 64비트 CPU를 개발하기 위해 IA-32의 확장이 여러 개 제안되었다. 이 중 인텔이 완전히 새롭게 설계하여 IA-32와 호환되지 않는 IA-64와, IA-32와 호환되면서 64비트 명령을 추가한 AMD의 x86-64(또는 AMD64)가 있었다. x86-64가 시장의 선택을 받았고, 이후 인텔도 x86-64를 AMD로부터 라이선스를 받아 구현하면서 IA-64는 사실상 사장되고 x86-64가 표준이 되었다고 한다.</p>
 
-<h3 id="1주차">1주차</h3>
+<p>일단 내가 사용하는 리눅스 시스템의 아키텍처는 다음과 같이 x86-64로 확인되었다.</p>
 
-<ul>
-  <li><a href="https://github.com/3-24/madcamp1">영석이의 하루 Github</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ uname -p
+x86_64
+</code></pre></div></div>
 
-<p>안드로이드 앱 개발을 한다. 탭1에는 사용자의 연락처 목록을 받아와 연락처 화면을 구성하고, 탭2에는 사진을 받아와서 갤러리 화면을 구성한다. 마지막 탭3은 자유 주제로, 나는 날씨 API에서 현재 위치하고 있는 지역의 날씨 정보를 받아와 일기예보를 보여주는 화면을 만들었다. 사용하는 언어나 프레임워크는 자유이고, 나를 포함한 대부분의 사람들은 기본 안드로이드 자바 프로그래밍을 하였다.</p>
+<p>x86-64 CPU로 i386 프로그램을 실행할 수 있는데 왜 실행이 되지 않는가.. 좀 더 찾아보니 elf 헤더를 읽어보면 다음과 같은 정보가 있다고 한다.</p>
 
-<h3 id="2주차">2주차</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ readelf -a ./bof
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Shared object file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x530
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          4428 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         9
+  Size of section headers:           40 (bytes)
+  Number of section headers:         30
+  Section header string table index: 27
+ ...
+</code></pre></div></div>
 
-<ul>
-  <li>
-    <p><a href="https://github.com/3-24/madcamp2">밤편지 프런트엔드 Github</a></p>
-  </li>
-  <li>
-    <p><a href="https://github.com/3-24/madcamp2_backend">밤편지 백엔드 Github</a></p>
-  </li>
-</ul>
+<p>즉 Machine이 Intel 80386, 즉 i386을 가리키고, 또한 해당 프로그램이 요구하는 라이브러리를 살펴보면,</p>
 
-<p>안드로이드 앱 개발은 그대로이지만, 서버와 데이트베이스 기술을 적용해야 한다. 탭1과 탭2의 형식은 연락처와 갤러리로 동일하나 서버와 상호작용하는 부분을 추가해야 한다. 나는 1주차 때 했던 탭1 탭2 구성을 똑같이 하고 싶지 않아서 간단한 SNS 서비스를 만들어 탭1을 친구 목록, 탭2를 피드로 대체하였다. 새로운 개발 프레임워크를 경험하고 싶어서 React Native를 이용해보았고, 백엔드 서버는 NodeJS와 MySQL 데이터베이스를 사용하였다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ldd ./bof
+linux-gate.so.1 (0xf7f65000)
+libc.so.6 =&gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
+/lib/ld-linux.so.2 (0xf7f67000)
+</code></pre></div></div>
 
-<h3 id="3주차">3주차</h3>
+<p>역시 i386-linux-gnu 하위의 libc 라이브러리가 필요하다. 따라서 저 라이브러리를 dpkg로 설치하기 위해서 apt 패키지 저장소에서 libc를 설치해줘야 했던 것이다.</p>
 
-<ul>
-  <li><a href="https://github.com/CatDominatesWorld/CatDominatesWorld">고양이가세계를지배한다냥 프런트엔드 Github</a></li>
-  <li><a href="https://github.com/CatDominatesWorld/CatDominatesWorld-backend">고양이가세계를지배한다냥 백엔드 Github</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libc6:i386
+</code></pre></div></div>
 
-<div align="center">
-    <img src="https://github.com/CatDominatesWorld/CatDominatesWorld/blob/master/asset/demo.png?raw=true" width="90%" />
-    <figcaption> Figure 1. 위키피디아 COVID-19 문서에 적용한 모습 </figcaption>
-</div>
+<p>를 실행해줘야 한다. 하지만 이를 하기 위해서는 패키지 저장소에 있는 i386 패키지 목록을 받아와야 하므로, 사용하는 아키텍처에 i386을 추가한 다음 apt update를 해줘야 한다. 그리고 이가 가능한 이유는 x86-64가 i386의 명령어 집합을 처리하기 때문이다. 만약 ARM 아키텍처가 요구되는 프로그램이었다면 별도의 에뮬레이터 없이는 실행이 불가능했을 것이다.</p>
 
-<p><strong>자유 주제</strong>. 나는 웹 페이지에 표시되는 모든 텍스트를 ‘냥’과 ‘meow’로 바꾸고, 모든 사진에서 얼굴을 인식하면 고양이 얼굴로 바꾸는 크롬 익스텐션을 만드는 프로젝트를 하였다. 크롬 익스텐션 쪽은 HTML/CSS와 Javascript를 이용하여, 그리고 자연어 처리와 얼굴 인식을 하여 변환 부분을 담당하는 백엔드 서버는 Python 3기반으로, 통신은 Flask, 이미지 프로세싱은 OpenCV, 자연어 처리는 konlpy와 nltk 라이브러리, 얼굴 인식은 카카오 Vision API를 사용하였다.</p>
+<p>정리하자면, 해당 바이너리는 i386 CPU를 요구하는데, x86-64 아키텍처는 커널과 라이브러리의 도움을 받아 i386 바이너리를 실행할 수도 있다. 이를 가능하게 해주는 것이 dpkg을 i386 아키텍처를 추가하여 libc 라이브러리를 설치하게 해주는 것이다. 아직 ELF 프로그램이 실행되는 구체적인 과정 등 완전히 의문이 해소된 것은 아니지만, 이 정도면 그럭저럭 만족할만한 설명을 얻은 것 같다.</p>
 
-<h3 id="4주차">4주차</h3>
+<h2 id="참고-문서">참고 문서</h2>
 
-<p><strong>자유 주제</strong>. Unreal Engine을 이용해 3차원 잠입 액션 게임을 만들었다. 언리얼 엔진은 애니메이션 하나만 추가해도 150MB만큼의 용량을 요구하기 때문에(…) Github를 통해 관리하다가 포기했다.</p>
+<p>[1] <a href="https://ko.wikipedia.org/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4_%EC%A7%91%ED%95%A9">IA-32, Wikipedia</a></p>
 
-<div align="center">
-    <img src="/assets/img/phantom_sight.png" width="90%" />
-    <figcaption> Figure 2. Phantom Sight - 3차원 잠입 액션 게임 </figcaption>
-</div>
+<p>[2] <a href="https://ko.wikipedia.org/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4%EC%A7%91%ED%95%A9">명령어 집합, Wikipedia</a></p>
 
-<h2 id="마치며">마치며</h2>
+<p>[3] <a href="https://ko.wikipedia.org/wiki/X86">x86, Wikipedia</a></p>
 
-<p>한 달 동안 같은 실습실에서 밤을 새면서 개발을 하기 때문에 다 같이 친해지게 된다. 식사나 술자리를 자주 가졌고, 심지어 엠티를 다녀오기도 했다. 정말 착하고 좋은 다양한 사람들을 만나서 4주 내내 행복했다. 신청을 할 때를 돌이켜 생각해보면 정말 여러가지 동기가 복합적으로 작용했었다.</p>
+<p>[4] <a href="https://ko.wikipedia.org/wiki/X86-64">x86-64, Wikipedia</a></p>
 
-<ul>
-  <li>여러 명이 참여하는 개발 프로젝트를 경험하고, 개발 역량을 키우기 위해서</li>
-  <li>방학을 의미있게 보내고 싶어서</li>
-  <li>개발에 관심이 있는 새로운 사람을 만나고 싶어서</li>
-  <li>스타트업 생태계에 대한 생생한 정보를 듣고 싶어서</li>
-</ul>
+<p>[5] <a href="https://wiki.debian.org/Multiarch/HOWTO">Multiarch, HOWTO - Debian Wiki</a></p>
 
-<p>결과적으로 내가 기대했던 것들을 다 얻을 수 있었고, 정말 잊지 못할 방학이 될 것 같다. COVID-19로 어려움이 있음에도 불구하고 이런 기회를 준 교수님들, 강연자분들과 같은 공간에서 같이 밤을 샌 반 동료들에게 감사한다.</p>
 
         
       </section>
@@ -417,7 +428,15 @@
     
       
       
-      <a href="/tags/#madcamp" class="page__taxonomy-item" rel="tag">madcamp</a>
+      <a href="/tags/#architecture" class="page__taxonomy-item" rel="tag">Architecture</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#i386" class="page__taxonomy-item" rel="tag">i386</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#x86-64" class="page__taxonomy-item" rel="tag">x86_64</a>
     
     </span>
   </p>
@@ -438,14 +457,14 @@
     
       
       
-      <a href="/categories/#scribbles" class="page__taxonomy-item" rel="tag">Scribbles</a>
+      <a href="/categories/#system" class="page__taxonomy-item" rel="tag">System</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-08T00:00:00+09:00">August 08, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-01T00:00:00+09:00">December 01, 2020</time></p>
         
       </footer>
 
@@ -454,23 +473,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=2020%EB%85%84+%EC%97%AC%EB%A6%84%ED%95%99%EA%B8%B0+%EB%AA%B0%EC%9E%85%EC%BA%A0%ED%94%84+%ED%9B%84%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fscribbles%2Fmadcamp-review%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=x86-64+%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98+i386+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%ED%98%B8%ED%99%98%EC%97%90+%EA%B4%80%ED%95%9C+%EA%B3%A0%EC%B0%B0%20http%3A%2F%2Flocalhost%3A4000%2Fsystem%2Farch-elf-study%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fscribbles%2Fmadcamp-review%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fsystem%2Farch-elf-study%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fscribbles%2Fmadcamp-review%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsystem%2Farch-elf-study%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/system/scheduler-policy/" class="pagination--pager" title="단일프로세서 스케줄링
+      <a href="/scribbles/madcamp-review/" class="pagination--pager" title="2020년 여름학기 몰입캠프 후기
 ">Previous</a>
     
     
-      <a href="/system/arch-elf-study/" class="pagination--pager" title="x86-64 시스템의 i386 아키텍처 호환에 관한 고찰
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -494,7 +512,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/system/arch-elf-study/" rel="permalink">x86-64 시스템의 i386 아키텍처 호환에 관한 고찰
+        <a href="/scribbles/madcamp-review/" rel="permalink">2020년 여름학기 몰입캠프 후기
 </a>
       
     </h2>
@@ -507,11 +525,7 @@
   2 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">
-  이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다.
-
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는...</p>
   </article>
 </div>
 
@@ -677,8 +691,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/scribbles/madcamp-review/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/scribbles/madcamp-review"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/system/arch-elf-study/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/system/arch-elf-study"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

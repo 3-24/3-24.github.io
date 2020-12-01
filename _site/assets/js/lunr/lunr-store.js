@@ -208,4 +208,9 @@ var store = [{
         "excerpt":"봄학기 종강을 하자마자 카이스트에서 여름학기로 열리는 몰입캠프에 참여했기 때문에 한동안 정말 바빴다. 어제 몰입캠프 종강을 한 지금, 이 캠프에 참여하면서 얻은 것들을 정리해보고자 한다. 이 후기를 쓰고 있는 나는 카이스트 전산학부지만, 타대생과 컴공이 아닌 다른 전공을 하고 있는 수강생도 많이 볼 수 있었다. 개요 몰입캠프 메인페이지 2020년 여름학기 몰입캠프 강의계획서...","categories": ["Scribbles"],
         "tags": ["madcamp"],
         "url": "http://localhost:4000/scribbles/madcamp-review/",
+        "teaser":null},{
+        "title": "x86-64 시스템의 i386 아키텍처 호환에 관한 고찰",
+        "excerpt":"이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다. 가끔 오래된 바이너리를 보면 별도의 설정 없이 실행을 할 때 다음과 같이 오류를 출력한다. 분명 존재하는 파일인데 왜 없다고 뜨는걸까. $ ./bof bash: ./bof: No such file or...","categories": ["System"],
+        "tags": ["Architecture","x86_64","i386"],
+        "url": "http://localhost:4000/system/arch-elf-study/",
         "teaser":null}]
