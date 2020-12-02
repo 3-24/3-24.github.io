@@ -187,6 +187,7 @@ exclude:
   - /test # ignore Minimal Mistakes /test
   - serve
   - install
+  - build
 keep_files:
   - .git
   - .svn

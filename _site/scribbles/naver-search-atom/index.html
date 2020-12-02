@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>시스템 프로그래밍 노트 - Three Dash Two Four</title>
-<meta name="description" content="KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.">
+<!-- begin _includes/seo.html --><title>Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저) - Three Dash Two Four</title>
+<meta name="description" content="블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 https://3-24.github.io/feed.xml의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.">
 
 
   <meta name="author" content="Youngseok Choe">
@@ -20,30 +20,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Three Dash Two Four">
-<meta property="og:title" content="시스템 프로그래밍 노트">
-<meta property="og:url" content="https://3-24.github.io/lecture%20notes/cover/">
+<meta property="og:title" content="Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)">
+<meta property="og:url" content="https://3-24.github.io/scribbles/naver-search-atom/">
 
 
-  <meta property="og:description" content="KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-10-22T00:00:00+09:00">
+  <meta property="og:description" content="블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 https://3-24.github.io/feed.xml의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2020-12-03T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://3-24.github.io/lecture%20notes/cover/">
+
+<link rel="canonical" href="https://3-24.github.io/scribbles/naver-search-atom/">
 
 
 
@@ -298,15 +298,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="시스템 프로그래밍 노트">
-    <meta itemprop="description" content="KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.">
-    <meta itemprop="datePublished" content="October 22, 2019">
+    <meta itemprop="headline" content="Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)">
+    <meta itemprop="description" content="블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 https://3-24.github.io/feed.xml의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.">
+    <meta itemprop="datePublished" content="December 03, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">시스템 프로그래밍 노트
+          <h1 id="page-title" class="page__title" itemprop="headline">Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -322,22 +322,15 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>KAIST CS230 fall 2019 수업을 들으면서 내용을 요약한 노트입니다.</p>
+        <p>블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 <a href="https://3-24.github.io/feed.xml">https://3-24.github.io/feed.xml</a>의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.</p>
 
-<ol>
-  <li><a href="/lecturenotes/시스템프로그래밍/note1">기본 표현 단위와 정수 표현</a></li>
-  <li><a href="/lecturenotes/시스템프로그래밍/note2">실수</a></li>
-  <li><a href="/lecturenotes/시스템프로그래밍/note3">어셈블리의 기본</a></li>
-  <li><a href="/lecturenotes/시스템프로그래밍/note4">상태 코드</a></li>
-  <li><a href="/lecturenotes/시스템프로그래밍/note5">함수와 스택 메모리</a></li>
-  <li><a href="/lecturenotes/시스템프로그래밍/note6">배열과 구조체, 그리고 실수</a></li>
-</ol>
+<div align="center">
+    <img src="/assets/img/search_error.png" width="30%" />
+    <figcaption> Figure 1. 오류 창 </figcaption>
+</div>
 
-<h3 id="출처">출처</h3>
-<ol>
-  <li>KAIST CS230 fall 2019 Syststem Programming slides</li>
-  <li>Computer Systems: A Programmer’s Perspective 3rd edition</li>
-</ol>
+<p>조사해보니까 피드 파일을 생성하는 jekyll-feed 플러그인이 Atom 문법으로 feed.xml 파일을 생성하는데, 서치 어드바이저는 RSS를 요구해서 생기는 문제였습니다. Atom은 RSS보다 가지는 이점이 몇 개 존재하는 더 진보된 양식이고, 점점 Atom의 점유율이 높아지는 추세이긴 합니다만, 네이버에서 아직 지원을 하지 않는 것 같습니다. 그래서 <a href="https://jekyllcodex.org/without-plugin/rss-feed/#">Jekyll Codex에 나온 RSS 피드를 수동으로 만든 방법</a>에서 feed.xml 파일 이름만 rss.xml로 살짝 바꿔서 두 가지 피드를 제공하기로 했습니다.</p>
+
 
         
       </section>
@@ -360,14 +353,14 @@
     
       
       
-      <a href="/categories/#lecture-notes" class="page__taxonomy-item" rel="tag">Lecture Notes</a>
+      <a href="/categories/#scribbles" class="page__taxonomy-item" rel="tag">Scribbles</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-22T00:00:00+09:00">October 22, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-12-03T00:00:00+09:00">December 03, 2020</time></p>
         
       </footer>
 
@@ -376,23 +369,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%8B%9C%EC%8A%A4%ED%85%9C+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%85%B8%ED%8A%B8%20https%3A%2F%2F3-24.github.io%2Flecture%2520notes%2Fcover%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Jekyll+-+%EC%98%AC%EB%B0%94%EB%A5%B8+RSS%EA%B0%80+%EC%95%84%EB%8B%99%EB%8B%88%EB%8B%A4+%28%EB%84%A4%EC%9D%B4%EB%B2%84+%EC%84%9C%EC%B9%98%EC%96%B4%EB%93%9C%EB%B0%94%EC%9D%B4%EC%A0%80%29%20https%3A%2F%2F3-24.github.io%2Fscribbles%2Fnaver-search-atom%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F3-24.github.io%2Flecture%2520notes%2Fcover%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F3-24.github.io%2Fscribbles%2Fnaver-search-atom%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F3-24.github.io%2Flecture%2520notes%2Fcover%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F3-24.github.io%2Fscribbles%2Fnaver-search-atom%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/scribbles/%EA%B0%90%EA%B8%B0/" class="pagination--pager" title="감기에 걸렸습니다
+      <a href="/scribbles/20201202/" class="pagination--pager" title="20201202
 ">Previous</a>
     
     
-      <a href="/lecture%20notes/note1/" class="pagination--pager" title="시스템 프로그래밍 노트 1 - 기본 표현 단위와 정수 표현
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -406,35 +398,6 @@
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/scribbles/naver-search-atom/" rel="permalink">Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 https://3-24.github.io/feed.xml의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.
-
-</p>
-  </article>
-</div>
-
         
           
 
@@ -523,6 +486,35 @@
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/system/scheduler-policy/" rel="permalink">단일프로세서 스케줄링
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">사용할 수 있는 CPU는 유한하지만 운영체제는 여러 개의 일task를 한꺼번에 작동시켜야 한다. 그래서 운영체제에서 일이 CPU를 점유하는 시간을 관리해주는 부분이 필요한데, 이를 스케줄러scheduler라고 한다.
+
+</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -597,8 +589,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://3-24.github.io/lecture%20notes/cover/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/lecture%20notes/cover"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "https://3-24.github.io/scribbles/naver-search-atom/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/scribbles/naver-search-atom"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
