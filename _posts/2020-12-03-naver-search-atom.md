@@ -16,5 +16,9 @@ tags:
 
 조사해보니까 피드 파일을 생성하는 jekyll-feed 플러그인이 Atom 문법으로 feed.xml 파일을 생성하는데, 서치 어드바이저는 RSS를 요구해서 생기는 문제였습니다. Atom은 RSS보다 가지는 이점이 몇 개 존재하는 더 진보된 양식이고, 점점 Atom의 점유율이 높아지는 추세이긴 합니다만, 네이버에서 아직 지원을 하지 않는 것 같습니다. 그래서 [Jekyll Codex에 나온 RSS 피드를 수동으로 만든 방법](https://jekyllcodex.org/without-plugin/rss-feed/#)에서 feed.xml 파일 이름만 rss.xml로 살짝 바꿔서 두 가지 피드를 제공하기로 했습니다.
 
+- [https://3-24.github.io/feed.xml](https://3-24.github.io/feed.xml])은 정식으로 사용하는 Atom 피드
 
+- [https://3-24.github.io/rss.xml](https://3-24.github.io/rss.xml)은 RSS 피드
+
+빌드 시간이 더 오래걸리겠지만 검색엔진 등록을 위해서는 어쩔 수 없는 것 같습니다.
 
