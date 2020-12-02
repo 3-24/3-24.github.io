@@ -5,8 +5,8 @@
     <description>수학과 개발을 오가며</description>
     <link>https://3-24.github.io/</link>
     <atom:link href="https://3-24.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 03 Dec 2020 02:40:17 +0900</pubDate>
-    <lastBuildDate>Thu, 03 Dec 2020 02:40:17 +0900</lastBuildDate>
+    <pubDate>Thu, 03 Dec 2020 02:50:12 +0900</pubDate>
+    <lastBuildDate>Thu, 03 Dec 2020 02:50:12 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
@@ -14,7 +14,7 @@
         <description>&lt;p&gt;블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 &lt;a href=&quot;https://3-24.github.io/feed.xml&quot;&gt;https://3-24.github.io/feed.xml&lt;/a&gt;의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
-    &lt;img src=&quot;/assets/img/search_error.png&quot; width=&quot;30%&quot; /&gt;
+    &lt;img src=&quot;/assets/img/search_error.png&quot; /&gt;
     &lt;figcaption&gt; Figure 1. 오류 창 &lt;/figcaption&gt;
 &lt;/div&gt;
 
