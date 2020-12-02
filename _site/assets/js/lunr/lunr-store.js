@@ -213,4 +213,9 @@ var store = [{
         "excerpt":"이 글은 리눅스에서 바이너리와 호환 아키텍처에 관해 찾아보면서 알게 된 것들을 정리한 글입니다. 오류가 있을 수도 있으니 만약에 있다면 너그럽게 알려주시길 바랍니다. 가끔 오래된 바이너리를 보면 별도의 설정 없이 실행을 할 때 다음과 같이 오류를 출력한다. 분명 존재하는 파일인데 왜 없다고 뜨는걸까. $ ./bof bash: ./bof: No such file or...","categories": ["System"],
         "tags": ["Architecture","x86_64","i386"],
         "url": "http://localhost:4000/system/arch-elf-study/",
+        "teaser":null},{
+        "title": 20201202,
+        "excerpt":"나는 우리나라 가요 중 락이랑 발라드 계열 노래를 즐겨 듣는다. 그 중에서도 장범준 씨의 노래는 버스커버스커 1집 때부터 왠만한 노래는 다 외워서 부를 자신이 있을 정도로 나도 모르게 팬이 되었던 것 같다. 몇 주 전부터 장범준 유튜브 채널에서 반지하노래방이라는 컨텐츠가 진행중인데 힘든 시기에 이를 들을 때마다 많이 위로받는다. 패닉, 버즈...","categories": ["Scribbles"],
+        "tags": [],
+        "url": "http://localhost:4000/scribbles/20201202/",
         "teaser":null}]
