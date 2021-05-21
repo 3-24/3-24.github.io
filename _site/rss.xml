@@ -3,11 +3,85 @@
   <channel>
     <title>Three Dash Two Four</title>
     <description>수학과 개발을 오가며</description>
-    <link>https://3-24.github.io/</link>
-    <atom:link href="https://3-24.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 03 Dec 2020 02:55:13 +0900</pubDate>
-    <lastBuildDate>Thu, 03 Dec 2020 02:55:13 +0900</lastBuildDate>
-    <generator>Jekyll v3.9.0</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 May 2021 04:34:56 +0900</pubDate>
+    <lastBuildDate>Sat, 22 May 2021 04:34:56 +0900</lastBuildDate>
+    <generator>Jekyll v3.9.1</generator>
+    
+      <item>
+        <title>쌍을 포함하는 부분구간수열의 개수 세기</title>
+        <description>&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+
+&lt;p&gt;0과 1로 이루어진 수열 a가 있다. 이 수열의 부분구간수열을 a의 시작과 마지막부분에서 각각 0개 이상의 원소를 빼서 만들어지는 수열이라고 하자. 이 수열의 각 부분구간수열이 가지는 (1,1)의 쌍의 개수를 구해야 한다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 수열이 [0, 1, 1, 0, 1]이라면, [1,1], [0, 1, 1], [1, 1, 0], [0, 1, 1, 0], [1, 0, 1]은 1개, [1, 1, 0, 1], [0, 1, 1, 0, 1]은 3개의 (1,1)쌍을 포함하므로, 총 11개이다.&lt;/p&gt;
+
+&lt;p&gt;알고리즘의 시간복잡도는 수열의 길이 N에 대해 선형이어야 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+
+&lt;p&gt;먼저, 모든 부분구간수열에 대해 (1,1)쌍의 개수를 세려면 부분구간수열의 총 개수가 $O(N^2)$이므로 요구되는 시간에 맞출 수가 없다.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;https://i.imgur.com/2aiUv2f.png&quot; width=&quot;80%&quot; /&gt;
+    &lt;figcaption&gt; Figure 1. 각 (1,1)쌍에 대해 그 쌍을 포함하는 구간의 개수 &lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;또, 각 (1,1) 쌍에 대해 그 쌍을 포함하는 부분구간수열의 개수를 세는 방법이 있는데, 그것 또한 (1,1) 쌍의 개수가 $O(N^2)$이기 때문에 부족하다. 하지만 Figure 1처럼 (1,1)쌍의 두 번째 1의 인덱스가 같은 것끼리 비교하면 공통점이 보이기 시작한다. 두 번째와 세 번째는 모두 (N-x3)가 곱해지고, 네 번째부터 마지막까지는 (N-x4)가 곱해진다.&lt;/p&gt;
+
+&lt;p&gt;두 번째 1의 인덱스를 기준으로 개수를 세면&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;두 번째 1의 인덱스가 x2인 각 (1,1)에 대해 이를 포함하는 구간의 개수는 $(x_1 + 1)(N-x_2)$&lt;/li&gt;
+  &lt;li&gt;두 번째 1의 인덱스가 x3인 각 (1,1)에 대해 이를 포함하는 구간의 개수는 $(x_1 +1 + x_2 + 1)(N-x_3)$&lt;/li&gt;
+  &lt;li&gt;두 번째 1의 인덱스가 x4인 각 (1,1)에 대해 이를 포함하는 구간의 개수는 $(x_1 +1 + x_2 + 1+x_3+1)(N-x_4)$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이런 식으로 마지막 1에 도달할 때까지 계속 반복해서 더해나가면 된다.&lt;/p&gt;
+
+&lt;p&gt;각 경우에 대해 $(N-x_i)$는 바로 계산 가능하고, $\sum_{i=1} ^m {x_i} + m$은 &lt;strong&gt;구간 합(prefix sum)&lt;/strong&gt;을 이용하면 바로 계산 가능하다.&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;bits/stdc++.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;								&lt;span class=&quot;c1&quot;&gt;// 입력의 길이&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;						&lt;span class=&quot;c1&quot;&gt;// 1의 인덱스를 저장하는 벡터&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 22 May 2021 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/1/</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/1/</guid>
+        
+        <category>algorithm</category>
+        
+        <category>counting</category>
+        
+        <category>prefix sum</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
     
       <item>
         <title>Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)</title>
@@ -33,26 +107,8 @@
 
 </description>
         <pubDate>Thu, 03 Dec 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/scribbles/naver-search-atom/</link>
-        <guid isPermaLink="true">https://3-24.github.io/scribbles/naver-search-atom/</guid>
-        
-        
-        <category>Scribbles</category>
-        
-      </item>
-    
-      <item>
-        <title>20201202</title>
-        <description>&lt;p&gt;나는 우리나라 가요 중 락이랑 발라드 계열 노래를 즐겨 듣는다. 그 중에서도 장범준 씨의 노래는 버스커버스커 1집 때부터 왠만한 노래는 다 외워서 부를 자신이 있을 정도로 나도 모르게 팬이 되었던 것 같다.&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Ny6g5Tsbilc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;몇 주 전부터 장범준 유튜브 채널에서 반지하노래방이라는 컨텐츠가 진행중인데 힘든 시기에 이를 들을 때마다 많이 위로받는다. 패닉, 버즈 등 다른 가수의 노래를 커버한 노래와 중간중간 활력을 주는 멘트를 듣다보면 나도 모르게 어려워서 망설이던 일을 계속할 용기가 생긴다.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 02 Dec 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/scribbles/20201202/</link>
-        <guid isPermaLink="true">https://3-24.github.io/scribbles/20201202/</guid>
+        <link>http://localhost:4000/scribbles/naver-search-atom/</link>
+        <guid isPermaLink="true">http://localhost:4000/scribbles/naver-search-atom/</guid>
         
         
         <category>Scribbles</category>
@@ -149,8 +205,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 
 </description>
         <pubDate>Tue, 01 Dec 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/system/arch-elf-study/</link>
-        <guid isPermaLink="true">https://3-24.github.io/system/arch-elf-study/</guid>
+        <link>http://localhost:4000/system/arch-elf-study/</link>
+        <guid isPermaLink="true">http://localhost:4000/system/arch-elf-study/</guid>
         
         <category>Architecture</category>
         
@@ -242,8 +298,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;p&gt;결과적으로 내가 기대했던 것들을 다 얻을 수 있었고, 정말 잊지 못할 방학이 될 것 같다. COVID-19로 어려움이 있음에도 불구하고 이런 기회를 준 교수님들, 강연자분들과 같은 공간에서 같이 밤을 샌 반 동료들에게 감사한다.&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/scribbles/madcamp-review/</link>
-        <guid isPermaLink="true">https://3-24.github.io/scribbles/madcamp-review/</guid>
+        <link>http://localhost:4000/scribbles/madcamp-review/</link>
+        <guid isPermaLink="true">http://localhost:4000/scribbles/madcamp-review/</guid>
         
         <category>madcamp</category>
         
@@ -451,8 +507,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 20 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/system/scheduler-policy/</link>
-        <guid isPermaLink="true">https://3-24.github.io/system/scheduler-policy/</guid>
+        <link>http://localhost:4000/system/scheduler-policy/</link>
+        <guid isPermaLink="true">http://localhost:4000/system/scheduler-policy/</guid>
         
         <category>scheduler</category>
         
@@ -574,8 +630,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;p&gt;[1] &lt;a href=&quot;https://www.geeksforgeeks.org/file-allocation-methods/&quot;&gt;GeeksforGeeks - File Allocation Methods&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/system/file-indexing/</link>
-        <guid isPermaLink="true">https://3-24.github.io/system/file-indexing/</guid>
+        <link>http://localhost:4000/system/file-indexing/</link>
+        <guid isPermaLink="true">http://localhost:4000/system/file-indexing/</guid>
         
         <category>file system</category>
         
@@ -647,8 +703,8 @@ user01 | 894
 
 </description>
         <pubDate>Thu, 18 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/system/directory/</link>
-        <guid isPermaLink="true">https://3-24.github.io/system/directory/</guid>
+        <link>http://localhost:4000/system/directory/</link>
+        <guid isPermaLink="true">http://localhost:4000/system/directory/</guid>
         
         <category>file system</category>
         
@@ -693,8 +749,8 @@ user01 | 894
 &lt;p&gt;[1] Wikipedia - Substitution-permutation network&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/cryptography/SP-network/</link>
-        <guid isPermaLink="true">https://3-24.github.io/cryptography/SP-network/</guid>
+        <link>http://localhost:4000/cryptography/SP-network/</link>
+        <guid isPermaLink="true">http://localhost:4000/cryptography/SP-network/</guid>
         
         <category>SP network</category>
         
@@ -803,8 +859,8 @@ user01 | 894
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 15 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/scribbles/pintos-tips/</link>
-        <guid isPermaLink="true">https://3-24.github.io/scribbles/pintos-tips/</guid>
+        <link>http://localhost:4000/scribbles/pintos-tips/</link>
+        <guid isPermaLink="true">http://localhost:4000/scribbles/pintos-tips/</guid>
         
         
         <category>Scribbles</category>
@@ -874,8 +930,8 @@ user01 | 894
 
 </description>
         <pubDate>Mon, 15 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://3-24.github.io/cryptography/Feistel-cipher/</link>
-        <guid isPermaLink="true">https://3-24.github.io/cryptography/Feistel-cipher/</guid>
+        <link>http://localhost:4000/cryptography/Feistel-cipher/</link>
+        <guid isPermaLink="true">http://localhost:4000/cryptography/Feistel-cipher/</guid>
         
         <category>Feistel</category>
         
