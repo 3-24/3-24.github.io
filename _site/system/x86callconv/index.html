@@ -351,22 +351,74 @@ gdb add
 </code></pre></div></div>
 
 <p>add를 실행하는 과정을 쪼개서 과정을 표현해보았다(가로가 긴 화면에서 보는 것을 권장한다). 메모리를 한 열이 4바이트인 표로 그렸다. eip는 레지스터 표가 아닌 왼쪽에 어셈블리 코드에 화살표로 나타냈고, esp와 ebp는 메모리 표에 위치를 나타낼 수 있을 때 메모리에 표시했다.</p>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
-
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
 <style>
-.swiper-slide{
-display:flex;
-justify-content:center;
+.mySlides {display: none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
 }
 </style>
 
-<div class="swiper-container">
-<div class="swiper-wrapper">
-
-<!-- slide 1  -->
-<div class="swiper-slide">
+<div class="slideshow-container">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -444,7 +496,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -524,7 +576,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -599,8 +651,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -680,8 +731,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -762,8 +812,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -844,7 +893,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -926,8 +975,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1010,8 +1058,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1095,7 +1142,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1180,8 +1227,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1266,8 +1312,7 @@ End of assembler dump.
 
 </div>
 
-
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1353,7 +1398,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1440,7 +1485,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1527,7 +1572,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1614,7 +1659,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1701,7 +1746,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1788,7 +1833,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1875,7 +1920,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -1962,7 +2007,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -2049,7 +2094,7 @@ End of assembler dump.
 
 </div>
 
-<div class="swiper-slide">
+<div class="mySlides fade">
 <div class="highlighter-rouge" style="width:70%;">
 <div class="highlight"><pre class="highlight"><code>(gdb) disass main
 Dump of assembler code for function main:
@@ -2137,17 +2182,32 @@ End of assembler dump.
 
 </div>
 
-</div>
-<div class="swiper-pagination"></div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
 <script>
-new Swiper('.swiper-container',{
-pagination : {
-	el: '.swiper-pagination',
-	type:'progressbar',
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
-});
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = slides.length;}    
+  if (n < 1) {slideIndex = 0;}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
 </script>
 
 <h2 id="관련된-assembly-instructions">관련된 Assembly Instructions</h2>
@@ -2251,7 +2311,9 @@ pagination : {
   3 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까요? 이런 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다.
+    <p class="archive__item-excerpt" itemprop="description">
+  함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까?
+
 
 </p>
   </article>

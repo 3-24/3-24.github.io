@@ -5,13 +5,17 @@
     <description>수학과 개발을 오가며</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 May 2021 22:21:43 +0900</pubDate>
-    <lastBuildDate>Sat, 22 May 2021 22:21:43 +0900</lastBuildDate>
+    <pubDate>Sat, 22 May 2021 22:46:09 +0900</pubDate>
+    <lastBuildDate>Sat, 22 May 2021 22:46:09 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
         <title>라그랑주 보간법을 이용하는 수치 미분</title>
-        <description>&lt;p&gt;함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까요? 이런 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다.&lt;/p&gt;
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이런 문제에 접근하는 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;가장-쉬운-근사&quot;&gt;가장 쉬운 근사&lt;/h2&gt;
 
@@ -31,24 +35,18 @@
 
 &lt;p&gt;이제 양변을 h로 나누면&lt;/p&gt;
 
-\[\begin{aligned}
-\frac{f(x_0 + h) - f(x_0)} h  &amp;amp; =\frac \delta h+ \frac {cp(f(x_0+h) - f(x_0))} h \\
-&amp;amp; \approx \frac \delta h+  cp\left(\frac{f(x_0+h) - f(x_0)} h\right)
-\end{aligned}\]
+\[\frac{f(x_0 + h) - f(x_0)} h  =\frac \delta h+ \frac {cp(f(x_0+h) - f(x_0))} h\]
 
-&lt;p&gt;이기 때문에 전체 오차는 $\delta/h$가 됩니다. $\delta$는 수를 유한한 비트로 표현해서 발생하는 오차이기 때문에 $h$가 변해도 크게 달라지지 않기 때문에 $h$가 0에 가까워질수록 전체 오차 $\delta / h$가 점점 커져버립니다. 이런 상황을 수치적 안정성numerical stability이 부족하다고 합니다.&lt;/p&gt;
+&lt;p&gt;이기 때문에 전체 오차는 $\delta/h$가 됩니다. 따라서, $h$가 0에 가까워질수록 오차 $\delta / h$가 점점 커지고, 결과적으로 수치적 안정성numerical stability이 부족해집니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;넘어가기-전에&quot;&gt;넘어가기 전에&lt;/h2&gt;
 
 &lt;p&gt;라그랑주 보간법Lagrange interpolation은 함수 f를 n개의 점을 지나는 다항식으로 근사할 수 있습니다. 구간 I 위에서 정의된 $f \in C^{n+1} (I)$가 있고  점 $x_0, x_1, \cdots, x_n$에 대해 값 $f(x_0), f(x_1), \cdots, f(x_n)$ 가 알려져 있을 때&lt;/p&gt;
 
-\[f(x) = \sum _{k=0} ^n f(x_k) L_k(x) + \frac {f^{(n+1)}(\xi(x))}{(n+1)!} (x-x_0)\cdots(x-x_n)\]
+\[f(x) = \sum _{k=0} ^n f(x_k) L_k(x) + \frac {f^{(n+1)}(\xi(x))}{(n+1)!} (x-x_0)\cdots(x-x_n)\\
+\text{where } L_k(x) = \prod _{i=0\\i \ne k} ^{n} \frac {x-x_i}{x_k-x_i}\]
 
-&lt;p&gt;이라는 정리가 알려져 있습니다. 이 때, $\xi(x)$는 $I$에 존재하는 값이고,&lt;/p&gt;
-
-\[L_k(x) = \prod _{i=0\\i \ne k} ^{n} \frac {x-x_i}{x_k-x_i}\]
-
-&lt;p&gt;로 정의됩니다.&lt;/p&gt;
+&lt;p&gt;라는 정리가 알려져 있습니다. 이 때, $\xi(x)$는 $I$에 존재하는 값입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;가장-쉬운-근사의-재해석-two-point-formulas&quot;&gt;가장 쉬운 근사의 재해석, Two-Point Formulas&lt;/h2&gt;
 
@@ -58,13 +56,13 @@
 
 &lt;p&gt;여기서 한 번 더 미분하면&lt;/p&gt;
 
-\[f'(x) = - \frac {f(x_0)} h + \frac {f(x_1)} h + \frac 1 2 (2(x-x_0) - h) f'' (\xi(x)) + (x-x_0)(x-x_0-h) \frac {d}{dx} \frac {f''(\xi(x))} 2\]
+\[f'(x) = - \frac {f(x_0)} h + \frac {f(x_1)} h + \frac {(2(x-x_0) - h)} 2 f'' (\xi(x)) + \frac { (x-x_0)(x-x_0-h)} 2 \frac {d}{dx} f''(\xi(x))\]
 
-&lt;p&gt;가 되고, $x= x_0를 넣으면&lt;/p&gt;
+&lt;p&gt;가 되고, $x= x_0$를 넣으면&lt;/p&gt;
 
 \[f'(x_0) = \frac { f(x_0 + h) - f(x_0)} h - \frac h 2 f''(\xi(x_0))\]
 
-&lt;p&gt;를 얻습니다. 이는 처음에 미분 정의로 근사했던 게 점 두개로 라그랑주 보간법을 사용한 결과와 상통합니다! 심지어&lt;/p&gt;
+&lt;p&gt;를 얻습니다. 이는 처음에 미분 정의로 근사했던 게 점 두개로 라그랑주 보간법을 사용한 결과와 상통합니다. 심지어&lt;/p&gt;
 
 \[\left| f'(x_0) - \frac { f(x_0 + h) - f(x_0)} h  \right| = \left|\frac h 2 f''(\xi(x_0))\right| = \frac {|h|} 2 \max _{a \le x \le b} |f''(x)|\]
 
@@ -73,9 +71,10 @@
 &lt;p&gt;이 근사법에서&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;h &amp;gt; 0이면 forward-difference formula&lt;/li&gt;
-  &lt;li&gt;h &amp;lt; 0이면 backward-difference formula
-라고 부릅니다.&lt;/li&gt;
+  &lt;li&gt;h &amp;lt; 0이면 backward-difference formula&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;라고 부릅니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;n1-point-formulas&quot;&gt;(n+1)-Point Formulas&lt;/h2&gt;
 
@@ -85,7 +84,7 @@
 
 &lt;p&gt;이고, $x_0, \cdots, x_n$이 서로 h씩 균등하게 떨어져 있다면 $(x_j - x_k)$는 h에 비례하는 값이므로, error term이 $O(h^n)$입니다. 즉, 같은 h를 쓰더라도 n이 클수록 더 많은 정보를 미분할 때 사용하였기 때문에 two-point formula보다 점점 정확해집니다.&lt;/p&gt;
 
-&lt;p&gt;여기서 주로 사용하는 버전은 three-point와 five-point formula입니다. 여기서 간단하게 three-point formula만 소개하겠습니다.&lt;/p&gt;
+&lt;p&gt;여기서 주로 사용하는 버전은 three-point와 five-point formula입니다. 여기서는 간단하게 three-point formula만 소개하려 합니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;three-point-formulas&quot;&gt;Three-Point Formulas&lt;/h3&gt;
 
@@ -106,13 +105,13 @@ f'(x_j)
   &lt;li&gt;$\displaystyle f’(x_2) = \frac 1 {2h} [f(x_2 - 2h) -4f(x_2 - h) + 3f(x_2)]  + \frac {h^2} 3 f^{(3)}(\xi_1)$&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;자세히 보면 $x_1$을 넣은 midpoint formula가 error term이 가장 작게 나오고 $f(x_1 + h)$도 사용하지 않아도 되기에 사용할 때 실제 사용에서 가장 선호됩니다. 나머지 두 endpoint formulas는 주어진 데이터셋에서 그 점이 끝점일 때 제한적으로 사용될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;자세히 보면 $x_1$을 넣은 midpoint formula가 error term이 가장 작게 나오고 $f(x_1 + h)$도 사용하지 않아도 되기에 실제 사용에서 가장 선호됩니다. 나머지 두 endpoint formulas는 주어진 데이터셋에서 그 점이 끝점인 특정 경우에서 유용합니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;수치적-안정성&quot;&gt;수치적 안정성&lt;/h2&gt;
 
 &lt;p&gt;three-point midpoint formula는 다음과 같습니다.&lt;/p&gt;
 
-\[f'(x_0) = \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi), \; h &amp;gt; 0\]
+\[f'(x_0) = \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) \quad \text{ where } h &amp;gt; 0\]
 
 &lt;p&gt;이 때 각 함수값의 round-off error를 $\epsilon$으로, 다음과 같이 정의해볼 수 있습니다.&lt;/p&gt;
 
@@ -131,12 +130,11 @@ e(h) &amp;amp;= \left|f'(x_0) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))]\
   &lt;p&gt;truncation error과 round-off error 사이의 tradeoff&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;이를 최소화하는 선택은 $e(h)$를 최소화하는 문제로, 미분하고 0이 되는 점을 찾아서 구해보면 $h = \sqrt[3]{3\epsilon / M}$이 가장 오차가 작은데, 실제로는 $M$을 구하는 게 미분을 근사하는 것보다 보통 더 어려운 문제이니 뚜렷한 답은 없습니다. 그냥 $h$를 무조건 작게 잡는게 능사는 아니라는 것 뿐.&lt;/p&gt;
+&lt;p&gt;이를 최소화하는 선택은 $e(h)$를 최소화하는 문제로, 미분하고 0이 되는 점을 찾아서 구해보면 $h = \sqrt[3]{3\epsilon / M}$이 가장 오차가 작습니다. 실제로는 $M$을 구하는 게 미분을 근사하는 것보다 훨씬 어려운 문제이니 뚜렷한 답은 없습니다. 그냥 $h$를 무조건 작게 잡는게 능사는 아니라는 것 뿐..&lt;/p&gt;
 
 &lt;h2 id=&quot;second-derivative-midpoint-formula&quot;&gt;Second Derivative Midpoint Formula&lt;/h2&gt;
 
-&lt;p&gt;흐름에서 벗어나기는 하지만 수치 미분에 해당하는 내용이니 이것만 소개하고 마치려 합니다.
-3차 테일러 근사를 이용하면&lt;/p&gt;
+&lt;p&gt;마지막으로 이계 미분을 근사하는 기법에 대해서 소개하고 마치려 합니다. 3차 테일러 근사를 이용하면&lt;/p&gt;
 
 \[f(x_0 + h) = f(x_0) + f'(x_0) h + \frac 1 2 f''(x_0) h^2 + \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_1)h^4\\
 f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_{-1})h^4\\
@@ -144,11 +142,13 @@ f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h
 
 &lt;p&gt;이고, 이 둘을 더하면 $f’(x_0)$가 포함된 항은 소거되어서&lt;/p&gt;
 
-&lt;p&gt;\(f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2} {24} [f^{(4)}(\xi_1) + f^{(4)}(\xi_{-1})]\)
-인데, intermediate value theorem에 의하여&lt;/p&gt;
+\[f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2} {24} [f^{(4)}(\xi_1) + f^{(4)}(\xi_{-1})]\]
 
-&lt;p&gt;\(f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2}{12} f^{(4)}(\xi)\)
-를 얻습니다. 즉, $f \in C^4[x_0-h, x_0+h]$일 때 오차가 $O(h^2)$인 $f(x_0)$에 대한 근사를 계산한 겁니다.&lt;/p&gt;
+&lt;p&gt;인데, intermediate value theorem에 의하여&lt;/p&gt;
+
+\[f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2}{12} f^{(4)}(\xi)\]
+
+&lt;p&gt;가 도출됩니다. 이렇게 $f \in C^4[x_0-h, x_0+h]$일 때 오차가 $O(h^2)$인 $f \prime\prime (x_0)$에 대한 근사를 얻었습니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 
