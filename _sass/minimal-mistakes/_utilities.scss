@@ -556,3 +556,8 @@ a.reversefootnote {
     position: static;
   }
 }
+
+img.color_negative {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  }
