@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-22T14:41:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">쌍을 포함하는 부분구간수열의 개수 세기</title><link href="http://localhost:4000/algorithm/1/" rel="alternate" type="text/html" title="쌍을 포함하는 부분구간수열의 개수 세기" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/1</id><content type="html" xml:base="http://localhost:4000/algorithm/1/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-22T22:21:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Three Dash Two Four</title><subtitle>수학과 개발을 오가며</subtitle><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><entry><title type="html">쌍을 포함하는 부분구간수열의 개수 세기</title><link href="http://localhost:4000/algorithm/1/" rel="alternate" type="text/html" title="쌍을 포함하는 부분구간수열의 개수 세기" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/1</id><content type="html" xml:base="http://localhost:4000/algorithm/1/">&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
 &lt;p&gt;0과 1로 이루어진 수열 a가 있다. 이 수열의 부분구간수열을 a의 시작과 마지막부분에서 각각 0개 이상의 원소를 빼서 만들어지는 수열이라고 하자. 이 수열의 각 부분구간수열이 가지는 (1,1)의 쌍의 개수를 구해야 한다.&lt;/p&gt;
 
@@ -111,7 +111,148 @@
     &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Algorithm" /><category term="algorithm" /><category term="counting" /><category term="prefix sum" /><summary type="html">문제</summary></entry><entry><title type="html">Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)</title><link href="http://localhost:4000/scribbles/naver-search-atom/" rel="alternate" type="text/html" title="Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)" /><published>2020-12-03T00:00:00+09:00</published><updated>2020-12-03T00:00:00+09:00</updated><id>http://localhost:4000/scribbles/naver-search-atom</id><content type="html" xml:base="http://localhost:4000/scribbles/naver-search-atom/">&lt;p&gt;블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 &lt;a href=&quot;https://3-24.github.io/feed.xml&quot;&gt;https://3-24.github.io/feed.xml&lt;/a&gt;의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Algorithm" /><category term="algorithm" /><category term="counting" /><category term="prefix sum" /><summary type="html">문제</summary></entry><entry><title type="html">라그랑주 보간법을 이용하는 수치 미분</title><link href="http://localhost:4000/mathematics/numerical%20analysis/2/" rel="alternate" type="text/html" title="라그랑주 보간법을 이용하는 수치 미분" /><published>2021-05-22T00:00:00+09:00</published><updated>2021-05-22T00:00:00+09:00</updated><id>http://localhost:4000/mathematics/numerical%20analysis/2</id><content type="html" xml:base="http://localhost:4000/mathematics/numerical%20analysis/2/">&lt;p&gt;함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까요? 이런 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;가장-쉬운-근사&quot;&gt;가장 쉬운 근사&lt;/h2&gt;
+
+&lt;p&gt;가장 간단한 근사로 미분의 정의를 활용해볼 수 있습니다. 함수 $f$의 $x_0$에서의 미분은 다음과 같이 정의됩니다.&lt;/p&gt;
+
+\[f'(x_0) = \lim _{h \to 0 } \frac {f(x_0 + h) - f(x_0)} h\]
+
+&lt;p&gt;따라서 $ \dfrac {f(x_0 + h) - f(x_0)} h$를 작은 $h$에 대해서 계산할수록 그 값은 $f’(x_0)$에 이론적으로 가까워집니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;수치적-안정성의-문제&quot;&gt;수치적 안정성의 문제&lt;/h3&gt;
+
+&lt;p&gt;하지만 컴퓨터한테 위 근사를 시키면 수를 표현할 때 사용하는 비트 수에 한계가 있어 반올림을 하게 되는데 이 때 발생하는 오차를 반올림 오차round-off-error라고 합니다.&lt;/p&gt;
+
+\[f(x_0 + h) - f(x_0)  =\delta+ cp(f(x_0+h) - f(x_0))\]
+
+&lt;p&gt;계산할 때 분자 부분의 반올림 오차를 위와 같이 $\delta$로 놓습니다. $cp(expr)$는 식 expr을 컴퓨터가 계산한 결과를 의미합니다.&lt;/p&gt;
+
+&lt;p&gt;이제 양변을 h로 나누면&lt;/p&gt;
+
+\[\begin{aligned}
+\frac{f(x_0 + h) - f(x_0)} h  &amp;amp; =\frac \delta h+ \frac {cp(f(x_0+h) - f(x_0))} h \\
+&amp;amp; \approx \frac \delta h+  cp\left(\frac{f(x_0+h) - f(x_0)} h\right)
+\end{aligned}\]
+
+&lt;p&gt;이기 때문에 전체 오차는 $\delta/h$가 됩니다. $\delta$는 수를 유한한 비트로 표현해서 발생하는 오차이기 때문에 $h$가 변해도 크게 달라지지 않기 때문에 $h$가 0에 가까워질수록 전체 오차 $\delta / h$가 점점 커져버립니다. 이런 상황을 수치적 안정성numerical stability이 부족하다고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;넘어가기-전에&quot;&gt;넘어가기 전에&lt;/h2&gt;
+
+&lt;p&gt;라그랑주 보간법Lagrange interpolation은 함수 f를 n개의 점을 지나는 다항식으로 근사할 수 있습니다. 구간 I 위에서 정의된 $f \in C^{n+1} (I)$가 있고  점 $x_0, x_1, \cdots, x_n$에 대해 값 $f(x_0), f(x_1), \cdots, f(x_n)$ 가 알려져 있을 때&lt;/p&gt;
+
+\[f(x) = \sum _{k=0} ^n f(x_k) L_k(x) + \frac {f^{(n+1)}(\xi(x))}{(n+1)!} (x-x_0)\cdots(x-x_n)\]
+
+&lt;p&gt;이라는 정리가 알려져 있습니다. 이 때, $\xi(x)$는 $I$에 존재하는 값이고,&lt;/p&gt;
+
+\[L_k(x) = \prod _{i=0\\i \ne k} ^{n} \frac {x-x_i}{x_k-x_i}\]
+
+&lt;p&gt;로 정의됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;가장-쉬운-근사의-재해석-two-point-formulas&quot;&gt;가장 쉬운 근사의 재해석, Two-Point Formulas&lt;/h2&gt;
+
+&lt;p&gt;$f \in C^2 [a,b]$일 때 구간 [a,b]위의 $x_0, x_1=x_0 + h$에 대해 라그랑주 보간법 근사를 적용하면 다음과 같습니다.&lt;/p&gt;
+
+\[f(x) = f(x_0) \frac {x-x_0-h}{-h} + f(x_1) \frac {x-x_0} h + \frac {f''(\xi(x))} 2 (x-x_0) (x-x_0 - h)\]
+
+&lt;p&gt;여기서 한 번 더 미분하면&lt;/p&gt;
+
+\[f'(x) = - \frac {f(x_0)} h + \frac {f(x_1)} h + \frac 1 2 (2(x-x_0) - h) f'' (\xi(x)) + (x-x_0)(x-x_0-h) \frac {d}{dx} \frac {f''(\xi(x))} 2\]
+
+&lt;p&gt;가 되고, $x= x_0를 넣으면&lt;/p&gt;
+
+\[f'(x_0) = \frac { f(x_0 + h) - f(x_0)} h - \frac h 2 f''(\xi(x_0))\]
+
+&lt;p&gt;를 얻습니다. 이는 처음에 미분 정의로 근사했던 게 점 두개로 라그랑주 보간법을 사용한 결과와 상통합니다! 심지어&lt;/p&gt;
+
+\[\left| f'(x_0) - \frac { f(x_0 + h) - f(x_0)} h  \right| = \left|\frac h 2 f''(\xi(x_0))\right| = \frac {|h|} 2 \max _{a \le x \le b} |f''(x)|\]
+
+&lt;p&gt;라는 error bound까지 얻을 수 있네요!&lt;/p&gt;
+
+&lt;p&gt;이 근사법에서&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;h &amp;gt; 0이면 forward-difference formula&lt;/li&gt;
+  &lt;li&gt;h &amp;lt; 0이면 backward-difference formula
+라고 부릅니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;n1-point-formulas&quot;&gt;(n+1)-Point Formulas&lt;/h2&gt;
+
+&lt;p&gt;라그랑주 보간법은 여러 개의 점을 통한 근사 방법을 제공하기 때문에 Two-Point Formulas를 넘어서 Three-Point, Four-Point, Five-Point Formulas, …로 자연스럽게 확장이 가능합니다. 점 $x_0, \cdots, x_n$에 대한 정보가 있을 때 라그랑주 보간법 근사를 적용한 후 양변에 미분한 다음 $x=x_j$를 넣으면&lt;/p&gt;
+
+\[f'(x_j) = \sum_{k=0} ^n f(x_k) L_k ' (x_j) + \frac {f^{(n+1)} (\xi(x_j))}{(n+1)!} \prod _{k=0\\k\ne j}^n (x_j-x_k)\]
+
+&lt;p&gt;이고, $x_0, \cdots, x_n$이 서로 h씩 균등하게 떨어져 있다면 $(x_j - x_k)$는 h에 비례하는 값이므로, error term이 $O(h^n)$입니다. 즉, 같은 h를 쓰더라도 n이 클수록 더 많은 정보를 미분할 때 사용하였기 때문에 two-point formula보다 점점 정확해집니다.&lt;/p&gt;
+
+&lt;p&gt;여기서 주로 사용하는 버전은 three-point와 five-point formula입니다. 여기서 간단하게 three-point formula만 소개하겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;three-point-formulas&quot;&gt;Three-Point Formulas&lt;/h3&gt;
+
+&lt;p&gt;$x_0, x_1= x_0 + h, x_1 = x_0 + 2h$에 대하여 위에서 구한 결과를 간단한 미분을 통해 정리하면&lt;/p&gt;
+
+\[\begin{aligned}
+f'(x_j)
+&amp;amp;= f(x_0) \frac {2x_j - 2x_0 - 3h} {2h^2}
+- f(x_0 + h) \frac {2x_j - 2x_0 - 2h}{h^2}
+\\&amp;amp;+ f(x_0 + 2h) \frac {2x_j - x_0 - h}{2h^2}
++ \frac 1 6 f^{(3)} (\xi_j) \prod _{k=0\\k\ne j } ^2 (x_j - x_k)
+\end{aligned}\]
+
+&lt;p&gt;이고, 결과적으로 다음의 결과를 얻습니다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;$\displaystyle f’(x_0) = \frac {1} {2h} [-3f(x_0) + 4(x_0+ h) - f(x_0 + 2h)] + \frac {h^2} 3 f^{(3)}(\xi_0)$&lt;/li&gt;
+  &lt;li&gt;$\displaystyle f’(x_1) = \frac 1 {2h} [-f(x_1-h) + f(x_1 + h)] - \frac {h^2} 6 f^{(3)}(\xi_1)$&lt;/li&gt;
+  &lt;li&gt;$\displaystyle f’(x_2) = \frac 1 {2h} [f(x_2 - 2h) -4f(x_2 - h) + 3f(x_2)]  + \frac {h^2} 3 f^{(3)}(\xi_1)$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;자세히 보면 $x_1$을 넣은 midpoint formula가 error term이 가장 작게 나오고 $f(x_1 + h)$도 사용하지 않아도 되기에 사용할 때 실제 사용에서 가장 선호됩니다. 나머지 두 endpoint formulas는 주어진 데이터셋에서 그 점이 끝점일 때 제한적으로 사용될 수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;수치적-안정성&quot;&gt;수치적 안정성&lt;/h2&gt;
+
+&lt;p&gt;three-point midpoint formula는 다음과 같습니다.&lt;/p&gt;
+
+\[f'(x_0) = \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi), \; h &amp;gt; 0\]
+
+&lt;p&gt;이 때 각 함수값의 round-off error를 $\epsilon$으로, 다음과 같이 정의해볼 수 있습니다.&lt;/p&gt;
+
+\[\epsilon = \max \{|f(x_0 + h) - cp(f(x_0 + h))|, |f(x_0-h) - cp(f(x_0 - h))| \}\]
+
+&lt;p&gt;그러면&lt;/p&gt;
+
+\[\begin{aligned}
+e(h) &amp;amp;= \left|f'(x_0) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))]\right|
+\\ &amp;amp;= \left | \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))] \right|
+\\ &amp;amp;\le \frac {h^2} 6 M + \frac \epsilon h\quad \text{ where } M = \max_{x \in I} {|f^{(3)}(x)|}
+\end{aligned}\]
+
+&lt;p&gt;전항 $h^2M / 6$은 원래 구했던 오차(truncation error이고, $\epsilon / h$는 round-off error로 인해 발생한 새로운 항입니다. h가 작을수록 truncation error는 작아지지만, round-off error는 커지는 상황이에요. 처음에 다루었던 가장 쉬운 근사에서도 겪었던 문제입니다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;truncation error과 round-off error 사이의 tradeoff&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이를 최소화하는 선택은 $e(h)$를 최소화하는 문제로, 미분하고 0이 되는 점을 찾아서 구해보면 $h = \sqrt[3]{3\epsilon / M}$이 가장 오차가 작은데, 실제로는 $M$을 구하는 게 미분을 근사하는 것보다 보통 더 어려운 문제이니 뚜렷한 답은 없습니다. 그냥 $h$를 무조건 작게 잡는게 능사는 아니라는 것 뿐.&lt;/p&gt;
+
+&lt;h2 id=&quot;second-derivative-midpoint-formula&quot;&gt;Second Derivative Midpoint Formula&lt;/h2&gt;
+
+&lt;p&gt;흐름에서 벗어나기는 하지만 수치 미분에 해당하는 내용이니 이것만 소개하고 마치려 합니다.
+3차 테일러 근사를 이용하면&lt;/p&gt;
+
+\[f(x_0 + h) = f(x_0) + f'(x_0) h + \frac 1 2 f''(x_0) h^2 + \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_1)h^4\\
+f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_{-1})h^4\\
+\text{where } x_0 - h &amp;lt; \xi_{-1} &amp;lt; x_0 &amp;lt; \xi &amp;lt; x_0 + h\]
+
+&lt;p&gt;이고, 이 둘을 더하면 $f’(x_0)$가 포함된 항은 소거되어서&lt;/p&gt;
+
+&lt;p&gt;\(f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2} {24} [f^{(4)}(\xi_1) + f^{(4)}(\xi_{-1})]\)
+인데, intermediate value theorem에 의하여&lt;/p&gt;
+
+&lt;p&gt;\(f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2}{12} f^{(4)}(\xi)\)
+를 얻습니다. 즉, $f \in C^4[x_0-h, x_0+h]$일 때 오차가 $O(h^2)$인 $f(x_0)$에 대한 근사를 계산한 겁니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;[1] KAIST 2021 Spring MAS365 Numerical Analysis&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Mathematics" /><category term="Numerical Analysis" /><category term="differentiation" /><summary type="html">함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까요? 이런 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다.</summary></entry><entry><title type="html">Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)</title><link href="http://localhost:4000/scribbles/naver-search-atom/" rel="alternate" type="text/html" title="Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)" /><published>2020-12-03T00:00:00+09:00</published><updated>2020-12-03T00:00:00+09:00</updated><id>http://localhost:4000/scribbles/naver-search-atom</id><content type="html" xml:base="http://localhost:4000/scribbles/naver-search-atom/">&lt;p&gt;블로그의 유입을 늘리려고 이 블로그를 네이버 서치어드바이저에 검색 등록을 하다가 &lt;a href=&quot;https://3-24.github.io/feed.xml&quot;&gt;https://3-24.github.io/feed.xml&lt;/a&gt;의 RSS 제출에서 올바르지 않은 RSS라고 거부당했는데 원인을 알려주지 않아서 꽤 당혹스러웠습니다.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
     &lt;img src=&quot;/assets/img/search_error.png&quot; /&gt;
@@ -724,97 +865,4 @@ user01 | 894
 
 &lt;h2 id=&quot;출처&quot;&gt;출처&lt;/h2&gt;
 
-&lt;p&gt;[1] Wikipedia - Feistel Cipher&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Cryptography" /><category term="Feistel" /><category term="block cipher" /><summary type="html">Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.</summary></entry><entry><title type="html">PintOS를 짜면서 정리해본 팁과 설정들</title><link href="http://localhost:4000/scribbles/pintos-tips/" rel="alternate" type="text/html" title="PintOS를 짜면서 정리해본 팁과 설정들" /><published>2020-06-15T00:00:00+09:00</published><updated>2020-06-15T00:00:00+09:00</updated><id>http://localhost:4000/scribbles/pintos-tips</id><content type="html" xml:base="http://localhost:4000/scribbles/pintos-tips/">&lt;p&gt;이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다.&lt;/p&gt;
-
-&lt;p&gt;반드시 꼭 설정해야 할 중요한 알맹이들만 있지는 않고, 프로그래밍을 하다가 지쳤을 때 재미로 설정한 것들도 다수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-git&quot;&gt;1. Git&lt;/h2&gt;
-
-&lt;p&gt;PintOS는 KAIST에서는 2인 1조로 작업하였고, 협업을 하기 위해서는 &lt;strong&gt;Git을 사용을 안할 수가 없었다&lt;/strong&gt;. 잘 안되서 예전에 짰던 코드로 돌려놓고 싶을 때도 많고, 병렬적으로 팀원과 다른 부분을 구현하여 나중에 합쳐야 하는 경우도 있는데 Git을 사용하면 이 작업들이 쉽게 이루어질 수 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가장 많이 쓰는 명렁어: git commit, git push, git pull, git status&lt;/li&gt;
-  &lt;li&gt;branch 관리 : git checkout, git branch, git merge&lt;/li&gt;
-  &lt;li&gt;기타 커밋로그 관리 : git rebase, git reset&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Git 저장소로는 대중적인 Github에 비공개 레퍼지토리를 만들어서 관리하였다.&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/img/pintos_tips/04.png&quot; width=&quot;100%&quot; /&gt;
-    &lt;figcaption&gt;Figure 1. 정말로 화난다면 이런 커밋을 할 수도 있겠지만..&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;나중에 커밋로그를 읽고 팀원이 리뷰를 할 때 힘들어하지 않도록 &lt;a href=&quot;https://meetup.toast.com/posts/106&quot;&gt;좋은 git 커밋 메시지를 작성하기 위한 7가지 약속&lt;/a&gt;을 읽어보고 지키는 것을 추천한다. 내가 요구했던 것은 세 가지였다:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;기본적인 커밋 메시지 convention을 지키자. 어떤 변화가 있었는지 요약을 담고, 필요에 따라 추가적인 설명을 작성해야 좋은 커밋 메시지이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;커밋을 하기 전에 &lt;strong&gt;최소한 컴파일은 제대로 되는지, 통과했던 테스트케이스가 실패했는지&lt;/strong&gt;를 반드시 확인해주자. 커밋 할 때마다 확인을 하지 않고 한꺼번에 디버깅하면 시간만 많이 잡아먹는다.&lt;/li&gt;
-  &lt;li&gt;디버깅을 위해 넣은 printf, ASSERT는 미래에 사용될 일이 없다면 삭제해주자.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;브랜치는 큰 변경점이 있거나 새로운 프로젝트를 시작할 때마다 만들어두면 좋다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-에디터&quot;&gt;2. 에디터&lt;/h2&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/img/pintos_tips/01.png&quot; width=&quot;100%&quot; /&gt;
-    &lt;figcaption&gt;Figure 2. Vim은 정말 좋은 에디터입니다&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;처음에는 습관대로 리눅스 쉘에서 vim을 통해 코드를 관리했지만, 운영체제와 같은 대형 프로젝트를 CLI를 고집하면서 달랑 vim을 통해 관리하는 것에는 현실적인 어려움이 있었다. 소스 파일들, 헤더 파일들, 테스트 코드, 테스트 출력, 컴파일하고 실행시킬 쉘, 디버깅을 할 쉘 등 여러 창을 띄어놓고 해야 하는 만큼 GUI의 직관성과 효율성을 무사하기 힘들다.&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/img/pintos_tips/02.jfif&quot; width=&quot;100%&quot; /&gt;
-    &lt;figcaption&gt;Figure 3. vscode로 관리할 때&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;그래서 Visual Studio Code를 제공된 개발 서버에 원격으로 연결하여 작업했는데 정말 혁명적이었다. 설정은 &lt;a href=&quot;https://code.visualstudio.com/docs/remote/ssh&quot;&gt;Visual Studio Code - Remote Development using SSH&lt;/a&gt;를 참고하였다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+P&lt;/code&gt;와 같은 몇몇 자주 사용하는 단축키들을 익혀놓으면 효율이 더 올라갈 것이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-커뮤니케이션&quot;&gt;3. 커뮤니케이션&lt;/h2&gt;
-
-&lt;p&gt;온라인으로 프로젝트에 대해 이슈를 나누고 서로 피드백해줄 수단이 필요하다. 나는 COVID-19의 영향으로 모든 협업이 온라인으로 진행되었기 때문에 더 의존했던 것 같다. 내 팀은 화면 공유까지 지원하는 Discord를 사용하였다. Slack은 메시지 수 제한도 있고, 화면 공유를 지원하지 않는 것 같아서 선택하지 않았던 것 같다(사실 잘 안써봐서 모른다).&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/img/pintos_tips/03.png&quot; width=&quot;100%&quot; /&gt;
-    &lt;figcaption&gt;Figure 4. Github-Discord webhook&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;또한 Github를 사용한다면 Discord에서 웹훅을 걸 수 있다. 이 작업을 한다면 git push를 할 때마다 디스코드 채널에 자동으로 알림이 가게 된다. 같은 브랜치에서 두 팀원이 작업을 하고 있을 때 git pull을 하지 않아 충돌이 잦았는데, 이렇게 알림을 설정하면 그런 문제를 최소화할 수 있다. 각자 커밋을 할때마다 바로 리뷰를 해줄 수도 있었다. 웹훅을 설정하는 방법은 &lt;a href=&quot;https://gist.github.com/eslachance/40ac1c8232a5a019b43ee3f588d637ad&quot;&gt;Github Gist - Github to Discord Webhook Tutorial&lt;/a&gt;를 참고하라. Slack에도 비슷한 기능이 있던 것으로 기억한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-디버깅&quot;&gt;4. 디버깅&lt;/h2&gt;
-
-&lt;p&gt;처음에는 gdb를 사용하지 않고 printf와 ASSERT만을 이용하여 짰는데, 뒤로 갈수록 gdb를 사용하는 것이 필수적이었으며, 앞에서도 gdb를 쓸 줄 알았다면 얼마나 좋았을까 하는 생각이 들었다. 심지어 일부 과정에서는 printf가 프로그램의 흐름을 방해하여 정상적으로 디버깅할 수 없는 경우도 있었다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;디버깅의 안정성 gdb &amp;gt; ASSERT &amp;gt; printf&lt;/li&gt;
-  &lt;li&gt;난이도: gdb « ASSRET = printf&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/img/pintos_tips/gdb.png&quot; width=&quot;100%&quot; /&gt;
-    &lt;figcaption&gt;Figure 5. gdb&lt;/figcaption&gt;
-&lt;/div&gt;
-
-&lt;p&gt;PintOS를 gdb에 연결하는 작업은 아마 각 프로젝트 메뉴얼에 안내가 되어 있을 것이고, 이 글에서는 자주 사용하는 gdb 명령어만 간략하게 정리해보았다. 더 자세한 내용은 검색을 통해 알아보자.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt; : 소스 코드의 다음 줄을 실행시킨다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step&lt;/code&gt; : 소스 코드의 다음 명령을 실행시킨다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt;는 함수를 한 줄로 간주하여 실행하는데, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;step&lt;/code&gt;은 함수 안에 있는 한 줄을 실행시킨다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p (대상)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x (대상)&lt;/code&gt; : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(대상)&lt;/code&gt;은 주소 또는 변수명이 될 수 있다. 그 대상이 갖고 있는 정보를 확인할 때 사용한다. x보다는 p를 자주 사용하는 편. 어떤 방식으로, 어느 만큼 출력할지도 결정할 수 있다. 예를 들어, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x/30x 주소&lt;/code&gt;는 메모리의 주소~주소+30 까지 정보를 16진수(x)로 출력할 수 있다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b thread.c:170&lt;/code&gt; : 이것은 한 예로, thread.c의 170번째 줄에 breakpoint를 건다는 뜻이다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b 함수명&lt;/code&gt;도 가능하다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d (숫자)&lt;/code&gt; : 숫자에 해당하는 breakpoint를 삭제한다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;c&lt;/code&gt;: 계속 진행시킨다. 다음 breakpoint에 걸리거나 프로그램이 끝날 때까지 실행된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;기타&quot;&gt;기타&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;내가 수강한 강좌에서는 Q&amp;amp;A를 하기 위한 piazza가 개설되어 있었는데, 여기서 필요한 정보들을 질문하거나 찾는 것이 매우 도움이 되었다. 막히는 부분이 있으면 완전한 문장의 형태로 질문을 정리하는 과정 자체가 좋은 답변과 관계없이 중요하다고 느껴졌다.&lt;/li&gt;
-  &lt;li&gt;주어진 메뉴얼을 직접 이해할 때 가장 효율적이고 얻는 것도 많았다. 세세하게 짜는 과정이 나와있는 안내서를 보면 쉽지만 그 안내서에 끌려다니는 느낌이다. 나도 블로그에 PintOS를 짜는 과정을 정리해볼까 하는 생각이 들었지만, 이런 이유로 공유하지 않는게 좋겠다는 생각이 든다.&lt;/li&gt;
-  &lt;li&gt;필요할 때마다 그림으로 코드의 흐름을 정리해보는 것이 큰 도움이 되었다. 전체적으로 어떤 과정이 어떻게 돌아가는지를 시각화하여 이해할 수 있고, 불필요한 과정을 잡아내기에도 좋았다.&lt;/li&gt;
-  &lt;li&gt;최대한 깨끗하고 완전한, 효율적인 구현을 목표로 하자. 설계를 제대로 하지 않고 무작정 코드를 짜다가 디버깅하면 몸만 고생한다. 특히 자주 사용하는 루틴일수록 더 신경써야 한다. 코딩을 하는 시간을 최소화하고, 설계하고 구상하는 시간을 최대화하자.&lt;/li&gt;
-  &lt;li&gt;여럿이서 프로젝트를 진행할 때 협업과 분업이라는 두 가지 선택지가 있다. 즉, 두 명이서 각자 독립된 부분을 완성할지, 힘을 합쳐서 한 부분을 진행할지로 나뉘어진다. 전자는 짧게 보면 고효율을 보이지만 낮은 안정성으로 디버깅에 고생할 것이고, 후자는 저효율을 보이지만 코드를 짤 때마다 즉각적으로 피드백을 받기 때문에 높은 안정성으로 디버깅에 덜 허덕인다. 나는 경험적으로 후자가 더 좋은 선택이라고 본다.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Scribbles" /><summary type="html">이번 학기에 운영체제 과목의 교육용 운영체제인 PintOS를 짜면서 느낀 점들과 초반 삽질을 줄일만한 팁들을 정리해보았다.</summary></entry></feed>
+&lt;p&gt;[1] Wikipedia - Feistel Cipher&lt;/p&gt;</content><author><name>Youngseok Choe</name><email>dev.youngseok@gmail.com</email></author><category term="Cryptography" /><category term="Feistel" /><category term="block cipher" /><summary type="html">Feistel 암호는 블록 암호의 일종이다. DES가 대표적이다.</summary></entry></feed>

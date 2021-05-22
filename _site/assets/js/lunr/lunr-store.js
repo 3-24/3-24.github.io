@@ -223,4 +223,9 @@ var store = [{
         "excerpt":"문제 0과 1로 이루어진 수열 a가 있다. 이 수열의 부분구간수열을 a의 시작과 마지막부분에서 각각 0개 이상의 원소를 빼서 만들어지는 수열이라고 하자. 이 수열의 각 부분구간수열이 가지는 (1,1)의 쌍의 개수를 구해야 한다. 예를 들어, 수열이 [0, 1, 1, 0, 1]이라면, [1,1], [0, 1, 1], [1, 1, 0], [0, 1, 1, 0],...","categories": ["Algorithm"],
         "tags": ["algorithm","counting","prefix sum"],
         "url": "http://localhost:4000/algorithm/1/",
+        "teaser":null},{
+        "title": "라그랑주 보간법을 이용하는 수치 미분",
+        "excerpt":"함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까요? 이런 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다. 가장 쉬운 근사 가장 간단한 근사로 미분의 정의를 활용해볼 수 있습니다. 함수 $f$의 $x_0$에서의 미분은 다음과 같이 정의됩니다. \\[f'(x_0) = \\lim _{h \\to 0 } \\frac {f(x_0...","categories": ["Mathematics","Numerical Analysis"],
+        "tags": ["differentiation"],
+        "url": "http://localhost:4000/mathematics/numerical%20analysis/2/",
         "teaser":null}]
