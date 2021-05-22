@@ -5,8 +5,8 @@
     <description>수학과 개발을 오가며</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 May 2021 04:34:56 +0900</pubDate>
-    <lastBuildDate>Sat, 22 May 2021 04:34:56 +0900</lastBuildDate>
+    <pubDate>Sat, 22 May 2021 14:41:39 +0900</pubDate>
+    <lastBuildDate>Sat, 22 May 2021 14:41:39 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -19,16 +19,75 @@
 
 &lt;p&gt;알고리즘의 시간복잡도는 수열의 길이 N에 대해 선형이어야 한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;h2 id=&quot;풀이-1---인덱스에-대한-dp&quot;&gt;풀이 1 - 인덱스에 대한 DP&lt;/h2&gt;
 
-&lt;p&gt;먼저, 모든 부분구간수열에 대해 (1,1)쌍의 개수를 세려면 부분구간수열의 총 개수가 $O(N^2)$이므로 요구되는 시간에 맞출 수가 없다.&lt;/p&gt;
+&lt;p&gt;모든 부분구간수열에 대해 (1,1)쌍의 개수를 세려면 부분구간수열의 총 개수가 $O(N^2)$이므로 요구되는 시간에 맞출 수가 없다.&lt;/p&gt;
+
+&lt;p&gt;$D_i$를 i번째 인덱스로 끝나는 각 구간에 대해 (1,1) 쌍의 개수의 총합으로 놓자. 그러면&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;0번째 인덱스로 끝나는 구간은 (1,1)을 포함하지 않으므로 $D_0 = 0$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$ a_{i+1} = 0$인 경우, $D_{i+1}= D_i$.&lt;/li&gt;
+  &lt;li&gt;$a_{i+1}= 1$인 경우, $D_{i+1} = D_i + (x_1 + 1) + (x_2 + 1) + \cdots$. 이 때 ${x_1, x_2, \cdots }$는 ${a_0, a_1, \cdots, a_{i}}$에서 값이 1인 원소들의 인덱스이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;예를 들어 a가 [0, 1, 1, 0, 1]이었다면, $x_1 = 1, x_2 = 2, x_3 = 4$로,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$D_0 = 0$&lt;/li&gt;
+  &lt;li&gt;$D_1 = D_0 = 0$&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$D_2 = D_1 + (x_1 + 1) = 2$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;$D_3 = D_2 = 2$&lt;/li&gt;
+  &lt;li&gt;$D_4 = D_3 + (x_1 + 1) + (x_2 + 1) = 7$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;따라서 각 부분구간수열이 가지는 (1,1) 쌍의 개수의 총합은 $D_0 + D_1 + \cdots + D_4 = 11$이다.&lt;/p&gt;
+
+&lt;p&gt;이 알고리즘은 $D_{i+1}$을 계산할 때 $a_{i+1} = 0$이면 바로 결과가 나오고, $a_{i+1} = 1$인 경우 $\sum (x_j + 1)$을 계산할 때 &lt;strong&gt;구간 합(prefix sum)&lt;/strong&gt;을 이용하면 바로 결과가 나오게 할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;bits/stdc++.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                              &lt;span class=&quot;c1&quot;&gt;// 입력의 길이&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;							&lt;span class=&quot;c1&quot;&gt;// DP를 누적시킬 배열&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;psum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;풀이-2---각-11-쌍에-대해-세기&quot;&gt;풀이 2 - 각 (1,1) 쌍에 대해 세기&lt;/h2&gt;
+
+&lt;p&gt;각 (1,1) 쌍에 대해 그 쌍을 포함하는 부분구간수열의 개수를 세는 방법을 생각해볼 수 있는데, 그것 또한 (1,1) 쌍의 개수가 $O(N^2)$이기 때문에 부족하다&lt;/p&gt;
 
 &lt;div align=&quot;center&quot;&gt;
     &lt;img src=&quot;https://i.imgur.com/2aiUv2f.png&quot; width=&quot;80%&quot; /&gt;
     &lt;figcaption&gt; Figure 1. 각 (1,1)쌍에 대해 그 쌍을 포함하는 구간의 개수 &lt;/figcaption&gt;
 &lt;/div&gt;
 
-&lt;p&gt;또, 각 (1,1) 쌍에 대해 그 쌍을 포함하는 부분구간수열의 개수를 세는 방법이 있는데, 그것 또한 (1,1) 쌍의 개수가 $O(N^2)$이기 때문에 부족하다. 하지만 Figure 1처럼 (1,1)쌍의 두 번째 1의 인덱스가 같은 것끼리 비교하면 공통점이 보이기 시작한다. 두 번째와 세 번째는 모두 (N-x3)가 곱해지고, 네 번째부터 마지막까지는 (N-x4)가 곱해진다.&lt;/p&gt;
+&lt;p&gt;하지만 Figure 1처럼 (1,1)쌍의 두 번째 1의 인덱스가 같은 것끼리 비교하면 공통점이 보이기 시작한다. 두 번째와 세 번째는 모두 (N-x3)가 곱해지고, 네 번째부터 마지막까지는 (N-x4)가 곱해진다.&lt;/p&gt;
 
 &lt;p&gt;두 번째 1의 인덱스를 기준으로 개수를 세면&lt;/p&gt;
 
