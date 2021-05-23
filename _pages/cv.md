@@ -20,7 +20,7 @@ author_profile: true
 
 </style>
 
-<h2 style="margin-block-start: 0em;margin-block-end: 0.2em;">Education</h2>
+<h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Education</h2>
 **University** - KAIST School of Computing Undergraduate, 5th semester now
 <div style="margin-bottom: -0.8em;"></div>
 Completed Courses
