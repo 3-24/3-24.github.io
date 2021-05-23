@@ -39,7 +39,7 @@ Completed Courses
 <li>Introduction to Computer Graphics*</li>
 </ul>
 </div><div style="width:50%; display:inline-block;">
-<ul>
+<ul class="custom_ul">
 <li>Applied Mathematical Analysis</li>
 <li>Abstract Algebra I</li>
 <li>Analysis I</li>
