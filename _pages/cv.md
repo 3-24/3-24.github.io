@@ -99,3 +99,7 @@ Familiar with usual build tools and Unix/Linux CLI environments.
 <div style="margin-bottom: -0.8em;"></div>
 - Comfortable with Python, C/C++.
 - Experienced NodeJS, Java, Scala, F#, Rust.
+
+**Personal Blog** ([Link](https://3-24.github.io/))
+<div style="margin-bottom: -0.8em;"></div>
+Have written posts with interesting topics of CS and maths.
