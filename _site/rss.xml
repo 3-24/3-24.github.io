@@ -3,10 +3,10 @@
   <channel>
     <title>Three Dash Two Four</title>
     <description>수학과 개발을 오가며</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 May 2021 19:48:48 +0900</pubDate>
-    <lastBuildDate>Sun, 23 May 2021 19:48:48 +0900</lastBuildDate>
+    <link>https://3-24.github.io/</link>
+    <atom:link href="https://3-24.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 24 May 2021 23:31:46 +0900</pubDate>
+    <lastBuildDate>Mon, 24 May 2021 23:31:46 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -155,8 +155,8 @@ f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h
 &lt;p&gt;[1] KAIST 2021 Spring MAS365 Numerical Analysis&lt;/p&gt;
 </description>
         <pubDate>Sat, 22 May 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/mathematics/numerical%20analysis/2/</link>
-        <guid isPermaLink="true">http://localhost:4000/mathematics/numerical%20analysis/2/</guid>
+        <link>https://3-24.github.io/mathematics/numerical%20analysis/2/</link>
+        <guid isPermaLink="true">https://3-24.github.io/mathematics/numerical%20analysis/2/</guid>
         
         <category>differentiation</category>
         
@@ -286,8 +286,8 @@ f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h
 
 </description>
         <pubDate>Sat, 22 May 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/algorithm/1/</link>
-        <guid isPermaLink="true">http://localhost:4000/algorithm/1/</guid>
+        <link>https://3-24.github.io/algorithm/1/</link>
+        <guid isPermaLink="true">https://3-24.github.io/algorithm/1/</guid>
         
         <category>algorithm</category>
         
@@ -324,8 +324,8 @@ f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h
 
 </description>
         <pubDate>Thu, 03 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/scribbles/naver-search-atom/</link>
-        <guid isPermaLink="true">http://localhost:4000/scribbles/naver-search-atom/</guid>
+        <link>https://3-24.github.io/scribbles/naver-search-atom/</link>
+        <guid isPermaLink="true">https://3-24.github.io/scribbles/naver-search-atom/</guid>
         
         
         <category>Scribbles</category>
@@ -422,8 +422,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 
 </description>
         <pubDate>Tue, 01 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/system/arch-elf-study/</link>
-        <guid isPermaLink="true">http://localhost:4000/system/arch-elf-study/</guid>
+        <link>https://3-24.github.io/system/arch-elf-study/</link>
+        <guid isPermaLink="true">https://3-24.github.io/system/arch-elf-study/</guid>
         
         <category>Architecture</category>
         
@@ -515,8 +515,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;p&gt;결과적으로 내가 기대했던 것들을 다 얻을 수 있었고, 정말 잊지 못할 방학이 될 것 같다. COVID-19로 어려움이 있음에도 불구하고 이런 기회를 준 교수님들, 강연자분들과 같은 공간에서 같이 밤을 샌 반 동료들에게 감사한다.&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Aug 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/scribbles/madcamp-review/</link>
-        <guid isPermaLink="true">http://localhost:4000/scribbles/madcamp-review/</guid>
+        <link>https://3-24.github.io/scribbles/madcamp-review/</link>
+        <guid isPermaLink="true">https://3-24.github.io/scribbles/madcamp-review/</guid>
         
         <category>madcamp</category>
         
@@ -724,8 +724,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 20 Jun 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/system/scheduler-policy/</link>
-        <guid isPermaLink="true">http://localhost:4000/system/scheduler-policy/</guid>
+        <link>https://3-24.github.io/system/scheduler-policy/</link>
+        <guid isPermaLink="true">https://3-24.github.io/system/scheduler-policy/</guid>
         
         <category>scheduler</category>
         
@@ -847,8 +847,8 @@ libc.so.6 =&amp;gt; /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 &lt;p&gt;[1] &lt;a href=&quot;https://www.geeksforgeeks.org/file-allocation-methods/&quot;&gt;GeeksforGeeks - File Allocation Methods&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 Jun 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/system/file-indexing/</link>
-        <guid isPermaLink="true">http://localhost:4000/system/file-indexing/</guid>
+        <link>https://3-24.github.io/system/file-indexing/</link>
+        <guid isPermaLink="true">https://3-24.github.io/system/file-indexing/</guid>
         
         <category>file system</category>
         
@@ -920,8 +920,8 @@ user01 | 894
 
 </description>
         <pubDate>Thu, 18 Jun 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/system/directory/</link>
-        <guid isPermaLink="true">http://localhost:4000/system/directory/</guid>
+        <link>https://3-24.github.io/system/directory/</link>
+        <guid isPermaLink="true">https://3-24.github.io/system/directory/</guid>
         
         <category>file system</category>
         
@@ -966,8 +966,8 @@ user01 | 894
 &lt;p&gt;[1] Wikipedia - Substitution-permutation network&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Jun 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/cryptography/SP-network/</link>
-        <guid isPermaLink="true">http://localhost:4000/cryptography/SP-network/</guid>
+        <link>https://3-24.github.io/cryptography/SP-network/</link>
+        <guid isPermaLink="true">https://3-24.github.io/cryptography/SP-network/</guid>
         
         <category>SP network</category>
         
@@ -1076,8 +1076,8 @@ user01 | 894
 &lt;/ol&gt;
 </description>
         <pubDate>Mon, 15 Jun 2020 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/scribbles/pintos-tips/</link>
-        <guid isPermaLink="true">http://localhost:4000/scribbles/pintos-tips/</guid>
+        <link>https://3-24.github.io/scribbles/pintos-tips/</link>
+        <guid isPermaLink="true">https://3-24.github.io/scribbles/pintos-tips/</guid>
         
         
         <category>Scribbles</category>
