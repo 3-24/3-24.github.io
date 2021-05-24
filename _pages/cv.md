@@ -108,10 +108,6 @@ Completed Courses
 - Member of KAIST GoN, the security and hacking club
 - Experienced many programming languages and vulnerablities by attacking various systems in practice.
 
-**LaTeX Typesetting**
-<div style="margin-bottom: -0.8em;"></div>
-Have highly experienced by managing the blog and submitting the homeworks.
-
 **Unix/Linux-savvy**
 <div style="margin-bottom: -0.8em;"></div>
 Familiar with usual build tools and Unix/Linux CLI environments.
@@ -119,8 +115,12 @@ Familiar with usual build tools and Unix/Linux CLI environments.
 **Programming Languages**
 <div style="margin-bottom: -0.8em;"></div>
 - Comfortable with Python, C/C++.
-- Experienced NodeJS, Java, Scala, F#, Rust.
+- Experienced NodeJS, Java, Scala, F#, and Rust.
 
 **Personal Blog** ([Link](https://3-24.github.io/))
 <div style="margin-bottom: -0.8em;"></div>
 Have written posts with interesting topics of CS and maths.
+
+**LaTeX Typesetting**
+<div style="margin-bottom: -0.8em;"></div>
+Have highly experienced by managing the blog and submitting the homeworks.
