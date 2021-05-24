@@ -104,22 +104,19 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <!-- end custom head snippets -->
-
-    
-     <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
+<!--KaTeX-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body,{delimiters: [
+    					{left: "$$", right: "$$", display: true},
+					  {left: "$", right: "$", display: false}
+        ]});
+    });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    
+
   </head>
 
   <body class="layout--single wide">
@@ -335,20 +332,22 @@
 <h2 id="암호화">암호화</h2>
 
 <p>평문 $m$을 암호화 하는 함수는 다음과 같다:
-\(E(m ) \equiv m^e \text{ mod }n\)
+<span class="kdmath">$E(m ) \equiv m^e \text{ mod }n$</span>
 암호화 함수의 일대일 대응을 유지하기 위해 $m&lt;n$을 가정한다.</p>
 
 <h2 id="복호화">복호화</h2>
 
 <p>암호문 $c$를 복호화 하는 함수는 다음과 같다:
-\(D(c) \equiv c^d \text{ mod } n\)
+<span class="kdmath">$D(c) \equiv c^d \text{ mod } n$</span>
 실제로 평문을 암호화했다가 복호화하면 복구 가능하다는 것을 보일 수 있다.</p>
 
-\[\begin{aligned}
-D(E(m)) &amp;\equiv E(m) ^d\text{ mod } n \\
-&amp;\equiv m^{ed} \text{ mod } n\\
-&amp;\equiv m ^{k \phi(n)+1} \text{ mod } n \\
-\end{aligned}\]
+<div class="kdmath">$$
+\begin{aligned}
+D(E(m)) &\equiv E(m) ^d\text{ mod } n \\
+&\equiv m^{ed} \text{ mod } n\\
+&\equiv m ^{k \phi(n)+1} \text{ mod } n \\
+\end{aligned}
+$$</div>
 
 <p>$\gcd(m,n)  = 1 $ 일 경우, 오일러의 toitient 정리에 의해 $m^{\phi(n)} \equiv 1 \text{ mod } n$이므로 $D(E(m)) \equiv m \text{ mod } n $이다.</p>
 
@@ -358,9 +357,11 @@ D(E(m)) &amp;\equiv E(m) ^d\text{ mod } n \\
 
 <p>$(m,q) = 1$이므로 페르마의 소정리에 의해 $m^{q-1} \equiv 1 \text{ mod } q $이다. 따라서</p>
 
-\[\begin{aligned}
+<div class="kdmath">$$
+\begin{aligned}
 D(E(m)) \equiv m^{k\phi(pq) +1} \equiv m^{k(p-1)(q-1) +1} \equiv (m^{q-1})^{k(p-1)} m \equiv m \text{ mod } q
-\end{aligned}\]
+\end{aligned}
+$$</div>
 
 <p>이다. 따라서 중국인의 나머지 정리에 의해 $D(E(m)) \equiv m \text{ mod } n $이다.</p>
 

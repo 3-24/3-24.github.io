@@ -5,8 +5,8 @@
     <description>수학과 개발을 오가며</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 May 2021 19:48:48 +0900</pubDate>
-    <lastBuildDate>Sun, 23 May 2021 19:48:48 +0900</lastBuildDate>
+    <pubDate>Mon, 24 May 2021 15:25:52 +0900</pubDate>
+    <lastBuildDate>Mon, 24 May 2021 15:25:52 +0900</lastBuildDate>
     <generator>Jekyll v3.9.1</generator>
     
       <item>
@@ -21,7 +21,9 @@
 
 &lt;p&gt;가장 간단한 근사로 미분의 정의를 활용해볼 수 있습니다. 함수 $f$의 $x_0$에서의 미분은 다음과 같이 정의됩니다.&lt;/p&gt;
 
-\[f'(x_0) = \lim _{h \to 0 } \frac {f(x_0 + h) - f(x_0)} h\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f'(x_0) = \lim _{h \to 0 } \frac {f(x_0 + h) - f(x_0)} h
+$$&lt;/div&gt;
 
 &lt;p&gt;따라서 $ \dfrac {f(x_0 + h) - f(x_0)} h$를 작은 $h$에 대해서 계산할수록 그 값은 $f’(x_0)$에 이론적으로 가까워집니다.&lt;/p&gt;
 
@@ -29,13 +31,17 @@
 
 &lt;p&gt;하지만 컴퓨터한테 위 근사를 시키면 수를 표현할 때 사용하는 비트 수에 한계가 있어 반올림을 하게 되는데 이 때 발생하는 오차를 반올림 오차round-off-error라고 합니다.&lt;/p&gt;
 
-\[f(x_0 + h) - f(x_0)  =\delta+ cp(f(x_0+h) - f(x_0))\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f(x_0 + h) - f(x_0)  =\delta+ cp(f(x_0+h) - f(x_0))
+$$&lt;/div&gt;
 
 &lt;p&gt;계산할 때 분자 부분의 반올림 오차를 위와 같이 $\delta$로 놓습니다. $cp(expr)$는 식 expr을 컴퓨터가 계산한 결과를 의미합니다.&lt;/p&gt;
 
 &lt;p&gt;이제 양변을 h로 나누면&lt;/p&gt;
 
-\[\frac{f(x_0 + h) - f(x_0)} h  =\frac \delta h+ \frac {cp(f(x_0+h) - f(x_0))} h\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\frac{f(x_0 + h) - f(x_0)} h  =\frac \delta h+ \frac {cp(f(x_0+h) - f(x_0))} h
+$$&lt;/div&gt;
 
 &lt;p&gt;이기 때문에 전체 오차는 $\delta/h$가 됩니다. 따라서, $h$가 0에 가까워질수록 오차 $\delta / h$가 점점 커지고, 결과적으로 수치적 안정성numerical stability이 부족해집니다.&lt;/p&gt;
 
@@ -43,8 +49,10 @@
 
 &lt;p&gt;라그랑주 보간법Lagrange interpolation은 함수 f를 n개의 점을 지나는 다항식으로 근사할 수 있습니다. 구간 I 위에서 정의된 $f \in C^{n+1} (I)$가 있고  점 $x_0, x_1, \cdots, x_n$에 대해 값 $f(x_0), f(x_1), \cdots, f(x_n)$ 가 알려져 있을 때&lt;/p&gt;
 
-\[f(x) = \sum _{k=0} ^n f(x_k) L_k(x) + \frac {f^{(n+1)}(\xi(x))}{(n+1)!} (x-x_0)\cdots(x-x_n)\\
-\text{where } L_k(x) = \prod _{i=0\\i \ne k} ^{n} \frac {x-x_i}{x_k-x_i}\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f(x) = \sum _{k=0} ^n f(x_k) L_k(x) + \frac {f^{(n+1)}(\xi(x))}{(n+1)!} (x-x_0)\cdots(x-x_n)\\
+\text{where } L_k(x) = \prod _{\substack{i=0 \\ i \ne k}} ^{n} \frac {x-x_i}{x_k-x_i}
+$$&lt;/div&gt;
 
 &lt;p&gt;라는 정리가 알려져 있습니다. 이 때, $\xi(x)$는 $I$에 존재하는 값입니다.&lt;/p&gt;
 
@@ -52,19 +60,27 @@
 
 &lt;p&gt;$f \in C^2 [a,b]$일 때 구간 [a,b]위의 $x_0, x_1=x_0 + h$에 대해 라그랑주 보간법 근사를 적용하면 다음과 같습니다.&lt;/p&gt;
 
-\[f(x) = f(x_0) \frac {x-x_0-h}{-h} + f(x_1) \frac {x-x_0} h + \frac {f''(\xi(x))} 2 (x-x_0) (x-x_0 - h)\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f(x) = f(x_0) \frac {x-x_0-h}{-h} + f(x_1) \frac {x-x_0} h + \frac {f''(\xi(x))} 2 (x-x_0) (x-x_0 - h)
+$$&lt;/div&gt;
 
 &lt;p&gt;여기서 한 번 더 미분하면&lt;/p&gt;
 
-\[f'(x) = - \frac {f(x_0)} h + \frac {f(x_1)} h + \frac {(2(x-x_0) - h)} 2 f'' (\xi(x)) + \frac { (x-x_0)(x-x_0-h)} 2 \frac {d}{dx} f''(\xi(x))\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f'(x) = - \frac {f(x_0)} h + \frac {f(x_1)} h + \frac {(2(x-x_0) - h)} 2 f'' (\xi(x)) + \frac { (x-x_0)(x-x_0-h)} 2 \frac {d}{dx} f''(\xi(x))
+$$&lt;/div&gt;
 
 &lt;p&gt;가 되고, $x= x_0$를 넣으면&lt;/p&gt;
 
-\[f'(x_0) = \frac { f(x_0 + h) - f(x_0)} h - \frac h 2 f''(\xi(x_0))\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f'(x_0) = \frac { f(x_0 + h) - f(x_0)} h - \frac h 2 f''(\xi(x_0))
+$$&lt;/div&gt;
 
 &lt;p&gt;를 얻습니다. 이는 처음에 미분 정의로 근사했던 게 점 두개로 라그랑주 보간법을 사용한 결과와 상통합니다. 심지어&lt;/p&gt;
 
-\[\left| f'(x_0) - \frac { f(x_0 + h) - f(x_0)} h  \right| = \left|\frac h 2 f''(\xi(x_0))\right| = \frac {|h|} 2 \max _{a \le x \le b} |f''(x)|\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\left| f'(x_0) - \frac { f(x_0 + h) - f(x_0)} h  \right| = \left|\frac h 2 f''(\xi(x_0))\right| = \frac {|h|} 2 \max _{a \le x \le b} |f''(x)|
+$$&lt;/div&gt;
 
 &lt;p&gt;라는 error bound까지 얻을 수 있네요!&lt;/p&gt;
 
@@ -80,7 +96,9 @@
 
 &lt;p&gt;라그랑주 보간법은 여러 개의 점을 통한 근사 방법을 제공하기 때문에 Two-Point Formulas를 넘어서 Three-Point, Four-Point, Five-Point Formulas, …로 자연스럽게 확장이 가능합니다. 점 $x_0, \cdots, x_n$에 대한 정보가 있을 때 라그랑주 보간법 근사를 적용한 후 양변에 미분한 다음 $x=x_j$를 넣으면&lt;/p&gt;
 
-\[f'(x_j) = \sum_{k=0} ^n f(x_k) L_k ' (x_j) + \frac {f^{(n+1)} (\xi(x_j))}{(n+1)!} \prod _{k=0\\k\ne j}^n (x_j-x_k)\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f'(x_j) = \sum_{k=0} ^n f(x_k) L_k ' (x_j) + \frac {f^{(n+1)} (\xi(x_j))}{(n+1)!} \prod _{\substack{k=0 \\ k\ne j}}^n (x_j-x_k)
+$$&lt;/div&gt;
 
 &lt;p&gt;이고, $x_0, \cdots, x_n$이 서로 h씩 균등하게 떨어져 있다면 $(x_j - x_k)$는 h에 비례하는 값이므로, error term이 $O(h^n)$입니다. 즉, 같은 h를 쓰더라도 n이 클수록 더 많은 정보를 미분할 때 사용하였기 때문에 two-point formula보다 점점 정확해집니다.&lt;/p&gt;
 
@@ -90,13 +108,12 @@
 
 &lt;p&gt;$x_0, x_1= x_0 + h, x_1 = x_0 + 2h$에 대하여 위에서 구한 결과를 간단한 미분을 통해 정리하면&lt;/p&gt;
 
-\[\begin{aligned}
-f'(x_j)
-&amp;amp;= f(x_0) \frac {2x_j - 2x_0 - 3h} {2h^2}
-- f(x_0 + h) \frac {2x_j - 2x_0 - 2h}{h^2}
-\\&amp;amp;+ f(x_0 + 2h) \frac {2x_j - x_0 - h}{2h^2}
-+ \frac 1 6 f^{(3)} (\xi_j) \prod _{k=0\\k\ne j } ^2 (x_j - x_k)
-\end{aligned}\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+f'(x_j) &amp;= f(x_0) \frac {2x_j - 2x_0 - 3h} {2h^2} - f(x_0 + h) \frac {2x_j - 2x_0 - 2h}{h^2}
+\\ &amp; + f(x_0 + 2h) \frac {2x_j - x_0 - h}{2h^2} + \frac 1 6 f^{(3)} (\xi_j) \prod _{\substack{k=0 \\ k \ne j} } ^2 (x_j - x_k)
+\end{aligned}
+$$&lt;/div&gt;
 
 &lt;p&gt;이고, 결과적으로 다음의 결과를 얻습니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -111,19 +128,25 @@ f'(x_j)
 
 &lt;p&gt;three-point midpoint formula는 다음과 같습니다.&lt;/p&gt;
 
-\[f'(x_0) = \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) \quad \text{ where } h &amp;gt; 0\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f'(x_0) = \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) \quad \text{ where } h &gt; 0
+$$&lt;/div&gt;
 
 &lt;p&gt;이 때 각 함수값의 round-off error를 $\epsilon$으로, 다음과 같이 정의해볼 수 있습니다.&lt;/p&gt;
 
-\[\epsilon = \max \{|f(x_0 + h) - cp(f(x_0 + h))|, |f(x_0-h) - cp(f(x_0 - h))| \}\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\epsilon = \max \{|f(x_0 + h) - cp(f(x_0 + h))|, |f(x_0-h) - cp(f(x_0 - h))| \}
+$$&lt;/div&gt;
 
 &lt;p&gt;그러면&lt;/p&gt;
 
-\[\begin{aligned}
-e(h) &amp;amp;= \left|f'(x_0) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))]\right|
-\\ &amp;amp;= \left | \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))] \right|
-\\ &amp;amp;\le \frac {h^2} 6 M + \frac \epsilon h\quad \text{ where } M = \max_{x \in I} {|f^{(3)}(x)|}
-\end{aligned}\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+\begin{aligned}
+e(h) &amp;= \left|f'(x_0) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))]\right|
+\\ &amp;= \left | \frac 1 {2h} [f(x_0 + h)-f(x_0-h)] - \frac {h^2} 6 f^{(3)}(\xi) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))] \right|
+\\ &amp;\le \frac {h^2} 6 M + \frac \epsilon h\quad \text{ where } M = \max_{x \in I} {|f^{(3)}(x)|}
+\end{aligned}
+$$&lt;/div&gt;
 
 &lt;p&gt;전항 $h^2M / 6$은 원래 구했던 오차(truncation error이고, $\epsilon / h$는 round-off error로 인해 발생한 새로운 항입니다. h가 작을수록 truncation error는 작아지지만, round-off error는 커지는 상황이에요. 처음에 다루었던 가장 쉬운 근사에서도 겪었던 문제입니다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -136,17 +159,23 @@ e(h) &amp;amp;= \left|f'(x_0) - \frac {1}{2h} [cp(f(x_0 + h)) - cp(f(x_0 - h))]\
 
 &lt;p&gt;마지막으로 이계 미분을 근사하는 기법에 대해서 소개하고 마치려 합니다. 3차 테일러 근사를 이용하면&lt;/p&gt;
 
-\[f(x_0 + h) = f(x_0) + f'(x_0) h + \frac 1 2 f''(x_0) h^2 + \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_1)h^4\\
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f(x_0 + h) = f(x_0) + f'(x_0) h + \frac 1 2 f''(x_0) h^2 + \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_1)h^4\\
 f(x_0 - h) = f(x_0) - f'(x_0) h + \frac 1 2 f''(x_0) h^2 - \frac 1 6 f'''(x_0) h^3 + \frac 1 {24} f^{(4)}(\xi_{-1})h^4\\
-\text{where } x_0 - h &amp;lt; \xi_{-1} &amp;lt; x_0 &amp;lt; \xi &amp;lt; x_0 + h\]
+\text{where } x_0 - h &lt; \xi_{-1} &lt; x_0 &lt; \xi &lt; x_0 + h
+$$&lt;/div&gt;
 
 &lt;p&gt;이고, 이 둘을 더하면 $f’(x_0)$가 포함된 항은 소거되어서&lt;/p&gt;
 
-\[f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2} {24} [f^{(4)}(\xi_1) + f^{(4)}(\xi_{-1})]\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2} {24} [f^{(4)}(\xi_1) + f^{(4)}(\xi_{-1})]
+$$&lt;/div&gt;
 
 &lt;p&gt;인데, intermediate value theorem에 의하여&lt;/p&gt;
 
-\[f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2}{12} f^{(4)}(\xi)\]
+&lt;div class=&quot;kdmath&quot;&gt;$$
+f''(x_0) = \frac 1 {h^2} [f(x_0-h) - 2f(x_0) + f(x_0 + h)] - \frac {h^2}{12} f^{(4)}(\xi)
+$$&lt;/div&gt;
 
 &lt;p&gt;가 도출됩니다. 이렇게 $f \in C^4[x_0-h, x_0+h]$일 때 오차가 $O(h^2)$인 $f \prime\prime (x_0)$에 대한 근사를 얻었습니다.&lt;/p&gt;
 

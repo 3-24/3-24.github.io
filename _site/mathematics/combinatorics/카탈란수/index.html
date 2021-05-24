@@ -104,22 +104,19 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <!-- end custom head snippets -->
-
-    
-     <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
+<!--KaTeX-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body,{delimiters: [
+    					{left: "$$", right: "$$", display: true},
+					  {left: "$", right: "$", display: false}
+        ]});
+    });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    
+
   </head>
 
   <body class="layout--single wide">
@@ -342,7 +339,9 @@
 
 <p>가로 길이가 $n$, 세로 길이가 $m$이기 때문에 왼쪽 아래 모서리에서 순서에 상관 없이 $\Rightarrow$을 $n$번, $\Uparrow$을 $m$번 했을 때 오른쪽 위 모서리에 도달하게 됩니다. 따라서 문제에서 묻는 최단 경로의 개수 $D_{n,m}$는 다음과 같습니다.</p>
 
-\[D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}\]
+<div class="kdmath">$$
+D_{n,m} ={n+m \choose n} = \frac {(n+m)!}{n!m!}
+$$</div>
 
 <h3 id="대각선-조건이-있을-때">대각선 조건이 있을 때</h3>
 
@@ -361,7 +360,9 @@
 
 <p>이제 남은 것은 $n \times n$에서 모든 경로에서 조건을 위배하는 경로를 제외한 것을 세주는 것입니다!</p>
 
-\[C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}\]
+<div class="kdmath">$$
+C_n = D_{n,n} - D_{n-1,n+1} = \frac{(2n)!}{n!n!} \left(1 - \frac {n}{n+1} \right) = \frac 1{n+1} {2n \choose n}
+$$</div>
 
 <p>이 스케치를 집합 용어를 써서 엄밀하게 적어주면 완전 증명이 됩니다.</p>
 
@@ -383,7 +384,9 @@
 
 <p>이 셈을 $(1,1)$에서 $(8,8)$까지 모두 해서 더하면 점화식을 얻을 수 있습니다. 일반적으로 접근하면 다음과 같은 식을 쉽게 쓸 수 있습니다.</p>
 
-\[C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}\]
+<div class="kdmath">$$
+C_n = \sum _{i=1} ^n C_{i-1} C_{n-i}
+$$</div>
 
 <p>그리고 이 점화식의 시작인 $C_0 = 1$도 같이 써주면 됩니다.</p>
 

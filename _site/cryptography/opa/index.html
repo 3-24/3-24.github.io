@@ -104,22 +104,19 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <!-- end custom head snippets -->
-
-    
-     <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
+<!--KaTeX-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body,{delimiters: [
+    					{left: "$$", right: "$$", display: true},
+					  {left: "$", right: "$", display: false}
+        ]});
+    });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    
+
   </head>
 
   <body class="layout--single wide">
@@ -334,7 +331,9 @@
 
 <p>CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다:</p>
 
-\[P_i = D_k (C_i) \oplus C_{i-1} \\ C_0 = IV\]
+<div class="kdmath">$$
+P_i = D_k (C_i) \oplus C_{i-1} \\ C_0 = IV
+$$</div>
 
 <p>즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을 XOR한다.</p>
 
@@ -371,11 +370,15 @@
 
 <p>대부분은 패딩이 틀렸기 때문에 에러를 decryption oracle에서 전달받을 것이다. 그런데 딱 하나, decryption oracle에서 에러를 뱉지 않는 경우가 존재한다. 즉, <strong>우연히 패딩이 틀리지 않았을 경우</strong>가 발생한다. 이 때 바꿔서 입력한 바이트를 ‘0xb3’이라고 해보자.</p>
 
-\[P_2' = D_k ( C_2) \oplus C_1'\]
+<div class="kdmath">$$
+P_2' = D_k ( C_2) \oplus C_1'
+$$</div>
 
 <p>즉, 입력한 바이트를 통해 연산한 결과가 ‘0x01’, 길이 1짜리 패딩이라는 뜻이다. 따라서 $D_k(C_2)$의 마지막 두 자리를 추정할 수 있다.</p>
 
-\[a \oplus b = c \implies a \oplus b \oplus b = c \oplus b \implies a = c \oplus b\]
+<div class="kdmath">$$
+a \oplus b = c \implies a \oplus b \oplus b = c \oplus b \implies a = c \oplus b
+$$</div>
 
 <p>그러니까 ‘0xb3’과 ‘0x01’을 xor한 ‘0xb2’가 $D_k (C_2)$의 마지막 바이트이다.</p>
 
@@ -385,7 +388,9 @@
 
 <p>이 방법을 16번 실행해서 $D_k(C_2)$ 전체를 알아낼 수 있다. 이말은 즉 원래의</p>
 
-\[P_2 = D_k (C_2) \oplus C_1\]
+<div class="kdmath">$$
+P_2 = D_k (C_2) \oplus C_1
+$$</div>
 
 <p>을 계산할 수 있게 되었다는 것을 의미하고 평문을 추정할 수 있다.</p>
 

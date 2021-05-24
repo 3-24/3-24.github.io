@@ -1,6 +1,6 @@
 var store = [{
         "title": "이분그래프",
-        "excerpt":"1. 정의 그래프 $G = (V,E)$에 대해 다음 조건을 만족하면 이분그래프bipartite graph 라고 합니다. 공집합이 아닌 $V$의 분할partition ${V_1 ,V_2}$가 있어서 \\[E \\subseteq \\{ \\{v_1, v_2\\} : v_1 \\in V_1, v_2 \\in V_2 \\}\\\\] 이와 같은 이분그래프에 대해 추가적인 표기법으로 $G = (V_1, V_2, E)$를 사용하기도 합니다. Figure 1과 같은...","categories": ["Mathematics","Graph Theory"],
+        "excerpt":"1. 정의 그래프 $G = (V,E)$에 대해 다음 조건을 만족하면 이분그래프bipartite graph 라고 합니다. 공집합이 아닌 $V$의 분할partition ${V_1 ,V_2}$가 있어서 $$ E \\subseteq \\{ \\{v_1, v_2\\} : v_1 \\in V_1, v_2 \\in V_2 \\}\\ $$ 이와 같은 이분그래프에 대해 추가적인 표기법으로 $G = (V_1, V_2, E)$를 사용하기도 합니다. Figure...","categories": ["Mathematics","Graph Theory"],
         "tags": ["이분그래프"],
         "url": "http://localhost:4000/mathematics/graph%20theory/%EC%9D%B4%EB%B6%84%EA%B7%B8%EB%9E%98%ED%94%84/",
         "teaser":null},{
@@ -25,7 +25,7 @@ var store = [{
         "url": "http://localhost:4000/CF-Round-532-DIv-2/",
         "teaser":null},{
         "title": "Knuth Optimization",
-        "excerpt":"주어진 실수 $a_{i,j}(1 \\le i \\le j \\le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다. \\[d_{i,j} = \\begin{cases} a_{i.j} &amp; \\text{if } i=j \\\\ \\min \\left\\{ k \\in \\{ i , i+1, \\cdots , j-1 \\} : d_{i,k} + d_{k+1,j} + a_{i,j}\\right\\} &amp; \\text{if } i&lt;j\\end{cases}\\] 이는 다음과 같은 $O(N^3)$짜리...","categories": ["Algorithm"],
+        "excerpt":"주어진 실수 $a_{i,j}(1 \\le i \\le j \\le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다. $$ d_{i,j} = \\begin{cases} a_{i.j} & \\text{if } i=j \\\\ \\min \\left\\{ k \\in \\{ i , i+1, \\cdots , j-1 \\} : d_{i,k} + d_{k+1,j} + a_{i,j}\\right\\} & \\text{if } i 이는 다음과 같은...","categories": ["Algorithm"],
         "tags": ["Knuth"],
         "url": "http://localhost:4000/algorithm/Knuth/",
         "teaser":null},{
@@ -45,7 +45,7 @@ var store = [{
         "url": "http://localhost:4000/mathematics/order4_subgp/",
         "teaser":null},{
         "title": "Oracle Padding Attack",
-        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: \\[P_i = D_k (C_i) \\oplus C_{i-1} \\\\ C_0 = IV\\] 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의 결과에 $C_{i-1}$을...","categories": ["Cryptography"],
+        "excerpt":"환경 CBC 이 글에서 집중할 부분은 CBC의 복호화 과정이다. Figure 1. CBC 암호의 복호화 과정 CBC 암호는 블록 단위로 암호화를 하듯, 복호화 과정에서도 블록 단위로 다음의 XOR 연산을 수행한다: $$ P_i = D_k (C_i) \\oplus C_{i-1} \\\\ C_0 = IV $$ 즉 $i$번째 블록의 복호화은 $i$번째 블록을 풀어내는 복잡한 연산의...","categories": ["Cryptography"],
         "tags": ["block cipher","padding","CBC"],
         "url": "http://localhost:4000/cryptography/opa/",
         "teaser":null},{
@@ -165,12 +165,12 @@ var store = [{
         "url": "http://localhost:4000/cryptography/Merkle-Damgard/",
         "teaser":null},{
         "title": "Length Extension Attack",
-        "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, \\[hash(m_1) = compress(IV, m_1 \\vert\\vert pad_1 )\\]...","categories": ["Cryptography"],
+        "excerpt":"Merkle-Damgard 방식의 해시 함수에 대해 적용할 수 있는 공격법이다. 공격자가 모르는 메시지 m1의 해시값과 길이를 알고 있을 때, 공격자가 원하는 임의의 m2를 붙인 메시지 m1 + pad(m1) + m2의 해시값을 알 수 있다. 어떻게? 비밀 메시지 $m_1$이 패딩을 포함해서 단일 블럭으로 이루어져 있다면, $$ hash(m_1) = compress(IV, m_1 \\vert\\vert pad_1...","categories": ["Cryptography"],
         "tags": ["hash function","Merkle-Damgard","MD5"],
         "url": "http://localhost:4000/cryptography/length-extension-attack-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
         "teaser":null},{
         "title": "RSA LSB Oracle Attack",
-        "excerpt":"암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다. 어떻게? RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다: \\[p \\equiv c^d \\mod n\\] $c\\cdot 2^e$를 같은 방식으로 복호화시켜보자. \\[(c \\cdot 2^e)^d = c^d \\cdot 2^{ed} = c^d \\cdot 2^{k\\phi(n)+1} \\equiv...","categories": ["Cryptography"],
+        "excerpt":"암호문을 복호화해서 맨 마지막 비트(least significant bit)를 알려주는 RSA Oracle이 주어졌을 때 적용할 수 있는 공격법이다. 어떻게? RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다: $$ p \\equiv c^d \\mod n $$ $c\\cdot 2^e$를 같은 방식으로 복호화시켜보자. $$ (c \\cdot 2^e)^d = c^d \\cdot 2^{ed} = c^d...","categories": ["Cryptography"],
         "tags": ["RSA","LSB"],
         "url": "http://localhost:4000/cryptography/RSA-lsb-oracle-attack/",
         "teaser":null},{
@@ -225,7 +225,7 @@ var store = [{
         "url": "http://localhost:4000/algorithm/1/",
         "teaser":null},{
         "title": "라그랑주 보간법을 이용하는 수치 미분",
-        "excerpt":"함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까? 이런 문제에 접근하는 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다. 가장 쉬운 근사 가장 간단한 근사로 미분의 정의를 활용해볼 수 있습니다. 함수 $f$의 $x_0$에서의 미분은 다음과 같이 정의됩니다. \\[f'(x_0) = \\lim _{h \\to 0 }...","categories": ["Mathematics","Numerical Analysis"],
+        "excerpt":"함수의 정확한 형태가 주어지지 않고, 몇몇 점들의 함수값들만 알고 있다면 미분을 어떻게 근사할 수 있을까? 이런 문제에 접근하는 근사 방법들을 일컬어 수치 미분Numerical Differentiation이라고 부릅니다. 가장 쉬운 근사 가장 간단한 근사로 미분의 정의를 활용해볼 수 있습니다. 함수 $f$의 $x_0$에서의 미분은 다음과 같이 정의됩니다. $$ f'(x_0) = \\lim _{h \\to 0...","categories": ["Mathematics","Numerical Analysis"],
         "tags": ["differentiation"],
         "url": "http://localhost:4000/mathematics/numerical%20analysis/2/",
         "teaser":null}]

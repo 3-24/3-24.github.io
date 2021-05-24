@@ -104,22 +104,19 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <!-- end custom head snippets -->
-
-    
-     <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
+<!--KaTeX-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body,{delimiters: [
+    					{left: "$$", right: "$$", display: true},
+					  {left: "$", right: "$", display: false}
+        ]});
+    });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    
+
   </head>
 
   <body class="layout--single wide">
@@ -324,7 +321,9 @@
         
         <p>주어진 실수 $a_{i,j}(1 \le i \le j \le N)$에 대해 다음과 같이 정의된 $d_{i,j}$를 고려합니다.</p>
 
-\[d_{i,j} = \begin{cases} a_{i.j} &amp; \text{if } i=j \\ \min \left\{  k \in \{ i , i+1,  \cdots , j-1 \} : d_{i,k} + d_{k+1,j} + a_{i,j}\right\} &amp; \text{if } i&lt;j\end{cases}\]
+<div class="kdmath">$$
+d_{i,j} = \begin{cases} a_{i.j} & \text{if } i=j \\ \min \left\{  k \in \{ i , i+1,  \cdots , j-1 \} : d_{i,k} + d_{k+1,j} + a_{i,j}\right\} & \text{if } i<j\end{cases}
+$$</div>
 
 <p>이는 다음과 같은 $O(N^3)$짜리 동적계획법으로 해결할 수 있습니다.</p>
 
@@ -347,10 +346,12 @@
 
 <p>이것은 특정 조건을 만족하면 더 빠른 시간 안에 풀 수 있습니다. 위 코드에서 k의 검색 범위를 더 좁히는 방법이에요. 이를 위해서 $k_{i,j}$를 다음과 같이 정의합니다:</p>
 
-\[k_{i,j} = \begin{cases} i &amp; \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} \text{ such that } d_{i,j} = d_{i,k} + d_{k+1,j} + a_{i,j} &amp; \text{if } i &lt; j\end{cases}\]
+<div class="kdmath">$$
+k_{i,j} = \begin{cases} i & \text{if } i=j \\ k \in \{i, i+1 , \cdots j-1\} \text{ such that } d_{i,j} = d_{i,k} + d_{k+1,j} + a_{i,j} & \text{if } i < j\end{cases}
+$$</div>
 
 <p>이렇게 $d_{i,j}$를 결정할 때 사용된 $k$값(인덱스)을 계속 저장해나갈 때, $k_{i,j}$가 다음 조건을 만족하면 ${ d_{i,j}}$는 $O(N^2)$만에 계산 가능합니다.
-\(k_{i,j-1} \le k_{i,j} \le k_{i+1,j}\)</p>
+<span class="kdmath">$k_{i,j-1} \le k_{i,j} \le k_{i+1,j}$</span></p>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
     <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
@@ -376,7 +377,9 @@
 
 <p>배열 K를 만들어서 $k_{i,j}$를 저장했고, 세 번째 루프에서 $k$의 검색 범위를 더 줄였습니다. 이 코드가 $O(N^2)$임은 각 $l$에 대해 반복되는 연산이 많아야</p>
 
-\[\begin{aligned} \sum _{i=1} ^{N-l} (k_{i+1,j} - k_{i,j-1} +1) &amp;= \sum _{i=1} ^{N-l} (k_{i+1,i+l} - k_{i,i+l-1} +1) \\&amp;= \sum _{i=2 } ^{N-l+1} k_{i,i+l-1} - \sum _{i=1 }^{N-l} k_{i,i+l-1} + N-l \\ &amp;= k_{N-l+1,N} - k_{i,l} + N-l &lt; 2N\end{aligned}\]
+<div class="kdmath">$$
+\begin{aligned} \sum _{i=1} ^{N-l} (k_{i+1,j} - k_{i,j-1} +1) &= \sum _{i=1} ^{N-l} (k_{i+1,i+l} - k_{i,i+l-1} +1) \\&= \sum _{i=2 } ^{N-l+1} k_{i,i+l-1} - \sum _{i=1 }^{N-l} k_{i,i+l-1} + N-l \\ &= k_{N-l+1,N} - k_{i,l} + N-l < 2N\end{aligned}
+$$</div>
 
 <p>이기 때문이에요. 이런 방식의 동적 계획법 최적화를 Knuth 최적화라고 합니다.</p>
 
