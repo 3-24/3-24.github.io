@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: http://3-24.github.io/sitemap.xml
