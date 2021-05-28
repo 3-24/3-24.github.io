@@ -15,19 +15,15 @@ tags:
 
 RSA의 평문(plaintext)을 p, 암호문(ciphertext)을 c라고 놓았을 때, 복호화는 다음과 같이 진행된다:
 
-
 $$
 p \equiv c^d \mod n
 $$
 
-
 $c\cdot 2^e$를 같은 방식으로 복호화시켜보자.
-
 
 $$
 (c \cdot 2^e)^d = c^d \cdot 2^{ed} = c^d \cdot 2^{k\phi(n)+1} \equiv 2 c^d \equiv 2p \mod n
 $$
-
 
 ($2^{k\phi(n)+1} \equiv 2 \mod n$이 되는 부분은 편의를 위해 과감히 생략했다. [RSA를 설명한 글](https://3-24.github.io/cryptography/RSA/)의 복호화 증명과 완전히 동일하다.)
 
@@ -38,20 +34,16 @@ $$
 2. 0 < 2p < n<br>
 2p를 n으로 나눈 나머지가 2p이기 떄문에 짝수이므로 LSB가 0이다.
 
-
-
 똑같은 방식으로 $c \cdot 4^e$를 입력하면 4p를 n으로 나눈 나머지를 계산하고 맨 마지막 비트를 알려준다. 이전 결과에 이어서 총 네 가지 경우로 나눌 수 있다.
 
 1. n < 2p < 2n<br>
 1-1. 3n < 4p < 4n : 4p를 n으로 나눈 나머지는 4p-3n으로, LSB가 1이다.<br>
 1-2. 2n < 4p < 3n : 4p를 n으로 나눈 나머지는 4p-2n으로, LSB가 0이다.
-   
+
 2. 0 < 2p < n<br>
 2-1. n < 4p < 2n : 4p를 n으로 나눈 나머지는 4p-n으로, LSB가 1이다.<br>
 2-2. 0 < 4p < n : 4p를 n으로 나눈 나머지는 4p로, LSB가 0이다.
 
 이렇게 두 번의 입력으로 가능한 p의 범위를 1/4로 줄여놓았다. 이런 식으로 계속 반복하여 가능한 p의 범위를 좁혀나가면 평문을 얻을 수 있다.
-
-
 
 공격 예는 [https://github.com/ashutosh1206/Crypton/blob/master/RSA-encryption/Attack-LSBit-Oracle/README.md](https://github.com/ashutosh1206/Crypton/blob/master/RSA-encryption/Attack-LSBit-Oracle/README.md) 에 잘 정리되어 있다.

@@ -25,8 +25,6 @@ tags:
 
 busybox는 리눅스에서 ls, cp 등 자주 사용하는 명령어들만 모아놓은 상자라고 볼 수 있다. 안드로이드 기본 커널에서 제공하는 명령어가 제한적이기 때문에 서버로 사용할 배포판 리눅스를 설치하기 앞서 busybox를 설치해주어야 한다. 해당 앱을 열고 설치를 누르고 루트 권한을 허용해주면 알아서 설치해준다.
 
-
-
 ## Linux Deploy 설정
 
 deploy 앱을 열어 리눅스를 설치하기 전에 기본적인 설정들을 하자.
@@ -50,13 +48,11 @@ deploy 앱을 열어 리눅스를 설치하기 전에 기본적인 설정들을 
 
 이제 다시 처음 화면으로 돌아가서 오른쪽 위에 메뉴(3)를 열어 설치를 누르면 된다. 꽤 오래 걸리니 조급해하지 말고 밖에 나가서 밀린 설거지나 하고 돌아오자.
 
-```
+```text
 <<<deploy
 ```
 
 이렇게 끝나면 설치가 완료되었다는 뜻이다.
-
-
 
 ## SSH 연결
 
@@ -68,14 +64,14 @@ Windows라면 ssh에 접속하는 클라이언트를 사용한다. 필자는 [iP
 
 (별다른 설정을 안해놨다면 같은 네트워크에 접속되어있을 때만 연결이 가능하다)
 
-```
+```text
 Using username "{id}",
 {id}@{ip}'s password:
 ```
 
 이제 {passwd}를 입력하면 로그인이 되면서 서버 쉘을 사용할 수 있다.
 
-```
+```text
 Welcome to Ubuntu 18.04 LTS (GNU/Linux 3.10.49-g5ae7f00 aarch64)
 
  * Documentation:  https://help.ubuntu.com
@@ -84,4 +80,3 @@ Welcome to Ubuntu 18.04 LTS (GNU/Linux 3.10.49-g5ae7f00 aarch64)
 
 Ubuntu 18.04 LTS [running via Linux Deploy]
 ```
-

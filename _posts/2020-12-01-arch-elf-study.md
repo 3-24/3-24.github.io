@@ -14,7 +14,7 @@ tags:
 
 가끔 오래된 바이너리를 보면 별도의 설정 없이 실행을 할 때 다음과 같이 오류를 출력한다. 분명 존재하는 파일인데 왜 없다고 뜨는걸까.
 
-```
+```text
 $ ./bof
 bash: ./bof: No such file or directory
 $ file ./bof
@@ -37,14 +37,14 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 일단 내가 사용하는 리눅스 시스템의 아키텍처는 다음과 같이 x86-64로 확인되었다.
 
-```
+```text
 $ uname -p
 x86_64
 ```
 
 x86-64 CPU로 i386 프로그램을 실행할 수 있는데 왜 실행이 되지 않는가.. 좀 더 찾아보니 elf 헤더를 읽어보면 다음과 같은 정보가 있다고 한다.
 
-```
+```text
 $ readelf -a ./bof
 ELF Header:
   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
@@ -71,7 +71,7 @@ ELF Header:
 
 즉 Machine이 Intel 80386, 즉 i386을 가리키고, 또한 해당 프로그램이 요구하는 라이브러리를 살펴보면,
 
-```
+```text
 $ ldd ./bof
 linux-gate.so.1 (0xf7f65000)
 libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
@@ -80,7 +80,7 @@ libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xf7d60000)
 
 역시 i386-linux-gnu 하위의 libc 라이브러리가 필요하다. 따라서 저 라이브러리를 dpkg로 설치하기 위해서 apt 패키지 저장소에서 libc를 설치해줘야 했던 것이다.
 
-```
+```bash
 sudo apt-get install libc6:i386
 ```
 
@@ -99,4 +99,3 @@ sudo apt-get install libc6:i386
 [4] [x86-64, Wikipedia](https://ko.wikipedia.org/wiki/X86-64)
 
 [5] [Multiarch, HOWTO - Debian Wiki](https://wiki.debian.org/Multiarch/HOWTO)
-

@@ -23,11 +23,9 @@ MD5(!), SHA1, SHA2 등에 적용된다. (아쉽게도, MD5의 MD는 Message Dige
 
 compression 함수 $f$를 가정한다. compression 함수라 함은 다음을 의미한다:
 
-
 $$
 f:\{0,1\}^m \times \{0,1\}^n \to \{0,1\}^m
 $$
-
 
 즉, m비트와 n비트의 입력을 받아 m비트로 대응시킨다.
 
@@ -41,11 +39,9 @@ $$
 
 메시지를 n비트 블록 단위로 쪼개어서 compression 함수에 넣기 때문에 메시지의 길이가 n비트의 단위가 아닐 경우 이를 n비트로 강제로 만드는 과정이 필요하다.
 
-
 $$
 Pad : \{0,1\}^* \to \{0,1\}^{n} \cup \{0,1\}^{2n} \cup \cdots
 $$
-
 
 MD construction의 안전성을 보장하기 위해 이 패딩함수 $Pad$에는 메시지 $M$에 대해 다음과 같은 충분조건이 존재한다:
 
@@ -57,7 +53,7 @@ MD construction의 안전성을 보장하기 위해 이 패딩함수 $Pad$에는
 
 Merkle-Damgard construction이라는 것을 확인하기 위해 알고리즘을 다소 생략했다. 전문([#](https://en.wikipedia.org/wiki/MD5#Pseudocode))
 
-```
+```text
 // Note: All variables are unsigned 32 bit and wrap modulo 2^32 when calculating
 var int s[64], K[64] // predefined arrays
 var int i
@@ -116,13 +112,14 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 ```
 
 따라서 MD5 Merkle-Damgard 해시 함수이다. 여기서 사용한 패딩은 다른 SHA1, SHA2와도 공유하는 방법으로, 과정은 다음과 같다:
+
 1. 메시지 끝에 1을 붙인다.
 2. 그 뒤에 비트 mod 512로 448이 될 때까지 0을 붙인다. 그러면 이제 채워야 할 64비트가 남는다.
 3. $\lvert M \rvert $를 mod $2^{64}$한 값을 little-endian 64비트 정수가 되도록 채운다.
 
 예를 들어, 메시지가 400비트였다면, 448비트가 될 때까지
 
-```
+```text
 1000 0000 0000 0000 0000 0000 0000 0000
 0000 0000 0000 0000
 ```
@@ -131,14 +128,14 @@ var char digest[16] := a0 append b0 append c0 append d0 // (Output is in little-
 
 400비트는 이진수로 110010000이기 때문에 little-endian은 하위 바이트가 낮은 주소로 들어와야 하므로,
 
-```
+```text
 0000 1001 0001 0000 0000 0000 0000 0000
 0000 0000 0000 0000 0000 0000 0000 0000
 ```
 
 를 붙여야 한다. 즉, 4000비트 메시지의 패딩은
 
-```
+```text
 1000 0000 0000 0000 0000 0000 0000 0000
 0000 0000 0000 0000 0000 1001 0001 0000
 0000 0000 0000 0000 0000 0000 0000 0000

@@ -17,10 +17,10 @@ tags:
 2. inode와 오프셋으로부터 해당 파일에서 오프셋 위치에 있는 블럭의 디스크상의 물리 주소를 구한다.
 
 <div align="center">
-	<img src = "/assets/img/directory/image01.png" width="90%" style="background-color:white;"/>
-    <p>
-        Figure 1. inode and inode Array
-    </p>
+<img src = "/assets/img/directory/image01.png" width="90%" style="background-color:white;"/>
+<p>
+Figure 1. inode and inode Array
+</p>
 </div>
 
 여기서 inode(information node)는 실제 데이터의 포인터와 기타 정보들을 담고 있는 데이터로, 디스크에서 위와 같이 inode array의 형태로 관리된다.
@@ -33,7 +33,7 @@ tags:
 
 예를 들어 `/home/minus21/workspace/app01/main.py`라는 파일에 접근하는 상황을 생각해보자. 루트 디렉토리인 `/`는 inode 인덱스가 고정되어있기 때문에 inode를 찾아낼 수 있고, 이 inode를 통해 하위 디렉토리들의 이름이 inode 인덱스로 다음과 같이 매핑된다. (이 매핑을 구현하기 위해 다양한 자료구조가 사용될 수 있다)
 
-```
+```text
 name | inode index
 -----|-------------
 bin  | 737
@@ -44,7 +44,7 @@ proc | 47
 
 그러면 home의 inode 인덱스 14로부터 inode에 접근할 수 있고, 이 inode가 가리키는 블럭에는 또 같은 형태의 매핑이 존재한다.
 
-```
+```text
 name   | inode index
 -------|-------------
 minus21| 287
@@ -52,8 +52,6 @@ user01 | 894
 ```
 
 이런 식으로 반복하여 최종적으로 app01 디렉토리의 inode에 접근하고, 이 inode가 가리키는 블럭에 저장된 `main.py`라는 파일의 inode를 찾아내어 위에 적은 2번 과정을 하면 된다.
-
-
 
 ## 큰 디렉토리
 
@@ -64,9 +62,6 @@ user01 | 894
 
 즉, 쉽게 말해서 무작위 접근, 순차적 접근 모두 빨라야 한다. 그래서 디렉토리를 구현할 때 B+ 트리와 같은 형태가 사용될 수 있다.
 
-
-
 ## 출처
 
 [1] 2020 Spring CS330 Operating System Lecture of KAIST
-
