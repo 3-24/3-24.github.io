@@ -42,9 +42,6 @@ layout: default
             </nav>
           </aside>
         {% endif %}
-        {% if page.ads %}
-        {% include ads-providers/horizontal-display.html %}
-        {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
@@ -72,9 +69,6 @@ layout: default
   </article>
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
-  {% if page.ads %}
-  {% include ads-providers/horizontal-display.html %}
-  {% endif %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
       <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
