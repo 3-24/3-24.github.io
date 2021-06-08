@@ -295,4 +295,5 @@ defaults:
       share: true
       related: true
       use_math: true
+      ads: true
 
