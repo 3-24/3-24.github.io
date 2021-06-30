@@ -35,9 +35,9 @@ Completed Courses
 <li>Computer Organization</li>
 <li>Operating Systems and Lab</li>
 <li>Seminar<Immersion Camp: Intensive Programming and Startup></li>
-<li>Programming Principles*</li>
-<li>Programming Language*</li>
-<li>Introduction to Computer Graphics*</li>
+<li>Programming Principles</li>
+<li>Programming Language</li>
+<li>Introduction to Computer Graphics</li>
 </ul>
 </div><div style="width:50%; display:inline-block;">
 <ul class="custom_ul">
@@ -72,6 +72,12 @@ Completed Courses
 </div>
 
 <h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Research Experience</h2>
+
+**COINSE Lab Internship**
+<span style="float:right;"><b style="font-weight: 500;">Jun 2021 - Current</b></span>
+<div style="margin-bottom: -0.8em;"></div>
+*KAIST, School of Computing*
+
 **KSA Graduation Research**
 <span style="float:right;"><b style="font-weight: 500;">Mar 2018 - Dec 2018</b></span>
 <div style="margin-bottom: -0.8em;"></div>
@@ -93,14 +99,14 @@ Completed Courses
 <span style="float:right;"><b style="font-weight: 500;">Mar 2020 – Current</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 - Abbreviation of "날짜갱신". A chatbot on Discord channel which manages the points and the attendance records of each members
-- Python3 based, using the database system SQLite3. Currently Running on my personal ubuntu server.
+- Python3 based, using the database system SQLite3. Currently Running on Azure server.
 
 **CatDominatesWorld** ([Fontend Github](https://github.com/CatDominatesWorld/CatDominatesWorld), [Backend Github](https://github.com/CatDominatesWorld/CatDominatesWorld-backend))
 <span style="float:right;"><b style="font-weight: 500;">Jul 2020</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 - Toy Chrome extension that changes everythings into cats!
 - This was a team project of KAIST CS492 Seminar<Immersion Camp: Intensive Programming and Startup>
-- Frontend: Javascript, HTML/CSS / Backend: Python3 with Flask, OpenCV, konlpy, NLTK, Kakao Vision API. This service is not running.
+- This service is not running now due to difficulty of server maintenance.
 
 <h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Skills</h2>
 **Security and Hacking**
