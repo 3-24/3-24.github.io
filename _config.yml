@@ -184,6 +184,8 @@ exclude:
   - README
   - tmp
   - install
+  - _posts/_drafts
+  - .gitignore
 keep_files:
   - .git
   - .svn
