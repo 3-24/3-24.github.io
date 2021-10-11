@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: Jekyll - 올바른 RSS가 아닙니다 (네이버 서치어드바이저)
 categories:
 - Scribbles

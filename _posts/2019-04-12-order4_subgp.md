@@ -1,7 +1,4 @@
 ---
-use_math: true
-layout: single
-classes: wide
 title: 크기 4인 군의 분류
 categories:
 - Mathematics

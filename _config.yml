@@ -291,4 +291,5 @@ defaults:
       post_pagination: false
       use_math: true
       ads: true
+      classes: wide
 

@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: x86-64 시스템의 i386 아키텍처 호환에 관한 고찰
 categories:
 - System

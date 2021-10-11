@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: RSA LSB Oracle Attack
 categories:
 - Cryptography

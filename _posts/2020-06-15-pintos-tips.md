@@ -2,7 +2,6 @@
 title: PintOS를 짜면서 정리해본 팁과 설정들
 categories:
 - Scribbles
-classes: wide
 ---
 
 

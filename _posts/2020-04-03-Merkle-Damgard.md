@@ -1,7 +1,5 @@
 ---
-layout: single
 title: Merkle-Damgard 해시 함수
-classes: wide
 categories:
 - Cryptography
 tags:

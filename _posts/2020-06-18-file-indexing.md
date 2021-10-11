@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: 파일 인덱싱 구조
 categories:
 - System

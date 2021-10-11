@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: Substitution-Permuation Network
 categories:
 - Cryptography

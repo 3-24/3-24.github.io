@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: Length Extension Attack
 categories:
 - Cryptography

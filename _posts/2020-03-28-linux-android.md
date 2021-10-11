@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: 루팅된 안드로이드 기기를 리눅스 서버로 사용하기
 categories:
 - Linux

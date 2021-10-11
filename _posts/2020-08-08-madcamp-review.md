@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: 2020년 여름학기 몰입캠프 후기
 categories:
 - Scribbles

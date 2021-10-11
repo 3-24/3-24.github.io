@@ -1,8 +1,5 @@
 ---
-layout: single
 title: Python을 이용한 백준 소스 제출 봇 제작기
-classes: wide
-use_math: true
 cataegories:
 - 개발
 tags:

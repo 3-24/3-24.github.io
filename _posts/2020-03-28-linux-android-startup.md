@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: Linux Deploy에서 부팅 시 스크립트 자동 실행하기
 categories:
 - Linux

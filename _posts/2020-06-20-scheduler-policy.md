@@ -1,6 +1,4 @@
 ---
-layout: single
-classes: wide
 title: 단일프로세서 스케줄링
 categories:
 - System
