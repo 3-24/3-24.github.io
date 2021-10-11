@@ -594,8 +594,10 @@ a.reversefootnote {
 
 /*
   MathJax ================================== */
-.MathJax_Display, .MJXc-display, .MathJax_SVG_Display{
+.MathJax_Display, .MJXc-display, .MathJax_SVG_Display .katex-display{
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+
   
