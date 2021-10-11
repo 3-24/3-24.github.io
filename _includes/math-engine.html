@@ -1,0 +1,6 @@
+{% case site.math_engine %}
+{% when "KaTeX" %}
+  {% include /math-engine-providers/katex.html %}
+{% when "MathJax" %}
+  {% include /math-engine-providers/mathjax.html %}
+{% endcase %}

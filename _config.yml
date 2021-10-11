@@ -237,6 +237,7 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
 
+math_engine: "KaTeX"  # "KaTeX" "MathJax"
 
 # Archives
 #  Type
