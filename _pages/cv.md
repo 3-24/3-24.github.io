@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 date: 2019-08-29 22:50:30
-permalink: /resume/en/
+permalink: /cv
 last_modified_at: 2021-05-24 22:50:30
 author_profile: true
 ---
@@ -34,10 +34,18 @@ Completed Courses
 <li>Introduction to Algorithms</li>
 <li>Computer Organization</li>
 <li>Operating Systems and Lab</li>
-<li>Seminar<Immersion Camp: Intensive Programming and Startup></li>
+<li>Seminar&lt;Immersion Camp: Intensive Programming and Startup&gt;</li>
 <li>Programming Principles</li>
 <li>Programming Language</li>
 <li>Introduction to Computer Graphics</li>
+<li>Introduction to Software Engineering</li>
+<li>Artificial Intelligence Based Software Engineering</li>
+<li>Special Topics in Computer Science&lt;Introduction to Deep Learning&gt;</li>
+<li>Introduction to Computer Networks</li>
+<li>Compiler Design</li>
+<li>Program Analysis*</li>
+<li>Dynamic Analysis of Software Source Code*</li>
+<li>Database System*</li>
 </ul>
 </div><div style="width:50%; display:inline-block;">
 <ul class="custom_ul">
@@ -47,7 +55,10 @@ Completed Courses
 <li>Probability and Statistics</li>
 <li>Linear Algebra</li>
 <li>Introduction to Graph Theory</li>
-<li>Introduction to Numerical Analysis*</li>
+<li>Introduction to Numerical Analysis</li>
+<li>Introduction to Artificial Intelligence with Mathematics</li>
+<li>Elementary Probability Theory</li>
+<li>Matrix Groups</li>
 </ul></div>
 </div>
 
@@ -65,7 +76,7 @@ Completed Courses
 <li>Seminar: Logic and Set</li>
 </ul>
 </div><div style="width:50%; display:inline-block;">
-<ul>
+<ul class="custom_ul">
 <li>Introduction to Number Theory</li>
 <li>Differential Equations and Applications</li>
 </ul></div>
@@ -73,10 +84,21 @@ Completed Courses
 
 <h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Research Experience</h2>
 
-**COINSE Lab Internship**
-<span style="float:right;"><b style="font-weight: 500;">Jun 2021 - Current</b></span>
+**Concurrency and Parallelism Laboratory Internship**
+<span style="float:right;"><b style="font-weight: 500;">Jun 2022 - August 2022</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 *KAIST, School of Computing*
+<div style="margin-bottom: -0.8em;"></div>
+- Topic: Formal Verification on Concurrent Data Structure
+- Advisor: Jaehwang Jung, M.Sc., Janggun Lee, G.S., Jeehoon Kang, Ph.D.
+
+**Computational Intelligence for Software Engineering Lab Internship** 
+<span style="float:right;"><b style="font-weight: 500;">Jun 2021 - August 2021</b></span>
+<div style="margin-bottom: -0.8em;"></div>
+*KAIST, School of Computing*
+<div style="margin-bottom: -0.8em;"></div>
+- Topic: Automatic Prgoram Repair with Predicate Synthesis
+- Advisor: Sungmin Kang, M.Sc., Shin Yoo, Ph.D.
 
 **KSA Graduation Research**
 <span style="float:right;"><b style="font-weight: 500;">Mar 2018 - Dec 2018</b></span>
@@ -99,7 +121,7 @@ Completed Courses
 <span style="float:right;"><b style="font-weight: 500;">Mar 2020 – Current</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 - Abbreviation of "날짜갱신". A chatbot on Discord channel which manages the points and the attendance records of each members
-- Python3 based, using the database system SQLite3. Currently Running on Azure server.
+- Rust based, using the database system SQLite3. Currently Running on Azure server.
 
 **CatDominatesWorld** ([Fontend Github](https://github.com/CatDominatesWorld/CatDominatesWorld), [Backend Github](https://github.com/CatDominatesWorld/CatDominatesWorld-backend))
 <span style="float:right;"><b style="font-weight: 500;">Jul 2020</b></span>
