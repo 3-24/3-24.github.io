@@ -84,6 +84,11 @@ Completed Courses
 
 <h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Research Experience</h2>
 
+**Software Verification and Testing Laboratory Internship**
+<span style="float:right;"><b style="font-weight: 500;">September 2022 - Current</b></span>
+<div style="margin-bottom: -0.8em;"></div>
+*KAIST, School of Computing*
+
 **Concurrency and Parallelism Laboratory Internship**
 <span style="float:right;"><b style="font-weight: 500;">Jun 2022 - August 2022</b></span>
 <div style="margin-bottom: -0.8em;"></div>
@@ -117,13 +122,19 @@ Completed Courses
 - Advisor: Jin-hee Yi, Ph.D.
 
 <h2 style="margin-block-start: 0em;margin-block-end: 0.5em;">Projects</h2>
-**Nalgang Chatbot** ([Github](https://github.com/3-24/nalgang))
+**Nalgang Chatbot** ([GitHub](https://github.com/3-24/nalgang-rs))
 <span style="float:right;"><b style="font-weight: 500;">Mar 2020 – Current</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 - Abbreviation of "날짜갱신". A chatbot on Discord channel which manages the points and the attendance records of each members
-- Rust based, using the database system SQLite3. Currently Running on Azure server.
+- Uses the database system SQLite3. Currently Running on Azure server.
+- Recently ported the programming language from Python3 into **Rust**. (July 2022)
 
-**CatDominatesWorld** ([Fontend Github](https://github.com/CatDominatesWorld/CatDominatesWorld), [Backend Github](https://github.com/CatDominatesWorld/CatDominatesWorld-backend))
+**Ant Colony Optimization on Traveling Salesman Problem** ([GitHub](https://github.com/3-24/AntColonyTSP))
+<span style="float:right;"><b style="font-weight: 500;">Nov 2021</b></span>
+<div style="margin-bottom: -0.8em;"></div>
+- Approximately solves traveling salesman problem with one of bio-inspired metaheuristic algorithm, ant colony optimization.
+
+**CatDominatesWorld** ([Demo image](https://github.com/CatDominatesWorld/CatDominatesWorld/blob/master/asset/demo.png))
 <span style="float:right;"><b style="font-weight: 500;">Jul 2020</b></span>
 <div style="margin-bottom: -0.8em;"></div>
 - Toy Chrome extension that changes everythings into cats!
