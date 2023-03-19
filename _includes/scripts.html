@@ -29,6 +29,8 @@
 
 {% if page.use_math %}
 <script defer>
-  pseudocode.renderElement(document.getElementById("quicksort"));
+  pseudocode.renderElement(document.getElementById("quicksort"), {
+    noEnd: true,
+  }); 
 </script>
 {% endif %}
