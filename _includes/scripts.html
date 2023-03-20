@@ -29,8 +29,12 @@
 
 {% if page.use_math %}
 <script defer>
-  pseudocode.renderElement(document.getElementById("quicksort"), {
-    noEnd: true,
-  }); 
+document.querySelectorAll(".pseudocode").forEach(
+  function(pscode){
+    pseudocode.renderElement(pscode, {
+      noEnd: true,
+    })
+  }
+);
 </script>
 {% endif %}
