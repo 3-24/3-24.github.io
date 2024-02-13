@@ -26,15 +26,3 @@
     <script src="{{ script | relative_url }}"></script>
   {% endfor %}
 {% endif %}
-
-{% if page.use_math %}
-<script defer>
-document.querySelectorAll(".pseudocode").forEach(
-  function(pscode){
-    pseudocode.renderElement(pscode, {
-      noEnd: true,
-    })
-  }
-);
-</script>
-{% endif %}
